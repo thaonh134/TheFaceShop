@@ -1,0 +1,1509 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Common_ActionResult_IsExist_UserName" xml:space="preserve">
+    <value>Username is already in use</value>
+    <comment>[ThaoNH-AS]Tên đăng nhập tồn tại.</comment>
+  </data>
+  <data name="Common_ActionResult_MissingInfo" xml:space="preserve">
+    <value>Missing Info</value>
+    <comment>[ThaoNH-AS]Thiếu thông tin</comment>
+  </data>
+  <data name="Common_ActionResult_MissingInfo_UserEmail" xml:space="preserve">
+    <value>Missing Info User Email</value>
+    <comment>[ThaoNH-AS]Thiếu thông tin email người dùng</comment>
+  </data>
+  <data name="Common_ActionResult_MissingReturnInfor" xml:space="preserve">
+    <value>Missing return info</value>
+    <comment>[ThaoNH-AS]Thiếu kết quả trả về</comment>
+  </data>
+  <data name="Common_ActionResult_NoAccess" xml:space="preserve">
+    <value>NoAccess</value>
+    <comment>[ThaoNH-AS] Bạn không có quyền</comment>
+  </data>
+  <data name="Common_ActionResult_NoInsert" xml:space="preserve">
+    <value>Cannot insert data in here</value>
+    <comment>[ThaoNH-AS]Không cho insert chỉ cho update</comment>
+  </data>
+  <data name="Common_ActionResult_NotIdentifiedData" xml:space="preserve">
+    <value>Data is not identified</value>
+    <comment>[ThaoNH-AS]Không xác định được dữ liệu</comment>
+  </data>
+  <data name="Common_ActionResult_NoUpdate" xml:space="preserve">
+    <value>Cannot update data in here</value>
+    <comment>[ThaoNH-AS]Không cho update chỉ cho insert</comment>
+  </data>
+  <data name="Common_ActionResult_Restricted_Sys_Data" xml:space="preserve">
+    <value>Limited on system data</value>
+    <comment>[ThaoNH-AS]Giới hạn quyền chỉnh sửa dữ liệu admin</comment>
+  </data>
+  <data name="Common_btn_Active" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="Common_btn_Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="Common_btn_Approved" xml:space="preserve">
+    <value>Approved </value>
+  </data>
+  <data name="Common_btn_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Common_btn_CertApprovedStatus_Approved" xml:space="preserve">
+    <value>Cert Approved</value>
+  </data>
+  <data name="Common_btn_ChangePassword" xml:space="preserve">
+    <value>Change Password</value>
+  </data>
+  <data name="Common_btn_Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Common_btn_Delete_Symbol" xml:space="preserve">
+    <value>X</value>
+  </data>
+  <data name="Common_btn_Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Common_btn_InActive" xml:space="preserve">
+    <value>InActive</value>
+  </data>
+  <data name="Common_btn_InApproved" xml:space="preserve">
+    <value>In-Approved</value>
+  </data>
+  <data name="Common_btn_LogOut" xml:space="preserve">
+    <value>LogOut</value>
+  </data>
+  <data name="Common_btn_Preview" xml:space="preserve">
+    <value>Preview</value>
+  </data>
+  <data name="Common_btn_Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Common_btn_SelectFile" xml:space="preserve">
+    <value>Select file</value>
+  </data>
+  <data name="Common_cap_Active" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="Common_cap_Classify" xml:space="preserve">
+    <value>Classification</value>
+  </data>
+  <data name="Common_cap_Inactive" xml:space="preserve">
+    <value>Inactive</value>
+  </data>
+  <data name="Common_cap_Insert" xml:space="preserve">
+    <value>Insert</value>
+  </data>
+  <data name="Common_cap_Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Common_cap_Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Common_cap_Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Common_cap_Update" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="Common_CertApprovedStatus_Rejected" xml:space="preserve">
+    <value>Cert Rejected</value>
+  </data>
+  <data name="Common_ddl_ActiveStatus" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Common_ddl_ApprovedStatus" xml:space="preserve">
+    <value>Approved Status</value>
+  </data>
+  <data name="Common_lbl_ActiveStatus" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="Common_lbl_ApprovedStatus" xml:space="preserve">
+    <value>Approved Status</value>
+  </data>
+  <data name="Common_lbl_ConfirmNewPassword" xml:space="preserve">
+    <value>Confirm new password</value>
+  </data>
+  <data name="Common_lbl_Hello" xml:space="preserve">
+    <value>Hi</value>
+  </data>
+  <data name="Common_lbl_InActiveStatus" xml:space="preserve">
+    <value>In-Active</value>
+  </data>
+  <data name="Common_lbl_InActiveStatus2" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Common_lbl_InApprovedStatus" xml:space="preserve">
+    <value>In Approved Status</value>
+  </data>
+  <data name="Common_lbl_InforForm" xml:space="preserve">
+    <value>Infor</value>
+  </data>
+  <data name="Common_lbl_NewPassword" xml:space="preserve">
+    <value>New Password</value>
+  </data>
+  <data name="Common_lbl_OldPassword" xml:space="preserve">
+    <value>Old Password</value>
+  </data>
+  <data name="Common_lbl_Refresh" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="Common_mess_ActiveSuccess" xml:space="preserve">
+    <value>Active success</value>
+  </data>
+  <data name="Common_mess_ApprovedSuccess" xml:space="preserve">
+    <value>ApprovedSuccess</value>
+  </data>
+  <data name="Common_mess_btn_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Common_mess_btn_Command" xml:space="preserve">
+    <value>Command</value>
+  </data>
+  <data name="Common_mess_btn_Confirm" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="Common_mess_ChangePassFail" xml:space="preserve">
+    <value>Change Pass Fail</value>
+  </data>
+  <data name="Common_mess_ChangePassSuccess" xml:space="preserve">
+    <value>Change Pass Success</value>
+  </data>
+  <data name="Common_mess_CommitFail" xml:space="preserve">
+    <value>Fail</value>
+  </data>
+  <data name="Common_mess_CommitSuccess" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="Common_mess_InActiveSuccess" xml:space="preserve">
+    <value>InActive success</value>
+  </data>
+  <data name="Common_mess_InApprovedSuccess" xml:space="preserve">
+    <value>In-ApprovedSuccess</value>
+  </data>
+  <data name="Common_mess_MissingInformation" xml:space="preserve">
+    <value>Missing some information</value>
+  </data>
+  <data name="Common_mess_NotMatchPassword" xml:space="preserve">
+    <value>Password and confirm password does not match</value>
+  </data>
+  <data name="Common_mess_OldPasswordRequired" xml:space="preserve">
+    <value>Old Password Required</value>
+  </data>
+  <data name="Common_mess_PasswordRequired" xml:space="preserve">
+    <value>Password Required</value>
+  </data>
+  <data name="Common_mess_RecoverSuccess" xml:space="preserve">
+    <value>Recover Success</value>
+  </data>
+  <data name="Common_mess_RePasswordRequired" xml:space="preserve">
+    <value>Confirm password Required</value>
+  </data>
+  <data name="Common_mess_RequiredInformation" xml:space="preserve">
+    <value>Required Information</value>
+  </data>
+  <data name="Common_mess_UploadFail" xml:space="preserve">
+    <value>Upload Fail</value>
+  </data>
+  <data name="Common_mess_UploadSuccess" xml:space="preserve">
+    <value>Upload Success</value>
+  </data>
+  <data name="Common_mess_ValidImgUploadSize" xml:space="preserve">
+    <value>File size is greater than 5Mb</value>
+  </data>
+  <data name="Common_mess_ValidImgUploadType" xml:space="preserve">
+    <value>FileType must be in(.jpg, .jpeg, .png, gif)</value>
+  </data>
+  <data name="Common_mess_WrongSyntax" xml:space="preserve">
+    <value>Wrong Syntax</value>
+  </data>
+  <data name="Common_mes_Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Common_mes_Fail" xml:space="preserve">
+    <value>fail</value>
+  </data>
+  <data name="Common_mes_Success" xml:space="preserve">
+    <value>success</value>
+  </data>
+  <data name="Common_titleform_ChangePassUser" xml:space="preserve">
+    <value>Change Pass User</value>
+  </data>
+  <data name="Common_titleform_UpdateEditInfor" xml:space="preserve">
+    <value>Update pesonal information</value>
+  </data>
+  <data name="HOAdminAnnouncement_choose_RoleByUser" xml:space="preserve">
+    <value>Choose role by User</value>
+  </data>
+  <data name="HOAdminAnnouncement_choose_UserTypesIDs" xml:space="preserve">
+    <value>Choose user type</value>
+  </data>
+  <data name="HOAdminAnnouncement_lbl_ArticleDescription" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="HOAdminAnnouncement_lbl_ArticleID" xml:space="preserve">
+    <value>ArticleID</value>
+  </data>
+  <data name="HOAdminAnnouncement_lbl_ArticleIsHot" xml:space="preserve">
+    <value>Hot</value>
+  </data>
+  <data name="HOAdminAnnouncement_lbl_ArticleTitle" xml:space="preserve">
+    <value>Article Title</value>
+  </data>
+  <data name="HOAdminAnnouncement_lbl_ArticleType" xml:space="preserve">
+    <value>Article Type</value>
+  </data>
+  <data name="HOAdminAnnouncement_lbl_RoleByUser" xml:space="preserve">
+    <value>Role by User</value>
+  </data>
+  <data name="HOAdminAnnouncement_lbl_RoleData" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="HOAdminAnnouncement_lbl_UserTypesIDs" xml:space="preserve">
+    <value>Type User</value>
+  </data>
+  <data name="HOAdminAnnouncement_titleform_Add" xml:space="preserve">
+    <value>Add new article</value>
+  </data>
+  <data name="HOAdminAnnouncement_titleform_Update" xml:space="preserve">
+    <value>Update article</value>
+  </data>
+  <data name="HOAdminAnnouncement_title_Page" xml:space="preserve">
+    <value>Announcement</value>
+  </data>
+  <data name="HOAdminAuthRole_choose_UserIDs" xml:space="preserve">
+    <value>Choose users</value>
+  </data>
+  <data name="HOAdminAuthRole_lbl_ActionName" xml:space="preserve">
+    <value>ActionName</value>
+  </data>
+  <data name="HOAdminAuthRole_lbl_Note" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="HOAdminAuthRole_lbl_RoleAction" xml:space="preserve">
+    <value>Role Action</value>
+  </data>
+  <data name="HOAdminAuthRole_lbl_RoleAdd" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="HOAdminAuthRole_lbl_RoleDelete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="HOAdminAuthRole_lbl_RoleEdit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="HOAdminAuthRole_lbl_RoleID" xml:space="preserve">
+    <value>RoleID</value>
+  </data>
+  <data name="HOAdminAuthRole_lbl_RoleName" xml:space="preserve">
+    <value>Role Name</value>
+  </data>
+  <data name="HOAdminAuthRole_lbl_RoleView" xml:space="preserve">
+    <value>View</value>
+  </data>
+  <data name="HOAdminAuthRole_lbl_UserIDs" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="HOAdminAuthRole_titleform_Add" xml:space="preserve">
+    <value>Add new role user</value>
+  </data>
+  <data name="HOAdminAuthRole_titleform_Update" xml:space="preserve">
+    <value>Update role user</value>
+  </data>
+  <data name="HOAdminAuthRole_title_Page" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="AdminUserManagement_btn_PasswordRecovery" xml:space="preserve">
+    <value>Password Recovery</value>
+  </data>
+  <data name="AdminUserManagement_choose_Region" xml:space="preserve">
+    <value>Choose Region</value>
+  </data>
+  <data name="AdminUserManagement_choose_Shop" xml:space="preserve">
+    <value>Choose Shop</value>
+  </data>
+  <data name="AdminUserManagement_choose_ShopGroup" xml:space="preserve">
+    <value>Choose ShopGroup</value>
+  </data>
+  <data name="AdminUserManagement_lbl_Account" xml:space="preserve">
+    <value>Account</value>
+  </data>
+  <data name="AdminUserManagement_lbl_Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="AdminUserManagement_lbl_Contact" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="AdminUserManagement_lbl_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="AdminUserManagement_lbl_ft_RoleUser" xml:space="preserve">
+    <value>Role User</value>
+  </data>
+  <data name="AdminUserManagement_lbl_ft_UserID" xml:space="preserve">
+    <value>UserID</value>
+  </data>
+  <data name="AdminUserManagement_lbl_FullName" xml:space="preserve">
+    <value>DisplayName</value>
+  </data>
+  <data name="AdminUserManagement_lbl_Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="AdminUserManagement_lbl_Note" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="AdminUserManagement_lbl_Phone" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="AdminUserManagement_lbl_Region" xml:space="preserve">
+    <value>Region</value>
+  </data>
+  <data name="AdminUserManagement_lbl_RoleData" xml:space="preserve">
+    <value>RoleData</value>
+  </data>
+  <data name="AdminUserManagement_lbl_RoleUser" xml:space="preserve">
+    <value>RoleUser</value>
+  </data>
+  <data name="AdminUserManagement_lbl_Shop" xml:space="preserve">
+    <value>Shop</value>
+  </data>
+  <data name="AdminUserManagement_lbl_ShopGroup" xml:space="preserve">
+    <value>ShopGroup</value>
+  </data>
+  <data name="AdminUserManagement_lbl_UserID" xml:space="preserve">
+    <value>UserID</value>
+  </data>
+  <data name="AdminUserManagement_lbl_UserName" xml:space="preserve">
+    <value>UserName</value>
+  </data>
+  <data name="AdminUserManagement_titleform_Add" xml:space="preserve">
+    <value>Add new user</value>
+  </data>
+  <data name="AdminUserManagement_titleform_Update" xml:space="preserve">
+    <value>Update user</value>
+  </data>
+  <data name="AdminUserManagement_title_Page" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="HOAdminSystemConfig_lbl_IsEditable" xml:space="preserve">
+    <value>Is Editable</value>
+  </data>
+  <data name="HOAdminSystemConfig_lbl_Note" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="HOAdminSystemConfig_lbl_ParamCode" xml:space="preserve">
+    <value>ParamCode</value>
+  </data>
+  <data name="HOAdminSystemConfig_lbl_ParamGroup" xml:space="preserve">
+    <value>Param Group</value>
+  </data>
+  <data name="HOAdminSystemConfig_lbl_ParamValue" xml:space="preserve">
+    <value>ParamValue</value>
+  </data>
+  <data name="HOAdminSystemConfig_titleform_Add" xml:space="preserve">
+    <value>Add new config parameter</value>
+  </data>
+  <data name="HOAdminSystemConfig_titleform_Update" xml:space="preserve">
+    <value>Update config parameter</value>
+  </data>
+  <data name="HOAdminSystemConfig_title_Page" xml:space="preserve">
+    <value>Config Parameter</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_btn_PasswordRecovery" xml:space="preserve">
+    <value>Password Recovery</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_choose_Region" xml:space="preserve">
+    <value>Choose Region</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_choose_Shop" xml:space="preserve">
+    <value>Choose Shop</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_choose_ShopGroup" xml:space="preserve">
+    <value>Choose ShopGroup</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_lbl_Account" xml:space="preserve">
+    <value>Account</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_lbl_Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_lbl_Contact" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_lbl_DeviceID" xml:space="preserve">
+    <value>DeviceID</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_lbl_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_lbl_ft_UserID" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_lbl_FullName" xml:space="preserve">
+    <value>DisplayName</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_lbl_Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_lbl_Note" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_lbl_Phone" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_lbl_Region" xml:space="preserve">
+    <value>Region</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_lbl_RoleData" xml:space="preserve">
+    <value>RoleData</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_lbl_RoleUser" xml:space="preserve">
+    <value>RoleUser</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_lbl_Shop" xml:space="preserve">
+    <value>Shop</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_lbl_ShopGroup" xml:space="preserve">
+    <value>ShopGroup</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_lbl_ShortDeviceID" xml:space="preserve">
+    <value>DeviceID</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_lbl_UserID" xml:space="preserve">
+    <value>UserID</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_lbl_UserName" xml:space="preserve">
+    <value>UserName</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_lbl_ViewDeviceID" xml:space="preserve">
+    <value>Copy DeviceID</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_titleform_Add" xml:space="preserve">
+    <value>Add new user</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_titleform_Update" xml:space="preserve">
+    <value>Update user</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_title_Page" xml:space="preserve">
+    <value>Card Holder Account</value>
+  </data>
+  <data name="HOManagementCardRequestLog_btn_Add" xml:space="preserve">
+    <value>Add Note</value>
+  </data>
+  <data name="HOManagementCardRequest_lbl_BankName" xml:space="preserve">
+    <value>BankName</value>
+  </data>
+  <data name="HOManagementCardRequest_lbl_CusEmail" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="HOManagementCardRequest_lbl_CusName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="HOManagementCardRequest_lbl_CusPhone" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="HOManagementCardRequest_lbl_LastNote" xml:space="preserve">
+    <value>Last note</value>
+  </data>
+  <data name="HOManagementCardRequest_lbl_Note" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="HOManagementCardRequest_lbl_PayType" xml:space="preserve">
+    <value>Pay Type</value>
+  </data>
+  <data name="HOManagementCardRequest_lbl_RequestID" xml:space="preserve">
+    <value>RequestID</value>
+  </data>
+  <data name="HOManagementCardRequest_lbl_RowUpdatedAt" xml:space="preserve">
+    <value>Date request</value>
+  </data>
+  <data name="HOManagementCardRequest_lbl_RowUpdatedByName" xml:space="preserve">
+    <value>Updated By</value>
+  </data>
+  <data name="HOManagementCardRequest_titleform_Add" xml:space="preserve">
+    <value>Card Request Add</value>
+  </data>
+  <data name="HOManagementCardRequest_titleform_Update" xml:space="preserve">
+    <value>Card Request Update</value>
+  </data>
+  <data name="HOManagementCardRequest_title_Page" xml:space="preserve">
+    <value>Card request</value>
+  </data>
+  <data name="HOManagementCardReques_lbl_filter_CHInfor" xml:space="preserve">
+    <value>Card holder Infor</value>
+  </data>
+  <data name="HOManagementPackagePriceList_lbl_CentralPrice" xml:space="preserve">
+    <value>Central Price</value>
+  </data>
+  <data name="HOManagementPackagePriceList_lbl_NorthPrice" xml:space="preserve">
+    <value>North Price</value>
+  </data>
+  <data name="HOManagementPackagePriceList_lbl_PackageName" xml:space="preserve">
+    <value>PackageName</value>
+  </data>
+  <data name="HOManagementPackagePriceList_lbl_SouthPrice" xml:space="preserve">
+    <value>South Price</value>
+  </data>
+  <data name="HOManagementPackagePriceList_title_Page" xml:space="preserve">
+    <value>PriceList</value>
+  </data>
+  <data name="HOManagementPackage_ChangeLog_lbl_LogType" xml:space="preserve">
+    <value>Pricelist Name</value>
+  </data>
+  <data name="HOManagementPackage_ChangeLog_lbl_NewValue" xml:space="preserve">
+    <value>NewValue</value>
+  </data>
+  <data name="HOManagementPackage_ChangeLog_lbl_OldValue" xml:space="preserve">
+    <value>Old Value</value>
+  </data>
+  <data name="HOManagementPackage_lbl_CentralPrice" xml:space="preserve">
+    <value>Central Price</value>
+  </data>
+  <data name="HOManagementPackage_lbl_ChangeLog_NewValue" xml:space="preserve">
+    <value>New price</value>
+  </data>
+  <data name="HOManagementPackage_lbl_ChangeLog_OldValue" xml:space="preserve">
+    <value>Old price</value>
+  </data>
+  <data name="HOManagementPackage_lbl_ChangeLog_RowUpdatedAt" xml:space="preserve">
+    <value>Updated at</value>
+  </data>
+  <data name="HOManagementPackage_lbl_ChangeLog_RowUpdatedBy" xml:space="preserve">
+    <value>Updated by</value>
+  </data>
+  <data name="HOManagementPackage_lbl_NorthPrice" xml:space="preserve">
+    <value>North Price</value>
+  </data>
+  <data name="HOManagementPackage_lbl_Note" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="HOManagementPackage_lbl_PackageName" xml:space="preserve">
+    <value>Package Name</value>
+  </data>
+  <data name="HOManagementPackage_lbl_SouthPrice" xml:space="preserve">
+    <value>South Price</value>
+  </data>
+  <data name="HOManagementPackage_titleform_Add" xml:space="preserve">
+    <value>Add Package</value>
+  </data>
+  <data name="HOManagementPackage_titleform_Update" xml:space="preserve">
+    <value>Update Package</value>
+  </data>
+  <data name="HOManagementPackage_title_Page" xml:space="preserve">
+    <value>Package</value>
+  </data>
+  <data name="HOManagementPOSAccount_btn_PasswordRecovery" xml:space="preserve">
+    <value>Password Recovery</value>
+  </data>
+  <data name="HOManagementPOSAccount_choose_Region" xml:space="preserve">
+    <value>Choose Region</value>
+  </data>
+  <data name="HOManagementPOSAccount_choose_Shop" xml:space="preserve">
+    <value>Choose Shop</value>
+  </data>
+  <data name="HOManagementPOSAccount_choose_ShopGroup" xml:space="preserve">
+    <value>Choose ShopGroup</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_Account" xml:space="preserve">
+    <value>Account</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_BalanceAmount" xml:space="preserve">
+    <value>Balance Amount</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_Contact" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_DeviceID" xml:space="preserve">
+    <value>DeviceID</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_form_CashTxnAmount" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_form_DepositType" xml:space="preserve">
+    <value>Type Deposit</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_form_Note" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_ft_UserID" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_FullName" xml:space="preserve">
+    <value>DisplayName</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_Note" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_Phone" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_POSPriority" xml:space="preserve">
+    <value>POSPriority</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_Region" xml:space="preserve">
+    <value>Region</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_RoleData" xml:space="preserve">
+    <value>RoleData</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_RoleUser" xml:space="preserve">
+    <value>RoleUser</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_Shop" xml:space="preserve">
+    <value>Shop</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_ShopGroup" xml:space="preserve">
+    <value>ShopGroup</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_ShortDeviceID" xml:space="preserve">
+    <value>DeviceID</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_SubGrid_BalanceAmount" xml:space="preserve">
+    <value>Balance</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_SubGrid_CashTxnAmount" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_SubGrid_CashTxnDate" xml:space="preserve">
+    <value>Cash Transaction Date</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_SubGrid_CashTxnTypeName" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_SubGrid_LogID" xml:space="preserve">
+    <value>Log ID</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_SubGrid_Note" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_SubGrid_RowCreatedByName" xml:space="preserve">
+    <value>Created By</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_TabName_Infor" xml:space="preserve">
+    <value>Infor</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_TabName_Log" xml:space="preserve">
+    <value>POS Cash transaction log</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_title_Form" xml:space="preserve">
+    <value>Infor transaction</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_title_pop_adjustdown" xml:space="preserve">
+    <value>ASdjust down</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_title_pop_adjustup" xml:space="preserve">
+    <value>Adjust up</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_title_pop_deposit" xml:space="preserve">
+    <value>Deposit</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_title_pop_withdrawal" xml:space="preserve">
+    <value>Withdrawal</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_UserID" xml:space="preserve">
+    <value>UserID</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_UserName" xml:space="preserve">
+    <value>UserName</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_ViewDeviceID" xml:space="preserve">
+    <value>Copy DeviceID</value>
+  </data>
+  <data name="HOManagementPOSAccount_select_form_DepositType" xml:space="preserve">
+    <value>Choose type deposit</value>
+  </data>
+  <data name="HOManagementPOSAccount_titleform_Add" xml:space="preserve">
+    <value>Add new user</value>
+  </data>
+  <data name="HOManagementPOSAccount_titleform_Update" xml:space="preserve">
+    <value>Update user</value>
+  </data>
+  <data name="HOManagementPOSAccount_title_Page" xml:space="preserve">
+    <value>POS Account</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_CHAddress" xml:space="preserve">
+    <value>Card Holder Address</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_CHFeeAmount" xml:space="preserve">
+    <value>Card Holder Fee Amount</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_CHName" xml:space="preserve">
+    <value>Card Holder Name</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_CHPhone" xml:space="preserve">
+    <value>Card Holder Address</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_CHRated" xml:space="preserve">
+    <value>Card holder Rated</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_CHReview" xml:space="preserve">
+    <value>Card holder Comment</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_CHSavingAmount" xml:space="preserve">
+    <value>Card Holder Saving Amount</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_filter_CHInfor" xml:space="preserve">
+    <value>Filter Txn Infor</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_filter_RequestStart_EndDate" xml:space="preserve">
+    <value>Request Date</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_filter_TxnStart_EndDate" xml:space="preserve">
+    <value>Date Request</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_filter_TxnStatus" xml:space="preserve">
+    <value>Transaction Status</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_Infor_CH" xml:space="preserve">
+    <value>CardHolder Infor</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_Infor_Pos" xml:space="preserve">
+    <value>POS Infor</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_Infor_Rate" xml:space="preserve">
+    <value>Rate</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_Infor_Txn" xml:space="preserve">
+    <value>Transaction Infor</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_POSBalanceAmount" xml:space="preserve">
+    <value>POS Balance Amount</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_POSBonusAmount" xml:space="preserve">
+    <value>POS Bonus Amount</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_POSFeeAmount" xml:space="preserve">
+    <value>POS  Fee Amount</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_POSName" xml:space="preserve">
+    <value>Pos name</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_POSProfitAmount" xml:space="preserve">
+    <value>POS Profit Amount</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_POSRated" xml:space="preserve">
+    <value>POS Rated</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_POSReview" xml:space="preserve">
+    <value>POS Comment</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_RequestType" xml:space="preserve">
+    <value>RequestType</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_TxnAmount" xml:space="preserve">
+    <value>Transaction Amount</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_TxnDate" xml:space="preserve">
+    <value>Transaction Date</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_TxnID" xml:space="preserve">
+    <value>Transaction ID</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_TxnStatus" xml:space="preserve">
+    <value>TransactionStatus</value>
+  </data>
+  <data name="HOManagementTxnHistory_title_Page" xml:space="preserve">
+    <value>Transaction History</value>
+  </data>
+  <data name="HOMasterAttribute_lbl_AttributeName" xml:space="preserve">
+    <value>AttributeName</value>
+  </data>
+  <data name="HOMasterAttribute_lbl_Note" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="HOMasterAttribute_titleform_Add" xml:space="preserve">
+    <value>Add new sku-attribute</value>
+  </data>
+  <data name="HOMasterAttribute_titleform_Update" xml:space="preserve">
+    <value>Update sku-attribute</value>
+  </data>
+  <data name="HOMasterAttribute_title_Page" xml:space="preserve">
+    <value>Sku Attribute</value>
+  </data>
+  <data name="HOMasterBank_lbl_BankID" xml:space="preserve">
+    <value>BankID</value>
+  </data>
+  <data name="HOMasterBank_lbl_BankName" xml:space="preserve">
+    <value>Bank name</value>
+  </data>
+  <data name="HOMasterBank_lbl_ImgUrl" xml:space="preserve">
+    <value>Hình ảnh</value>
+  </data>
+  <data name="HOMasterBank_titleform_Add" xml:space="preserve">
+    <value>Add Bank</value>
+  </data>
+  <data name="HOMasterBank_titleform_Update" xml:space="preserve">
+    <value>Edit Bank</value>
+  </data>
+  <data name="HOMasterBank_title_Page" xml:space="preserve">
+    <value>Bank</value>
+  </data>
+  <data name="HOMasterCodeProjectType_lbl_CodeNameEn" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="HOMasterCodeProjectType_lbl_CodeNameFilter" xml:space="preserve">
+    <value>ProjectType</value>
+  </data>
+  <data name="HOMasterCodeProjectType_lbl_CodeNameVi" xml:space="preserve">
+    <value>Tiếng Việt</value>
+  </data>
+  <data name="HOMasterCodeProjectType_lbl_Note" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="HOMasterCodeProjectType_titleform_Add" xml:space="preserve">
+    <value>Add new ProjectType</value>
+  </data>
+  <data name="HOMasterCodeProjectType_titleform_Update" xml:space="preserve">
+    <value>Update ProjectType</value>
+  </data>
+  <data name="HOMasterCodeProjectType_title_Page" xml:space="preserve">
+    <value>ProjectType</value>
+  </data>
+  <data name="HOMasterCodeProjectWork_lbl_CodeNameEn" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="HOMasterCodeProjectWork_lbl_CodeNameFilter" xml:space="preserve">
+    <value>ProjectWork</value>
+  </data>
+  <data name="HOMasterCodeProjectWork_lbl_CodeNameVi" xml:space="preserve">
+    <value>Tiếng Việt</value>
+  </data>
+  <data name="HOMasterCodeProjectWork_lbl_Note" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="HOMasterCodeProjectWork_titleform_Add" xml:space="preserve">
+    <value>Add new ProjectWork</value>
+  </data>
+  <data name="HOMasterCodeProjectWork_titleform_Update" xml:space="preserve">
+    <value>Update ProjectWork</value>
+  </data>
+  <data name="HOMasterCodeProjectWork_title_Page" xml:space="preserve">
+    <value>ProjectWork</value>
+  </data>
+  <data name="HOMasterCodeSkill_lbl_CodeNameEn" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="HOMasterCodeSkill_lbl_CodeNameFilter" xml:space="preserve">
+    <value>Skill</value>
+  </data>
+  <data name="HOMasterCodeSkill_lbl_CodeNameVi" xml:space="preserve">
+    <value>Tiếng Việt</value>
+  </data>
+  <data name="HOMasterCodeSkill_lbl_Note" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="HOMasterCodeSkill_titleform_Add" xml:space="preserve">
+    <value>Add new Skill</value>
+  </data>
+  <data name="HOMasterCodeSkill_titleform_Update" xml:space="preserve">
+    <value>Update skill</value>
+  </data>
+  <data name="HOMasterCodeSkill_title_Page" xml:space="preserve">
+    <value>Skill</value>
+  </data>
+  <data name="HOMasterCustomerHierarchy" xml:space="preserve">
+    <value>Customer Hierarchy</value>
+  </data>
+  <data name="HOMasterCustomerHierarchy_group_Infor" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="HOMasterCustomerHierarchy_lbl_HierarchyLevel" xml:space="preserve">
+    <value>Hierarchy level</value>
+  </data>
+  <data name="HOMasterCustomerHierarchy_lbl_HierarchyName" xml:space="preserve">
+    <value>Hierarchy name</value>
+  </data>
+  <data name="HOMasterCustomerHierarchy_lbl_IsActive" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="HOMasterCustomerHierarchy_lbl_ParentID" xml:space="preserve">
+    <value>Hierarchy parent</value>
+  </data>
+  <data name="HOMasterCustomerHierarchy_lbl_Tree" xml:space="preserve">
+    <value>Tree hierarchy</value>
+  </data>
+  <data name="HOMasterCustomerHierarchy_mainpop_title_Insert" xml:space="preserve">
+    <value>Insert hierarchy</value>
+  </data>
+  <data name="HOMasterCustomerHierarchy_mainpop_title_Update" xml:space="preserve">
+    <value>Update hierarchy</value>
+  </data>
+  <data name="HOMasterCustomerHierarchy_mes_updatetStatus_Active" xml:space="preserve">
+    <value>Active hierarchy</value>
+  </data>
+  <data name="HOMasterCustomerHierarchy_mes_updatetStatus_Inactive" xml:space="preserve">
+    <value>Inactive hierarchy</value>
+  </data>
+  <data name="HOMasterCustomerHierarchy_phd_filterHierarchyName" xml:space="preserve">
+    <value>Hierarchy name</value>
+  </data>
+  <data name="HOMasterCustomer_lbl_Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="HOMasterCustomer_lbl_Birthday" xml:space="preserve">
+    <value>Birthday</value>
+  </data>
+  <data name="HOMasterCustomer_lbl_Contact" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="HOMasterCustomer_lbl_CustomerName" xml:space="preserve">
+    <value>CustomerName</value>
+  </data>
+  <data name="HOMasterCustomer_lbl_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="HOMasterCustomer_lbl_HierarchyID" xml:space="preserve">
+    <value>HierarchyID</value>
+  </data>
+  <data name="HOMasterCustomer_lbl_Note" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="HOMasterCustomer_lbl_Phone" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="HOMasterCustomer_mes_for_lbl_HierarchyID" xml:space="preserve">
+    <value>Phân cấp sẽ ảnh hưởng đến giá bán và khuyến mãi được áp dụng cho cửa hàng</value>
+  </data>
+  <data name="HOMasterCustomer_titleform_Add" xml:space="preserve">
+    <value>Add new customer</value>
+  </data>
+  <data name="HOMasterCustomer_titleform_Update" xml:space="preserve">
+    <value>Update customer</value>
+  </data>
+  <data name="HOMasterCustomer_title_Page" xml:space="preserve">
+    <value>Customer</value>
+  </data>
+  <data name="HOMasterManufacturer_group_Contact" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="HOMasterManufacturer_group_Infor" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="HOMasterManufacturer_lbl_Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="HOMasterManufacturer_lbl_ContactEmail" xml:space="preserve">
+    <value>Contact email</value>
+  </data>
+  <data name="HOMasterManufacturer_lbl_ContactName" xml:space="preserve">
+    <value>Contact name</value>
+  </data>
+  <data name="HOMasterManufacturer_lbl_ContactPhone" xml:space="preserve">
+    <value>Contact phone</value>
+  </data>
+  <data name="HOMasterManufacturer_lbl_IsActive" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="HOMasterManufacturer_lbl_ManufacturerName" xml:space="preserve">
+    <value>Manufacturer name</value>
+  </data>
+  <data name="HOMasterManufacturer_lbl_Note" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="HOMasterManufacturer_phd_filterManufacturerName" xml:space="preserve">
+    <value>Name, phone, email of manufacturer</value>
+  </data>
+  <data name="HOMasterManufacturer_titleform_Add" xml:space="preserve">
+    <value>Insert manufacturer</value>
+  </data>
+  <data name="HOMasterManufacturer_titleform_Update" xml:space="preserve">
+    <value>Update manufacturer</value>
+  </data>
+  <data name="HOMasterManufacturer_title_Page" xml:space="preserve">
+    <value>Manufacturer</value>
+  </data>
+  <data name="HOMasterShop" xml:space="preserve">
+    <value>Shop</value>
+  </data>
+  <data name="HOMasterShopGroup" xml:space="preserve">
+    <value>Shop group</value>
+  </data>
+  <data name="HOMasterShopGroup_group_Infor" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="HOMasterShopGroup_lbl_IsActive" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="HOMasterShopGroup_lbl_Note" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="HOMasterShopGroup_lbl_ShopGroupName" xml:space="preserve">
+    <value>Shop group name</value>
+  </data>
+  <data name="HOMasterShopGroup_lbl_Shops" xml:space="preserve">
+    <value>Shops</value>
+  </data>
+  <data name="HOMasterShopGroup_mainpop_title_Insert" xml:space="preserve">
+    <value>Insert shop group</value>
+  </data>
+  <data name="HOMasterShopGroup_mainpop_title_Update" xml:space="preserve">
+    <value>Update shop group</value>
+  </data>
+  <data name="HOMasterShopGroup_mes_updatetStatus_Active" xml:space="preserve">
+    <value>Active shop group</value>
+  </data>
+  <data name="HOMasterShopGroup_mes_updatetStatus_Inactive" xml:space="preserve">
+    <value>Inactive shop group</value>
+  </data>
+  <data name="HOMasterShopHierarchy" xml:space="preserve">
+    <value>Shop Hierarchy</value>
+  </data>
+  <data name="HOMasterShopHierarchy_group_Infor" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="HOMasterShopHierarchy_lbl_HierarchyLevel" xml:space="preserve">
+    <value>Hierarchy level</value>
+  </data>
+  <data name="HOMasterShopHierarchy_lbl_HierarchyName" xml:space="preserve">
+    <value>Hierarchy name</value>
+  </data>
+  <data name="HOMasterShopHierarchy_lbl_IsActive" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="HOMasterShopHierarchy_lbl_ParentID" xml:space="preserve">
+    <value>Hierarchy parent</value>
+  </data>
+  <data name="HOMasterShopHierarchy_lbl_Tree" xml:space="preserve">
+    <value>Tree hierarchy</value>
+  </data>
+  <data name="HOMasterShopHierarchy_mainpop_title_Insert" xml:space="preserve">
+    <value>Insert hierarchy</value>
+  </data>
+  <data name="HOMasterShopHierarchy_mainpop_title_Update" xml:space="preserve">
+    <value>Update hierarchy</value>
+  </data>
+  <data name="HOMasterShopHierarchy_mes_updatetStatus_Active" xml:space="preserve">
+    <value>Active hierarchy</value>
+  </data>
+  <data name="HOMasterShopHierarchy_mes_updatetStatus_Inactive" xml:space="preserve">
+    <value>Inactive hierarchy</value>
+  </data>
+  <data name="HOMasterShopHierarchy_phd_filterHierarchyName" xml:space="preserve">
+    <value>Hierarchy name</value>
+  </data>
+  <data name="HOMasterShop_group_Contact" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="HOMasterShop_group_Infor" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="HOMasterShop_lbl_Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="HOMasterShop_lbl_ContactEmail" xml:space="preserve">
+    <value>Contact email</value>
+  </data>
+  <data name="HOMasterShop_lbl_ContactPhone" xml:space="preserve">
+    <value>Contact phone</value>
+  </data>
+  <data name="HOMasterShop_lbl_Coordinates" xml:space="preserve">
+    <value>Coordinates</value>
+  </data>
+  <data name="HOMasterShop_lbl_DistrictID" xml:space="preserve">
+    <value>District</value>
+  </data>
+  <data name="HOMasterShop_lbl_IsActive" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="HOMasterShop_lbl_Latitude" xml:space="preserve">
+    <value>Latitude</value>
+  </data>
+  <data name="HOMasterShop_lbl_Longitude" xml:space="preserve">
+    <value>Longitude</value>
+  </data>
+  <data name="HOMasterShop_lbl_Note" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="HOMasterShop_lbl_ProvinceID" xml:space="preserve">
+    <value>Province</value>
+  </data>
+  <data name="HOMasterShop_lbl_RegionID" xml:space="preserve">
+    <value>Region</value>
+  </data>
+  <data name="HOMasterShop_lbl_ShopCounter" xml:space="preserve">
+    <value>Counter</value>
+  </data>
+  <data name="HOMasterShop_lbl_ShopHierarchyID" xml:space="preserve">
+    <value>Shop hierarchy</value>
+  </data>
+  <data name="HOMasterShop_lbl_ShopLeaderID" xml:space="preserve">
+    <value>Leader of shop</value>
+  </data>
+  <data name="HOMasterShop_lbl_ShopName" xml:space="preserve">
+    <value>Shop name</value>
+  </data>
+  <data name="HOMasterShop_lbl_Territory" xml:space="preserve">
+    <value>Territory</value>
+  </data>
+  <data name="HOMasterShop_mainpop_title_Insert" xml:space="preserve">
+    <value>Insert shop</value>
+  </data>
+  <data name="HOMasterShop_mainpop_title_Update" xml:space="preserve">
+    <value>Update shop</value>
+  </data>
+  <data name="HOMasterShop_mes_for_lbl_ShopHierarchyID" xml:space="preserve">
+    <value>Nhóm cửa hàng sẽ ảnh hưởng đến giá bán và khuyến mãi được áp dụng cho cửa hàng</value>
+  </data>
+  <data name="HOMasterShop_mes_for_lbl_Territory" xml:space="preserve">
+    <value>Vị trí địa lý sẽ ảnh hưởng đến giá bán và khuyến mãi được áp dụng cho cửa hàng</value>
+  </data>
+  <data name="HOMasterShop_mes_updatetStatus_Active" xml:space="preserve">
+    <value>Active shop</value>
+  </data>
+  <data name="HOMasterShop_mes_updatetStatus_Inactive" xml:space="preserve">
+    <value>Inactive shop</value>
+  </data>
+  <data name="HOMasterShop_phd_filterShopHierarchyName" xml:space="preserve">
+    <value>Shop hierarchy</value>
+  </data>
+  <data name="HOMasterShop_phd_filterShopLeader" xml:space="preserve">
+    <value>Leader of shop</value>
+  </data>
+  <data name="HOMasterShop_phd_filterShopName" xml:space="preserve">
+    <value>Name of shop, phone, email</value>
+  </data>
+  <data name="HOMasterShop_titleform_Add" xml:space="preserve">
+    <value>Add new shop</value>
+  </data>
+  <data name="HOMasterShop_titleform_Update" xml:space="preserve">
+    <value>Update shop</value>
+  </data>
+  <data name="HOMasterShop_title_Page" xml:space="preserve">
+    <value>Shop</value>
+  </data>
+  <data name="HOMasterSKUBrand_lbl_BrandName" xml:space="preserve">
+    <value>BrandName</value>
+  </data>
+  <data name="HOMasterSKUBrand_lbl_Note" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="HOMasterSKUBrand_titleform_Add" xml:space="preserve">
+    <value>Add new sku brand</value>
+  </data>
+  <data name="HOMasterSKUBrand_titleform_Update" xml:space="preserve">
+    <value>Update sku brand</value>
+  </data>
+  <data name="HOMasterSKUBrand_title_Page" xml:space="preserve">
+    <value>Sku Brand</value>
+  </data>
+  <data name="HOMasterSKUHeader_form_group_attr" xml:space="preserve">
+    <value>Attribute</value>
+  </data>
+  <data name="HOMasterSKUHeader_form_group_infor" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="HOMasterSKUHeader_form_group_products" xml:space="preserve">
+    <value>Products of the same type</value>
+  </data>
+  <data name="HOMasterSKUHeader_form_group_stock" xml:space="preserve">
+    <value>Stock</value>
+  </data>
+  <data name="HOMasterSKUHeader_grid_col_Brand" xml:space="preserve">
+    <value>Brand</value>
+  </data>
+  <data name="HOMasterSKUHeader_grid_col_Cost_of_capital" xml:space="preserve">
+    <value>Cost of capital</value>
+  </data>
+  <data name="HOMasterSKUHeader_grid_col_Hierarchy" xml:space="preserve">
+    <value>Hierarchy</value>
+  </data>
+  <data name="HOMasterSKUHeader_grid_col_Manufacturer" xml:space="preserve">
+    <value>Manufacturer</value>
+  </data>
+  <data name="HOMasterSKUHeader_grid_col_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="HOMasterSKUHeader_grid_col_Price" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="HOMasterSKUHeader_grid_col_Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="HOMasterSKUHeader_grid_col_Stock" xml:space="preserve">
+    <value>Stock</value>
+  </data>
+  <data name="HOMasterSKUHeader_grid_group_infor" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="HOMasterSKUHeader_grid_group_stock" xml:space="preserve">
+    <value>Stock</value>
+  </data>
+  <data name="HOMasterSKUHeader_grid_tab_infor" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="HOMasterSKUHeader_grid_tab_stock" xml:space="preserve">
+    <value>Stock</value>
+  </data>
+  <data name="HOMasterSKUHeader_lbl_BasedUOM" xml:space="preserve">
+    <value>Base UOM</value>
+  </data>
+  <data name="HOMasterSKUHeader_lbl_BrandID" xml:space="preserve">
+    <value>Brand</value>
+  </data>
+  <data name="HOMasterSKUHeader_lbl_HierarchyID" xml:space="preserve">
+    <value>Hierarchy</value>
+  </data>
+  <data name="HOMasterSKUHeader_lbl_IsActive" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="HOMasterSKUHeader_lbl_ManufacturerID" xml:space="preserve">
+    <value>Manufacturer</value>
+  </data>
+  <data name="HOMasterSKUHeader_lbl_MaxStockQty" xml:space="preserve">
+    <value>Max quantity</value>
+  </data>
+  <data name="HOMasterSKUHeader_lbl_MinStockQty" xml:space="preserve">
+    <value>Min quantity</value>
+  </data>
+  <data name="HOMasterSKUHeader_lbl_Note" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="HOMasterSKUHeader_lbl_SKUHeaderName" xml:space="preserve">
+    <value>Product name</value>
+  </data>
+  <data name="HOMasterSKUHeader_phd_filterSKUHeaderName" xml:space="preserve">
+    <value>Product name, barcode</value>
+  </data>
+  <data name="HOMasterSKUHeader_title_Page" xml:space="preserve">
+    <value>Product</value>
+  </data>
+  <data name="HOMasterSKUHierarchy" xml:space="preserve">
+    <value>SKU Hierarchy</value>
+  </data>
+  <data name="HOMasterSKUHierarchy_group_Infor" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="HOMasterSKUHierarchy_lbl_HierarchyLevel" xml:space="preserve">
+    <value>Hierarchy level</value>
+  </data>
+  <data name="HOMasterSKUHierarchy_lbl_HierarchyName" xml:space="preserve">
+    <value>Hierarchy name</value>
+  </data>
+  <data name="HOMasterSKUHierarchy_lbl_IsActive" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="HOMasterSKUHierarchy_lbl_ParentID" xml:space="preserve">
+    <value>Hierarchy parent</value>
+  </data>
+  <data name="HOMasterSKUHierarchy_lbl_Tree" xml:space="preserve">
+    <value>Tree hierarchy</value>
+  </data>
+  <data name="HOMasterSKUHierarchy_mainpop_title_Insert" xml:space="preserve">
+    <value>Insert hierarchy</value>
+  </data>
+  <data name="HOMasterSKUHierarchy_mainpop_title_Update" xml:space="preserve">
+    <value>Update hierarchy</value>
+  </data>
+  <data name="HOMasterSKUHierarchy_mes_updatetStatus_Active" xml:space="preserve">
+    <value>Active hierarchy</value>
+  </data>
+  <data name="HOMasterSKUHierarchy_mes_updatetStatus_Inactive" xml:space="preserve">
+    <value>Inactive hierarchy</value>
+  </data>
+  <data name="HOMasterSKUHierarchy_phd_filterHierarchyName" xml:space="preserve">
+    <value>Hierarchy name</value>
+  </data>
+  <data name="HOMasterSupplier_group_Contact" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="HOMasterSupplier_group_Infor" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="HOMasterSupplier_lbl_Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="HOMasterSupplier_lbl_ContactEmail" xml:space="preserve">
+    <value>Contact email</value>
+  </data>
+  <data name="HOMasterSupplier_lbl_ContactName" xml:space="preserve">
+    <value>Contact name</value>
+  </data>
+  <data name="HOMasterSupplier_lbl_ContactPhone" xml:space="preserve">
+    <value>Contact phone</value>
+  </data>
+  <data name="HOMasterSupplier_lbl_IsActive" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="HOMasterSupplier_lbl_Note" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="HOMasterSupplier_lbl_PaymentTerm" xml:space="preserve">
+    <value>PaymentTerm</value>
+  </data>
+  <data name="HOMasterSupplier_lbl_SupplierName" xml:space="preserve">
+    <value>Supplier name</value>
+  </data>
+  <data name="HOMasterSupplier_lbl_TaxCode" xml:space="preserve">
+    <value>Tax code</value>
+  </data>
+  <data name="HOMasterSupplier_phd_filterSupplierName" xml:space="preserve">
+    <value>Supplier name, phone, email</value>
+  </data>
+  <data name="HOMasterSupplier_titleform_Add" xml:space="preserve">
+    <value>Insert supplier</value>
+  </data>
+  <data name="HOMasterSupplier_titleform_Update" xml:space="preserve">
+    <value>Update supplier</value>
+  </data>
+  <data name="HOMasterSupplier_title_Page" xml:space="preserve">
+    <value>Supplier</value>
+  </data>
+  <data name="LayOut_btn_LogInAction" xml:space="preserve">
+    <value>LogIn</value>
+  </data>
+  <data name="LayOut_btn_LogOutActionNo" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="LayOut_btn_LogOutActionYes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="LayOut_lbl_LogInPassword" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="LayOut_lbl_LogInRememberPassword" xml:space="preserve">
+    <value>Remember Password</value>
+  </data>
+  <data name="LayOut_lbl_LogInRequiredPassword" xml:space="preserve">
+    <value>Required Password</value>
+  </data>
+  <data name="LayOut_lbl_LogInRequiredUsername" xml:space="preserve">
+    <value>Required UserName</value>
+  </data>
+  <data name="LayOut_lbl_LogInTitle" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="LayOut_lbl_LogInUsername" xml:space="preserve">
+    <value>UserName</value>
+  </data>
+  <data name="LayOut_lbl_LogOut" xml:space="preserve">
+    <value>Log out</value>
+  </data>
+  <data name="LayOut_lbl_LogOutMsg" xml:space="preserve">
+    <value>You can improve your security further after logging out by closing this opened browser</value>
+  </data>
+</root>

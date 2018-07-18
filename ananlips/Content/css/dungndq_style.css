@@ -1,0 +1,8 @@
+﻿ footer {
+            border-top: none !important;
+            background: transparent !important;
+        }
+
+            footer .btn {
+                float: left !important;
+            }

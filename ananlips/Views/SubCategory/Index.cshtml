@@ -1,0 +1,195 @@
+﻿@using ananlips.Models;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutCommon.cshtml";
+    var dict = Model != null ? (Dictionary<string, object>)Model : new Dictionary<string, object>();
+    var data_Product = dict.ContainsKey("data_Product") ? (List<DefaultView.FE_Product>)dict["data_Product"] : new List<DefaultView.FE_Product>();
+}
+
+<h1 class="page-title">
+    <span>Nước cân bằng</span><div class="display-product-option">
+        <ul>
+            <li class="view-as-grid selected">
+                <span>grid</span>
+            </li>
+            <li class="view-as-list ">
+                <span>list</span>
+            </li>
+        </ul><form class="woocommerce-ordering" method="get">
+            <select name="orderby" class="orderby">
+                <option value="menu_order" selected="selected">Thứ tự mặc định</option>
+                <option value="popularity">Thứ tự theo mức độ phổ biến</option>
+                <option value="rating">Thứ tự theo điểm đánh giá</option>
+                <option value="date">Thứ tự theo sản phẩm mới</option>
+                <option value="price">Thứ tự theo giá: thấp đến cao</option>
+                <option value="price-desc">Thứ tự theo giá: cao xuống thấp</option>
+            </select>
+        </form><p class="woocommerce-result-count">
+            Hiển thị một kết quả duy nhất
+        </p>
+    </div>
+</h1><div class="row list-product-row">
+    <ul class="grid product-list clearfix columns-3">
+        <li class="first col-xs-12 col-md-4 col-sm-6 post-3697 product type-product status-publish has-post-thumbnail product_cat-bo-san-pham-duong-da product_cat-collagen product_cat-duong-da product_cat-kem-duong product_cat-nuoc-can-bang product_cat-san-pham-khuyen-mai product_cat-sua-duong product_cat-tinh-chat  instock sale shipping-taxable purchasable product-type-simple">
+            <div class="product-container">
+                <a href="https://thefaceshopvn.com/san-pham/bo-duong-giup-da-san-min-pomegranate-collagen-volume-lifting/" class="woocommerce-LoopProduct-link"></a><div class="left-block">
+                    <a href="https://thefaceshopvn.com/san-pham/bo-duong-giup-da-san-min-pomegranate-collagen-volume-lifting/" class="woocommerce-LoopProduct-link">
+                    </a><a href="https://thefaceshopvn.com/san-pham/bo-duong-giup-da-san-min-pomegranate-collagen-volume-lifting/">
+                        <img width="300" height="366" src="https://thefaceshopvn.com/wp-content/uploads/2018/03/IMG_8294-300x366.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="IMG_8294" title="IMG_8294" srcset="https://thefaceshopvn.com/wp-content/uploads/2018/03/IMG_8294-100x122.jpg 100w, https://thefaceshopvn.com/wp-content/uploads/2018/03/IMG_8294-300x366.jpg 300w, https://thefaceshopvn.com/wp-content/uploads/2018/03/IMG_8294-420x512.jpg 420w, https://thefaceshopvn.com/wp-content/uploads/2018/03/IMG_8294-270x329.jpg 270w" sizes="(max-width: 300px) 100vw, 300px">
+                    </a><div class="quick-view"><div class="woocommerce product compare-button"><a href="https://thefaceshopvn.com?action=yith-woocompare-add-product&amp;id=3697" class="compare button" data-product_id="3697" rel="nofollow">Compare</a></div><a href="#" class="search yith-wcqv-button" data-product_id="3697">Quick View</a></div>
+                    <div class="add-to-cart"><a href="/danh-muc/duong-da/nuoc-can-bang/?add-to-cart=3697" rel="nofollow" data-product_id="3697" data-product_sku="" data-quantity="1" class="add_to_cart_button product_type_simple">Thêm vào giỏ</a></div><a href="#" class="button yith-wcqv-button" data-product_id="3697">Quick View</a>
+                </div><div class="right-block">
+                    <h5 class="product-name"><a title="Bộ Dưỡng Giúp Da Săn Mịn POMEGRANATE AND COLLAGEN VOLUME LIFTING" href="https://thefaceshopvn.com/san-pham/bo-duong-giup-da-san-min-pomegranate-collagen-volume-lifting/">Bộ Dưỡng Giúp Da Săn Mịn POMEGRANATE AND COLLAGEN VOLUME LIFTING</a></h5><div class="content_price">
+                        <span class="price"><del><span class="woocommerce-Price-amount amount">2,796,000<span class="woocommerce-Price-currencySymbol">₫</span></span></del> <ins><span class="woocommerce-Price-amount amount">1,790,000<span class="woocommerce-Price-currencySymbol">₫</span></span></ins></span><div class="product-star" title="Rated 0 out of 5"><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></div>
+                    </div><div class="info-orther"><p class="availability">Availability: <span class="instock">In stock</span><span class="outofstock">Out of stock</span></p><div class="product-desc"></div></div>
+                </div>
+            </div>
+        </li>
+        <li class="last col-xs-12 col-md-4 col-sm-6 post-4054 product type-product status-publish has-post-thumbnail product_cat-bo-san-pham-duong-da product_cat-dong-duong-gao product_cat-duong-da product_cat-kem-duong product_cat-lam-sach product_cat-nuoc-can-bang product_cat-san-pham-khuyen-mai product_cat-sua-duong product_cat-sua-rua-mat first instock sale shipping-taxable purchasable product-type-simple">
+            <div class="product-container">
+                <a href="https://thefaceshopvn.com/san-pham/bo-duong-lam-sang-da-set-gao-rice-ceramide-special-set/" class="woocommerce-LoopProduct-link"></a><div class="left-block">
+                    <a href="https://thefaceshopvn.com/san-pham/bo-duong-lam-sang-da-set-gao-rice-ceramide-special-set/" class="woocommerce-LoopProduct-link">
+                    </a><a href="https://thefaceshopvn.com/san-pham/bo-duong-lam-sang-da-set-gao-rice-ceramide-special-set/">
+                        <img width="300" height="366" src="https://thefaceshopvn.com/wp-content/uploads/2018/06/a4610b90e5ff04a15dee-300x366.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="a4610b90e5ff04a15dee" title="a4610b90e5ff04a15dee" srcset="https://thefaceshopvn.com/wp-content/uploads/2018/06/a4610b90e5ff04a15dee-100x122.jpg 100w, https://thefaceshopvn.com/wp-content/uploads/2018/06/a4610b90e5ff04a15dee-300x366.jpg 300w, https://thefaceshopvn.com/wp-content/uploads/2018/06/a4610b90e5ff04a15dee-420x512.jpg 420w, https://thefaceshopvn.com/wp-content/uploads/2018/06/a4610b90e5ff04a15dee-270x329.jpg 270w" sizes="(max-width: 300px) 100vw, 300px">
+                    </a><div class="quick-view"><div class="woocommerce product compare-button"><a href="https://thefaceshopvn.com?action=yith-woocompare-add-product&amp;id=4054" class="compare button" data-product_id="4054" rel="nofollow">Compare</a></div><a href="#" class="search yith-wcqv-button" data-product_id="4054">Quick View</a></div>
+                    <div class="add-to-cart"><a href="/danh-muc/duong-da/nuoc-can-bang/?add-to-cart=4054" rel="nofollow" data-product_id="4054" data-product_sku="" data-quantity="1" class="add_to_cart_button product_type_simple">Thêm vào giỏ</a></div><a href="#" class="button yith-wcqv-button" data-product_id="4054">Quick View</a>
+                </div><div class="right-block">
+                    <h5 class="product-name"><a title="Bộ Dưỡng Làm Sáng Da (SET) Gạo RICE &amp; CERAMIDE SPECIAL SET" href="https://thefaceshopvn.com/san-pham/bo-duong-lam-sang-da-set-gao-rice-ceramide-special-set/">Bộ Dưỡng Làm Sáng Da (SET) Gạo RICE &amp; CERAMIDE SPECIAL SET</a></h5><div class="content_price">
+                        <span class="price"><del><span class="woocommerce-Price-amount amount">799,000<span class="woocommerce-Price-currencySymbol">₫</span></span></del> <ins><span class="woocommerce-Price-amount amount">689,000<span class="woocommerce-Price-currencySymbol">₫</span></span></ins></span><div class="product-star" title="Rated 0 out of 5"><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></div>
+                    </div><div class="info-orther"><p class="availability">Availability: <span class="instock">In stock</span><span class="outofstock">Out of stock</span></p><div class="product-desc"></div></div>
+                </div>
+            </div>
+        </li>
+        <li class="col-xs-12 col-md-4 col-sm-6 post-3735 product type-product status-publish has-post-thumbnail product_cat-bo-san-pham-duong-da product_cat-clean-face product_cat-duong-da product_cat-nuoc-can-bang product_cat-sua-duong last instock sale shipping-taxable purchasable product-type-simple">
+            <div class="product-container">
+                <a href="https://thefaceshopvn.com/san-pham/bo-doi-tri-mun-va-duong-da-mun-clean-face/" class="woocommerce-LoopProduct-link"></a><div class="left-block">
+                    <a href="https://thefaceshopvn.com/san-pham/bo-doi-tri-mun-va-duong-da-mun-clean-face/" class="woocommerce-LoopProduct-link">
+                    </a><a href="https://thefaceshopvn.com/san-pham/bo-doi-tri-mun-va-duong-da-mun-clean-face/">
+                        <img width="300" height="366" src="https://thefaceshopvn.com/wp-content/uploads/2018/03/IMG_6270-300x366.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="IMG_6270" title="IMG_6270" srcset="https://thefaceshopvn.com/wp-content/uploads/2018/03/IMG_6270-100x122.jpg 100w, https://thefaceshopvn.com/wp-content/uploads/2018/03/IMG_6270-300x366.jpg 300w, https://thefaceshopvn.com/wp-content/uploads/2018/03/IMG_6270-420x512.jpg 420w, https://thefaceshopvn.com/wp-content/uploads/2018/03/IMG_6270-270x329.jpg 270w" sizes="(max-width: 300px) 100vw, 300px">
+                    </a><div class="quick-view"><div class="woocommerce product compare-button"><a href="https://thefaceshopvn.com?action=yith-woocompare-add-product&amp;id=3735" class="compare button" data-product_id="3735" rel="nofollow">Compare</a></div><a href="#" class="search yith-wcqv-button" data-product_id="3735">Quick View</a></div>
+                    <div class="add-to-cart"><a href="/danh-muc/duong-da/nuoc-can-bang/?add-to-cart=3735" rel="nofollow" data-product_id="3735" data-product_sku="" data-quantity="1" class="add_to_cart_button product_type_simple">Thêm vào giỏ</a></div><a href="#" class="button yith-wcqv-button" data-product_id="3735">Quick View</a>
+                </div><div class="right-block">
+                    <h5 class="product-name"><a title="Bộ Đôi Trị Mụn Và Dưỡng Da Dành Cho Da Mụn Clean Face" href="https://thefaceshopvn.com/san-pham/bo-doi-tri-mun-va-duong-da-mun-clean-face/">Bộ Đôi Trị Mụn Và Dưỡng Da Dành Cho Da Mụn Clean Face</a></h5><div class="content_price">
+                        <span class="price"><del><span class="woocommerce-Price-amount amount">640,000<span class="woocommerce-Price-currencySymbol">₫</span></span></del> <ins><span class="woocommerce-Price-amount amount">530,000<span class="woocommerce-Price-currencySymbol">₫</span></span></ins></span><div class="product-star" title="Rated 0 out of 5"><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></div>
+                    </div><div class="info-orther"><p class="availability">Availability: <span class="instock">In stock</span><span class="outofstock">Out of stock</span></p><div class="product-desc"></div></div>
+                </div>
+            </div>
+        </li>
+        <li class="first col-xs-12 col-md-4 col-sm-6 post-2953 product type-product status-publish has-post-thumbnail product_cat-bo-san-pham-duong-da product_cat-clean-face product_cat-duong-da product_cat-lam-sach product_cat-nuoc-can-bang product_cat-san-pham-khuyen-mai product_cat-sua-duong product_cat-sua-rua-mat product_cat-tinh-chat  instock sale shipping-taxable purchasable product-type-simple">
+            <div class="product-container">
+                <a href="https://thefaceshopvn.com/san-pham/bo-tri-mun-va-duong-da-mun-clean-face-thefaceshop/" class="woocommerce-LoopProduct-link"></a><div class="left-block">
+                    <a href="https://thefaceshopvn.com/san-pham/bo-tri-mun-va-duong-da-mun-clean-face-thefaceshop/" class="woocommerce-LoopProduct-link">
+                    </a><a href="https://thefaceshopvn.com/san-pham/bo-tri-mun-va-duong-da-mun-clean-face-thefaceshop/">
+                        <img width="300" height="366" src="https://thefaceshopvn.com/wp-content/uploads/2017/12/bo-duong-tri-mun-clean-face-set-500x500-300x366.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="bo-duong-tri-mun-clean-face-set-500x500" title="bo-duong-tri-mun-clean-face-set-500x500" srcset="https://thefaceshopvn.com/wp-content/uploads/2017/12/bo-duong-tri-mun-clean-face-set-500x500-100x122.jpg 100w, https://thefaceshopvn.com/wp-content/uploads/2017/12/bo-duong-tri-mun-clean-face-set-500x500-300x366.jpg 300w, https://thefaceshopvn.com/wp-content/uploads/2017/12/bo-duong-tri-mun-clean-face-set-500x500-270x329.jpg 270w" sizes="(max-width: 300px) 100vw, 300px">
+                    </a><div class="quick-view"><div class="woocommerce product compare-button"><a href="https://thefaceshopvn.com?action=yith-woocompare-add-product&amp;id=2953" class="compare button" data-product_id="2953" rel="nofollow">Compare</a></div><a href="#" class="search yith-wcqv-button" data-product_id="2953">Quick View</a></div>
+                    <div class="add-to-cart"><a href="/danh-muc/duong-da/nuoc-can-bang/?add-to-cart=2953" rel="nofollow" data-product_id="2953" data-product_sku="" data-quantity="1" class="add_to_cart_button product_type_simple">Thêm vào giỏ</a></div><a href="#" class="button yith-wcqv-button" data-product_id="2953">Quick View</a>
+                </div><div class="right-block">
+                    <h5 class="product-name"><a title="Bộ Trị Mụn Và Dưỡng Da Mụn Clean Face Thefaceshop" href="https://thefaceshopvn.com/san-pham/bo-tri-mun-va-duong-da-mun-clean-face-thefaceshop/">Bộ Trị Mụn Và Dưỡng Da Mụn Clean Face Thefaceshop</a></h5><div class="content_price">
+                        <span class="price"><del><span class="woocommerce-Price-amount amount">1,108,000<span class="woocommerce-Price-currencySymbol">₫</span></span></del> <ins><span class="woocommerce-Price-amount amount">849,000<span class="woocommerce-Price-currencySymbol">₫</span></span></ins></span><div class="product-star" title="Rated 0 out of 5"><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></div>
+                    </div><div class="info-orther"><p class="availability">Availability: <span class="instock">In stock</span><span class="outofstock">Out of stock</span></p><div class="product-desc"></div></div>
+                </div>
+            </div>
+        </li>
+        <li class="last col-xs-12 col-md-4 col-sm-6 post-2283 product type-product status-publish has-post-thumbnail product_cat-chia-seed product_cat-duong-da product_cat-nuoc-can-bang first instock sale shipping-taxable purchasable product-type-simple">
+            <div class="product-container">
+                <a href="https://thefaceshopvn.com/san-pham/nuoc-can-bang-cung-cap-am-thefaceshop-chia-seed-hydrating-toner/" class="woocommerce-LoopProduct-link"></a><div class="left-block">
+                    <a href="https://thefaceshopvn.com/san-pham/nuoc-can-bang-cung-cap-am-thefaceshop-chia-seed-hydrating-toner/" class="woocommerce-LoopProduct-link">
+                    </a><a href="https://thefaceshopvn.com/san-pham/nuoc-can-bang-cung-cap-am-thefaceshop-chia-seed-hydrating-toner/">
+                        <img width="300" height="366" src="https://thefaceshopvn.com/wp-content/uploads/2017/04/925160257885-300x366.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="925160257885" title="925160257885" srcset="https://thefaceshopvn.com/wp-content/uploads/2017/04/925160257885-100x122.jpg 100w, https://thefaceshopvn.com/wp-content/uploads/2017/04/925160257885-300x366.jpg 300w, https://thefaceshopvn.com/wp-content/uploads/2017/04/925160257885-270x329.jpg 270w" sizes="(max-width: 300px) 100vw, 300px">
+                    </a><div class="quick-view"><div class="woocommerce product compare-button"><a href="https://thefaceshopvn.com?action=yith-woocompare-add-product&amp;id=2283" class="compare button" data-product_id="2283" rel="nofollow">Compare</a></div><a href="#" class="search yith-wcqv-button" data-product_id="2283">Quick View</a></div>
+                    <div class="add-to-cart"><a href="/danh-muc/duong-da/nuoc-can-bang/?add-to-cart=2283" rel="nofollow" data-product_id="2283" data-product_sku="" data-quantity="1" class="add_to_cart_button product_type_simple">Thêm vào giỏ</a></div><a href="#" class="button yith-wcqv-button" data-product_id="2283">Quick View</a>
+                </div><div class="right-block">
+                    <h5 class="product-name"><a title="Nước Cân Bằng Cung Cấp Ẩm THEFACESHOP CHIA SEED HYDRATING TONER" href="https://thefaceshopvn.com/san-pham/nuoc-can-bang-cung-cap-am-thefaceshop-chia-seed-hydrating-toner/">Nước Cân Bằng Cung Cấp Ẩm THEFACESHOP CHIA SEED HYDRATING TONER</a></h5><div class="content_price">
+                        <span class="price"><del><span class="woocommerce-Price-amount amount">519,000<span class="woocommerce-Price-currencySymbol">₫</span></span></del> <ins><span class="woocommerce-Price-amount amount">399,000<span class="woocommerce-Price-currencySymbol">₫</span></span></ins></span><div class="product-star" title="Rated 0 out of 5"><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></div>
+                    </div><div class="info-orther"><p class="availability">Availability: <span class="instock">In stock</span><span class="outofstock">Out of stock</span></p><div class="product-desc"></div></div>
+                </div>
+            </div>
+        </li>
+        <li class="col-xs-12 col-md-4 col-sm-6 post-3292 product type-product status-publish has-post-thumbnail product_cat-bo-san-pham-duong-da product_cat-duong-da product_cat-nuoc-can-bang product_cat-san-pham-khuyen-mai product_cat-san-pham-moi product_cat-san-pham-noi-bat product_cat-the-therapy last instock sale shipping-taxable purchasable product-type-simple">
+            <div class="product-container">
+                <a href="https://thefaceshopvn.com/san-pham/nuoc-can-bang-duong-chuyen-sau-ngan-ngua-lao-hoa-therapy-essential-tonic-treatment/" class="woocommerce-LoopProduct-link"></a><div class="left-block">
+                    <a href="https://thefaceshopvn.com/san-pham/nuoc-can-bang-duong-chuyen-sau-ngan-ngua-lao-hoa-therapy-essential-tonic-treatment/" class="woocommerce-LoopProduct-link">
+                    </a><a href="https://thefaceshopvn.com/san-pham/nuoc-can-bang-duong-chuyen-sau-ngan-ngua-lao-hoa-therapy-essential-tonic-treatment/">
+                        <img width="300" height="366" src="https://thefaceshopvn.com/wp-content/uploads/2018/01/the_therapy_essential_tonic_treatment_3b42d0fa-fb62-440c-5666-c19cc5b4b542_9d47c1ac-cc9d-4f5d-78b2-c385ee4d1b1c_master-300x366.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="the_therapy_essential_tonic_treatment_3b42d0fa-fb62-440c-5666-c19cc5b4b542_9d47c1ac-cc9d-4f5d-78b2-c385ee4d1b1c_master" title="the_therapy_essential_tonic_treatment_3b42d0fa-fb62-440c-5666-c19cc5b4b542_9d47c1ac-cc9d-4f5d-78b2-c385ee4d1b1c_master" srcset="https://thefaceshopvn.com/wp-content/uploads/2018/01/the_therapy_essential_tonic_treatment_3b42d0fa-fb62-440c-5666-c19cc5b4b542_9d47c1ac-cc9d-4f5d-78b2-c385ee4d1b1c_master-100x122.jpg 100w, https://thefaceshopvn.com/wp-content/uploads/2018/01/the_therapy_essential_tonic_treatment_3b42d0fa-fb62-440c-5666-c19cc5b4b542_9d47c1ac-cc9d-4f5d-78b2-c385ee4d1b1c_master-300x366.jpg 300w, https://thefaceshopvn.com/wp-content/uploads/2018/01/the_therapy_essential_tonic_treatment_3b42d0fa-fb62-440c-5666-c19cc5b4b542_9d47c1ac-cc9d-4f5d-78b2-c385ee4d1b1c_master-270x329.jpg 270w" sizes="(max-width: 300px) 100vw, 300px">
+                    </a><div class="quick-view"><div class="woocommerce product compare-button"><a href="https://thefaceshopvn.com?action=yith-woocompare-add-product&amp;id=3292" class="compare button" data-product_id="3292" rel="nofollow">Compare</a></div><a href="#" class="search yith-wcqv-button" data-product_id="3292">Quick View</a></div>
+                    <div class="add-to-cart"><a href="/danh-muc/duong-da/nuoc-can-bang/?add-to-cart=3292" rel="nofollow" data-product_id="3292" data-product_sku="" data-quantity="1" class="add_to_cart_button product_type_simple">Thêm vào giỏ</a></div><a href="#" class="button yith-wcqv-button" data-product_id="3292">Quick View</a>
+                </div><div class="right-block">
+                    <h5 class="product-name"><a title="Nước Cân Bằng Dưỡng Ẩm Chuyên Sâu, Ngăn Ngừa Lão Hóa THE THERAPY ESSENTIAL TONIC TREATMENT" href="https://thefaceshopvn.com/san-pham/nuoc-can-bang-duong-chuyen-sau-ngan-ngua-lao-hoa-therapy-essential-tonic-treatment/">Nước Cân Bằng Dưỡng Ẩm Chuyên Sâu, Ngăn Ngừa Lão Hóa THE THERAPY ESSENTIAL TONIC TREATMENT</a></h5><div class="content_price">
+                        <span class="price"><del><span class="woocommerce-Price-amount amount">899,000<span class="woocommerce-Price-currencySymbol">₫</span></span></del> <ins><span class="woocommerce-Price-amount amount">599,000<span class="woocommerce-Price-currencySymbol">₫</span></span></ins></span><div class="product-star" title="Rated 0 out of 5"><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></div>
+                    </div><div class="info-orther"><p class="availability">Availability: <span class="instock">In stock</span><span class="outofstock">Out of stock</span></p><div class="product-desc"></div></div>
+                </div>
+            </div>
+        </li>
+        <li class="first col-xs-12 col-md-4 col-sm-6 post-2261 product type-product status-publish has-post-thumbnail product_cat-bo-san-pham-duong-da product_cat-collagen product_cat-duong-da product_cat-nuoc-can-bang  instock sale shipping-taxable purchasable product-type-simple">
+            <div class="product-container">
+                <a href="https://thefaceshopvn.com/san-pham/nuoc-can-bang-giup-da-san-min-pomegranate-and-collagen-volume-lifting-toner/" class="woocommerce-LoopProduct-link"></a><div class="left-block">
+                    <a href="https://thefaceshopvn.com/san-pham/nuoc-can-bang-giup-da-san-min-pomegranate-and-collagen-volume-lifting-toner/" class="woocommerce-LoopProduct-link">
+                    </a><a href="https://thefaceshopvn.com/san-pham/nuoc-can-bang-giup-da-san-min-pomegranate-and-collagen-volume-lifting-toner/">
+                        <img width="300" height="366" src="https://thefaceshopvn.com/wp-content/uploads/2017/04/pomegranate-and-collagen-volume-lifting-toner_master-300x366.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="pomegranate-and-collagen-volume-lifting-toner_master" title="pomegranate-and-collagen-volume-lifting-toner_master" srcset="https://thefaceshopvn.com/wp-content/uploads/2017/04/pomegranate-and-collagen-volume-lifting-toner_master-100x122.jpg 100w, https://thefaceshopvn.com/wp-content/uploads/2017/04/pomegranate-and-collagen-volume-lifting-toner_master-300x366.jpg 300w, https://thefaceshopvn.com/wp-content/uploads/2017/04/pomegranate-and-collagen-volume-lifting-toner_master-270x329.jpg 270w" sizes="(max-width: 300px) 100vw, 300px">
+                    </a><div class="quick-view"><div class="woocommerce product compare-button"><a href="https://thefaceshopvn.com?action=yith-woocompare-add-product&amp;id=2261" class="compare button" data-product_id="2261" rel="nofollow">Compare</a></div><a href="#" class="search yith-wcqv-button" data-product_id="2261">Quick View</a></div>
+                    <div class="add-to-cart"><a href="/danh-muc/duong-da/nuoc-can-bang/?add-to-cart=2261" rel="nofollow" data-product_id="2261" data-product_sku="" data-quantity="1" class="add_to_cart_button product_type_simple">Thêm vào giỏ</a></div><a href="#" class="button yith-wcqv-button" data-product_id="2261">Quick View</a>
+                </div><div class="right-block">
+                    <h5 class="product-name"><a title="Nước Cân Bằng Giúp Da Săn Mịn POMEGRANATE AND COLLAGEN VOLUME LIFTING TONER" href="https://thefaceshopvn.com/san-pham/nuoc-can-bang-giup-da-san-min-pomegranate-and-collagen-volume-lifting-toner/">Nước Cân Bằng Giúp Da Săn Mịn POMEGRANATE AND COLLAGEN VOLUME LIFTING TONER</a></h5><div class="content_price">
+                        <span class="price"><del><span class="woocommerce-Price-amount amount">699,000<span class="woocommerce-Price-currencySymbol">₫</span></span></del> <ins><span class="woocommerce-Price-amount amount">449,000<span class="woocommerce-Price-currencySymbol">₫</span></span></ins></span><div class="product-star" title="Rated 0 out of 5"><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></div>
+                    </div><div class="info-orther"><p class="availability">Availability: <span class="instock">In stock</span><span class="outofstock">Out of stock</span></p><div class="product-desc"></div></div>
+                </div>
+            </div>
+        </li>
+        <li class="last col-xs-12 col-md-4 col-sm-6 post-3844 product type-product status-publish has-post-thumbnail product_cat-bo-san-pham-duong-da product_cat-dong-duong-gao product_cat-duong-da product_cat-nuoc-can-bang first instock sale shipping-taxable purchasable product-type-simple">
+            <div class="product-container">
+                <a href="https://thefaceshopvn.com/san-pham/nuoc-can-bang-lam-sang-da-riceceramide-moisture-toner-2/" class="woocommerce-LoopProduct-link"></a><div class="left-block">
+                    <a href="https://thefaceshopvn.com/san-pham/nuoc-can-bang-lam-sang-da-riceceramide-moisture-toner-2/" class="woocommerce-LoopProduct-link">
+                    </a><a href="https://thefaceshopvn.com/san-pham/nuoc-can-bang-lam-sang-da-riceceramide-moisture-toner-2/">
+                        <img width="300" height="366" src="https://thefaceshopvn.com/wp-content/uploads/2018/04/31j9EhQ9FjL-300x366.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="31j9EhQ9FjL" title="31j9EhQ9FjL" srcset="https://thefaceshopvn.com/wp-content/uploads/2018/04/31j9EhQ9FjL-100x122.jpg 100w, https://thefaceshopvn.com/wp-content/uploads/2018/04/31j9EhQ9FjL-300x366.jpg 300w, https://thefaceshopvn.com/wp-content/uploads/2018/04/31j9EhQ9FjL-270x329.jpg 270w" sizes="(max-width: 300px) 100vw, 300px">
+                    </a><div class="quick-view"><div class="woocommerce product compare-button"><a href="https://thefaceshopvn.com?action=yith-woocompare-add-product&amp;id=3844" class="compare button" data-product_id="3844" rel="nofollow">Compare</a></div><a href="#" class="search yith-wcqv-button" data-product_id="3844">Quick View</a></div>
+                    <div class="add-to-cart"><a href="/danh-muc/duong-da/nuoc-can-bang/?add-to-cart=3844" rel="nofollow" data-product_id="3844" data-product_sku="" data-quantity="1" class="add_to_cart_button product_type_simple">Thêm vào giỏ</a></div><a href="#" class="button yith-wcqv-button" data-product_id="3844">Quick View</a>
+                </div><div class="right-block">
+                    <h5 class="product-name"><a title="Nước Cân Bằng Làm Sáng Da RICE&amp;CERAMIDE MOISTURE TONER" href="https://thefaceshopvn.com/san-pham/nuoc-can-bang-lam-sang-da-riceceramide-moisture-toner-2/">Nước Cân Bằng Làm Sáng Da RICE&amp;CERAMIDE MOISTURE TONER</a></h5><div class="content_price">
+                        <span class="price"><del><span class="woocommerce-Price-amount amount">289,000<span class="woocommerce-Price-currencySymbol">₫</span></span></del> <ins><span class="woocommerce-Price-amount amount">179,000<span class="woocommerce-Price-currencySymbol">₫</span></span></ins></span><div class="product-star" title="Rated 0 out of 5"><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></div>
+                    </div><div class="info-orther"><p class="availability">Availability: <span class="instock">In stock</span><span class="outofstock">Out of stock</span></p><div class="product-desc"></div></div>
+                </div>
+            </div>
+        </li>
+        <li class="col-xs-12 col-md-4 col-sm-6 post-2276 product type-product status-publish has-post-thumbnail product_cat-clean-face product_cat-duong-da product_cat-nuoc-can-bang product_cat-san-pham-khuyen-mai product_cat-san-pham-noi-bat last instock sale shipping-taxable purchasable product-type-simple">
+            <div class="product-container">
+                <a href="https://thefaceshopvn.com/san-pham/nuoc-can-bang-ngan-ngua-mun-clean-face-mild-toner-2/" class="woocommerce-LoopProduct-link"></a><div class="left-block">
+                    <a href="https://thefaceshopvn.com/san-pham/nuoc-can-bang-ngan-ngua-mun-clean-face-mild-toner-2/" class="woocommerce-LoopProduct-link">
+                    </a><a href="https://thefaceshopvn.com/san-pham/nuoc-can-bang-ngan-ngua-mun-clean-face-mild-toner-2/">
+                        <img width="300" height="366" src="https://thefaceshopvn.com/wp-content/uploads/2017/04/clean_face_mild_toner_b7968875-0a45-4554-7d18-bb5d42b4bca7_grande-300x366.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="clean_face_mild_toner_b7968875-0a45-4554-7d18-bb5d42b4bca7_grande" title="clean_face_mild_toner_b7968875-0a45-4554-7d18-bb5d42b4bca7_grande" srcset="https://thefaceshopvn.com/wp-content/uploads/2017/04/clean_face_mild_toner_b7968875-0a45-4554-7d18-bb5d42b4bca7_grande-100x122.jpg 100w, https://thefaceshopvn.com/wp-content/uploads/2017/04/clean_face_mild_toner_b7968875-0a45-4554-7d18-bb5d42b4bca7_grande-300x366.jpg 300w, https://thefaceshopvn.com/wp-content/uploads/2017/04/clean_face_mild_toner_b7968875-0a45-4554-7d18-bb5d42b4bca7_grande-270x329.jpg 270w" sizes="(max-width: 300px) 100vw, 300px">
+                    </a><div class="quick-view"><div class="woocommerce product compare-button"><a href="https://thefaceshopvn.com?action=yith-woocompare-add-product&amp;id=2276" class="compare button" data-product_id="2276" rel="nofollow">Compare</a></div><a href="#" class="search yith-wcqv-button" data-product_id="2276">Quick View</a></div>
+                    <div class="add-to-cart"><a href="/danh-muc/duong-da/nuoc-can-bang/?add-to-cart=2276" rel="nofollow" data-product_id="2276" data-product_sku="" data-quantity="1" class="add_to_cart_button product_type_simple">Thêm vào giỏ</a></div><a href="#" class="button yith-wcqv-button" data-product_id="2276">Quick View</a>
+                </div><div class="right-block">
+                    <h5 class="product-name"><a title="Nước Cân Bằng Ngăn Ngừa Mụn CLEAN FACE MILD TONER" href="https://thefaceshopvn.com/san-pham/nuoc-can-bang-ngan-ngua-mun-clean-face-mild-toner-2/">Nước Cân Bằng Ngăn Ngừa Mụn CLEAN FACE MILD TONER</a></h5><div class="content_price">
+                        <span class="price"><del><span class="woocommerce-Price-amount amount">325,000<span class="woocommerce-Price-currencySymbol">₫</span></span></del> <ins><span class="woocommerce-Price-amount amount">265,000<span class="woocommerce-Price-currencySymbol">₫</span></span></ins></span><div class="product-star" title="Rated 0 out of 5"><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></div>
+                    </div><div class="info-orther"><p class="availability">Availability: <span class="instock">In stock</span><span class="outofstock">Out of stock</span></p><div class="product-desc"></div></div>
+                </div>
+            </div>
+        </li>
+        <li class="first col-xs-12 col-md-4 col-sm-6 post-3842 product type-product status-publish has-post-thumbnail product_cat-bo-san-pham-duong-da product_cat-chia-seed product_cat-duong-da product_cat-nuoc-can-bang product_cat-san-pham-noi-bat product_cat-xit-khoang  instock sale shipping-taxable purchasable product-type-simple">
+            <div class="product-container">
+                <a href="https://thefaceshopvn.com/san-pham/nuoc-can-bang-xit-khoang-cung-cap-nuoc-chia-seed-calming-mist-toner/" class="woocommerce-LoopProduct-link"></a><div class="left-block">
+                    <a href="https://thefaceshopvn.com/san-pham/nuoc-can-bang-xit-khoang-cung-cap-nuoc-chia-seed-calming-mist-toner/" class="woocommerce-LoopProduct-link">
+                    </a><a href="https://thefaceshopvn.com/san-pham/nuoc-can-bang-xit-khoang-cung-cap-nuoc-chia-seed-calming-mist-toner/">
+                        <img width="300" height="366" src="https://thefaceshopvn.com/wp-content/uploads/2018/04/chiaseedhydratingmisttoner_136123ef-192b-4e7f-ae67-4c2bfe54e58c_master-300x366.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="chiaseedhydratingmisttoner_136123ef-192b-4e7f-ae67-4c2bfe54e58c_master" title="chiaseedhydratingmisttoner_136123ef-192b-4e7f-ae67-4c2bfe54e58c_master" srcset="https://thefaceshopvn.com/wp-content/uploads/2018/04/chiaseedhydratingmisttoner_136123ef-192b-4e7f-ae67-4c2bfe54e58c_master-100x122.jpg 100w, https://thefaceshopvn.com/wp-content/uploads/2018/04/chiaseedhydratingmisttoner_136123ef-192b-4e7f-ae67-4c2bfe54e58c_master-300x366.jpg 300w, https://thefaceshopvn.com/wp-content/uploads/2018/04/chiaseedhydratingmisttoner_136123ef-192b-4e7f-ae67-4c2bfe54e58c_master-270x329.jpg 270w" sizes="(max-width: 300px) 100vw, 300px">
+                    </a><div class="quick-view"><div class="woocommerce product compare-button"><a href="https://thefaceshopvn.com?action=yith-woocompare-add-product&amp;id=3842" class="compare button" data-product_id="3842" rel="nofollow">Compare</a></div><a href="#" class="search yith-wcqv-button" data-product_id="3842">Quick View</a></div>
+                    <div class="add-to-cart"><a href="/danh-muc/duong-da/nuoc-can-bang/?add-to-cart=3842" rel="nofollow" data-product_id="3842" data-product_sku="" data-quantity="1" class="add_to_cart_button product_type_simple">Thêm vào giỏ</a></div><a href="#" class="button yith-wcqv-button" data-product_id="3842">Quick View</a>
+                </div><div class="right-block">
+                    <h5 class="product-name"><a title="Nước Cân Bằng, Xịt khoáng Cung Cấp Nước CHIA SEED CALMING MIST TONER" href="https://thefaceshopvn.com/san-pham/nuoc-can-bang-xit-khoang-cung-cap-nuoc-chia-seed-calming-mist-toner/">Nước Cân Bằng, Xịt khoáng Cung Cấp Nước CHIA SEED CALMING MIST TONER</a></h5><div class="content_price">
+                        <span class="price"><del><span class="woocommerce-Price-amount amount">519,000<span class="woocommerce-Price-currencySymbol">₫</span></span></del> <ins><span class="woocommerce-Price-amount amount">399,000<span class="woocommerce-Price-currencySymbol">₫</span></span></ins></span><div class="product-star" title="Rated 0 out of 5"><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></div>
+                    </div><div class="info-orther"><p class="availability">Availability: <span class="instock">In stock</span><span class="outofstock">Out of stock</span></p><div class="product-desc"></div></div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+<form class="woocommerce-ordering" method="get">
+    <select name="orderby" class="orderby">
+        <option value="menu_order" selected="selected">Thứ tự mặc định</option>
+        <option value="popularity">Thứ tự theo mức độ phổ biến</option>
+        <option value="rating">Thứ tự theo điểm đánh giá</option>
+        <option value="date">Thứ tự theo sản phẩm mới</option>
+        <option value="price">Thứ tự theo giá: thấp đến cao</option>
+        <option value="price-desc">Thứ tự theo giá: cao xuống thấp</option>
+    </select>
+</form>
+

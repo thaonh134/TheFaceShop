@@ -1,0 +1,122 @@
+﻿@using ananlips.Areas.Admin.Models
+ <!-- Left panel : Navigation area -->
+<!-- Note: This width of the aside area can be adjusted through LESS variables -->
+<aside id="left-panel">
+
+    <!-- User info -->
+    @*@{ Html.RenderPartial("_CurrentUser"); }*@
+    <!-- end user info -->
+    <!-- NAVIGATION : This navigation is also responsive
+
+    To make this navigation dynamic please make sure to link the node
+    (the reference to the nav > ul) after page load. Or the navigation
+    will not initialize.
+    -->
+    <nav>
+        <!-- NOTE: Notice the gaps after each icon usage <i></i>..
+        Please note that these links work a bit different than
+        traditional href="" links. See documentation for details.
+        -->
+
+        <ul id="menuLeft">
+            @{
+                HttpCookie cookie = HttpContext.Current.Request.Cookies["Language"];
+                var lang = "en";
+                //if (cookie != null && cookie.Value != null)
+                //{
+                //    lang = cookie.Value;
+                //}
+                var listAllMenu = new AuthMenu().GetAllMenu(lang);
+                var listRoot = listAllMenu.Where(p => p.parentmenuid == "" || p.parentmenuid== null).OrderBy(p => p.menuindex).ToList();
+                var viewMenu = ananlips.Service.CustomController.GetViewData();
+            }
+            @foreach (var root in listRoot)
+            {
+                if (viewMenu.ContainsKey("menu_" + root.menuid) && viewMenu["menu_" + root.menuid])
+                {
+                    <li style="border-bottom: 1px dotted #ddd;">
+                        @{
+                    var listItem = listAllMenu.Where(p => p.parentmenuid== root.menuid).OrderBy(p => p.menuindex).ToList();
+                        }
+                        @if (listItem.Count > 0)
+                        {
+                            <a href="#">
+                                @*<i class="@root.Icon"></i>*@
+                                <span class="menu-item-parent" style="font-weight:bold;">@root.entryname</span>
+                            </a>
+                            <ul id="ul_root_@root.menuindex">
+                                @foreach (var item in listItem)
+                                {
+
+                                    if (viewMenu.ContainsKey("menu_" + item.menuid) && viewMenu["menu_" + item.menuid])
+                                    {
+                                        <li>
+                                            @{
+                                        listItem = listAllMenu.Where(p => p.parentmenuid== item.menuid).OrderBy(p => p.menuindex).ToList();
+                                            }
+                                            @if (listItem.Count > 0)
+                                            {
+                                                <a href="#">
+                                                    <span class="menu-item-parent">@item.entryname</span>
+                                                </a>
+                                                <ul id="ul_item_@item.menuindex">
+                                                    @foreach (var item2 in listItem)
+                                                    {
+                                                        if (viewMenu.ContainsKey("menu_" + item2.menuid) && viewMenu["menu_" + item2.menuid])
+                                                        {
+                                                            <li>
+                                                                @{
+                                                            listItem = listAllMenu.Where(p => p.parentmenuid    == item2.menuid).OrderBy(p => p.menuindex).ToList();
+                                                                }
+                                                                @if (listItem.Count > 0)
+                                                                {
+                                                                    <a href="#"><span class="menu-item-parent">@item2.entryname</span></a>
+                                                                    <ul id="ul_item2_@item2.menuindex">
+                                                                        @foreach (var item3 in listItem)
+                                                                        {
+                                                                            if (viewMenu.ContainsKey("menu_" + item3.menuid) && viewMenu["menu_" + item3.menuid])
+                                                                            {
+                                                                                <li>
+                                                                                    <a href="@Url.Content("~/" + (string.IsNullOrEmpty(item3.areasname)?"":item3.areasname+"/") +item3.controllername)" id="menu_@item3.controllername" class="redirectbyajax">@item3.entryname</a>
+                                                                                </li>
+                                                                            }
+                                                                        }
+                                                                    </ul>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <a href="@Url.Content("~/" + (string.IsNullOrEmpty(item2.areasname)?"":item2.areasname+"/")  +item2.controllername)" id="menu_@item2.controllername">@item2.entryname class = "redirectbyajax"</a>
+                                                                }
+                                                            </li>
+                                                        }
+                                                    }
+                                                </ul>
+                                            }
+                                            else
+                                            {
+                                                <a href="@Url.Content("~/" + (string.IsNullOrEmpty(item.areasname)?"":item.areasname+"/")  +item.controllername)" id="menu_@item.controllername" class="redirectbyajax">@item.entryname</a>
+                                            }
+                                        </li>
+                                    }
+                                }
+                            </ul>
+                        }
+                        else
+                        {
+                            <a href="@Url.Content("~/HOHome")" id="menu_@root.controllername">
+                                <i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">@root.entryname</span>
+                            </a>
+                            @*<a href="javascript:void(0)" id="menu_@root.controllername"><i class="fa fa-lg fa-fw fa-home"></i>@root.MenuName</a>*@
+                        }
+                    </li>
+                }
+            }
+        </ul>
+
+    </nav>
+    <span class="minifyme" data-action="minifyMenu">
+        <i class="fa fa-arrow-circle-left hit"></i>
+    </span>
+
+</aside>
+<!-- END NAVIGATION -->

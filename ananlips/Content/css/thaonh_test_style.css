@@ -1,0 +1,166 @@
+﻿/*
+    * Container and pre box 
+    */
+.form-group .tw-upload .multi {
+}
+
+.tw-upload .tw-container-upload {
+    width: 100%;
+    float: left;
+    position: relative;
+    min-height: 144px;
+}
+
+    .tw-upload .tw-container-upload ul.tw-box-upload {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        padding-left: 0;
+    }
+
+    .tw-upload .tw-container-upload ul li {
+        list-style-type: none;
+        display: list-item;
+    }
+
+    .tw-upload .tw-container-upload.box-row-6 ul.tw-box-upload li {
+        float: left;
+        width: 27%;
+        margin: 0 1% 2%;
+        height: 66px;
+        border: 1px dashed #ccc;
+        border-radius: 3px;
+    }
+
+        .tw-upload .tw-container-upload.box-row-6 ul.tw-box-upload li .tw-upload-item {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            display: none;
+        }
+
+        .tw-upload .tw-container-upload.box-row-6 ul.tw-box-upload li.item-src {
+            border: none;
+        }
+
+
+            .tw-upload .tw-container-upload.box-row-6 ul.tw-box-upload li.item-src .tw-upload-item {
+                display: block;
+            }
+
+                .tw-upload .tw-container-upload.box-row-6 ul.tw-box-upload li.item-src .tw-upload-item img {
+                    width: 100%;
+                    height: 100%;
+                }
+
+    .tw-upload .tw-container-upload ul.tw-box-upload li:first-child {
+        height: 140px;
+        width: 40%;
+        margin: 0 1% 1%;
+    }
+
+
+/*
+        *Kendo Upload
+        */
+.tw-upload .k-upload {
+    background-color: transparent;
+    border: 0;
+    position: relative;
+    /* text-align: right; */
+}
+
+    .tw-upload .k-upload .k-dropzone {
+        padding: 0;
+        overflow: inherit;
+        margin-top: 7px;
+    }
+
+    .tw-upload .k-upload .k-upload-files {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 120px;
+        border: none;
+        margin: 0;
+        clear: both;
+        overflow: hidden;
+        text-align: left;
+        line-height: 1.6;
+    }
+
+.tw-upload .k-upload-button {
+    border-radius: 2px;
+    font-weight: bold;
+}
+
+    .tw-upload .k-upload-button:hover {
+        background-color: rgb(93, 186, 0) !important;
+        color: white;
+    }
+
+    .tw-upload .k-upload-button input {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: 1;
+        font: 170px monospace !important;
+        filter: alpha(opacity=0);
+        opacity: 0;
+        margin: 0;
+        padding: 0;
+        cursor: pointer;
+    }
+
+.tw-upload .k-upload-status {
+    top: 2px !important;
+}
+
+.tw-upload .k-upload .upload-error, .tw-upload .k-file .k-icon {
+    display: none;
+}
+
+
+.tw-upload ul li .imgDel {
+    color: #7a7a7a;
+    height: 20px;
+    width: 20px;
+    background: rgba(255,255,255,0.6);
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    left: auto;
+    line-height: 16px;
+    display: none;
+    cursor: pointer;
+}
+
+.tw-upload ul li:hover .imgDel {
+    display: block;
+}
+.tw-upload ul li .imgDel:before {
+    content: "\f00d";
+    color: #dd4c5a;
+    width: 10px;
+    height: 10px;
+    line-height: 10px;
+    z-index: 1;
+    font-size: 12px;
+}
+.tw-upload ul li .icon {
+    opacity: .5;
+    bottom: 3px;
+}
+
+.icon {
+    overflow: hidden;
+    border: 1px solid transparent;
+    text-align: center;
+    font-size: 16px;
+    font-family: FontAwesome;
+}

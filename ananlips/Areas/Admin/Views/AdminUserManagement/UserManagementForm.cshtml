@@ -1,0 +1,293 @@
+@using ananlips.Areas.Admin.Models;
+@using ananlips.Resources;
+
+@{
+    var dict = Model != null ? (Dictionary<string, object>)Model : new Dictionary<string, object>();
+    var listActiveStatus = dict.ContainsKey("activestatus") ? (List<DDLModel>)dict["activestatus"] : new List<DDLModel>();
+    var listLanguage = dict.ContainsKey("listlanguage") ? (List<DDLModel>)dict["listlanguage"] : new List<DDLModel>();
+    var redirectbyajax = dict.ContainsKey("redirectbyajax") ? dict["redirectbyajax"].ToString() : "0";
+    var areasname = dict.ContainsKey("areasname") && !string.IsNullOrEmpty(dict["areasname"].ToString()) ? "/" + dict["areasname"].ToString() : "";
+    var newData = new AuthUser();
+}
+@{
+    var V_ID = ViewBag.ID;
+
+}
+@*layout config*@
+@{
+    if (redirectbyajax == "1") { Layout = null; }
+}
+<style>
+    .pac-container {
+        z-index: 1051 !important;
+    }
+</style>
+<script>
+    if (!param_obj) {
+        param_obj.entryid = "@ViewBag.entryid";
+        param_obj.actiontype = "form";
+    }
+
+</script>
+
+<script>
+   
+</script>
+
+<div id="popup" style="display: none;">
+</div>
+<script id="EditTemplate" type="text/x-kendo-template">
+    <div class="row">
+        <div class="col-md-12">
+
+        </div>
+
+    </div>
+    <div class="row">
+
+        <div class="col-md-12">
+            @using (Html.BeginForm("Create", "AdminUserManagement", FormMethod.Post, new { @class = "form-horizontal", id = "formPopup", enctype = "multipart/form-data" }))
+            {
+                @Html.Hidden("entryid", "#=entryid#");
+                @Html.Hidden("entrycode", "#=entrycode#");
+
+                <fieldset class="col-lg-6" style="float: left;">
+                    <div class="caption" style="margin-bottom: 10px;">
+                        <h5 style="color: rgb(31, 78, 120); margin-bottom: 0px">Detail</h5>
+                        <hr style=" margin-top: 0px;">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-4" style="">entryname<span class="required">*</span></label>
+                        <div class=" col-md-8 ">
+                            <input class="form-control input-sm" name="entryname" id="entryname" value="#=entryname!=null? entryname : ''#" placeholder="entryname" />
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="">
+                        <label class="control-label col-md-4" style="">isactive</label>
+                        <div class=" col-md-8 ">
+                            <select class="form-control input-sm" id="isactive" name="isactive">
+                                @for (var i = 0; i < listActiveStatus.Count; i++)
+                                {
+                                    <option value="@Html.Raw(listActiveStatus[i].ID)">@Html.Raw(listActiveStatus[i].Name)</option>
+                                }
+                            </select>
+
+
+                        </div>
+                    </div>
+
+                </fieldset>
+                <fieldset class="col-lg-6" style="border: none; float: left">
+
+                    <div class="caption" style="margin-bottom: 10px;">
+                        <h5 style="color: rgb(31, 78, 120); margin-bottom: 0px">More infor</h5>
+                        <hr style=" margin-top: 0px;">
+                    </div>
+
+                </fieldset>
+
+                <div class="form-actions" style="margin:0">
+                    <div class="row" style="text-align: left">
+                        <div class="col-md-12">
+
+                            <button type="submit" class="btn btn-primary tw-btn-save" id="btnSubmit"><i class="fa fa-save"></i> @Html.Raw(tw_Lang.Common_btn_Save)</button>
+
+                        </div>
+
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+
+
+</script>
+
+<script>
+    $(document).ready(function () {
+        // resource lang
+        resource_lang = loadResourceForm(resource_lang);
+        //popup
+        param_obj.idopengrid = "";
+        if (param_obj) {
+            if (!param_obj.entryid || param_obj.entryid == '0') clearForm(param_obj);
+            else edit(param_obj);
+        }
+    });
+    //load Resource Lang for Form
+    function loadResourceForm(obj) {
+        if (!obj) obj = {};
+
+        //mess
+        obj.AdminUserManagement_titleform_Add = "Add New";
+        obj.AdminUserManagement_titleform_Update = "Update Item";
+        //mess validate
+        obj.Common_mess_RequiredInformation = "@Html.Raw(tw_Lang.Common_mess_RequiredInformation)";
+        obj.Common_mess_WrongSyntax = "@Html.Raw(tw_Lang.Common_mess_WrongSyntax)";
+        obj.Common_mess_MissingInformation = "@Html.Raw(tw_Lang.Common_mess_MissingInformation)";
+        //btn
+        obj.Common_mess_btn_Cancel = "@Html.Raw(tw_Lang.Common_mess_btn_Cancel)";
+        obj.Common_mess_btn_Confirm = "@Html.Raw(tw_Lang.Common_mess_btn_Confirm)";
+
+        return obj;
+    }
+    //===========================================Popup Form ===========================================
+
+    //Numeric format form
+    function autoNumericOnFormElement() {
+        //Numeric format
+        //autoNumericOnForm($('#formPopupSales_Order_JobQueue_TVN #extend_time'), 'numberRule', { aSign: ' lần', pSign: 's' });
+    }
+
+    //Update
+    function edit(obj) {
+        blockUIFromUser(true);
+        $.post(r + "/AdminUserManagement/GetByID", { entryid: obj.entryid }, function (data) {
+            if (data.success) {
+                var value = data.data;
+
+                loadForm(value, 1);
+                if (obj.actiontype == "popup" && obj.url) window.history.pushState({}, '', r + obj.url);
+            }
+            else {
+                alertBox(resource_lang.Common_mess_CommitFail, "", false, 3000);
+                console.log(data.message);
+            }
+        });
+    }
+    //clear
+    function clearForm(obj) {
+        loadForm(JSON.parse('@Html.Raw(Json.Encode(newData))'), 0);
+        if (obj.actiontype == "popup" && obj.url) window.history.pushState({}, '', r + obj.url);
+    }
+
+    //Load data for template : can set or reset form by value input
+    function loadForm(data, type) {
+
+        //goi template
+        var EditTemplate = kendo.template($("#EditTemplate").html());
+
+        if (param_obj.actiontype == "popup") {
+            bootbox.dialog({
+                closeButton: true,
+                animate: false,
+                backdrop: true,
+                className: "normalPopupWidth",
+                message: '<div id="DivEdit"></div>', title: (type == 0 ? resource_lang.AdminUserManagement_titleform_Add : resource_lang.AdminUserManagement_titleform_Update),
+                onEscape: function () {
+                    onClosePopupCustom();
+                }
+
+            });
+            $("#DivEdit").html(EditTemplate(data));
+        }
+        else
+            $("#popup").show().html(EditTemplate(data));
+
+        initTwinApp();//Runs the following functions all at once: validate custom,picker,bootbox event- and also activates all tooltip and popovers
+
+        //hotkey
+        isOpenPopup = true;
+
+        //forcus
+        setForcusPopup('formPopup');
+
+        //selection
+        //generateSelect2('s', 'formPopup #roleid', data.roleid == 0 ? null : data.roleid, '100%');
+        //generateSelect2('s', 'formPopup #languageid', data.languageid == 0 ? null : data.languageid, '100%');
+        generateSelect2('s', 'formPopup #isactive', (data.isactive == false ? 'false' : 'true'), '100%');
+
+        //multiselect
+
+        //set type nodata cho option
+
+        //process when change value
+       
+
+        validateFormPopup();
+
+
+
+
+    }
+
+    //Validate form
+    function validateFormPopup() {
+        $("#formPopup").validate({
+            // Rules for form validation
+            rules: {
+                entrycode: {
+                    required: true,
+                },
+                entryname: {
+                    required: true
+                },
+                isactive: {
+                    required: true
+                },
+               
+
+            },
+
+            // Messages for form validation
+            messages: {
+                entrycode: {
+                    required: resource_lang.Common_mess_RequiredInformation
+                },
+                entryname: {
+                    required: resource_lang.Common_mess_RequiredInformation
+                },
+                isactive: {
+                    required: resource_lang.Common_mess_RequiredInformation
+                },
+               
+            },
+
+            // Do not change code below
+            errorPlacement: function (error, element) {
+                error.insertAfter(element);
+            },
+
+            submitHandler: function (form) {
+                $(form).ajaxSubmit({
+                    //clearForm: true,//To clear form after ajax submitting
+                    beforeSend: function () {
+                        blockUIFromUser(true);
+                    },
+                    success: function (data) {
+                        if (data.success) {
+                            var value = data.data;
+                            param_obj.entryid = value.entryid;
+                            var urlNow = "";
+                            if (param_obj.actiontype == "form") urlNow = r + param_obj.ourl + "/FormPopup?" + "entryid=" + entryid;
+
+                            if (param_obj.actiontype == "popup") urlNow = r + param_obj.ourl + "?" + "entryid=" + entryid + "&actiontype=popup";
+
+                            param_obj.url = urlNow;
+
+                            if (!param_obj.actiontype == "form") window.open(param_obj.url);
+                            else if (param_obj.actiontype == "popup") {
+                                alertBox(resource_lang.Common_mess_CommitSuccess, "", true, 3000);
+                                $("#grid").data("kendoGrid").dataSource.read();
+
+                                bootbox.hideAll();
+                                //edit(param_obj, 1);
+                                setTimeout(function () { showHide(value.entryid) }, 100);
+                            }
+                        }
+                        else {
+                            alertBox(resource_lang.Common_mess_CommitFail, data.message, false, 3000);
+                            console.log(data.message);
+                        }
+                        $("#loading").addClass('hide');
+                    }
+                });
+                return false;
+            }
+        });
+    }
+
+
+</script>

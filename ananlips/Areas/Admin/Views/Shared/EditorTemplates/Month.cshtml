@@ -1,0 +1,2 @@
+﻿@model DateTime?
+@(Html.Kendo().DatePickerFor(m => m).Depth(CalendarView.Year).Start(CalendarView.Year).Format("yyyy-MM").ParseFormats(new string[]{"yyyy-MM"}))

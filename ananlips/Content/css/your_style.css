@@ -1,0 +1,303 @@
+﻿/*
+ * It is advised not to edit the smartadmin_production.css
+ * as this will override any changes you make in the 
+ * later versions of this theme. 
+ * 
+ * We advise that you use use this CSS to override 
+ * SmartAdmin styles. 
+ * 
+ * Rename the stylesheet to whatever your liking so it will stay
+ * unique to you with each update of SmartAdmin.
+ */
+
+/*
+ * INDEX
+ * 
+ * - HTML
+ * - BODY
+ * - CUSTOM STYLES
+ */
+
+/*html {
+    background: none;
+}*/
+
+.k-grid-content {
+    transition: 0.3s height;
+}
+
+.no-k-button {
+    margin-left: 3px;
+}
+
+.bold-text{
+    font-weight: bold;
+}
+
+.overflow-td-grid {
+    max-width: 400px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.table > tbody > tr.active > td, .table > tbody > tr.active > th, .table > tbody > tr > td.active, .table > tbody > tr > th.active, .table > tfoot > tr.active > td, .table > tfoot > tr.active > th, .table > tfoot > tr > td.active, .table > tfoot > tr > th.active, .table > thead > tr.active > td, .table > thead > tr.active > th, .table > thead > tr > td.active, .table > thead > tr > th.active {
+    background-color: #f9f9f9;
+}
+
+.smart-style-2 nav ul li a:hover, .smart-style-2 nav ul ul li > a:hover {
+    color: #3276b1 !important;
+}
+
+.smart-style-2 nav ul li a {
+    color: #000 !important;
+}
+
+.smart-style-2 nav > ul > li > a > i {
+    font-size: 16px !important;
+}
+
+.smart-style-2 #left-panel {
+    padding: 0px;
+    padding-top: 52px;
+}
+
+.nav-tabs {
+    border: none;
+}
+
+    .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
+        border: none;
+    }
+
+.formsearch {
+    border: none;
+    margin: 4px 0 3px -5px;
+}
+
+    .formsearch fieldset {
+        padding: 15px 0px 10px 0px;
+    }
+
+        .formsearch fieldset .row {
+            margin: 0px;
+        }
+
+            .formsearch fieldset .row section {
+                padding: 0px 5px 0 5px !important;
+            }
+
+    .formsearch .col {
+        padding-left: 10px;
+    }
+
+.smart-style-2 .btn-primary, .smart-style-2 .smart-form .button {
+    background-color: #2D82C3;
+    border-color: #3276b1;
+}
+
+.smart-style-2 .btn-danger {
+    background-color: #F44336;
+    border-color: #E82B1D;
+}
+
+    .smart-style-2 .btn-danger.active, .smart-style-2 .btn-danger:active, .smart-style-2 .btn-danger:focus, .smart-style-2 .btn-danger:hover, .smart-style-2 .open .dropdown-toggle.btn-danger {
+        background-color: #E43636;
+        border-color: #CC2A2A;
+    }
+
+.smart-style-2 .btn-success {
+    background-color: rgb(69, 185, 73);
+    border-color: #42AB46;
+}
+
+    .smart-style-2 .btn-success.active, .smart-style-2 .btn-success:active, .smart-style-2 .btn-success:focus, .smart-style-2 .btn-success:hover, .smart-style-2 .open .dropdown-toggle.btn-success {
+        background-color: #53D257;
+        border-color: #4FC553;
+    }
+
+.btn-info {
+    color: #fff;
+    background-color: #2EB6CC;
+    border-color: #259CAF;
+}
+
+    .btn-info.active, .btn-info:active, .btn-info:focus, .btn-info:hover, .open > .dropdown-toggle.btn-info {
+        color: #fff;
+        background-color: #32A9AF;
+        border-color: #4997B9;
+    }
+
+.smart-style-2 .btn-warning {
+    background-color: #EF9B1C;
+    border-color: #EA9410;
+}
+
+    .smart-style-2 .btn-warning.active, .smart-style-2 .btn-warning:active, .smart-style-2 .btn-warning:focus, .smart-style-2 .btn-warning:hover, .smart-style-2 .open .dropdown-toggle.btn-warning {
+        background-color: #E88D2E;
+        border-color: #E68015;
+    }
+body:not(.menu-on-top).desktop-detected {
+    min-height: auto !important;
+}
+.nav > li > a {
+    position: relative;
+    display: block;
+    padding: 5px 10px 5px 10px;
+}
+
+.nav-tabs > li.active > a {
+    background-color: #2D82C3;
+    color: #fff;
+}
+
+.nav-tabs > li > a {
+    border: none;
+    border-radius: 3px 3px 0 0;
+    border-right: 1px dotted #ccc;
+}
+
+.nav > li > a:hover {
+    background-color: #84C1F1;
+    color: #fff;
+    border: none;
+    border-right: 1px dotted #ccc;
+}
+
+.nav > li > a:focus, .nav > li > a:hover {
+    border: none;
+    border-right: 1px dotted #ccc;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
+    background-color: #2D82C3;
+    color: #fff;
+}
+
+.k-grid-content {
+    min-height: 300px;
+}
+
+.popupinput .k-grid-content {
+    min-height: 380px;
+    max-height: 380px;
+}
+
+
+.popupinput .smart-form fieldset + fieldset {
+    border: none;
+}
+
+.popupinput .smart-form fieldset {
+    padding: 5px 10px 5px 10px;
+}
+
+    .popupinput .smart-form fieldset h3 {
+        color: #2D82C3;
+    }
+
+.textHightLightInGrid {
+    color: rgb(50, 118, 177);
+    font-size: 14px;
+}
+
+.textInGrid {
+    color: black;
+}
+
+.textNumberTypeInGrid {
+    text-align: right;
+}
+
+.disableTextBoxclass {
+    background-color: #F5F5F5 !important;
+    border: 1px #E8E8E8 solid !important;
+    color: #AFAFAF !important;
+}
+
+.smart-form {
+    color: black !important;
+}
+
+    .smart-form labe {
+        color: black !important;
+    }
+
+.k-block,
+.k-widget,
+.k-popup,
+.k-content,
+.k-dropdown .k-input {
+    color: black;
+}
+
+body {
+    color: black;
+}
+a{
+    text-decoration:none !important;
+}
+.divCustomKendoDatePicker {
+    position: absolute;
+    top: 20px;
+    left: -200px;
+    border: 1px solid;
+    width: 196px;
+    height: 60px;
+    background-color: #92C7F5;
+}
+
+/*Phần này của phonght*/
+.btn-new {
+        background-color: #9B6FB1;
+        color: white;
+    }
+
+.btn-new:hover {
+    background-color: #8F5FA7;
+    color: white;
+}
+
+.border_edit {
+    border: 2px solid #ff6a00 !important;
+}
+
+header[role="heading"] {
+    background-color: #C6EFCE;
+    color: #006100;
+}
+
+.btn-ver{
+    margin-bottom: 3px;
+}
+
+.label-success{
+    background-color: #048243!important;
+}
+
+.label-primary{
+    background-color: #3f51b5!important;
+}
+
+.label-info{
+    background-color: #027a81!important;
+}
+
+.label-warning{
+    background-color: #b65e10!important;
+}
+
+/*Hết phần của phonght*/
+
+/*thaonh: custome kendo vs bootstrap*/
+.k-animation-container, .k-widget, .k-widget *, .k-animation-container *, .k-widget *:before, .k-animation-container *:after, .k-block .k-header, .k-list-container {
+        box-sizing: border-box;
+}
+.k-window-titlebar.k-header {
+     box-sizing: content-box;
+}
+#divSmallBoxes {
+        z-index: 99999;
+}
+
+

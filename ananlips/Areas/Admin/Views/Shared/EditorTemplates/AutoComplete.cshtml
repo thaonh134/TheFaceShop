@@ -1,0 +1,9 @@
+﻿@model object
+
+@(Html.Kendo().AutoCompleteFor(m => m)
+        .DataTextField("Value")
+        .Filter(FilterType.Contains)
+        .BindTo((SelectList)ViewData[ViewData.TemplateInfo.GetFullHtmlFieldName("") + "_Data"])
+
+       
+)

@@ -1,0 +1,10 @@
+@model DateTime?
+
+@(Html.Kendo().DatePickerFor(m => m)
+        //.Culture(System.Threading.Thread.CurrentThread.CurrentCulture.ToString())
+    .HtmlAttributes(new { 
+        style = "text-align:right;", custom_type = "Date",
+        custom_editable = true, custom_default_value = "", 
+    })
+    .Value(DateTime.Now)
+)

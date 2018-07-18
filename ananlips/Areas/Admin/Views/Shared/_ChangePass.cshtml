@@ -1,0 +1,88 @@
+﻿@using ananlips.Resources
+@model ananlips.Areas.Admin.Models.ChangePasswordModel
+
+<script>
+    resource_lang = loadResourceForm_ChangePass(resource_lang);
+
+    function loadResourceForm_ChangePass(obj) {
+        if (!obj) obj = {};
+
+        //mess
+        obj.Common_titleform_ChangePassUser = "@Html.Raw(tw_Lang.Common_titleform_ChangePassUser)";
+        obj.Common_mess_MissingInformation = "@Html.Raw(tw_Lang.Common_mess_MissingInformation)";
+        obj.Common_mess_CommitSuccess = "@Html.Raw(tw_Lang.Common_mess_CommitSuccess)";
+        obj.Common_mess_CommitFail = "@Html.Raw(tw_Lang.Common_mess_CommitFail)";
+        obj.Common_mess_ChangePassSuccess = "@Html.Raw(tw_Lang.Common_mess_ChangePassSuccess)";
+        obj.Common_mess_ChangePassFail = "@Html.Raw(tw_Lang.Common_mess_ChangePassFail)";
+        
+        //validate
+        obj.Common_mess_OldPasswordRequired = "@Html.Raw(tw_Lang.Common_mess_OldPasswordRequired)";
+        obj.Common_mess_PasswordRequired = "@Html.Raw(tw_Lang.Common_mess_PasswordRequired)";
+        obj.Common_mess_RePasswordRequired = "@Html.Raw(tw_Lang.Common_mess_RePasswordRequired)";
+        obj.Common_mess_NotMatchPassword = "@Html.Raw(tw_Lang.Common_mess_NotMatchPassword)";
+
+        //btn
+        obj.Common_btn_Add = "@Html.Raw(tw_Lang.Common_btn_Add)";
+        obj.Common_btn_Active = "@Html.Raw(tw_Lang.Common_btn_Active)";
+        obj.Common_btn_InActive = "@Html.Raw(tw_Lang.Common_btn_InActive)";
+
+        obj.HOAdminAuthUser_title_Page = "@Html.Raw(tw_Lang.HOAdminAuthUser_title_Page)";
+        obj.HOAdminAuthUser_btn_PasswordRecovery = "@Html.Raw(tw_Lang.HOAdminAuthUser_btn_PasswordRecovery)";
+
+        return obj;
+    }
+</script>
+
+<script id="ChangePassTemplate" type="text/x-kendo-template">
+    <div class="row">
+        <div class="col-md-12">
+
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            @using (Html.BeginForm("ChangePassword", "Account", FormMethod.Post, new {@class = "form-horizontal", id = "formPopupChangePass", enctype = "multipart/form-data"}))
+            {
+                @Html.HiddenFor(m => m.UserNameChange, new {Value = User.Identity.Name})
+
+                <fieldset class="col-lg-12" style="float: left;">
+                    <div class="caption" style="margin-bottom: 10px;">
+                        <h5 style="color: rgb(31, 78, 120); margin-bottom: 0px">@Html.Raw(tw_Lang.Common_lbl_InforForm)</h5>
+                        <hr style=" margin-top: 0px;">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3" style="">@Html.Raw(tw_Lang.Common_lbl_OldPassword)<span class="required">*</span></label>
+                        <div class=" col-md-9 ">
+                            <input class="form-control input-sm" type="password" name="OldPass" id="OldPass" placeholder="@Html.Raw(tw_Lang.Common_lbl_OldPassword)" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3" style="">@Html.Raw(tw_Lang.Common_lbl_NewPassword)<span class="required">*</span></label>
+                        <div class=" col-md-9 ">
+                            <input class="form-control input-sm" type="password" name="NewPass" id="NewPass" placeholder="@Html.Raw(tw_Lang.Common_lbl_NewPassword)" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3" style="">@Html.Raw(tw_Lang.Common_lbl_ConfirmNewPassword)<span class="required">*</span></label>
+                        <div class=" col-md-9 ">
+                            <input class="form-control input-sm" type="password" name="RepeatNewPass" id="RepeatNewPass" placeholder="@Html.Raw(tw_Lang.Common_lbl_ConfirmNewPassword)" />
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="form-actions" style="margin:0">
+                    <div class="row" style="text-align: left">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-primary tw-btn-save" id="btnSubmit"><i class="fa fa-save"></i> @Html.Raw(tw_Lang.Common_btn_Save)</button>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+
+</script>
+
+

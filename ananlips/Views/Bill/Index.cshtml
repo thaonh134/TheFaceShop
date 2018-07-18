@@ -1,0 +1,108 @@
+﻿@using ananlips.Models;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutBill.cshtml";
+    var dict = Model != null ? (Dictionary<string, object>)Model : new Dictionary<string, object>();
+    var data_Bill = dict.ContainsKey("data_Bill") ? (DefaultView.FE_Bill)dict["data_Bill"] : new DefaultView.FE_Bill();
+
+}
+
+<div id="primary" class="content-area">
+    <main id="main" class="site-main">
+        <div class="main-content">
+            <div class="woocommerce">
+                <form class="woocommerce-cart-form" action="https://thefaceshopvn.com/cart/" method="post">
+                    <table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents" cellspacing="0">
+                        <thead><tr><th class="product-remove">&nbsp;</th><th class="product-thumbnail">&nbsp;</th><th class="product-name">Sản phẩm</th><th class="product-price">Giá</th><th class="product-quantity">Số lượng</th><th class="product-subtotal">Tổng cộng</th></tr></thead>
+                        <tbody>
+                            <tr class="woocommerce-cart-form__cart-item cart_item">
+                                <td class="product-remove">
+                                    <a href="https://thefaceshopvn.com/cart/?remove_item=03255088ed63354a54e0e5ed957e9008&amp;_wpnonce=e6c115102f" class="remove" aria-label="Xóa sản phẩm này" data-product_id="2327" data-product_sku="">×</a>
+                                </td>
+                                <td class="product-thumbnail">
+                                    <a href="https://thefaceshopvn.com/san-pham/kem-duong-giup-da-san-min-pomegranate-and-collagen-volume-lifting-cream/"><img width="100" height="122" src="//thefaceshopvn.com/wp-content/uploads/2017/04/600x600_master-100x122.png" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="600x600_master" srcset="//thefaceshopvn.com/wp-content/uploads/2017/04/600x600_master-100x122.png 100w, //thefaceshopvn.com/wp-content/uploads/2017/04/600x600_master-300x366.png 300w, //thefaceshopvn.com/wp-content/uploads/2017/04/600x600_master-420x512.png 420w, //thefaceshopvn.com/wp-content/uploads/2017/04/600x600_master-270x329.png 270w" sizes="(max-width: 100px) 100vw, 100px"></a>
+                                </td>
+                                <td class="product-name" data-title="Sản phẩm">
+                                    <a href="https://thefaceshopvn.com/san-pham/kem-duong-giup-da-san-min-pomegranate-and-collagen-volume-lifting-cream/">Kem Dưỡng Giúp Da Săn Mịn POMEGRANATE AND COLLAGEN VOLUME LIFTING CREAM</a>
+                                </td>
+                                <td class="product-price" data-title="Giá">
+                                    <span class="woocommerce-Price-amount amount">449,000<span class="woocommerce-Price-currencySymbol">₫</span></span>
+                                </td>
+                                <td class="product-quantity" data-title="Số lượng">
+                                    <div class="quantity">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="quantity-label">
+                                                        Số lượng
+                                                    </td>
+                                                    <td>
+                                                        <span class="quantity-minus">-</span>
+                                                        <input type="text" step="1" min="0" name="cart[03255088ed63354a54e0e5ed957e9008][qty]" value="2" title="Qty" class="input-text qty text" size="4">
+                                                        <span class="quantity-plus">+</span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </td>
+                                <td class="product-subtotal" data-title="Tổng cộng">
+                                    <span class="woocommerce-Price-amount amount">898,000<span class="woocommerce-Price-currencySymbol">₫</span></span>
+                                </td>
+                            </tr>
+                            <tr class="woocommerce-cart-form__cart-item cart_item">
+                                <td class="product-remove">
+                                    <a href="https://thefaceshopvn.com/cart/?remove_item=7cc532d783a7461f227a5da8ea80bfe1&amp;_wpnonce=e6c115102f" class="remove" aria-label="Xóa sản phẩm này" data-product_id="2343" data-product_sku="">×</a>
+                                </td>
+                                <td class="product-thumbnail">
+                                    <a href="https://thefaceshopvn.com/san-pham/power-long-lasting-sun-cream/"><img width="100" height="122" src="//thefaceshopvn.com/wp-content/uploads/2017/04/theface_598_light-500x500_master-100x122.jpg" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="theface_598_light-500x500_master" srcset="//thefaceshopvn.com/wp-content/uploads/2017/04/theface_598_light-500x500_master-100x122.jpg 100w, //thefaceshopvn.com/wp-content/uploads/2017/04/theface_598_light-500x500_master-300x366.jpg 300w, //thefaceshopvn.com/wp-content/uploads/2017/04/theface_598_light-500x500_master-270x329.jpg 270w" sizes="(max-width: 100px) 100vw, 100px"></a>
+                                </td>
+                                <td class="product-name" data-title="Sản phẩm">
+                                    <a href="https://thefaceshopvn.com/san-pham/power-long-lasting-sun-cream/">Kem Chống Nắng Đa Chức Năng NATURAL SUN ECO POWER LONG-LASTING SUN CREAM SPF50+ PA+++</a>
+                                </td>
+                                <td class="product-price" data-title="Giá">
+                                    <span class="woocommerce-Price-amount amount">365,000<span class="woocommerce-Price-currencySymbol">₫</span></span>
+                                </td>
+                                <td class="product-quantity" data-title="Số lượng">
+                                    <div class="quantity">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="quantity-label">
+                                                        Số lượng
+                                                    </td>
+                                                    <td>
+                                                        <span class="quantity-minus">-</span>
+                                                        <input type="text" step="1" min="0" name="cart[7cc532d783a7461f227a5da8ea80bfe1][qty]" value="1" title="Qty" class="input-text qty text" size="4">
+                                                        <span class="quantity-plus">+</span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </td>
+                                <td class="product-subtotal" data-title="Tổng cộng">
+                                    <span class="woocommerce-Price-amount amount">365,000<span class="woocommerce-Price-currencySymbol">₫</span></span>
+                                </td>
+                            </tr>
+                            <tr><td colspan="4" style="text-align:right">Tổng cộng</td><td>3</td><td><span class="price-text" style="color: red;    font-weight: 600;"><span class="woocommerce-Price-amount amount">1,263,000<span class="woocommerce-Price-currencySymbol">₫</span></span></span></td></tr>
+                        </tbody>
+                    </table><div class="clearfix">
+                        <div class="pull-left">
+                            <a href="https://thefaceshopvn.com" class="continue_shopping"><i class="fa fa-angle-left"></i>Tiếp tục mua hàng</a>
+                        </div><div class="cart-buttons inner-right">
+                            <div class="buttons clearfix">
+                                <input type="submit" class="button update_cart_incart" name="update_cart" value="Cập nhật lại giỏ hàng">
+                                <a href="https://thefaceshopvn.com/checkout/" class="checkout-button button alt wc-forward">
+                                    Thanh toán
+                                    <input type="hidden" id="_wpnonce" name="_wpnonce" value="e6c115102f"><input type="hidden" name="_wp_http_referer" value="/cart/">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </form><div class="cart-collaterals"></div>
+            </div>
+        </div>
+    </main>
+</div>
+

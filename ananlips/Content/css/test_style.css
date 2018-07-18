@@ -1,0 +1,280 @@
+﻿.addProduct .product-upload {
+    min-height: 200px;
+}
+.posR {
+    position: relative;
+}
+article, aside, canvas, figure, figure img, figcaption, hgroup, footer, header, nav, section, audio, video {
+    display: block;
+}
+.product-upload:after {
+    position: absolute;
+    content: "";
+    width: 1px;
+    height: 50px;
+    background-color: #FFF;
+    top: 15px;
+    left: -11px;
+}
+.swiper-slide ul, .addProduct ul.same {
+    margin-left: -1%;
+    margin-right: -1%;
+}
+.addProduct ul.same {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+.product-upload ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.addProduct ul li:first-child, .addProduct  ul.same li:first-child {
+    width: 40%;
+    margin: 0 1% 1%;
+    height: 140px;
+}
+.addProduct ul li, .addProduct ul.same li {
+    float: left;
+    width: 27%;
+    margin: 0 1% 2%;
+    height: 66px;
+}
+.addProduct ul.same li {
+    border: 1px dashed #ccc;
+    border-radius: 5px;
+}
+.form-horizontal *:not(th):not(td):not(.paging-box):not([class*="k-"]) {
+    box-sizing: border-box;
+}
+.addProduct .proListImg {
+    min-height: 140px;
+}
+.posR {
+    position: relative;
+}
+.swiper-container {
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+    z-index: 1;
+}
+.addProduct .swiper-wrapper {
+    min-width: 0;
+}
+.swiper-wrapper, .swiper-wrapper .swiper-slide {
+    height: auto !important;
+    width: 100% !important;
+}
+.swiper-wrapper {
+    position: relative;
+    width: 100%;
+    -webkit-transition-property: -webkit-transform, left, top;
+    -webkit-transition-duration: 0s;
+    -webkit-transform: translate3d(0px,0,0);
+    -webkit-transition-timing-function: ease;
+    -moz-transition-property: -moz-transform, left, top;
+    -moz-transition-duration: 0s;
+    -moz-transform: translate3d(0px,0,0);
+    -moz-transition-timing-function: ease;
+    -o-transition-property: -o-transform, left, top;
+    -o-transition-duration: 0s;
+    -o-transform: translate3d(0px,0,0);
+    -o-transition-timing-function: ease;
+    -o-transform: translate(0px,0px);
+    -ms-transition-property: -ms-transform, left, top;
+    -ms-transition-duration: 0s;
+    -ms-transform: translate3d(0px,0,0);
+    -ms-transition-timing-function: ease;
+    transition-property: transform, left, top;
+    transition-duration: 0s;
+    transform: translate3d(0px,0,0);
+    transition-timing-function: ease;
+}
+.swiper-slide {
+    float: left;
+}
+.swiper-slide ul, .addProduct ul.same {
+    margin-left: -1%;
+    margin-right: -1%;
+}
+.swiper-slide ul {
+    list-style: none;
+}
+.product-upload .ProductImageUpload .img-pr {
+    padding-bottom: 10px;
+}
+.k-window-poup .img-pr {
+    position: relative;
+}
+.k-window-poup .img-pr label {
+    display: block;
+}
+.k-window-poup .k-upload {
+    background-color: #FFF;
+    border: 0;
+    position: relative;
+    /* text-align: right; */
+}
+.addProduct * {
+    box-sizing: border-box;
+}
+.upload-error {
+    border: 1px solid #F5D2E2;
+    color: #d92800;
+    position: absolute;
+    left: 120px;
+    right: 0;
+    top: 0;
+    background: #ffe0d9;
+    padding: 8px;
+    border-radius: 3px;
+    display: none;
+}
+.addProduct .k-upload .k-dropzone {
+    padding: 0;
+}
+.ProductImageUpload .k-dropzone {
+    overflow: inherit;
+    margin-top: 7px;
+}
+.k-dropzone, .k-fieldselector .k-list .k-item, .k-list .k-state-focused, .k-list .k-state-highlight, .k-list .k-state-hover, .k-list .k-state-selected, .k-list-optionlabel {
+    border-radius: 3px;
+}
+.k-dropzone {
+    border-style: solid;
+    border-width: 0;
+    padding: .8em;
+    background-color: transparent;
+}
+.k-dropzone, .k-file {
+    position: relative;
+}
+.addProduct .k-upload-button {
+    background: #f2f2f2;
+    border: 1px solid #ccc;
+    border-radius: 2px!important;
+    box-shadow: none!important;
+    position: relative;
+    height: 32px;
+    width: 110px;
+}
+.k-button:not(.kv2Btn) {
+    background: #dfdfdf;
+    color: #333;
+}
+.k-upload .k-upload-button {
+    min-width: 7.167em;
+}
+.kv2Btn, .k-button {
+    padding: 12px;
+}
+.kv2Btn, .k-button {
+    z-index: 0;
+    display: inline-block;
+    background: #5dba00;
+    color: #fff;
+    font-weight: bold;
+    font-size: 12px;
+    padding: 11px 25px 8px 20px;
+    white-space: nowrap;
+    border: none;
+    vertical-align: middle;
+    border-radius: 2px;
+    position: relative;
+    cursor: pointer;
+}
+.k-upload-button {
+    position: relative;
+    overflow: hidden;
+    direction: ltr;
+}
+.k-upload .k-dropzone em {
+    display: none;
+}
+.k-dropzone em, .k-other-month, .k-other-month .k-link, .k-slider .k-draghandle, .k-state-disabled, .k-state-disabled .k-button, .k-state-disabled .k-link, .k-tile-empty strong {
+    color: #9f9f9f;
+}
+.k-dropzone em {
+    visibility: hidden;
+    margin-left: .6em;
+}
+.k-dropzone em, .k-upload-button {
+    vertical-align: middle;
+}
+.upload-error {
+    border: 1px solid #F5D2E2;
+    color: #d92800;
+    position: absolute;
+    left: 120px;
+    right: 0;
+    top: 0;
+    background: #ffe0d9;
+    padding: 8px;
+    border-radius: 3px;
+    display: none;
+}
+.addProduct .proListImg ul li img {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    border-radius: 3px;
+}
+.k-window-poup .proListImg ul li .imgDel {
+    color: #7a7a7a;
+    height: 20px;
+    width: 20px;
+    background: rgba(255,255,255,0.6);
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    left: auto;
+    line-height: 16px;
+    display: none;
+}
+.swiper-slide ul li .icon {
+    width: 100%;
+    position: absolute;
+    left: 3px;
+    top: 0;
+    bottom: 3px;
+    height: 100%;
+    background-color: #fff;
+    opacity: .5;
+}
+.addProduct ul li:first-child, .addProduct ul.same li:first-child {
+    width: 40%;
+    margin: 0 1% 1%;
+    height: 140px;
+}
+.addProduct ul li, .addProduct ul.same li {
+    float: left;
+    width: 27%;
+    margin: 0 1% 2%;
+    height: 66px;
+}
+.addProduct ul.same li {
+    border: 1px dashed #ccc;
+    border-radius: 5px;
+}
+.addProduct ul li, .addProduct ul.same li {
+    float: left;
+    width: 27%;
+    margin: 0 1% 2%;
+    height: 66px;
+}
+.addProduct .proListImg ul li {
+    position: relative;
+    border-radius: 3px;
+}

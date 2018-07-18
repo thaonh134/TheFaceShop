@@ -1,0 +1,27 @@
+﻿  .row_header {
+        cursor: pointer;
+    }
+
+    table .active.row_header td {
+        border-top: thin solid red;
+    }
+
+    table .active.row_detail td {
+        border-bottom: thin solid red;
+    }
+
+    table .active > td:first-child {
+        border-left: thin solid red;
+    }
+
+    table .active > td:last-child {
+        border-right: thin solid red;
+    }
+
+    table tr.active.row_detail:hover {
+        background-color: white;
+    }
+
+    table tr.row_header:not(.active):hover {
+        background-color: #C6EFCE !important;
+    }

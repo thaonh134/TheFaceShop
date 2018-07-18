@@ -1,0 +1,483 @@
+@using ananlips.Areas.Admin.Models;
+@using ananlips.Resources;
+
+@using Kendo.Mvc.UI;
+
+@{
+    var dict = Model != null ? (Dictionary<string, object>)Model : new Dictionary<string, object>();
+    var listActiveStatus = dict.ContainsKey("activestatus") ? (List<DDLModel>)dict["activestatus"] : new List<DDLModel>();
+    var listLanguage = dict.ContainsKey("listlanguage") ? (List<DDLModel>)dict["listlanguage"] : new List<DDLModel>();
+    var redirectbyajax = dict.ContainsKey("redirectbyajax") ? dict["redirectbyajax"].ToString() : "0";
+    var areasname = dict.ContainsKey("areasname") && !string.IsNullOrEmpty(dict["areasname"].ToString()) ? "/" + dict["areasname"].ToString() : "";
+    var newData = new AuthUser();
+}
+
+@*layout config*@
+@{
+    if (redirectbyajax == "1") { Layout = null; }
+}
+@*router render popup*@
+
+<script language="javascript" type="text/javascript">
+
+    var numHeight = 195;
+    var template;
+
+    //Xử lý param_obj
+    param_obj = {};
+    param_obj.ourl = "/Admin/MasterProductManagement";
+    param_obj.entryid = "@ViewBag.entryid";
+    param_obj.actiontype = "@ViewBag.actiontype";
+    param_obj.fa = "@ViewBag.fa";
+
+    // resource lang
+    resource_lang = {};
+    resource_lang = loadResource(resource_lang);
+
+    //popup
+    if (param_obj.actiontype == "popup") renderForm(param_obj.fa);
+    else $('.k-overlay').trigger("click");
+
+    function loadResource(obj) {
+        if (!obj) obj = {};
+
+        //mess
+
+        obj.Common_mess_RecoverSuccess = "@Html.Raw(tw_Lang.Common_mess_RecoverSuccess)";
+        obj.Common_mess_ActiveSuccess = "@Html.Raw(tw_Lang.Common_mess_ActiveSuccess)";
+        obj.Common_mess_InActiveSuccess = "@Html.Raw(tw_Lang.Common_mess_InActiveSuccess)";
+        obj.Common_mess_btn_Cancel = "@Html.Raw(tw_Lang.Common_mess_btn_Cancel)";
+        obj.Common_mess_btn_Confirm = "@Html.Raw(tw_Lang.Common_mess_btn_Confirm)";
+        obj.Common_mess_MissingInformation = "@Html.Raw(tw_Lang.Common_mess_MissingInformation)";
+        obj.Common_mess_CommitSuccess = "@Html.Raw(tw_Lang.Common_mess_CommitSuccess)";
+        obj.Common_mess_CommitFail = "@Html.Raw(tw_Lang.Common_mess_CommitFail)";
+        //lbl
+        obj.Common_lbl_Refresh = "@Html.Raw(tw_Lang.Common_lbl_Refresh)";
+        obj.Common_lbl_ActiveStatus = "@Html.Raw(tw_Lang.Common_lbl_ActiveStatus)";
+        obj.Common_lbl_InActiveStatus = "@Html.Raw(tw_Lang.Common_lbl_InActiveStatus)";
+
+        //btn
+        obj.Common_btn_Add = "@Html.Raw(tw_Lang.Common_btn_Add)";
+        obj.Common_btn_Active = "@Html.Raw(tw_Lang.Common_btn_Active)";
+        obj.Common_btn_InActive = "@Html.Raw(tw_Lang.Common_btn_InActive)";
+
+        obj.AdminProductManagement_title_Page = "ProductManagement";
+
+        return obj;
+    }
+
+    $(document).ready(function () {
+
+            setActiveMenu($("#menu_AdminProductManagement")[0]);
+            setTimeout(function () { document.title = resource_lang.AdminProductManagement_title_Page; }, 100);
+            loadToolbarStyle();
+            resizedivMainContent();
+
+            //fillter & form popup
+            generateSelect2('s', 'filterisactive', null, '100%');
+
+            //goi ham search khi nhan enter
+            $("#filterentryname, #filterentrycode")
+                .keypress(function (e) {
+                    if (e.keyCode == 13) {
+                        doSearch();
+                    }
+                });
+            $("#filterisactive")
+                .change(function () {
+                    doSearch();
+                });
+            template = kendo.template($("#template").html(), { useWithBlock: false });
+            onInitFunctionForm('formPopup', 'btnInsert', 'btnSubmit');
+
+
+        });
+
+    //template
+    function showHide(id) {
+        if ($('.row_detail_' + id).css('display') == 'none') {
+            $('.row_header').addClass('tw-grid-row');
+            $('.row_detail').hide();
+            $('.row_header_' + id).removeClass('tw-grid-row').addClass('tw-grid-active-row');
+            //$('.row_detail_' + id).show('100');
+            $('.row_detail_' + id).show();
+
+            $('.row_header').removeClass("active");
+            $('.row_detail').removeClass("active");
+            $('.row_header_' + id).addClass("active");
+            $('.row_detail_' + id).addClass("active");
+        } else {
+            $('.row_header_' + id).removeClass('tw-grid-active-row').addClass('tw-grid-row');
+            $('.row_detail_' + id).hide();
+            $('.row_header_' + id).removeClass("active");
+            $('.row_detail_' + id).removeClass("active");
+        }
+    }
+
+    //========================================== router Form/Popup ====================================
+
+    //render form
+    function renderForm(fa) {
+
+        param_obj.redirectbyajax = 1;
+        var dataPost = param_obj;
+        fa = fa ? fa : "FormPopup";
+        $.get(r + param_obj.ourl + "/" + fa,
+           dataPost,
+           function (data) {
+               htmlData = data;
+               $("#divPopup").empty().html(htmlData);
+           }).fail(function () {
+               console.log("page not found " + fa);
+               setTimeout(function () { alertBox(resource_lang.Common_mess_CommitFail, "404 - (Page Not Found)", false, 3000); }, 1000);
+           });
+
+    }
+
+    //routerActionLink
+    function routerActionLink(obj) {
+        param_obj.actiontype = $(obj).data('actiontype');
+        param_obj.entryid = $(obj).data('entryid') ? $(obj).data('entryid') : null;
+        param_obj.entrykey = $(obj).data('entrykey') ? $(obj).data('entrykey') : null;
+        param_obj.fa = $(obj).data('fa') ? $(obj).data('fa') : null;
+
+        param_obj.url = set_router_url(param_obj);
+        if (param_obj.actiontype == "form") {
+            window.open(param_obj.url);
+        } else if (param_obj.actiontype == "popup") {
+            renderForm(param_obj.fa);
+        }
+    }
+
+    ////cấu hình các parame inout ở hàm này
+    function set_router_url(obj) {
+        //f: formName o controller
+        var urlParam = '';
+        var url_return = "";
+        if (obj.entryid) urlParam += '&entryid=' + obj.entryid;
+        if (obj.entrykey) urlParam += '&entrykey=' + obj.entrykey;
+
+        if (param_obj.actiontype == "form") {
+            if (obj.fa) {
+                if (urlParam != '') url_return = r + obj.ourl + '/' + obj.fa + '?' + urlParam.substring(1);
+                else url_return = r + obj.ourl + '/' + fa;
+            }
+            else {
+                if (urlParam != '') url_return = r + obj.ourl + '/FormPopup?' + urlParam.substring(1);
+                else url_return = r + obj.ourl + '/FormPopup';
+            }
+
+        } else if (param_obj.actiontype == "popup") {
+            if (obj.fa) urlParam += '&fa=' + obj.fa;
+            if (obj.actiontype) urlParam += '&actiontype=' + obj.actiontype;
+            if (urlParam != '') url_return = obj.ourl + '?' + urlParam.substring(1);
+            else url_return = obj.ourl + '';
+        }
+        return url_return;
+    }
+
+    //========================================== code co ban ====================================
+    //get data filter for read data of grid
+    function getDataFilter() {
+        return {
+            isactive: $('#filterisactive').val()
+        }
+    }
+
+    //search
+    function doSearch() {
+        blockUIFromUser(false);
+        var grid = $("#grid").data("kendoGrid");
+        var filter = { logic: "and", filters: [] };
+        var text = $("#filterentryname").val();
+        if (text) {
+            var filterOr = { logic: "or", filters: [] };
+            filterOr.filters.push({ field: "entryid", operator: "contains", value: text });
+            filterOr.filters.push({ field: "entryname", operator: "contains", value: text });
+            filterOr.filters.push({ field: "entrycode", operator: "contains", value: text });
+            filter.filters.push(filterOr);
+        }
+
+        text = $("#filterentrycode").val();
+        if (text) {
+            filter.filters.push({ field: "entrycode", operator: "contains", value: text });
+        }
+        var temppp = grid.dataSource.filter;
+        grid.dataSource.filter(filter);
+    }
+
+    //search
+    function doRefresh() {
+        $("#filterentryname").val('');
+        $("#filterentrycode").val('');
+        generateSelect2('s', 'filterisactive', '', '100%');
+
+        var isFilterType = false; // 0|1 : khi refresh chỉ đọc grid | refresh có gọi filter manual
+        if (isFilterType) doSearch();
+        else $('#grid').data('kendoGrid').dataSource.sort({});
+
+    }
+
+    //grid
+    function onDatabound(e) {
+        //resizeGrid(numHeight);
+        var grid = $("#grid").data("kendoGrid");
+
+        // ask the parameterMap to create the request object for you
+        var requestObject = (new kendo.data.transports["aspnetmvc-server"]({ prefix: "" }))
+            .options.parameterMap({
+                page: grid.dataSource.page(),
+                sort: grid.dataSource.sort(),
+                filter: grid.dataSource.filter()
+            });
+        // Get the export link as jQuery object
+        var $exportLink = grid.element.find('.export');
+        var href = $exportLink.attr('href');
+        if (href) {
+            href = href.replace(/sort=([^&]*)/, 'sort=' + requestObject.sort || '~');
+            href = href.replace(/filter=([^&]*)/, 'filter=' + (requestObject.filter || '~'));
+            $exportLink.attr('href', href);
+        }
+        changeStatusGrid('grid');
+
+        $("#btnInsert").html("<i class='glyphicon glyphicon-refresh'></i> " + resource_lang.Common_btn_Add);
+        $("#btnSearchF").html("<i class='glyphicon glyphicon-refresh'></i>");
+        $("#btnSearchF")
+            .tooltip({
+                title: resource_lang.Common_lbl_Refresh,
+                placement: "left",
+                container: "body"
+            });
+
+    }
+
+    function onRequestStart(e) {
+        blockUIFromUser(false);
+    }
+
+    function onRequestEnd(e) {
+        if (e.type == "update" || e.type == "create" || e.type == "delete") {
+            if (e.response.Errors == null) {
+                alertBox(resource_lang.Common_mess_CommitSuccess, "", true, 3000);
+            } else {
+                alertBox(resource_lang.Common_mess_CommitFail, "", false, 3000);
+            }
+        }
+    }
+
+
+
+    //Cập nhật trạng thái kích hoạt
+    function onUpdateActiveStatus(entryid, Name, isactive) {
+        if (entryid) {
+            $.SmartMessageBox({
+                title: isactive == 'true'
+                    ? resource_lang.Common_lbl_ActiveStatus
+                    : resource_lang.Common_lbl_InActiveStatus,
+                content: (isactive == 'true'
+                        ? resource_lang.Common_lbl_ActiveStatus
+                        : resource_lang.Common_lbl_InActiveStatus) +
+                    " '" +
+                    Name +
+                    "' ?",
+                buttons: '[' + resource_lang.Common_mess_btn_Cancel + '][' + resource_lang.Common_mess_btn_Confirm + ']'
+            },
+                function (ButtonPressed) {
+                    if (ButtonPressed === resource_lang.Common_mess_btn_Confirm) {
+                        blockUIFromUser(true);
+                        $.post(r + "/AdminProductManagement/UpdateActiveStatus",
+                            { entryid: entryid, isactive: isactive },
+                            function (data) {
+                                if (data.success) {
+                                    $('#grid').data('kendoGrid').dataSource.read();
+                                    setTimeout(function () { showHide(entryid) }, 100);
+                                    alertBox((isactive == 'true'
+                                            ? resource_lang.Common_mess_ActiveSuccess
+                                            : resource_lang.Common_mess_InActiveSuccess),
+                                        "",
+                                        true,
+                                        3000);
+
+                                } else {
+                                    alertBox(resource_lang.Common_mess_CommitFail, data.message, false, 3000);
+                                    console.log(data.message);
+                                }
+                            });
+                    }
+
+                });
+            $("#bot1-Msg1").addClass("btn btn-default btn-sm").prepend('<i class="glyphicon glyphicon-remove"></i>');
+            $("#bot2-Msg1").addClass("btn btn-primary btn-sm").prepend('<i class="fa fa-check"></i>');
+        } else {
+            alertBox(resource_lang.Common_mess_CommitFail, resource_lang.Common_mess_MissingInformation, false, 3000);
+        }
+    }
+
+
+    //==========================================================================================
+</script>
+<div id="divPopup" style="display: none">
+</div>
+
+<div class="widget-body">
+    @if (true)
+    {
+        <div class="divSearch">
+            <div class=" col-sm-12" style="left: -10px;">
+                <form class="form-horizontal" id="formSearch">
+                    <article class="tw_widget col-sm-12">
+                        <div class="tw_widget_container">
+                            <header class="tw_widget_heading">
+                                <div class="tw_widget_title">
+                                    <i class="glyphicon glyphicon-search"></i>
+                                    <span>@Html.Raw(tw_Lang.Common_cap_Search)</span>
+                                </div>
+                                <div class="widget_action">
+                                    <a class="button-icon toggle-btn"><i class="fa fa-minus"></i></a>
+                                </div>
+                            </header>
+                            <aside class="tw_widget_contain">
+
+                                <div class="form-group col-sm-12" style="margin-left: 0;margin-right:0">
+                                    <input type="text" class="form-control" id="filterentryname" placeholder="entryname">
+
+                                </div>
+                                
+                                <div class="form-group col-sm-12" style="margin-left: 0; margin-right: 0">
+                                    <select class="form-control input-sm" id="filterisactive">
+                                        <option value="">-- isactive --</option>
+                                        @for (var i = 0; i < listActiveStatus.Count; i++)
+                                        {
+                                            <option value="@Html.Raw(listActiveStatus[i].ID)">@Html.Raw(listActiveStatus[i].Name)</option>
+                                        }
+                                    </select>
+
+                                </div>
+                            </aside>
+                        </div>
+                    </article>
+
+                </form>
+            </div>
+        </div>
+    }
+
+    <div class="divMainContent">
+        <div class="row">
+            <!-- NEW COL START -->
+            @(Html.Kendo().Grid<ananlips.Areas.Admin.Models.Product>
+    ()
+    .Name("grid")
+    .Columns(columns =>
+    {
+    columns.Bound(p => p.entryid).Title("entryid");
+    columns.Bound(p => p.entrycode).Title("entrycode");
+    columns.Bound(p => p.entryname).Title("entryname");
+    columns.Bound(p => p.isactive).Title(Html.Raw(tw_Lang.Common_ddl_ActiveStatus).ToString());
+
+    })
+    .ClientRowTemplate("#=template(data)#")
+    .ToolBar(toolBar =>
+    {
+    toolBar.Custom()
+    .Text(Html.Raw(tw_Lang.Common_btn_Add).ToString())
+    .HtmlAttributes(new { id = "btnInsert", @class = "btn btn-success tw-btn-add btn-sm no-k-button", data_actiontype = "popup", onclick = "routerActionLink(this)", @href = "javascript:void(0)" });
+    toolBar.Custom()
+    .Text("")
+    .HtmlAttributes(new { id = "btnSearchF", @class = "btn btn-default tw-btn-refresh btn-sm no-k-button pull-right", onclick = "doRefresh()", @href = "javascript:void(0)" });
+
+    })
+    .Events(events => { events.DataBound("onDatabound"); })
+    .Pageable(pager => pager.PageSizes(new[] { 10, 20, 50, 100 }))
+    .Resizable(r => r.Columns(true))
+    .Sortable()
+    .DataSource(dataSource => dataSource
+    .Ajax()
+    .Batch(true)
+    .PageSize(10)
+    .Model(model =>
+    {
+    model.Id(p => p.entryid);
+    }
+    )
+    .Events(e => { e.RequestEnd("onRequestEnd"); e.RequestStart("onRequestStart"); })
+    .Read(read => read.Action("Read", "MasterProductManagement").Data("getDataFilter"))
+    )
+    )
+</div>
+    </div>
+</div>
+<script id="template" type="text/kendo-tmpl">
+    <tr class="row_header row_header_#=data.entryid#" onclick="showHide('#=data.entryid#')">
+        <td style="text-align:right;">
+            #=data.entryid#
+        </td>
+        <td>
+            #=data.entrycode#
+        </td>
+        <td>
+            #=data.entryname#
+        </td>
+        <td>
+            <span data-column='isactive'>#=data.isactive#</span>
+        </td>
+    </tr>
+    <tr class="row_detail row_detail_#=data.entryid#" style="display: none;">
+        <td colspan="4">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="caption" style="margin-bottom: 10px;">
+                            <h5 style="color: rgb(31, 78, 120); margin-bottom: 0px">Detail</h5>
+                            <hr style=" margin-top: 0px;">
+                        </div>
+                        <div class="form-group tw-form-group-grid">
+                            <label class="control-label tw-lbl-field-title">entryname</label>
+                            <div class="tw-lbl-field-value">
+                                <strong>#=data.entryname#</strong>
+                            </div>
+                            <div style="clear:both"></div>
+                        </div>
+
+                        <div class="form-group tw-form-group-grid">
+                            <label class="control-label tw-lbl-field-title">isactive</label>
+                            <div class="tw-lbl-field-value">
+                                <span data-column='isactive'>#=data.isactive#</span>
+                            </div>
+                            <div style="clear:both"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="caption" style="margin-bottom: 10px;">
+                            <h5 style="color: rgb(31, 78, 120); margin-bottom: 0px">More infor</h5>
+                            <hr style=" margin-top: 0px;">
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="row">
+                <div class="col-md-12" style="text-align: left;">
+                    <div>
+                        #if(data.entryid != 0){#
+                        <button class="btn btn-sm btn-success tw-btn-edit" data-entryid="#=data.entryid#" data-actiontype="popup" onclick='routerActionLink(this)'><i class="glyphicon glyphicon-pencil"></i> @Html.Raw(tw_Lang.Common_btn_Edit)</button>
+                        #if(data.isactive == true){#
+                        <button class="btn btn-sm btn-warning tw-btn-inactivate" onclick="onUpdateActiveStatus('#=data.entryid#', '#=data.entryname#', '#=!data.isactive#')"><i class="glyphicon glyphicon-off"></i>@Html.Raw(tw_Lang.Common_btn_InActive)</button>
+                        #}else{#
+                        <button class="btn btn-sm btn-primary tw-btn-activate" onclick="onUpdateActiveStatus('#=data.entryid#', '#=data.entryname#', '#=!data.isactive#')"><i class="glyphicon glyphicon-open"></i>@Html.Raw(tw_Lang.Common_btn_Active)</button>
+                        #}#
+                        #}#
+                    </div>
+
+                </div>
+            </div>
+        </td>
+    </tr>
+</script>
+
+
+
+
+

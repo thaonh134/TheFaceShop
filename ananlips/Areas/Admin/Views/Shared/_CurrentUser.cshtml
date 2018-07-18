@@ -1,0 +1,345 @@
+﻿@using ananlips.Areas.Admin.Models
+@using ananlips.Resources
+@{
+
+    var dataUser =(AuthUser) ViewData["AuthUser"];
+}
+<input type="hidden" id="currentUserIDLayout" value="@dataUser.entryid" />
+<div class="login-info pull-right" style="display: inline-flex; padding: 7px 10px 0px 0px; border: none; background: transparent;">
+    @if (dataUser != null)
+    {
+        if (!string.IsNullOrEmpty(dataUser.avatarpath))
+        {
+            <div style="margin-right: 10px;">
+                <span id="btnEditInfor">
+                    <img style="height: 36px; width: 36px; border: 2px solid #FFF; cursor: pointer; box-sizing: border-box;" src="@Url.Content("~/" + dataUser.avatarpath)" alt="@dataUser.fullname" class="img-circle AvatarPathUser" onerror="imgErrorLogo(this)" />
+                </span>
+            </div>
+        }
+        else
+        {
+            <div style="margin-right: 10px;">
+                <span id="btnEditInfor">
+                    <img style="height: 36px; width: 36px; border: 2px solid #FFF; cursor: pointer; box-sizing: border-box;" src="@Url.Content("~/upload/default_img_user.png")" alt="@dataUser.fullname" class="img-circle AvatarPathUser" onerror="imgErrorLogo(this)" />
+                </span>
+            </div>
+        }
+
+        <div style="color: white;">
+            <div style="float: left; clear: both">
+                <div style="float: left">
+                    @Html.Raw(tw_Lang.Common_lbl_Hello),<b> @dataUser.fullname </b>
+                </div>
+            </div>
+            <!-- multiple lang dropdown : find all flags in the flags page -->
+            <ul id="tw-language" class="header-dropdown-list hidden-xs" style="float: left;">
+                <li>
+                    <a href="#" class="dropdown-toggle currentLang" data-toggle="dropdown" style="background: transparent"> <img src="~/content/img/blank.gif" class="flag flag-us" alt="English">  </a>
+                    <ul class="dropdown-menu pull-right">
+                        <li>
+                            <a href="javascript:void(0);" data-lang="en" onclick="onChangeLang(this)"><img src="~/content/img/blank.gif" class="flag flag-us" alt="English"> English </a>
+                        </li>
+
+                        <li>
+                            <a href="javascript:void(0);" data-lang="vi" onclick="onChangeLang(this)"><img src="~/content/img/blank.gif" class="flag flag-vn" alt="Việt Nam"> Tiếng Việt </a>
+                        </li>
+
+
+                    </ul>
+                </li>
+            </ul>
+            <!-- end multiple lang -->
+            <br/>
+            <div style="float: left">
+                <a id="btnChangePass" href="javascript:void(0);" title="Change password" style="color: white; font-size: 12px;">@Html.Raw(tw_Lang.Common_btn_ChangePassword)</a> |
+                <a id="logout" href="@Url.Content("~/account/logoff")" title="Đăng xuất" data-action="userLogout" data-logout-msg="" style="color: white; font-size: 12px;">@Html.Raw(tw_Lang.Common_btn_LogOut)</a>
+            </div>
+        </div>
+    }
+</div>
+<div style="display: none" id="logoutLanguage">
+    <span id="LayOut_lbl_LogOut">@Html.Raw(tw_Lang.LayOut_lbl_LogOut)</span>
+    <span id="LayOut_lbl_LogOutMsg">@Html.Raw(tw_Lang.LayOut_lbl_LogOutMsg)</span>
+    <span id="LayOut_btn_LogOutActionYes">@Html.Raw(tw_Lang.LayOut_btn_LogOutActionYes)</span>
+    <span id="LayOut_btn_LogOutActionNo">@Html.Raw(tw_Lang.LayOut_btn_LogOutActionNo)</span>
+</div>
+<div id="divChangePassContainer"></div>
+<div id="divEditinforContainer"></div>
+<script>
+
+    $(document).ready(function () {
+        $("#btnChangePass").click(function () {
+
+            //goi popup ChangePass
+            showPopupChangePass();
+        });
+
+        $("#btnEditInfor").click(function () {
+            idPopup = ".k-window";
+            $("#divMaskPopup").show();
+
+            var UserID = $('#currentUserIDLayout').val();
+            showPopupEditInfor(UserID);
+        });
+
+        function showPopupChangePass() {
+            $.get(r + "/HOHome/PartialChangePass", {}, function (data) {
+                $('#divChangePassContainer').html(data);
+                loadPopupChangePass();
+
+            });
+        }
+
+        function showPopupEditInfor(userID) {
+            idEditInfor = userID;
+            $.get(r + "/HOAdminAuthUser/PartialEditInfor", {}, function (data) {
+
+                
+                $('#divEditinforContainer').html(data);
+                loadPopupEditInfor(userID);
+
+            });
+        }
+
+        function loadPopupChangePass() {
+            
+            var EditTemplate = kendo.template($("#ChangePassTemplate").html());
+            bootbox.dialog({
+                closeButton: true,
+                animate: false,
+                backdrop: true,
+                className: "smallPopupWidth",
+                message: '<div id="DivChangePass"></div>', title: resource_lang.Common_titleform_ChangePassUser,
+                onEscape: function () {
+                    onClosePopupCustom();
+                }
+
+            });
+            $("#DivChangePass").html(EditTemplate({}));
+
+            initTwinApp();//Runs the following functions all at once: validate custom,picker,bootbox event- and also activates all tooltip and popovers
+            //selection
+            validateFormChangePass();
+        }
+
+        function loadPopupEditInfor(userID) {
+
+            initTwinApp();//Runs the following functions all at once: validate custom,picker,bootbox event- and also activates all tooltip and popovers
+            //selection
+            $.post(r + "/HOAdminAuthUser/GetByID", { ID: userID }, function (data) {
+                if (data.success) {
+                    var value = data.data;
+                    //value.data_images_common = data.data_images_common;
+                    value.data_images_common = data.data_images_common;
+                    if (value.data_images_common) {
+                        $.each(value.data_images_common, function () {
+                            this.h_value =r+this.value;
+                        });
+                    }
+                    value.num_images_common = 1;
+                    param_obj.num_images_common = value.num_images_common;
+                    param_obj.data_images_common = value.data_images_common;
+
+                    value.ref_Roles = data.ref_Roles;
+
+                 
+
+
+                    //goi template
+                    var EditTemplate = kendo.template($("#EditInforTemplate").html());
+                    bootbox.dialog({
+                        closeButton: true,
+                        animate: false,
+                        backdrop: true,
+                        className: "normalPopupWidth",
+                        message: '<div id="DivEditInfor"></div>', title: resource_lang.Common_titleform_UpdateEditInfor,
+                        onEscape: function () {
+                            onClosePopupCustom();
+                        }
+
+                    });
+                    $("#DivEditInfor").html(EditTemplate(value));
+
+                    if (value.AvatarPath == "") {
+                        $("#formPopupEditInfor .AvatarPathUser").attr("src", r + "/upload/default_img_user.png");
+                    } else {
+                        $("#formPopupEditInfor .AvatarPathUser").attr("src", r + "/Upload/Images/Avatar/" + value.AvatarPath);
+                    }
+                    generateSelect2('s', 'formPopupEditInfor #isactive', value.isactive == true ? "True" : "False", '100%');
+                    generateSelect2('s', 'formPopupEditInfor #LanguageID', value.LanguageID, '100%');
+                    
+                    //validate
+                    initMap_EditInfor();
+                    validateFormPopupEditInfor();
+
+                    //onGenKendoUpload
+                    onGenKendoUpload();
+                    if (param_obj.data_images_common) {
+                        check_SH_Upload(param_obj.num_images_common, param_obj.data_images_common, "formPopupEditInfor #files");
+                        bindDataUploadToForm("formPopupEditInfor #ImgUploads", param_obj.data_images_common);
+                    }
+                }
+                else {
+                    alertBox("Có lỗi", "", false, 3000);
+                    console.log(data.message);
+                }
+
+            });
+
+            //onInitFunctionForm();
+        }
+
+        function validateFormPopupEditInfor() {
+
+            $("#formPopupEditInfor").validate({
+                // Rules for form validation
+                rules: {
+                    UserName: {
+                        required: true,
+                        alphanumeric: true
+                    },
+                    FullName: {
+                        required: true
+                    },
+                    Phone: {
+                        required: true
+                    },
+                    Email: {
+                        required: true,
+                        email: true
+                    },
+                    BirthdayString: {
+                        dateFormatVN: true
+                    },
+                    Address: {
+                        required: true
+                    },
+                },
+
+                // Messages for form validation
+                messages: {
+                    UserName: {
+                        required: resource_lang.Common_mess_RequiredInformation
+                    },
+                    DisplayName: {
+                        required: resource_lang.Common_mess_RequiredInformation
+                    },
+                    
+                    Phone: {
+                required: resource_lang.Common_mess_RequiredInformation
+                        },
+                    FullName: {
+                        required: resource_lang.Common_mess_RequiredInformation
+                    },
+                    Email: {
+                        required: resource_lang.Common_mess_RequiredInformation,
+                        email: resource_lang.Common_mess_WrongSyntax
+                    },
+                    Address: {
+                        required: resource_lang.Common_mess_RequiredInformation
+                    }
+                },
+                // Do not change code below
+                errorPlacement: function (error, element) {
+                    error.insertAfter(element);
+                },
+
+                submitHandler: function (form) {
+                    $(form).ajaxSubmit({
+                        //clearForm: true,//To clear form after ajax submitting
+                        beforeSend: function () {
+                            blockUIFromUser(true);
+                        },
+                        success: function (data) {
+                            if (data.success) {
+                                alertBox(resource_lang.Common_mess_CommitSuccess,"", true, 3000);
+                                location.reload();
+                            }
+                            else {
+                                alertBox(resource_lang.Common_mess_CommitFail,"", false, 3000);
+                                console.log(data.message);
+                            }
+                            $("#loading").addClass('hide');
+                        }
+                    });
+                    return false;
+                }
+            });
+        }
+
+        function validateFormChangePass() {
+            $("#formPopupChangePass").validate({
+                // Rules for form validation
+                rules: {
+                    OldPass: {
+                        required: true
+                        //, alphanumeric: true
+                    },
+                    NewPass: {
+                        required: true
+                        //,alphanumeric: true
+                    },
+                    RepeatNewPass: {
+                        required: true
+                        //,alphanumeric: true
+                    }
+                },
+
+                // Messages for form validation
+                messages: {
+                    OldPass: { required: resource_lang.Common_mess_OldPasswordRequired },
+                    NewPass: { required: resource_lang.Common_mess_PasswordRequired },
+                    RepeatNewPass: {
+                        required: resource_lang.Common_mess_RePasswordRequired
+                    }
+                },
+
+                // Do not change code below
+                errorPlacement: function (error, element) {
+                    error.insertAfter(element);
+                },
+
+                submitHandler: function (form) {
+                    $(form).ajaxSubmit({
+                        //clearForm: true,//To clear form after ajax submitting
+                        beforeSend: function (xhr, opts) {
+                            $("#loading").removeClass('hide');
+                            var newPass = $("#NewPass").val();
+                            var repeatNewPass = $("#RepeatNewPass").val();
+                            if (newPass != repeatNewPass) {
+                                alertBox(resource_lang.Common_mess_ChangePassFail, resource_lang.Common_mess_NotMatchPassword, false, 3000);
+                                xhr.abort();
+                            }
+                        },
+                        success: function (data) {
+                            if (data.success) {
+                                alertBox(resource_lang.Common_mess_ChangePassSuccess, "", true, 3000);
+                                bootbox.hideAll();
+                            }
+                            else {
+                                alertBox(data.message, "", false, 3000);
+                            }
+                            $("#loading").addClass('hide');
+                        }
+                    });
+                    return false;
+                }
+            });
+        }
+    });
+    //language
+    function onChangeLang(obj) {
+        var lang = $(obj).data().lang;
+        $(obj).closest("ul").find("li").removeClass();
+        $(obj).parent().addClass("active");
+        $.post(r + "/Language/Change", { LanguageAbbrevation: lang }, function (data) {
+            if (data.success) {
+                location.reload();
+            }
+            else {
+                alertBox(resource_lang.Common_mess_CommitFail, "", false, 3000);
+            }
+        });
+    }
+
+</script>

@@ -1,0 +1,1509 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Common_ActionResult_IsExist_UserName" xml:space="preserve">
+    <value>Tên đăng nhập tồn tại.</value>
+    <comment>[ThaoNH-AS]Tên đăng nhập tồn tại.</comment>
+  </data>
+  <data name="Common_ActionResult_MissingInfo" xml:space="preserve">
+    <value>Thiếu thông tin</value>
+    <comment>[ThaoNH-AS]Thiếu thông tin</comment>
+  </data>
+  <data name="Common_ActionResult_MissingInfo_UserEmail" xml:space="preserve">
+    <value>Thiếu thông tin email người dùng</value>
+    <comment>[ThaoNH-AS]Thiếu thông tin email người dùng</comment>
+  </data>
+  <data name="Common_ActionResult_MissingReturnInfor" xml:space="preserve">
+    <value>Không tìm thấy dữ liệu trả về</value>
+    <comment>[ThaoNH-AS]Thiếu kết quả trả về</comment>
+  </data>
+  <data name="Common_ActionResult_NoAccess" xml:space="preserve">
+    <value>Bạn không có quyền</value>
+    <comment>[ThaoNH-AS] Bạn không có quyền</comment>
+  </data>
+  <data name="Common_ActionResult_NoInsert" xml:space="preserve">
+    <value>Không cho insert chỉ cho update</value>
+    <comment>[ThaoNH-AS]Không cho insert chỉ cho update</comment>
+  </data>
+  <data name="Common_ActionResult_NotIdentifiedData" xml:space="preserve">
+    <value>Không xác định được dữ liệu</value>
+    <comment>[ThaoNH-AS]Không xác định được dữ liệu</comment>
+  </data>
+  <data name="Common_ActionResult_NoUpdate" xml:space="preserve">
+    <value>Không cho update chỉ cho insert</value>
+    <comment>[ThaoNH-AS]Không cho update chỉ cho insert</comment>
+  </data>
+  <data name="Common_ActionResult_Restricted_Sys_Data" xml:space="preserve">
+    <value>Giới hạn quyền chỉnh sửa dữ liệu admin</value>
+    <comment>[ThaoNH-AS]Giới hạn quyền chỉnh sửa dữ liệu admin</comment>
+  </data>
+  <data name="Common_btn_Active" xml:space="preserve">
+    <value>Kích hoạt</value>
+  </data>
+  <data name="Common_btn_Add" xml:space="preserve">
+    <value>Thêm</value>
+  </data>
+  <data name="Common_btn_Approved" xml:space="preserve">
+    <value>Duyệt</value>
+  </data>
+  <data name="Common_btn_Cancel" xml:space="preserve">
+    <value>Hủy</value>
+  </data>
+  <data name="Common_btn_CertApprovedStatus_Approved" xml:space="preserve">
+    <value>Duyệt thẻ ngành</value>
+  </data>
+  <data name="Common_btn_ChangePassword" xml:space="preserve">
+    <value>Đổi mật khẩu</value>
+  </data>
+  <data name="Common_btn_Delete" xml:space="preserve">
+    <value>Xóa</value>
+  </data>
+  <data name="Common_btn_Delete_Symbol" xml:space="preserve">
+    <value>X</value>
+  </data>
+  <data name="Common_btn_Edit" xml:space="preserve">
+    <value>Chỉnh sửa</value>
+  </data>
+  <data name="Common_btn_InActive" xml:space="preserve">
+    <value>Ngưng hoạt động</value>
+  </data>
+  <data name="Common_btn_InApproved" xml:space="preserve">
+    <value>Bỏ duyệt</value>
+  </data>
+  <data name="Common_btn_LogOut" xml:space="preserve">
+    <value>Đăng xuất</value>
+  </data>
+  <data name="Common_btn_Preview" xml:space="preserve">
+    <value>Xem trước</value>
+  </data>
+  <data name="Common_btn_Save" xml:space="preserve">
+    <value>Lưu</value>
+  </data>
+  <data name="Common_btn_SelectFile" xml:space="preserve">
+    <value>Chọn file</value>
+  </data>
+  <data name="Common_cap_Active" xml:space="preserve">
+    <value>Kích hoạt</value>
+  </data>
+  <data name="Common_cap_Classify" xml:space="preserve">
+    <value>Phân loại</value>
+  </data>
+  <data name="Common_cap_Inactive" xml:space="preserve">
+    <value>Ngưng kích hoạt</value>
+  </data>
+  <data name="Common_cap_Insert" xml:space="preserve">
+    <value>Thêm</value>
+  </data>
+  <data name="Common_cap_Save" xml:space="preserve">
+    <value>Lưu</value>
+  </data>
+  <data name="Common_cap_Search" xml:space="preserve">
+    <value>Tìm kiếm</value>
+  </data>
+  <data name="Common_cap_Status" xml:space="preserve">
+    <value>Trạng thái</value>
+  </data>
+  <data name="Common_cap_Update" xml:space="preserve">
+    <value>Cập nhật</value>
+  </data>
+  <data name="Common_CertApprovedStatus_Rejected" xml:space="preserve">
+    <value>Từ chối duyệt thẻ ngành</value>
+  </data>
+  <data name="Common_ddl_ActiveStatus" xml:space="preserve">
+    <value>Trạng thái</value>
+  </data>
+  <data name="Common_ddl_ApprovedStatus" xml:space="preserve">
+    <value>Trạng thái duyệt</value>
+  </data>
+  <data name="Common_lbl_ActiveStatus" xml:space="preserve">
+    <value>Kích hoạt</value>
+  </data>
+  <data name="Common_lbl_ApprovedStatus" xml:space="preserve">
+    <value>Trạng thái duyệt</value>
+  </data>
+  <data name="Common_lbl_ConfirmNewPassword" xml:space="preserve">
+    <value>Xác nhận mật khẩu mới</value>
+  </data>
+  <data name="Common_lbl_Hello" xml:space="preserve">
+    <value>Xin chào</value>
+  </data>
+  <data name="Common_lbl_InActiveStatus" xml:space="preserve">
+    <value>Ngưng hoạt động</value>
+  </data>
+  <data name="Common_lbl_InActiveStatus2" xml:space="preserve">
+    <value>Xóa</value>
+  </data>
+  <data name="Common_lbl_InApprovedStatus" xml:space="preserve">
+    <value>Bỏ duyệt</value>
+  </data>
+  <data name="Common_lbl_InforForm" xml:space="preserve">
+    <value>Thông tin</value>
+  </data>
+  <data name="Common_lbl_NewPassword" xml:space="preserve">
+    <value>Mật khẩu mới</value>
+  </data>
+  <data name="Common_lbl_OldPassword" xml:space="preserve">
+    <value>Mật khẩu củ</value>
+  </data>
+  <data name="Common_lbl_Refresh" xml:space="preserve">
+    <value>Làm mới</value>
+  </data>
+  <data name="Common_mess_ActiveSuccess" xml:space="preserve">
+    <value>Kích hoạt thành công</value>
+  </data>
+  <data name="Common_mess_ApprovedSuccess" xml:space="preserve">
+    <value>Duyệt thành công</value>
+  </data>
+  <data name="Common_mess_btn_Cancel" xml:space="preserve">
+    <value>Đóng lại</value>
+  </data>
+  <data name="Common_mess_btn_Command" xml:space="preserve">
+    <value>Thao tác</value>
+  </data>
+  <data name="Common_mess_btn_Confirm" xml:space="preserve">
+    <value>Xác nhận</value>
+  </data>
+  <data name="Common_mess_ChangePassFail" xml:space="preserve">
+    <value>Đổi mật khẩu thất bại</value>
+  </data>
+  <data name="Common_mess_ChangePassSuccess" xml:space="preserve">
+    <value>Đổi mật khẩu thành công</value>
+  </data>
+  <data name="Common_mess_CommitFail" xml:space="preserve">
+    <value>Thất bại</value>
+  </data>
+  <data name="Common_mess_CommitSuccess" xml:space="preserve">
+    <value>Thành công</value>
+  </data>
+  <data name="Common_mess_InActiveSuccess" xml:space="preserve">
+    <value>Ngưng hoạt động thành công</value>
+  </data>
+  <data name="Common_mess_InApprovedSuccess" xml:space="preserve">
+    <value>Bỏ duyệt thành công</value>
+  </data>
+  <data name="Common_mess_MissingInformation" xml:space="preserve">
+    <value>Thiếu thông tin</value>
+  </data>
+  <data name="Common_mess_NotMatchPassword" xml:space="preserve">
+    <value>Mật khẩu nhập lại không đúng</value>
+  </data>
+  <data name="Common_mess_OldPasswordRequired" xml:space="preserve">
+    <value>Nhập mật khẩu cũ</value>
+  </data>
+  <data name="Common_mess_PasswordRequired" xml:space="preserve">
+    <value>Password Required</value>
+  </data>
+  <data name="Common_mess_RecoverSuccess" xml:space="preserve">
+    <value>Khôi phục thành công</value>
+  </data>
+  <data name="Common_mess_RePasswordRequired" xml:space="preserve">
+    <value>Confirm password Required</value>
+  </data>
+  <data name="Common_mess_RequiredInformation" xml:space="preserve">
+    <value>Thông tin bắt buộc</value>
+  </data>
+  <data name="Common_mess_UploadFail" xml:space="preserve">
+    <value>Upload thất bại</value>
+  </data>
+  <data name="Common_mess_UploadSuccess" xml:space="preserve">
+    <value>Upload thành công</value>
+  </data>
+  <data name="Common_mess_ValidImgUploadSize" xml:space="preserve">
+    <value>File lớn hơn 5Mb</value>
+  </data>
+  <data name="Common_mess_ValidImgUploadType" xml:space="preserve">
+    <value>Sai định dạng ảnh (.jpg, .jpeg, .png, gif)</value>
+  </data>
+  <data name="Common_mess_WrongSyntax" xml:space="preserve">
+    <value>Sai định dạng</value>
+  </data>
+  <data name="Common_mes_Error" xml:space="preserve">
+    <value>Có lỗi</value>
+  </data>
+  <data name="Common_mes_Fail" xml:space="preserve">
+    <value>thất bại</value>
+  </data>
+  <data name="Common_mes_Success" xml:space="preserve">
+    <value>thành công</value>
+  </data>
+  <data name="Common_titleform_ChangePassUser" xml:space="preserve">
+    <value>Thay đổi mật khẩu người dùng</value>
+  </data>
+  <data name="Common_titleform_UpdateEditInfor" xml:space="preserve">
+    <value>Cập nhật thông tin cá nhân</value>
+  </data>
+  <data name="HOAdminAnnouncement_choose_RoleByUser" xml:space="preserve">
+    <value>Chọn người dùng</value>
+  </data>
+  <data name="HOAdminAnnouncement_choose_UserTypesIDs" xml:space="preserve">
+    <value>Chọn loại người dùng</value>
+  </data>
+  <data name="HOAdminAnnouncement_lbl_ArticleDescription" xml:space="preserve">
+    <value>Mô tả</value>
+  </data>
+  <data name="HOAdminAnnouncement_lbl_ArticleID" xml:space="preserve">
+    <value>Mã thông báo</value>
+  </data>
+  <data name="HOAdminAnnouncement_lbl_ArticleIsHot" xml:space="preserve">
+    <value>Hot</value>
+  </data>
+  <data name="HOAdminAnnouncement_lbl_ArticleTitle" xml:space="preserve">
+    <value>Tiêu đề</value>
+  </data>
+  <data name="HOAdminAnnouncement_lbl_ArticleType" xml:space="preserve">
+    <value>Loại</value>
+  </data>
+  <data name="HOAdminAnnouncement_lbl_RoleByUser" xml:space="preserve">
+    <value>Phân quyền theo người dùng</value>
+  </data>
+  <data name="HOAdminAnnouncement_lbl_RoleData" xml:space="preserve">
+    <value>Phân quyền thông báo</value>
+  </data>
+  <data name="HOAdminAnnouncement_lbl_UserTypesIDs" xml:space="preserve">
+    <value>Phân quyền theo loại người dùng</value>
+  </data>
+  <data name="HOAdminAnnouncement_titleform_Add" xml:space="preserve">
+    <value>Thêm thông báo</value>
+  </data>
+  <data name="HOAdminAnnouncement_titleform_Update" xml:space="preserve">
+    <value>Cập nhật thông báo</value>
+  </data>
+  <data name="HOAdminAnnouncement_title_Page" xml:space="preserve">
+    <value>Thông báo</value>
+  </data>
+  <data name="HOAdminAuthRole_choose_UserIDs" xml:space="preserve">
+    <value>Chọn người dùng</value>
+  </data>
+  <data name="HOAdminAuthRole_lbl_ActionName" xml:space="preserve">
+    <value>Chức năng</value>
+  </data>
+  <data name="HOAdminAuthRole_lbl_Note" xml:space="preserve">
+    <value>Ghi chú</value>
+  </data>
+  <data name="HOAdminAuthRole_lbl_RoleAction" xml:space="preserve">
+    <value>Phân quyền chức năng</value>
+  </data>
+  <data name="HOAdminAuthRole_lbl_RoleAdd" xml:space="preserve">
+    <value>Thêm</value>
+  </data>
+  <data name="HOAdminAuthRole_lbl_RoleDelete" xml:space="preserve">
+    <value>Xóa</value>
+  </data>
+  <data name="HOAdminAuthRole_lbl_RoleEdit" xml:space="preserve">
+    <value>Sửa</value>
+  </data>
+  <data name="HOAdminAuthRole_lbl_RoleID" xml:space="preserve">
+    <value>Mã nhóm</value>
+  </data>
+  <data name="HOAdminAuthRole_lbl_RoleName" xml:space="preserve">
+    <value>Tên nhóm</value>
+  </data>
+  <data name="HOAdminAuthRole_lbl_RoleView" xml:space="preserve">
+    <value>Xem</value>
+  </data>
+  <data name="HOAdminAuthRole_lbl_UserIDs" xml:space="preserve">
+    <value>Người dùng</value>
+  </data>
+  <data name="HOAdminAuthRole_titleform_Add" xml:space="preserve">
+    <value>Thêm mới nhóm người dùng</value>
+  </data>
+  <data name="HOAdminAuthRole_titleform_Update" xml:space="preserve">
+    <value>Cập nhật nhóm người dùng</value>
+  </data>
+  <data name="HOAdminAuthRole_title_Page" xml:space="preserve">
+    <value>Nhóm người dùng</value>
+  </data>
+  <data name="AdminUserManagement_btn_PasswordRecovery" xml:space="preserve">
+    <value>Khôi phục mật khẩu</value>
+  </data>
+  <data name="AdminUserManagement_choose_Region" xml:space="preserve">
+    <value>Chọn vùng miền</value>
+  </data>
+  <data name="AdminUserManagement_choose_Shop" xml:space="preserve">
+    <value>Chọn cửa hàng</value>
+  </data>
+  <data name="AdminUserManagement_choose_ShopGroup" xml:space="preserve">
+    <value>Chọn nhóm cửa hàng</value>
+  </data>
+  <data name="AdminUserManagement_lbl_Account" xml:space="preserve">
+    <value>Tài khoản</value>
+  </data>
+  <data name="AdminUserManagement_lbl_Address" xml:space="preserve">
+    <value>Địa chỉ</value>
+  </data>
+  <data name="AdminUserManagement_lbl_Contact" xml:space="preserve">
+    <value>Liên hệ</value>
+  </data>
+  <data name="AdminUserManagement_lbl_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="AdminUserManagement_lbl_ft_RoleUser" xml:space="preserve">
+    <value>Nhóm người dùng</value>
+  </data>
+  <data name="AdminUserManagement_lbl_ft_UserID" xml:space="preserve">
+    <value>Người dùng</value>
+  </data>
+  <data name="AdminUserManagement_lbl_FullName" xml:space="preserve">
+    <value>Tên hiển thị</value>
+  </data>
+  <data name="AdminUserManagement_lbl_Language" xml:space="preserve">
+    <value>Ngôn ngữ</value>
+  </data>
+  <data name="AdminUserManagement_lbl_Note" xml:space="preserve">
+    <value>Ghi chú</value>
+  </data>
+  <data name="AdminUserManagement_lbl_Phone" xml:space="preserve">
+    <value>Điện thoại</value>
+  </data>
+  <data name="AdminUserManagement_lbl_Region" xml:space="preserve">
+    <value>Vùng miền</value>
+  </data>
+  <data name="AdminUserManagement_lbl_RoleData" xml:space="preserve">
+    <value>Phân quyền dữ liệu</value>
+  </data>
+  <data name="AdminUserManagement_lbl_RoleUser" xml:space="preserve">
+    <value>Nhóm người dùng</value>
+  </data>
+  <data name="AdminUserManagement_lbl_Shop" xml:space="preserve">
+    <value>Cửa hàng</value>
+  </data>
+  <data name="AdminUserManagement_lbl_ShopGroup" xml:space="preserve">
+    <value>Nhóm cửa hàng</value>
+  </data>
+  <data name="AdminUserManagement_lbl_UserID" xml:space="preserve">
+    <value>Mã người dùng</value>
+  </data>
+  <data name="AdminUserManagement_lbl_UserName" xml:space="preserve">
+    <value>Tên đăng nhập</value>
+  </data>
+  <data name="AdminUserManagement_titleform_Add" xml:space="preserve">
+    <value>Thêm mới người dùng</value>
+  </data>
+  <data name="AdminUserManagement_titleform_Update" xml:space="preserve">
+    <value>Cập nhật người dùng</value>
+  </data>
+  <data name="AdminUserManagement_title_Page" xml:space="preserve">
+    <value>Người dùng</value>
+  </data>
+  <data name="HOAdminSystemConfig_lbl_IsEditable" xml:space="preserve">
+    <value>Cho phép chỉnh sửa</value>
+  </data>
+  <data name="HOAdminSystemConfig_lbl_Note" xml:space="preserve">
+    <value>Ghi chú</value>
+  </data>
+  <data name="HOAdminSystemConfig_lbl_ParamCode" xml:space="preserve">
+    <value>Mã</value>
+  </data>
+  <data name="HOAdminSystemConfig_lbl_ParamGroup" xml:space="preserve">
+    <value>Nhóm cấu hình</value>
+  </data>
+  <data name="HOAdminSystemConfig_lbl_ParamValue" xml:space="preserve">
+    <value>Giá trị</value>
+  </data>
+  <data name="HOAdminSystemConfig_titleform_Add" xml:space="preserve">
+    <value>Thêm mới cấu hình</value>
+  </data>
+  <data name="HOAdminSystemConfig_titleform_Update" xml:space="preserve">
+    <value>Cập nhật cấu hình</value>
+  </data>
+  <data name="HOAdminSystemConfig_title_Page" xml:space="preserve">
+    <value>Cấu hình tham số</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_btn_PasswordRecovery" xml:space="preserve">
+    <value>Khôi phục mật khẩu</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_choose_Region" xml:space="preserve">
+    <value>Chọn vùng miền</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_choose_Shop" xml:space="preserve">
+    <value>Chọn cửa hàng</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_choose_ShopGroup" xml:space="preserve">
+    <value>Chọn nhóm cửa hàng</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_lbl_Account" xml:space="preserve">
+    <value>Tài khoản</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_lbl_Address" xml:space="preserve">
+    <value>Địa chỉ</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_lbl_Contact" xml:space="preserve">
+    <value>Liên hệ</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_lbl_DeviceID" xml:space="preserve">
+    <value>Mã thiết bị</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_lbl_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_lbl_ft_UserID" xml:space="preserve">
+    <value>Người dùng</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_lbl_FullName" xml:space="preserve">
+    <value>Tên hiển thị</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_lbl_Language" xml:space="preserve">
+    <value>Ngôn ngữ</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_lbl_Note" xml:space="preserve">
+    <value>Ghi chú</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_lbl_Phone" xml:space="preserve">
+    <value>Điện thoại</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_lbl_Region" xml:space="preserve">
+    <value>Vùng miền</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_lbl_RoleData" xml:space="preserve">
+    <value>Phân quyền dữ liệu</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_lbl_RoleUser" xml:space="preserve">
+    <value>Nhóm người dùng</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_lbl_Shop" xml:space="preserve">
+    <value>Cửa hàng</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_lbl_ShopGroup" xml:space="preserve">
+    <value>Nhóm cửa hàng</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_lbl_ShortDeviceID" xml:space="preserve">
+    <value>Mã thiết bị</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_lbl_UserID" xml:space="preserve">
+    <value>Mã người dùng</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_lbl_UserName" xml:space="preserve">
+    <value>Tên đăng nhập</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_lbl_ViewDeviceID" xml:space="preserve">
+    <value>Sao chép mã thiết bị</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_titleform_Add" xml:space="preserve">
+    <value>Thêm mới người dùng</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_titleform_Update" xml:space="preserve">
+    <value>Cập nhật người dùng</value>
+  </data>
+  <data name="HOManagementCardHolderAccount_title_Page" xml:space="preserve">
+    <value>Tài khoản chủ thẻ</value>
+  </data>
+  <data name="HOManagementCardRequestLog_btn_Add" xml:space="preserve">
+    <value>Thêm ghi chú</value>
+  </data>
+  <data name="HOManagementCardRequest_lbl_BankName" xml:space="preserve">
+    <value>Ngân hàng</value>
+  </data>
+  <data name="HOManagementCardRequest_lbl_CusEmail" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="HOManagementCardRequest_lbl_CusName" xml:space="preserve">
+    <value>Tên người dùng</value>
+  </data>
+  <data name="HOManagementCardRequest_lbl_CusPhone" xml:space="preserve">
+    <value>Số điện thoại</value>
+  </data>
+  <data name="HOManagementCardRequest_lbl_LastNote" xml:space="preserve">
+    <value>Ghi chú cuối cùng</value>
+  </data>
+  <data name="HOManagementCardRequest_lbl_Note" xml:space="preserve">
+    <value>Nội dung yêu cầu</value>
+  </data>
+  <data name="HOManagementCardRequest_lbl_PayType" xml:space="preserve">
+    <value>Loại thanh toán</value>
+  </data>
+  <data name="HOManagementCardRequest_lbl_RequestID" xml:space="preserve">
+    <value>Mã yêu cầu</value>
+  </data>
+  <data name="HOManagementCardRequest_lbl_RowUpdatedAt" xml:space="preserve">
+    <value>Ngày yêu cầu</value>
+  </data>
+  <data name="HOManagementCardRequest_lbl_RowUpdatedByName" xml:space="preserve">
+    <value>Người cập nhật</value>
+  </data>
+  <data name="HOManagementCardRequest_titleform_Add" xml:space="preserve">
+    <value>Thêm yêu cầu mở thẻ</value>
+  </data>
+  <data name="HOManagementCardRequest_titleform_Update" xml:space="preserve">
+    <value>Cập nhật yêu cầu mở thẻ</value>
+  </data>
+  <data name="HOManagementCardRequest_title_Page" xml:space="preserve">
+    <value>Yêu cầu mở thẻ</value>
+  </data>
+  <data name="HOManagementCardReques_lbl_filter_CHInfor" xml:space="preserve">
+    <value>Tên, số điện thoại, email</value>
+  </data>
+  <data name="HOManagementPackagePriceList_lbl_CentralPrice" xml:space="preserve">
+    <value>Giá miền trung</value>
+  </data>
+  <data name="HOManagementPackagePriceList_lbl_NorthPrice" xml:space="preserve">
+    <value>Giá miền bắc</value>
+  </data>
+  <data name="HOManagementPackagePriceList_lbl_PackageName" xml:space="preserve">
+    <value>Gói vật tư</value>
+  </data>
+  <data name="HOManagementPackagePriceList_lbl_SouthPrice" xml:space="preserve">
+    <value>Giá miền nam</value>
+  </data>
+  <data name="HOManagementPackagePriceList_title_Page" xml:space="preserve">
+    <value>Bảng giá gói vật tư</value>
+  </data>
+  <data name="HOManagementPackage_ChangeLog_lbl_LogType" xml:space="preserve">
+    <value>Bảng giá</value>
+  </data>
+  <data name="HOManagementPackage_ChangeLog_lbl_NewValue" xml:space="preserve">
+    <value>Giá trị mới</value>
+  </data>
+  <data name="HOManagementPackage_ChangeLog_lbl_OldValue" xml:space="preserve">
+    <value>Giá trị củ</value>
+  </data>
+  <data name="HOManagementPackage_lbl_CentralPrice" xml:space="preserve">
+    <value>Giá miền trung</value>
+  </data>
+  <data name="HOManagementPackage_lbl_ChangeLog_NewValue" xml:space="preserve">
+    <value>Giá mới</value>
+  </data>
+  <data name="HOManagementPackage_lbl_ChangeLog_OldValue" xml:space="preserve">
+    <value>Giá cũ</value>
+  </data>
+  <data name="HOManagementPackage_lbl_ChangeLog_RowUpdatedAt" xml:space="preserve">
+    <value>Thời gian</value>
+  </data>
+  <data name="HOManagementPackage_lbl_ChangeLog_RowUpdatedBy" xml:space="preserve">
+    <value>Người thay đổi</value>
+  </data>
+  <data name="HOManagementPackage_lbl_NorthPrice" xml:space="preserve">
+    <value>Giá miền bắc</value>
+  </data>
+  <data name="HOManagementPackage_lbl_Note" xml:space="preserve">
+    <value>Ghi chú</value>
+  </data>
+  <data name="HOManagementPackage_lbl_PackageName" xml:space="preserve">
+    <value>Tên gói</value>
+  </data>
+  <data name="HOManagementPackage_lbl_SouthPrice" xml:space="preserve">
+    <value>Giá miền nam</value>
+  </data>
+  <data name="HOManagementPackage_titleform_Add" xml:space="preserve">
+    <value>Thêm gói vật tư</value>
+  </data>
+  <data name="HOManagementPackage_titleform_Update" xml:space="preserve">
+    <value>Chỉnh sửa gói vật tư</value>
+  </data>
+  <data name="HOManagementPackage_title_Page" xml:space="preserve">
+    <value>Gói vật tư</value>
+  </data>
+  <data name="HOManagementPOSAccount_btn_PasswordRecovery" xml:space="preserve">
+    <value>Khôi phục mật khẩu</value>
+  </data>
+  <data name="HOManagementPOSAccount_choose_Region" xml:space="preserve">
+    <value>Chọn vùng miền</value>
+  </data>
+  <data name="HOManagementPOSAccount_choose_Shop" xml:space="preserve">
+    <value>Chọn cửa hàng</value>
+  </data>
+  <data name="HOManagementPOSAccount_choose_ShopGroup" xml:space="preserve">
+    <value>Chọn nhóm cửa hàng</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_Account" xml:space="preserve">
+    <value>Tài khoản</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_Address" xml:space="preserve">
+    <value>Địa chỉ</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_BalanceAmount" xml:space="preserve">
+    <value>Số tiền trong tài khoản</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_Contact" xml:space="preserve">
+    <value>Liên hệ</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_DeviceID" xml:space="preserve">
+    <value>Mã thiết bị</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_form_CashTxnAmount" xml:space="preserve">
+    <value>Số tiền</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_form_DepositType" xml:space="preserve">
+    <value>Hình thức nạp tiền</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_form_Note" xml:space="preserve">
+    <value>Nội dung</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_ft_UserID" xml:space="preserve">
+    <value>Người dùng</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_FullName" xml:space="preserve">
+    <value>Tên hiển thị</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_Language" xml:space="preserve">
+    <value>Ngôn ngữ</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_Note" xml:space="preserve">
+    <value>Ghi chú</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_Phone" xml:space="preserve">
+    <value>Điện thoại</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_POSPriority" xml:space="preserve">
+    <value>POS Priorirty</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_Region" xml:space="preserve">
+    <value>Vùng miền</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_RoleData" xml:space="preserve">
+    <value>Phân quyền dữ liệu</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_RoleUser" xml:space="preserve">
+    <value>Nhóm người dùng</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_Shop" xml:space="preserve">
+    <value>Cửa hàng</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_ShopGroup" xml:space="preserve">
+    <value>Nhóm cửa hàng</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_ShortDeviceID" xml:space="preserve">
+    <value>Mã thiết bị</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_SubGrid_BalanceAmount" xml:space="preserve">
+    <value>Số dư</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_SubGrid_CashTxnAmount" xml:space="preserve">
+    <value>Số tiền</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_SubGrid_CashTxnDate" xml:space="preserve">
+    <value>Ngày ghi nhận</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_SubGrid_CashTxnTypeName" xml:space="preserve">
+    <value>Loại giao dịch</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_SubGrid_LogID" xml:space="preserve">
+    <value>Mã giao dịch</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_SubGrid_Note" xml:space="preserve">
+    <value>Nội dung</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_SubGrid_RowCreatedByName" xml:space="preserve">
+    <value>Người ghi nhận</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_TabName_Infor" xml:space="preserve">
+    <value>Thông tin</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_TabName_Log" xml:space="preserve">
+    <value>Lịch sử giao dịch tiền</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_title_Form" xml:space="preserve">
+    <value>Thông tin giao dịch</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_title_pop_adjustdown" xml:space="preserve">
+    <value>Điều chỉnh giảm</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_title_pop_adjustup" xml:space="preserve">
+    <value>Điều chỉnh tăng</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_title_pop_deposit" xml:space="preserve">
+    <value>Nạp tiền</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_title_pop_withdrawal" xml:space="preserve">
+    <value>Rút tiền</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_UserID" xml:space="preserve">
+    <value>Mã người dùng</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_UserName" xml:space="preserve">
+    <value>Tên đăng nhập</value>
+  </data>
+  <data name="HOManagementPOSAccount_lbl_ViewDeviceID" xml:space="preserve">
+    <value>Sao chép mã thiết bị</value>
+  </data>
+  <data name="HOManagementPOSAccount_select_form_DepositType" xml:space="preserve">
+    <value>Chọn hình thức nạp tiền</value>
+  </data>
+  <data name="HOManagementPOSAccount_titleform_Add" xml:space="preserve">
+    <value>Thêm mới người dùng</value>
+  </data>
+  <data name="HOManagementPOSAccount_titleform_Update" xml:space="preserve">
+    <value>Cập nhật người dùng</value>
+  </data>
+  <data name="HOManagementPOSAccount_title_Page" xml:space="preserve">
+    <value>Tài khoản chủ POS</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_CHAddress" xml:space="preserve">
+    <value>Địa chỉ chủ thẻ</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_CHFeeAmount" xml:space="preserve">
+    <value>Phí giao dịch</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_CHName" xml:space="preserve">
+    <value>Tên chủ thẻ</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_CHPhone" xml:space="preserve">
+    <value>Số điện thoại chủ thẻ</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_CHRated" xml:space="preserve">
+    <value>Chủ thẻ đánh giá</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_CHReview" xml:space="preserve">
+    <value>Chủ thẻ nhận xét</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_CHSavingAmount" xml:space="preserve">
+    <value>Số tiền tiết kiệm</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_filter_CHInfor" xml:space="preserve">
+    <value>Mã, tên, số điện thoại</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_filter_RequestStart_EndDate" xml:space="preserve">
+    <value>Thời gian yêu cầu</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_filter_TxnStart_EndDate" xml:space="preserve">
+    <value>Thời gian yêu cầu</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_filter_TxnStatus" xml:space="preserve">
+    <value>Trạng thái</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_Infor_CH" xml:space="preserve">
+    <value>Thông tin chủ khoản</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_Infor_Pos" xml:space="preserve">
+    <value>Thông tin chủ POS</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_Infor_Rate" xml:space="preserve">
+    <value>Đánh giá</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_Infor_Txn" xml:space="preserve">
+    <value>Thông tin giao dịch</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_POSBalanceAmount" xml:space="preserve">
+    <value>Tiền trong tài khoản</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_POSBonusAmount" xml:space="preserve">
+    <value>Tiền thưởng</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_POSFeeAmount" xml:space="preserve">
+    <value>Phí giao dịch</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_POSName" xml:space="preserve">
+    <value>Tên chủ POS</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_POSProfitAmount" xml:space="preserve">
+    <value>Lợi nhuận</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_POSRated" xml:space="preserve">
+    <value>Chủ POS đánh giá</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_POSReview" xml:space="preserve">
+    <value>Chủ POS nhận xét</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_RequestType" xml:space="preserve">
+    <value>Loại POS yêu cầu</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_TxnAmount" xml:space="preserve">
+    <value>Số tiền rút</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_TxnDate" xml:space="preserve">
+    <value>Ngày yêu cầu</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_TxnID" xml:space="preserve">
+    <value>Mã giao dịch</value>
+  </data>
+  <data name="HOManagementTxnHistory_lbl_TxnStatus" xml:space="preserve">
+    <value>Trạng thái</value>
+  </data>
+  <data name="HOManagementTxnHistory_title_Page" xml:space="preserve">
+    <value>Lịch sử giao dịch</value>
+  </data>
+  <data name="HOMasterAttribute_lbl_AttributeName" xml:space="preserve">
+    <value>Tên thuộc tính</value>
+  </data>
+  <data name="HOMasterAttribute_lbl_Note" xml:space="preserve">
+    <value>Ghi chú</value>
+  </data>
+  <data name="HOMasterAttribute_titleform_Add" xml:space="preserve">
+    <value>Thêm thuộc tính sản phẩm</value>
+  </data>
+  <data name="HOMasterAttribute_titleform_Update" xml:space="preserve">
+    <value>Chỉnh sửa thuộc tính sản phẩm</value>
+  </data>
+  <data name="HOMasterAttribute_title_Page" xml:space="preserve">
+    <value>Thuộc tính sản phẩm</value>
+  </data>
+  <data name="HOMasterBank_lbl_BankID" xml:space="preserve">
+    <value>Mã ngân hàng</value>
+  </data>
+  <data name="HOMasterBank_lbl_BankName" xml:space="preserve">
+    <value>Tên ngân hàng</value>
+  </data>
+  <data name="HOMasterBank_lbl_ImgUrl" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="HOMasterBank_titleform_Add" xml:space="preserve">
+    <value>Thêm ngân hàng</value>
+  </data>
+  <data name="HOMasterBank_titleform_Update" xml:space="preserve">
+    <value>Chỉnh sửa thông tin ngân hàng</value>
+  </data>
+  <data name="HOMasterBank_title_Page" xml:space="preserve">
+    <value>Ngân hàng</value>
+  </data>
+  <data name="HOMasterCodeProjectType_lbl_CodeNameEn" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="HOMasterCodeProjectType_lbl_CodeNameFilter" xml:space="preserve">
+    <value>Loại dự án</value>
+  </data>
+  <data name="HOMasterCodeProjectType_lbl_CodeNameVi" xml:space="preserve">
+    <value>Tiếng Việt</value>
+  </data>
+  <data name="HOMasterCodeProjectType_lbl_Note" xml:space="preserve">
+    <value>Ghi chú</value>
+  </data>
+  <data name="HOMasterCodeProjectType_titleform_Add" xml:space="preserve">
+    <value>Thêm loại dự án</value>
+  </data>
+  <data name="HOMasterCodeProjectType_titleform_Update" xml:space="preserve">
+    <value>Chỉnh sửa loại dự án</value>
+  </data>
+  <data name="HOMasterCodeProjectType_title_Page" xml:space="preserve">
+    <value>Loại dự án</value>
+  </data>
+  <data name="HOMasterCodeProjectWork_lbl_CodeNameEn" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="HOMasterCodeProjectWork_lbl_CodeNameFilter" xml:space="preserve">
+    <value>Hạng mục thi công</value>
+  </data>
+  <data name="HOMasterCodeProjectWork_lbl_CodeNameVi" xml:space="preserve">
+    <value>Tiếng Việt</value>
+  </data>
+  <data name="HOMasterCodeProjectWork_lbl_Note" xml:space="preserve">
+    <value>Ghi chú</value>
+  </data>
+  <data name="HOMasterCodeProjectWork_titleform_Add" xml:space="preserve">
+    <value>Thêm hạng mục thi công</value>
+  </data>
+  <data name="HOMasterCodeProjectWork_titleform_Update" xml:space="preserve">
+    <value>Chỉnh sửa hạng mục thi công</value>
+  </data>
+  <data name="HOMasterCodeProjectWork_title_Page" xml:space="preserve">
+    <value>Hạng mục thi công</value>
+  </data>
+  <data name="HOMasterCodeSkill_lbl_CodeNameEn" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="HOMasterCodeSkill_lbl_CodeNameFilter" xml:space="preserve">
+    <value>Kỹ năng</value>
+  </data>
+  <data name="HOMasterCodeSkill_lbl_CodeNameVi" xml:space="preserve">
+    <value>Tiếng Việt</value>
+  </data>
+  <data name="HOMasterCodeSkill_lbl_Note" xml:space="preserve">
+    <value>Ghi chú</value>
+  </data>
+  <data name="HOMasterCodeSkill_titleform_Add" xml:space="preserve">
+    <value>Thêm kỹ năng</value>
+  </data>
+  <data name="HOMasterCodeSkill_titleform_Update" xml:space="preserve">
+    <value>Chỉnh sửa kỹ năng</value>
+  </data>
+  <data name="HOMasterCodeSkill_title_Page" xml:space="preserve">
+    <value>Kỹ năng</value>
+  </data>
+  <data name="HOMasterCustomerHierarchy" xml:space="preserve">
+    <value>Phân cấp khách hàng</value>
+  </data>
+  <data name="HOMasterCustomerHierarchy_group_Infor" xml:space="preserve">
+    <value>Thông tin</value>
+  </data>
+  <data name="HOMasterCustomerHierarchy_lbl_HierarchyLevel" xml:space="preserve">
+    <value>Cấp bậc</value>
+  </data>
+  <data name="HOMasterCustomerHierarchy_lbl_HierarchyName" xml:space="preserve">
+    <value>Tên phân cấp</value>
+  </data>
+  <data name="HOMasterCustomerHierarchy_lbl_IsActive" xml:space="preserve">
+    <value>Trạng thái</value>
+  </data>
+  <data name="HOMasterCustomerHierarchy_lbl_ParentID" xml:space="preserve">
+    <value>Cấp cha</value>
+  </data>
+  <data name="HOMasterCustomerHierarchy_lbl_Tree" xml:space="preserve">
+    <value>Cây phân cấp</value>
+  </data>
+  <data name="HOMasterCustomerHierarchy_mainpop_title_Insert" xml:space="preserve">
+    <value>Thêm mới phân cấp khách hàng</value>
+  </data>
+  <data name="HOMasterCustomerHierarchy_mainpop_title_Update" xml:space="preserve">
+    <value>Cập nhật phân cấp khách hàng</value>
+  </data>
+  <data name="HOMasterCustomerHierarchy_mes_updatetStatus_Active" xml:space="preserve">
+    <value>Kích hoạt phân cấp</value>
+  </data>
+  <data name="HOMasterCustomerHierarchy_mes_updatetStatus_Inactive" xml:space="preserve">
+    <value>Ngưng kích hoạt phân cấp</value>
+  </data>
+  <data name="HOMasterCustomerHierarchy_phd_filterHierarchyName" xml:space="preserve">
+    <value>Tên phân cấp</value>
+  </data>
+  <data name="HOMasterCustomer_lbl_Address" xml:space="preserve">
+    <value>Địa chỉ</value>
+  </data>
+  <data name="HOMasterCustomer_lbl_Birthday" xml:space="preserve">
+    <value>Ngày sinh</value>
+  </data>
+  <data name="HOMasterCustomer_lbl_Contact" xml:space="preserve">
+    <value>Liên hệ</value>
+  </data>
+  <data name="HOMasterCustomer_lbl_CustomerName" xml:space="preserve">
+    <value>Tên khách hàng</value>
+  </data>
+  <data name="HOMasterCustomer_lbl_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="HOMasterCustomer_lbl_HierarchyID" xml:space="preserve">
+    <value>Phân cấp</value>
+  </data>
+  <data name="HOMasterCustomer_lbl_Note" xml:space="preserve">
+    <value>Ghi chú</value>
+  </data>
+  <data name="HOMasterCustomer_lbl_Phone" xml:space="preserve">
+    <value>Điện thoại</value>
+  </data>
+  <data name="HOMasterCustomer_mes_for_lbl_HierarchyID" xml:space="preserve">
+    <value>Phân cấp sẽ ảnh hưởng đến giá bán và khuyến mãi được áp dụng cho cửa hàng</value>
+  </data>
+  <data name="HOMasterCustomer_titleform_Add" xml:space="preserve">
+    <value>Thêm mới khách hàng</value>
+  </data>
+  <data name="HOMasterCustomer_titleform_Update" xml:space="preserve">
+    <value>Chỉnh sửa thông tin khách hàng</value>
+  </data>
+  <data name="HOMasterCustomer_title_Page" xml:space="preserve">
+    <value>Khách hàng</value>
+  </data>
+  <data name="HOMasterManufacturer_group_Contact" xml:space="preserve">
+    <value>Liên hệ</value>
+  </data>
+  <data name="HOMasterManufacturer_group_Infor" xml:space="preserve">
+    <value>Thông tin </value>
+  </data>
+  <data name="HOMasterManufacturer_lbl_Address" xml:space="preserve">
+    <value>Địa chỉ</value>
+  </data>
+  <data name="HOMasterManufacturer_lbl_ContactEmail" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="HOMasterManufacturer_lbl_ContactName" xml:space="preserve">
+    <value>Người liên hệ</value>
+  </data>
+  <data name="HOMasterManufacturer_lbl_ContactPhone" xml:space="preserve">
+    <value>Điện thoại</value>
+  </data>
+  <data name="HOMasterManufacturer_lbl_IsActive" xml:space="preserve">
+    <value>Trạng thái</value>
+  </data>
+  <data name="HOMasterManufacturer_lbl_ManufacturerName" xml:space="preserve">
+    <value>Tên nhà sản xuất</value>
+  </data>
+  <data name="HOMasterManufacturer_lbl_Note" xml:space="preserve">
+    <value>Ghi chú</value>
+  </data>
+  <data name="HOMasterManufacturer_phd_filterManufacturerName" xml:space="preserve">
+    <value>Tên NSX, điện thoại, email</value>
+  </data>
+  <data name="HOMasterManufacturer_titleform_Add" xml:space="preserve">
+    <value>Thêm mới nhà sản xuất</value>
+  </data>
+  <data name="HOMasterManufacturer_titleform_Update" xml:space="preserve">
+    <value>Cập nhật nhà sản xuất</value>
+  </data>
+  <data name="HOMasterManufacturer_title_Page" xml:space="preserve">
+    <value>Nhà sản xuất</value>
+  </data>
+  <data name="HOMasterShop" xml:space="preserve">
+    <value>Cửa hàng</value>
+  </data>
+  <data name="HOMasterShopGroup" xml:space="preserve">
+    <value>Nhóm cửa hàng</value>
+  </data>
+  <data name="HOMasterShopGroup_group_Infor" xml:space="preserve">
+    <value>Thông tin</value>
+  </data>
+  <data name="HOMasterShopGroup_lbl_IsActive" xml:space="preserve">
+    <value>Trạng thái</value>
+  </data>
+  <data name="HOMasterShopGroup_lbl_Note" xml:space="preserve">
+    <value>Ghi chú</value>
+  </data>
+  <data name="HOMasterShopGroup_lbl_ShopGroupName" xml:space="preserve">
+    <value>Tên nhóm</value>
+  </data>
+  <data name="HOMasterShopGroup_lbl_Shops" xml:space="preserve">
+    <value>Cửa hàng</value>
+  </data>
+  <data name="HOMasterShopGroup_mainpop_title_Insert" xml:space="preserve">
+    <value>Thêm mới nhóm cửa hàng</value>
+  </data>
+  <data name="HOMasterShopGroup_mainpop_title_Update" xml:space="preserve">
+    <value>Cập nhật nhóm cửa hàng</value>
+  </data>
+  <data name="HOMasterShopGroup_mes_updatetStatus_Active" xml:space="preserve">
+    <value>Kích hoạt nhóm cửa hàng</value>
+  </data>
+  <data name="HOMasterShopGroup_mes_updatetStatus_Inactive" xml:space="preserve">
+    <value>Ngưng hoạt động nhóm cửa hàng</value>
+  </data>
+  <data name="HOMasterShopHierarchy" xml:space="preserve">
+    <value>Phân cấp cửa hàng</value>
+  </data>
+  <data name="HOMasterShopHierarchy_group_Infor" xml:space="preserve">
+    <value>Thông tin</value>
+  </data>
+  <data name="HOMasterShopHierarchy_lbl_HierarchyLevel" xml:space="preserve">
+    <value>Cấp bậc</value>
+  </data>
+  <data name="HOMasterShopHierarchy_lbl_HierarchyName" xml:space="preserve">
+    <value>Tên phân cấp</value>
+  </data>
+  <data name="HOMasterShopHierarchy_lbl_IsActive" xml:space="preserve">
+    <value>Trạng thái</value>
+  </data>
+  <data name="HOMasterShopHierarchy_lbl_ParentID" xml:space="preserve">
+    <value>Cấp cha</value>
+  </data>
+  <data name="HOMasterShopHierarchy_lbl_Tree" xml:space="preserve">
+    <value>Cây phân cấp</value>
+  </data>
+  <data name="HOMasterShopHierarchy_mainpop_title_Insert" xml:space="preserve">
+    <value>Thêm mới phân cấp cửa hàng</value>
+  </data>
+  <data name="HOMasterShopHierarchy_mainpop_title_Update" xml:space="preserve">
+    <value>Cập nhật phân cấp cửa hàng</value>
+  </data>
+  <data name="HOMasterShopHierarchy_mes_updatetStatus_Active" xml:space="preserve">
+    <value>Kích hoạt phân cấp</value>
+  </data>
+  <data name="HOMasterShopHierarchy_mes_updatetStatus_Inactive" xml:space="preserve">
+    <value>Ngưng kích hoạt phân cấp</value>
+  </data>
+  <data name="HOMasterShopHierarchy_phd_filterHierarchyName" xml:space="preserve">
+    <value>Tên phân cấp</value>
+  </data>
+  <data name="HOMasterShop_group_Contact" xml:space="preserve">
+    <value>Liên hệ</value>
+  </data>
+  <data name="HOMasterShop_group_Infor" xml:space="preserve">
+    <value>Thông tin</value>
+  </data>
+  <data name="HOMasterShop_lbl_Address" xml:space="preserve">
+    <value>Địa chỉ</value>
+  </data>
+  <data name="HOMasterShop_lbl_ContactEmail" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="HOMasterShop_lbl_ContactPhone" xml:space="preserve">
+    <value>Điện thoại</value>
+  </data>
+  <data name="HOMasterShop_lbl_Coordinates" xml:space="preserve">
+    <value>Tọa độ</value>
+  </data>
+  <data name="HOMasterShop_lbl_DistrictID" xml:space="preserve">
+    <value>Quận, huyện</value>
+  </data>
+  <data name="HOMasterShop_lbl_IsActive" xml:space="preserve">
+    <value>Trạng thái</value>
+  </data>
+  <data name="HOMasterShop_lbl_Latitude" xml:space="preserve">
+    <value>Vĩ độ</value>
+  </data>
+  <data name="HOMasterShop_lbl_Longitude" xml:space="preserve">
+    <value>Kinh độ</value>
+  </data>
+  <data name="HOMasterShop_lbl_Note" xml:space="preserve">
+    <value>Ghi chú</value>
+  </data>
+  <data name="HOMasterShop_lbl_ProvinceID" xml:space="preserve">
+    <value>Tỉnh thành</value>
+  </data>
+  <data name="HOMasterShop_lbl_RegionID" xml:space="preserve">
+    <value>Vùng miền</value>
+  </data>
+  <data name="HOMasterShop_lbl_ShopCounter" xml:space="preserve">
+    <value>Quầy</value>
+  </data>
+  <data name="HOMasterShop_lbl_ShopHierarchyID" xml:space="preserve">
+    <value>Phân cấp cửa hàng</value>
+  </data>
+  <data name="HOMasterShop_lbl_ShopLeaderID" xml:space="preserve">
+    <value>Cửa hàng trưởng</value>
+  </data>
+  <data name="HOMasterShop_lbl_ShopName" xml:space="preserve">
+    <value>Tên cửa hàng</value>
+  </data>
+  <data name="HOMasterShop_lbl_Territory" xml:space="preserve">
+    <value>Vị trí địa lý</value>
+  </data>
+  <data name="HOMasterShop_mainpop_title_Insert" xml:space="preserve">
+    <value>Thêm mới cửa hàng</value>
+  </data>
+  <data name="HOMasterShop_mainpop_title_Update" xml:space="preserve">
+    <value>Cập nhật cửa hàng</value>
+  </data>
+  <data name="HOMasterShop_mes_for_lbl_ShopHierarchyID" xml:space="preserve">
+    <value>Nhóm cửa hàng sẽ ảnh hưởng đến giá bán và khuyến mãi được áp dụng cho cửa hàng</value>
+  </data>
+  <data name="HOMasterShop_mes_for_lbl_Territory" xml:space="preserve">
+    <value>Vị trí địa lý sẽ ảnh hưởng đến giá bán và khuyến mãi được áp dụng cho cửa hàng</value>
+  </data>
+  <data name="HOMasterShop_mes_updatetStatus_Active" xml:space="preserve">
+    <value>Kích hoạt cửa hàng</value>
+  </data>
+  <data name="HOMasterShop_mes_updatetStatus_Inactive" xml:space="preserve">
+    <value>Ngưng hoạt động cửa hàng</value>
+  </data>
+  <data name="HOMasterShop_phd_filterShopHierarchyName" xml:space="preserve">
+    <value>Phân cấp cửa hàng</value>
+  </data>
+  <data name="HOMasterShop_phd_filterShopLeader" xml:space="preserve">
+    <value>Cửa hàng trưởng</value>
+  </data>
+  <data name="HOMasterShop_phd_filterShopName" xml:space="preserve">
+    <value>Tên cửa hàng, điện thoại, email</value>
+  </data>
+  <data name="HOMasterShop_titleform_Add" xml:space="preserve">
+    <value>Thêm mới cửa hàng</value>
+  </data>
+  <data name="HOMasterShop_titleform_Update" xml:space="preserve">
+    <value>Cập nhật cửa hàng</value>
+  </data>
+  <data name="HOMasterShop_title_Page" xml:space="preserve">
+    <value>Cửa hàng</value>
+  </data>
+  <data name="HOMasterSKUBrand_lbl_BrandName" xml:space="preserve">
+    <value>Tên thương hiệu</value>
+  </data>
+  <data name="HOMasterSKUBrand_lbl_Note" xml:space="preserve">
+    <value>Ghi chú</value>
+  </data>
+  <data name="HOMasterSKUBrand_titleform_Add" xml:space="preserve">
+    <value>Thêm mới thương hiệu</value>
+  </data>
+  <data name="HOMasterSKUBrand_titleform_Update" xml:space="preserve">
+    <value>Chỉnh sửa thương hiệu</value>
+  </data>
+  <data name="HOMasterSKUBrand_title_Page" xml:space="preserve">
+    <value>Thương hiệu</value>
+  </data>
+  <data name="HOMasterSKUHeader_form_group_attr" xml:space="preserve">
+    <value>Thuộc tính</value>
+  </data>
+  <data name="HOMasterSKUHeader_form_group_infor" xml:space="preserve">
+    <value>Thông tin</value>
+  </data>
+  <data name="HOMasterSKUHeader_form_group_products" xml:space="preserve">
+    <value>Sản phẩm cùng loại</value>
+  </data>
+  <data name="HOMasterSKUHeader_form_group_stock" xml:space="preserve">
+    <value>Tồn kho</value>
+  </data>
+  <data name="HOMasterSKUHeader_grid_col_Brand" xml:space="preserve">
+    <value>Thương hiệu</value>
+  </data>
+  <data name="HOMasterSKUHeader_grid_col_Cost_of_capital" xml:space="preserve">
+    <value>Giá vốn</value>
+  </data>
+  <data name="HOMasterSKUHeader_grid_col_Hierarchy" xml:space="preserve">
+    <value>Phân cấp</value>
+  </data>
+  <data name="HOMasterSKUHeader_grid_col_Manufacturer" xml:space="preserve">
+    <value>Nhà sản xuất</value>
+  </data>
+  <data name="HOMasterSKUHeader_grid_col_Name" xml:space="preserve">
+    <value>Tên sản phẩm</value>
+  </data>
+  <data name="HOMasterSKUHeader_grid_col_Price" xml:space="preserve">
+    <value>Giá bán</value>
+  </data>
+  <data name="HOMasterSKUHeader_grid_col_Status" xml:space="preserve">
+    <value>Trạng thái</value>
+  </data>
+  <data name="HOMasterSKUHeader_grid_col_Stock" xml:space="preserve">
+    <value>Tồn kho</value>
+  </data>
+  <data name="HOMasterSKUHeader_grid_group_infor" xml:space="preserve">
+    <value>Thông tin</value>
+  </data>
+  <data name="HOMasterSKUHeader_grid_group_stock" xml:space="preserve">
+    <value>Tồn kho</value>
+  </data>
+  <data name="HOMasterSKUHeader_grid_tab_infor" xml:space="preserve">
+    <value>Thông tin</value>
+  </data>
+  <data name="HOMasterSKUHeader_grid_tab_stock" xml:space="preserve">
+    <value>Tồn kho</value>
+  </data>
+  <data name="HOMasterSKUHeader_lbl_BasedUOM" xml:space="preserve">
+    <value>Đơn vị cơ bản</value>
+  </data>
+  <data name="HOMasterSKUHeader_lbl_BrandID" xml:space="preserve">
+    <value>Thương hiệu</value>
+  </data>
+  <data name="HOMasterSKUHeader_lbl_HierarchyID" xml:space="preserve">
+    <value>Phân cấp</value>
+  </data>
+  <data name="HOMasterSKUHeader_lbl_IsActive" xml:space="preserve">
+    <value>Trạng thái</value>
+  </data>
+  <data name="HOMasterSKUHeader_lbl_ManufacturerID" xml:space="preserve">
+    <value>Nhà sản xuất</value>
+  </data>
+  <data name="HOMasterSKUHeader_lbl_MaxStockQty" xml:space="preserve">
+    <value>Tối đa</value>
+  </data>
+  <data name="HOMasterSKUHeader_lbl_MinStockQty" xml:space="preserve">
+    <value>Tối thiểu</value>
+  </data>
+  <data name="HOMasterSKUHeader_lbl_Note" xml:space="preserve">
+    <value>Ghi chú</value>
+  </data>
+  <data name="HOMasterSKUHeader_lbl_SKUHeaderName" xml:space="preserve">
+    <value>Tên sản phẩm</value>
+  </data>
+  <data name="HOMasterSKUHeader_phd_filterSKUHeaderName" xml:space="preserve">
+    <value>Tên sản phẩm, mã vạch</value>
+  </data>
+  <data name="HOMasterSKUHeader_title_Page" xml:space="preserve">
+    <value>Sản phẩm</value>
+  </data>
+  <data name="HOMasterSKUHierarchy" xml:space="preserve">
+    <value>Phân cấp sản phẩm</value>
+  </data>
+  <data name="HOMasterSKUHierarchy_group_Infor" xml:space="preserve">
+    <value>Thông tin</value>
+  </data>
+  <data name="HOMasterSKUHierarchy_lbl_HierarchyLevel" xml:space="preserve">
+    <value>Cấp bậc</value>
+  </data>
+  <data name="HOMasterSKUHierarchy_lbl_HierarchyName" xml:space="preserve">
+    <value>Tên phân cấp</value>
+  </data>
+  <data name="HOMasterSKUHierarchy_lbl_IsActive" xml:space="preserve">
+    <value>Trạng thái</value>
+  </data>
+  <data name="HOMasterSKUHierarchy_lbl_ParentID" xml:space="preserve">
+    <value>Cấp cha</value>
+  </data>
+  <data name="HOMasterSKUHierarchy_lbl_Tree" xml:space="preserve">
+    <value>Cây phân cấp</value>
+  </data>
+  <data name="HOMasterSKUHierarchy_mainpop_title_Insert" xml:space="preserve">
+    <value>Thêm mới phân cấp sản phẩm</value>
+  </data>
+  <data name="HOMasterSKUHierarchy_mainpop_title_Update" xml:space="preserve">
+    <value>Cập nhật phân cấp sản phẩm</value>
+  </data>
+  <data name="HOMasterSKUHierarchy_mes_updatetStatus_Active" xml:space="preserve">
+    <value>Kích hoạt phân cấp</value>
+  </data>
+  <data name="HOMasterSKUHierarchy_mes_updatetStatus_Inactive" xml:space="preserve">
+    <value>Ngưng kích hoạt phân cấp</value>
+  </data>
+  <data name="HOMasterSKUHierarchy_phd_filterHierarchyName" xml:space="preserve">
+    <value>Tên phân cấp</value>
+  </data>
+  <data name="HOMasterSupplier_group_Contact" xml:space="preserve">
+    <value>Liên hệ</value>
+  </data>
+  <data name="HOMasterSupplier_group_Infor" xml:space="preserve">
+    <value>Thông tin</value>
+  </data>
+  <data name="HOMasterSupplier_lbl_Address" xml:space="preserve">
+    <value>Địa chỉ</value>
+  </data>
+  <data name="HOMasterSupplier_lbl_ContactEmail" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="HOMasterSupplier_lbl_ContactName" xml:space="preserve">
+    <value>Người liên hệ</value>
+  </data>
+  <data name="HOMasterSupplier_lbl_ContactPhone" xml:space="preserve">
+    <value>Điện thoại</value>
+  </data>
+  <data name="HOMasterSupplier_lbl_IsActive" xml:space="preserve">
+    <value>Trạng thái</value>
+  </data>
+  <data name="HOMasterSupplier_lbl_Note" xml:space="preserve">
+    <value>Ghi chú</value>
+  </data>
+  <data name="HOMasterSupplier_lbl_PaymentTerm" xml:space="preserve">
+    <value>Hạn thanh toán</value>
+  </data>
+  <data name="HOMasterSupplier_lbl_SupplierName" xml:space="preserve">
+    <value>Tên nhà cung cấp</value>
+  </data>
+  <data name="HOMasterSupplier_lbl_TaxCode" xml:space="preserve">
+    <value>Mã số thuế</value>
+  </data>
+  <data name="HOMasterSupplier_phd_filterSupplierName" xml:space="preserve">
+    <value>Tên NCC, điện thoại, email</value>
+  </data>
+  <data name="HOMasterSupplier_titleform_Add" xml:space="preserve">
+    <value>Thêm mới nhà cung cấp</value>
+  </data>
+  <data name="HOMasterSupplier_titleform_Update" xml:space="preserve">
+    <value>Cập nhật nhà cung cấp</value>
+  </data>
+  <data name="HOMasterSupplier_title_Page" xml:space="preserve">
+    <value>Nhà cung cấp</value>
+  </data>
+  <data name="LayOut_btn_LogInAction" xml:space="preserve">
+    <value>Đăng nhập</value>
+  </data>
+  <data name="LayOut_btn_LogOutActionNo" xml:space="preserve">
+    <value>Hủy bỏ</value>
+  </data>
+  <data name="LayOut_btn_LogOutActionYes" xml:space="preserve">
+    <value>Đồng ý</value>
+  </data>
+  <data name="LayOut_lbl_LogInPassword" xml:space="preserve">
+    <value>Mật khẩu</value>
+  </data>
+  <data name="LayOut_lbl_LogInRememberPassword" xml:space="preserve">
+    <value>Ghi nhớ đăng nhập</value>
+  </data>
+  <data name="LayOut_lbl_LogInRequiredPassword" xml:space="preserve">
+    <value>Nhập mật khẩu</value>
+  </data>
+  <data name="LayOut_lbl_LogInRequiredUsername" xml:space="preserve">
+    <value>Vui lòng nhập tên đăng nhập</value>
+  </data>
+  <data name="LayOut_lbl_LogInTitle" xml:space="preserve">
+    <value>Đăng nhập hệ thống</value>
+  </data>
+  <data name="LayOut_lbl_LogInUsername" xml:space="preserve">
+    <value>Tên đăng nhập</value>
+  </data>
+  <data name="LayOut_lbl_LogOut" xml:space="preserve">
+    <value>Đăng xuất</value>
+  </data>
+  <data name="LayOut_lbl_LogOutMsg" xml:space="preserve">
+    <value>Đăng xuất khỏi hệ thống</value>
+  </data>
+</root>

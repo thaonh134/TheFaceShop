@@ -1,0 +1,682 @@
+﻿
+/*
+    * body layout
+    * * Copyright ThaoNH
+    */
+body #header {
+    background-image: linear-gradient(to bottom,#2F75B5,#2F75B5) !important;
+    border-bottom: 0px
+}
+.smart-style-3 #header{
+    border: 0px
+}
+body:not(.menu-on-top).desktop-detected {
+    min-height: auto !important;
+}
+
+#content {
+    min-width: 800px;
+}
+
+    #content .divSearch {
+        width: 270px;
+        float: left;
+        margin-left: -10px;
+        /*margin-right: 40px;*/
+        /*margin-left: 4px;*/
+    }
+
+    #content .divMainContent {
+        width: 60%;
+        float: left;
+    }
+
+/*
+    * kendo grid
+    * * Copyright ThaoNH
+    */
+.k-grid-header tr th {
+    background-color: #dcf4fc !important;
+    text-align: center !important;
+}
+
+.k-grid-header th.k-header {
+    font-weight: bold;
+}
+
+.k-grid table tbody tr:hover, .k-grid table tbody tr.k-alt:hover {
+    background: #e6f5d6;
+}
+
+.k-grid-pager .k-pager-sizes {
+    display: none;
+}
+
+.k-state-selected, .k-state-selected:link, .k-state-selected:visited, .k-list > .k-state-selected, .k-list > .k-state-highlight, .k-panel > .k-state-selected, .k-button:active, .k-ghost-splitbar-vertical, .k-ghost-splitbar-horizontal, .k-draghandle.k-state-selected:hover, .k-scheduler .k-scheduler-toolbar .k-state-selected, .k-marquee-color {
+    color: #ffffff;
+    background-color: #2F75B5;
+    border-color: #2F75B5;
+}
+
+.k-link:link, .k-link:visited, .k-nav-current.k-state-hover .k-link {
+    color: #1F4E78;
+}
+
+.tw-grid-active-row {
+    background-color: #C6EFCE;
+}
+
+.tw-grid-row {
+    background-color: #ffffff;
+}
+
+
+/*
+    *Left Search
+    * Copyright ThaoNH, PhongHT
+    */
+
+/*menu search*/
+.tw_widget {
+    /*background: #eee;*/
+    /*border: none;*/
+    /*padding: 0;
+    margin: 0;*/
+}
+
+    .tw_widget .tw_widget_container {
+        float: left;
+        width: 100%;
+    }
+
+    .tw_widget .tw_widget_heading {
+        margin: 0;
+        padding: 0;
+        float: left;
+        width: 100%;
+        background-color: #dcf4fc;
+        border-color: #EDEDED;
+        color: #1F4E78;
+        border-top-right-radius: 4px;
+        border-top-left-radius: 4px;
+        font-family: "Open Sans",Arial,Helvetica,Sans-Serif;
+        font-size: 13px;
+        line-height: 1.42857143;
+        border-color: #EDEDED;
+        border-bottom: 0px;
+        border: thin solid #cccccc;
+    }
+
+        .tw_widget .tw_widget_heading:hover {
+            cursor: pointer;
+        }
+
+.tw_widget_heading .tw_widget_title {
+    margin-left: 10px;
+    float: left;
+    line-height: 32px;
+    font-size: 100%;
+    font-family: "Open Sans",Arial,Helvetica,Sans-Serif;
+    letter-spacing: 0;
+    /*text-transform: uppercase;*/
+    /*font-weight: 500;*/
+    font-weight: bold;
+}
+
+.tw_widget_heading .widget_action {
+    width: auto;
+    padding: 0;
+    margin: 0;
+    float: right;
+}
+
+.tw_widget_heading .button-icon {
+    border-left: 1px solid rgba(0,0,0,.09);
+    min-width: 30px;
+    height: 32px;
+    float: left;
+    position: relative;
+    font-size: 14px;
+    text-align: center;
+    display: inline-block;
+    line-height: 32px;
+    padding: 0;
+    margin: 0;
+    color: #1F4E78;
+}
+
+.tw_widget_container .tw_widget_contain {
+    background: white !important;
+    border: none;
+    float: left;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    padding-top: 15px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border: 1px solid;
+    border-color: #cccccc;
+    border-top: 0px;
+}
+
+.tw_widget_contain .smart-form, .tw_widget_contain .smart-form fieldset {
+    /*background: #eee !important;*/
+}
+
+.tw_widget_contain input {
+    border-radius: 3px !important;
+}
+/*
+    * kendo popup
+    * Copyright ThaoNH
+    */
+div.k-window {
+    /*background: #27ae60;*/
+    border: none;
+}
+
+.k-window-titlebar {
+    background-color: #2fb590;
+    color: #fff;
+    margin-top: -30px;
+    height: 30px;
+}
+
+.smart-form *, .smart-form :after, .smart-form :before {
+    box-sizing: inherit !important;
+}
+/*
+*==============================================================
+*Tất cả css custom boostrap
+*==============================================================
+*/
+
+/*
+    * Select 2
+    * * Copyright ThaoNH
+    */
+
+.select2-container .select2-choice > .select2-chosen {
+    font-size: 11px !important;
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif !important;
+}
+
+.select2-container-multi .select2-choices {
+    min-height: 30px;
+}
+
+    .select2-container-multi .select2-choices .select2-search-field input {
+        height: 10px;
+    }
+
+.select2-container-multi .select2-search-field {
+    font-size: 11px;
+}
+
+.select2-container-multi .select2-choices .select2-search-choice {
+    padding: 1px 28px 1px 8px;
+    margin: 1px 0px 1px 1px;
+    font-size: 11px;
+}
+
+.smart-style-3 .select2-container-multi .select2-choices .select2-search-field input, .smart-style-3 .tt-hint {
+    font-size: 11px;
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    padding: 3px 0px;
+    margin: 0;
+}
+
+.select2-container-multi .select2-search-choice-close {
+    display: block;
+    top: 0;
+    right: 0;
+    padding: 0;
+    padding-top: 5px;
+    padding-left: 3px;
+    padding-right: 1px;
+}
+
+
+.select2-container .select2-choice {
+    display: block;
+    height: 22px;
+    padding: 0 0 0 8px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #ccc;
+    white-space: nowrap;
+    line-height: 25px;
+    color: #444;
+    text-decoration: none;
+    background-clip: padding-box;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: #fff;
+}
+/*
+    * Form in grid 
+    * * Copyright ThaoNH,PhongHT
+    */
+.row_header {
+    cursor: pointer;
+}
+
+table .active.row_header td {
+    border-top: thin dotted grey;
+}
+
+table .active.row_detail td {
+    border-bottom: thin dotted grey;
+}
+
+table .active > td:first-child {
+    border-left: thin dotted grey;
+}
+
+table .active > td:last-child {
+    border-right: thin dotted grey;
+}
+
+table tr.active.row_detail:hover {
+    background-color: white;
+}
+
+table tr.row_header:not(.active):hover {
+    background-color: #e6f5d6 !important;
+}
+
+.form-group.tw-form-group-grid {
+    margin-bottom: 0;
+}
+
+/*
+    * Abbreviations 
+    * * Copyright ThaoNh
+    */
+/*abbr.tw-abbreviations[data-original-title], abbr.tw-abbreviations[title] {
+    cursor: pointer;
+    border-bottom: none;
+    color: green;
+    width: 100px;
+}*/
+/*abbr {
+    position: relative;
+}
+
+abbr:hover::after {
+    position: absolute;
+    bottom: 100%;
+    left: 100%;
+    display: block;
+    padding: 1em;
+    background: yellow;
+    content: attr(title);
+    width: 200px;
+}*/
+/* Tooltip */
+.tw-help-icon:hover {
+    cursor: pointer;
+}
+
+.tw-help-icon + .tooltip > .tooltip-inner {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid green;
+    /*padding: 15px;*/
+    font-size: 13px;
+    text-align: left;
+    font-weight: normal;
+    max-width: 250px;
+    width: 250px;
+}
+
+/* Tooltip on top */
+.tw-help-icon + .tooltip.top > .tooltip-arrow {
+    border-top: 5px solid green;
+}
+
+/* Tooltip on bottom */
+.tw-help-icon + .tooltip.bottom > .tooltip-arrow {
+    border-bottom: 5px solid blue;
+}
+
+/* Tooltip on left */
+.tw-help-icon + .tooltip.left > .tooltip-arrow {
+    border-left: 5px solid red;
+}
+
+/* Tooltip on right */
+.tw-help-icon + .tooltip.right > .tooltip-arrow {
+    border-right: 5px solid black;
+}
+/*
+    * Input on grid
+    * * Copyright ThaoNh
+    */
+
+.tw-input-grid {
+    text-align: right;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    background-image: none !important;
+    border:1px solid rgb(204, 204, 204) !important;
+    border-radius: 2px !important;
+    box-shadow: none !important;
+    box-sizing: border-box;
+    direction: ltr;
+    font-size: 13px;
+    height: 32px;
+    padding: 6px 12px;
+
+
+}
+/*
+    * form-horizontal 
+    * * Copyright ThaoNh
+    */
+.form-horizontal {
+    background: #fff;
+}
+.form-horizontal .control-label {
+    text-align: left;
+}
+
+.form-horizontal input {
+    border: 1px solid #ccc !important;
+}
+
+.form-horizontal .required {
+    color: red;
+    padding: 0px 3px;
+    /*float: left;*/
+}
+
+.form-horizontal .select2-container, .form-horizontal .select2-container-multi {
+    padding: 0 !important;
+    border-radius: 2px !important;
+}
+
+.form-horizontal input, .form-horizontal textarea {
+    border-radius: 2px !important;
+}
+
+
+.form-horizontal a.select2-choice {
+    height: 100%;
+    border-radius: 2px !important;
+}
+
+.form-horizontal ul.select2-choices {
+    height: auto !important;
+    border-radius: 2px !important;
+}
+
+.form-horizontal .select2-container {
+    border: none;
+}
+
+.form-horizontal .select2-container-multi {
+    border: none;
+    height: auto;
+}
+
+.select2-drop-active {
+    border-radius: 2px !important;
+}
+
+.form-horizontal .select2-container-multi .select2-choices .select2-search-choice {
+    line-height: 21px;
+}
+
+.form-horizontal .select2-container-multi .select2-search-field {
+    line-height: 21px;
+}
+
+    .form-horizontal .select2-container-multi .select2-search-field input {
+        height: auto !important;
+    }
+
+.form-horizontal .checkbox.state-error i, .form-horizontal .radio.state-error i, .form-horizontal .state-error input, .form-horizontal .state-error select, .form-horizontal .state-error textarea, .form-horizontal .toggle.state-error i, .form-horizontal .state-error .select2-choice, .form-horizontal .state-error .select2-choices {
+    border-color: #A90329 !important;
+}
+
+
+.form-horizontal .state-error em {
+    display: block;
+    margin-top: 6px;
+    padding: 0 1px;
+    font-style: normal;
+    font-size: 11px;
+    line-height: 15px;
+    color: #D56161;
+}
+
+.form-group .tw-lbl-field-title {
+    width: 38%;
+    float: left;
+}
+
+.form-group .tw-lbl-field-value {
+    max-width: 60%;
+    float: left;
+    padding-left: 5px;
+}
+
+/*
+    * modal boostrap
+    * * Copyright ThaoNh, PhongHT
+    */
+.modal-body {
+    overflow-y: auto;
+    /*padding:0 13px;*/
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.modal-header {
+    background-color: #4267B2;
+    color: white;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+    .modal-header button.close {
+        margin-top: 3px;
+    }
+
+.modal-content {
+    /*overflow: auto;*/
+}
+
+.normalPopupWidth .modal-dialog {
+    width: 1000px;
+}
+
+.extraPopupWidth .modal-dialog {
+    width: 900px;
+}
+
+.smallPopupWidth .modal-dialog {
+    width: 700px;
+}
+
+/*.normalPopupWidth .modal-content {
+   max-height: 600px;
+}
+
+.extraPopupWidth .modal-content {
+     max-height: 600px;
+}
+
+.smallPopupWidth .modal-content {
+     max-height: 600px;
+}*/
+/*
+    * button tw_style
+    * * Copyright ThaoNh, PhongHT
+    */
+
+
+
+.tw-btn-add {
+    margin-left: 3px;
+    color: #fff;
+    background-color: #3276b1;
+    border-color: #2c699d;
+}
+
+    .tw-btn-add:hover, .tw-btn-add:focus, .tw-btn-add:active, .tw-btn-add.active, .open .dropdown-toggle.tw-btn-add {
+        color: #fff;
+        background-color: #275b89;
+        border-color: #1f496d;
+    }
+
+    .tw-btn-add > i:before {
+        content: "\002b";
+    }
+
+.tw-btn-edit {
+    margin-left: 3px;
+    color: #fff;
+    background-color: #3276b1;
+    border-color: #2c699d;
+}
+
+    .tw-btn-edit:hover, .tw-btn-edit:focus, .tw-btn-edit:active, .tw-btn-edit.active, .open .dropdown-toggle.tw-btn-edit {
+        color: #fff;
+        background-color: #275b89;
+        border-color: #1f496d;
+    }
+
+    .tw-btn-edit > i:before {
+    }
+
+.tw-btn-inactivate {
+    margin-left: 3px;
+    color: #fff;
+    background-color: #a90329;
+    border-color: #900323;
+}
+
+    .tw-btn-inactivate:hover, .tw-btn-inactivate:focus, .tw-btn-inactivate:active, .tw-btn-inactivate.active, .open .dropdown-toggle.tw-btn-inactivate {
+        color: #fff;
+        background-color: #77021d;
+        border-color: #540114;
+    }
+
+    .tw-btn-inactivate > i:before {
+    }
+
+.tw-btn-activate {
+    margin-left: 3px;
+    color: #fff;
+    background-color: #739e73;
+    border-color: #659265;
+}
+
+    .tw-btn-activate:hover, .tw-btn-activate:focus, .tw-btn-activate:active, .tw-btn-activate.active, .open .dropdown-toggle.tw-btn-activate {
+        color: #fff;
+        background-color: #5b835b;
+        border-color: #4c6e4c;
+    }
+
+    .tw-btn-activate > i:before {
+    }
+
+.tw-btn-save {
+    margin-left: 3px;
+    color: #fff;
+    background-color: #3276b1;
+    border-color: #2c699d;
+}
+
+    .tw-btn-save:hover, .tw-btn-save:focus, .tw-btn-save:active, .tw-btn-save.active, .open .dropdown-toggle.tw-btn-save {
+        color: #fff;
+        background-color: #275b89;
+        border-color: #1f496d;
+    }
+
+    .tw-btn-save > i:before {
+    }
+
+.tw-btn-cancel {
+    margin-left: 3px;
+    color: #fff;
+    background-color: #a90329;
+    border-color: #900323;
+}
+
+    .tw-btn-cancel:hover, .tw-btn-cancel:focus, .tw-btn-cancel:active, .tw-btn-cancel.active, .open .dropdown-toggle.tw-btn-cancel {
+        color: #fff;
+        background-color: #77021d;
+        border-color: #540114;
+    }
+
+    .tw-btn-cancel > i:before {
+    }
+
+
+.tw-btn-refresh {
+    margin-left: 3px;
+    color: #fff;
+    background-color: #71843f;
+    border-color: #659265;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    color: #1F4E78;
+}
+
+    .tw-btn-refresh:hover, .tw-btn-refresh:focus, .tw-btn-refresh:active, .tw-btn-refresh.active, .open .dropdown-toggle.tw-btn-refresh {
+        /*color: #fff;
+        background-color: #5b835b;
+        border-color: #4c6e4c;*/
+        /*color: #000;*/
+        /*background-color: #5b835b;
+        border-color: #4c6e4c;*/
+        background: transparent;
+    }
+
+    .tw-btn-refresh > i:before {
+    }
+
+.tw-btn-action {
+    margin-left: 3px;
+    color: #fff;
+    background-color: #3276b1;
+    border-color: #2c699d;
+}
+
+    .tw-btn-action:hover, .tw-btn-action:focus, .tw-btn-action:active, .tw-btn-action.active, .open .dropdown-toggle.tw-btn-action {
+        color: #fff;
+        background-color: #275b89;
+        border-color: #1f496d;
+    }
+
+    .tw-btn-action > i:before {
+    }
+
+/*login infor*/
+
+.login-info img.flag {
+    width: 16px;
+    height: 11px;
+    margin-top: -.18em;
+    display: inline-block;
+    border-left: none;
+}
+
+.login-info #tw-language > li{
+    margin: 0;
+    padding: 0;
+    margin-left: 2px;
+}
+.login-info #tw-language > li> a.currentLang{
+    margin: 0;
+    padding: 0;
+}

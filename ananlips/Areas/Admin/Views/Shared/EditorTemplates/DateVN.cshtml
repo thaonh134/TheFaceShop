@@ -1,0 +1,29 @@
+@model DateTime?
+@Html.Kendo().TextBoxFor(model => model).HtmlAttributes(new {
+        customname = "CustomerDateVNtext"
+    })
+@(Html.Kendo().DatePicker().Culture("en-GB").Name("CustomerDateVNpicker")
+    .Format("dd/MM/yyyy")
+    .ParseFormats(new List<string>()
+                                    {
+                                "dd/MM/yyyy", 
+                                "dd/MM/yy",
+                                "dd MMM yyyy" 
+                                    })
+    .Value(DateTime.Now)
+)
+
+<script>
+    
+    $(document).ready(function () {
+        $('[customname=CustomerDateVNtext]').hide();
+        setTimeout(function () {
+            $('#CustomerDateVNpicker').data('kendoDatePicker').value(kendo.parseDate($('[customname=CustomerDateVNtext]').val()));
+        }, 10);
+        $('#CustomerDateVNpicker').bind('change', function () {
+            var value = $('#CustomerDateVNpicker').data('kendoDatePicker').value();
+            $('[customname=CustomerDateVNtext]').val(value).trigger('change');
+        });
+    });
+
+</script>
