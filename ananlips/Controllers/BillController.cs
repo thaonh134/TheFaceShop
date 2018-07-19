@@ -13,6 +13,7 @@ namespace ananlips.Controllers
         public ActionResult Index(string ProductId)
         {
             var dict = new Dictionary<string, object>();
+            if(!string.IsNullOrEmpty(ProductId))  DefaultView.FE_Bill.AddItemToBillSection( ProductId);
             dict["data_Bill"] = DefaultView.FE_Bill.GetBillSection();
             return View(dict);
         }

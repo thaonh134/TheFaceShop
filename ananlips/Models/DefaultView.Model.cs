@@ -24,9 +24,9 @@ namespace ananlips.Models
             public string CategoryName { get; set; }
             public string SubCategoryName { get; set; }
             public string ProductImg { get; set; }
-            public string Discount { get; set; }
-            public string PriceAmount { get; set; }
-            public string Price { get; set; }
+            public double Discount { get; set; }
+            public double PriceAmount { get; set; }
+            public double Price { get; set; }
 
             public static List<FE_Product> GetByCategory(string categoryid)
             {
@@ -67,7 +67,7 @@ namespace ananlips.Models
                 try
                 {
                     IDbConnection dbConn = new OrmliteConnection().openConn();
-                    var item = dbConn.FirstOrDefault<FE_Product>("isactive={0} and entryid = {1}", 1, productid);
+                    var item = dbConn.FirstOrDefault<Product>("isactive={0} and entryid = {1}", 1, productid);
                     var mapped = Mapper.Map<FE_Product>(item);
                     var result = mapped;
                     return result;
@@ -197,8 +197,9 @@ namespace ananlips.Models
             public string Address { get; set; }
             public string Phone { get; set; }
             public string Email { get; set; }
+            public double PriceAmount { get; set; }
             public string Comments { get; set; }
-            public FE_BillDetail BillDetails { get; set; }
+            public List<FE_BillDetail> BillDetails { get; set; }
             public DateTime createdat { get; set; }
 
             public static FE_Bill GetBillSection()
@@ -213,6 +214,48 @@ namespace ananlips.Models
             {
                 HttpContext.Current.Session["FE_Bill"] = item;
             }
+            public static void AddItemToBillSection(string productid)
+            {
+                try
+                {
+                   var product= FE_Product.GetDetail(productid);
+                    if (product == null) return;
+                  var itemBill=  FE_Bill.GetBillSection();
+                    if (itemBill.BillDetails == null) itemBill.BillDetails = new List<FE_BillDetail>();
+
+                    var matches = itemBill.BillDetails.Where(p => p.ProductId == product.ProductId).ToList();
+                    if (matches.Count > 0)
+                    {
+                        matches.ForEach(c => c.Quantity = c.Quantity + 1);
+                    }
+                    else
+                    {
+                        var itemBillDetail = new FE_BillDetail();
+                        itemBillDetail.ProductId = product.ProductId;
+                        itemBillDetail.ProductName = product.ProductName;
+                        itemBillDetail.ProductImg = product.ProductImg;
+
+                        itemBillDetail.Quantity = 1;
+                        itemBillDetail.PriceAmount = product.PriceAmount;
+                        itemBillDetail.Discount = product.Discount;
+                        itemBillDetail.Price = product.Price;
+
+                        itemBill.BillDetails.Add(itemBillDetail);
+                    }
+
+                    itemBill.PriceAmount = 0;
+                    foreach(var itemBillDetail in itemBill.BillDetails)
+                    {
+                        itemBill.PriceAmount += (itemBillDetail.Quantity * itemBillDetail.PriceAmount);
+                    }
+                    HttpContext.Current.Session["FE_Bill"] = itemBill;
+
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
         }
         public class FE_BillDetail
         {
@@ -226,7 +269,7 @@ namespace ananlips.Models
             public string ProductImg { get; set; }
             public double Price { get; set; }
             public double Discount { get; set; }
-            public string Quantity { get; set; }
+            public double Quantity { get; set; }
             public double PriceAmount { get; set; }
         }
 
