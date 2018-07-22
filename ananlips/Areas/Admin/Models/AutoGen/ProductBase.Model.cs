@@ -22,9 +22,11 @@ namespace ananlips.Areas.Admin.Models.AutoGen
         
 public  string entrynamevi  { get; set; } 
 public  int subcategoryid  { get; set; } 
-public  int categoryid  { get; set; } 
-public  string defautlimg  { get; set; } 
+public  int categoryid  { get; set; }
+
+        public  string defautlimg  { get; set; } 
 public  string listimgs  { get; set; } 
+
 public  double price  { get; set; } 
 public  double discount  { get; set; } 
 public  double priceamount  { get; set; } 

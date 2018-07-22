@@ -22,7 +22,25 @@ namespace ananlips.AutoMap
                 .ForMember(dst => dst.Discount, x => x.MapFrom(src => src.discount != null ? src.discount*100:0))
                 .ForMember(dst => dst.Price, x => x.MapFrom(src => src.price))
                 .ForMember(dst => dst.PriceAmount, x => x.MapFrom(src => src.priceamount))
+
+                .ForMember(dst => dst.Brand, x => x.MapFrom(src => src.brand))
+                .ForMember(dst => dst.Origin, x => x.MapFrom(src => src.origin))
+                .ForMember(dst => dst.Unit, x => x.MapFrom(src => src.unit))
+                .ForMember(dst => dst.Unitquantity, x => x.MapFrom(src => src.unitquantity))
+                .ForMember(dst => dst.Viewcount, x => x.MapFrom(src => src.viewcount))
+                .ForMember(dst => dst.Sellcount, x => x.MapFrom(src => src.sellcount))
+                .ForMember(dst => dst.Comments, x => x.MapFrom(src => src.comments))
                 ;
+
+            CreateMap<Category, FE_Category>()
+               .ForMember(dst => dst.CategoryId, x => x.MapFrom(src => src.entryid))
+               .ForMember(dst => dst.CategoryName, x => x.MapFrom(src => src.entryname))
+               ;
+            CreateMap<SubCategory, FE_SubCategory>()
+               .ForMember(dst => dst.SubCategoryId, x => x.MapFrom(src => src.entryid))
+               .ForMember(dst => dst.SubCategoryName, x => x.MapFrom(src => src.entryname))
+               .ForMember(dst => dst.CategoryId, x => x.MapFrom(src => src.categoryid))
+               ;
         }
         
     }

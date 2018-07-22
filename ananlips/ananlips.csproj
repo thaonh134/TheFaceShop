@@ -1037,7 +1037,9 @@
     <Content Include="Areas\Admin\Views\AdminMenuManagement\MenuManagementTree.cshtml" />
     <Content Include="ExcelImport\Error\SampleError.xlsx" />
     <Compile Include="Models\DefaultView.Model.cs" />
+    <Compile Include="Models\FE_Search.Model.cs" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="Scripts\bootstrap\jquery.tmpl.js" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bootstrap\bootstrap.min.js" />
@@ -2236,6 +2238,8 @@
     <Content Include="Views\Shared\_LayoutBill.cshtml" />
     <Content Include="Views\Home\Index - Copy.cshtml" />
     <Content Include="Views\Shared\_CardBillPartial.cshtml" />
+    <Content Include="Views\Shared\_FooterInfor.cshtml" />
+    <Content Include="Views\Bill\_BillDetailPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

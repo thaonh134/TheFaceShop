@@ -467,7 +467,7 @@
             background-color: rgba( 157,191,23, 0.7 )
         }
     </style>
-    <link rel="canonical" href="https://thefaceshopvn.com/">
+    <link rel="canonical" href="@Url.Action("Index","Home")">
     <meta property="og:locale" content="vi_VN">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Trang chủ - THEFACESHOP Việt Nam">
@@ -668,7 +668,7 @@
     <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://thefaceshopvn.com/wp-includes/wlwmanifest.xml">
     <meta name="generator" content="WordPress 4.4.16">
     <meta name="generator" content="WooCommerce 3.0.1">
-    <link rel="shortlink" href="https://thefaceshopvn.com/">
+    <link rel="shortlink" href="@Url.Action("Index","Home")">
     <meta name="generator" content="Powered by Visual Composer - drag and drop page builder for WordPress.">
     <!--[if lte IE 9]><link
     rel="stylesheet" type="text/css" href="https://thefaceshopvn.com/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css" media="screen"><![endif]-->
@@ -874,7 +874,7 @@
                                 </div>
                             </div>
                             <script type="text/javascript">jQuery(document).ready(function (e) { jQuery('.count_spNew').html("30"); });</script> <div class="main-menu main-menu-wapper">
-                                <ul id="menu-main-menu" class="navigation navigation-main-menu"><li id="menu-item-2095" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-347 current_page_item menu-item-2095 active"><a title="Trang chủ" href="https://thefaceshopvn.com/">Trang chủ</a></li><li id="menu-item-3278" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3278"><a title="Chính sách sỉ" href="https://thefaceshopvn.com/category/chinh-sach-si/">Chính sách sỉ</a></li><li id="menu-item-2096" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2096"><a title="Hướng dẫn mua hàng" href="https://thefaceshopvn.com/huong-dan-mua-hang/">Hướng dẫn mua hàng</a></li><li id="menu-item-2099" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2099"><a title="Thương hiệu" href="https://brand.thefaceshopvn.com">Thương hiệu</a></li><li id="menu-item-2098" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2098"><a title="Facebook" href="https://www.facebook.com/thefaceshopxachtay/?fref=ts">Facebook</a></li></ul>
+                                <ul id="menu-main-menu" class="navigation navigation-main-menu"><li id="menu-item-2095" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-347 current_page_item menu-item-2095 active"><a title="Trang chủ" href="@Url.Action("Index","Home")">Trang chủ</a></li><li id="menu-item-3278" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3278"><a title="Chính sách sỉ" href="https://thefaceshopvn.com/category/chinh-sach-si/">Chính sách sỉ</a></li><li id="menu-item-2096" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2096"><a title="Hướng dẫn mua hàng" href="https://thefaceshopvn.com/huong-dan-mua-hang/">Hướng dẫn mua hàng</a></li><li id="menu-item-2099" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2099"><a title="Thương hiệu" href="https://brand.thefaceshopvn.com">Thương hiệu</a></li><li id="menu-item-2098" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2098"><a title="Facebook" href="https://www.facebook.com/thefaceshopxachtay/?fref=ts">Facebook</a></li></ul>
                                 <a href="#" class="mobile-navigation">Menu<i class="fa fa-bars"></i></a>
                             </div>
                         </div><div id="form-search-opntop"></div><div id="shopping-cart-box-ontop" style="display: none;">
@@ -885,37 +885,10 @@
             </div><div class="content container">
                 @RenderBody()
             </div>
-            <footer id="footer">
-                <div class="container">
-                    <div id="introduce-box" class="row">
-                        <div class="col-md-3">
-                            <div id="address-box">
-                                <a href="@Url.Action("Index","Home")"><img alt="THEFACESHOP Việt Nam" src="https://thefaceshopvn.com/wp-content/uploads/2017/04/logo-1.png"></a>
-                            </div>
-                        </div><div class="col-md-3"></div><div class="col-md-6 social-footer">
-                            <div id="contact-box">
-                                <div id="widget_kt_social-2" class="widget-container widget-footer-social widget_kt_social">
-                                    <div class="social-link">
-                                        <a href="https://www.facebook.com/thefaceshopxachtay/" title="Facebook"><i class="fa fa-facebook">Facebook</i> </a><a href="https://www.facebook.com/thefaceshopxachtay/" title="Instagram"><i class="fa fa-instagram"> Instagram</i> </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div><div id="trademark-box">
-                        <div id="text-2" class="widget-container widget-footer-payment widget_text">
-                            <div class="textwidget">
-                                <ul id="trademark-list">
-                                    <li class="fleft camketfooter" style="">
-                                        <strong>Chúng tôi luôn cam kết:</strong><ul><li>The Face Shop chuyên cung cấp SỈ và LẺ mỹ phẩm THEFACESHOP chính hãng 100% từ Hàn Quốc.</li><li>Hỗ trợ tư vấn nhiệt tình 24/24</li><li>Giao hàng tận nơi siêu nhanh, nhận hàng, kiểm tra hàng mới thanh toán.</li><li>Hàng hóa được đóng gói đảm bảo.</li><li>Hotline: 0901 974 445</li></ul>
-                                    </li>
-                                    <li class="fright flast-li" id="shipping-methods">DỊCH VỤ GIAO HÀNG <a href="javascript:;"><img class="" src="https://thefaceshopvn.com/wp-content/uploads/2017/04/trademark_6.png"></a><a href="javascript:;"><img style="height: 35px;background: #9dbf17;padding: 0 23px;" class="" src="https://zozoship.vn/Content/images/logo_new.png"></a></li>
-                                    <li class="fright" id="payment-methods">Bảng phí giao hàng <a href="https://thefaceshopvn.com/bang-phi-giao-hang/">TẠI ĐÂY</a>   |</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+                  <footer id="footer">
+
+                      @Html.Partial("_FooterInfor")
+                  </footer>
         </div>
     </div><a href="#" class="scroll_top" title="Scroll to Top" style="display: none;">Scroll</a><div id="yith-quick-view-modal">
         <div class="yith-quick-view-overlay"></div><div class="yith-wcqv-wrapper" style="left: 174.5px; top: 60px; width: 1000px; height: 246px;">
