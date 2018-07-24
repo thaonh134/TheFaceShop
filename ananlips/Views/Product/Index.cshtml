@@ -58,7 +58,7 @@
                                 <span class="vendor">@data_Product.Unitquantity @data_Product.Unit</span>
                             </p>
                         </div>
-                        <form class="cart" method="post" enctype="multipart/form-data" action="@Url.Action("AddToBill","Bill")">
+                        <form class="cart" method="post" enctype="multipart/form-data" action="@Url.Action("AddItemToBill","Bill")">
                             <div class="quantity">
                                 <table>
                                     <tbody>
@@ -192,7 +192,7 @@
                                                                         <img class="owl-lazy wp-post-image" src="@ProductItem.ProductImg" data-src="@ProductItem.ProductImg" width="300" height="300" alt="@ProductItem.ProductName"><span class="giamgia_">-@ProductItem.Discount<i>%</i></span>
                                                                     </a><div class="quick-view">
                                                                         <a href="#" class="search yith-wcqv-button" data-product_id="@ProductItem.ProductId">Quick View</a>
-                                                                    </div><div class="add-to-cart"><a href="@Url.Action("AddToBill","Bill",new { ProductId=ProductItem.ProductId})" rel="nofollow" data-product_id="@ProductItem.ProductId" data-product_sku="" data-quantity="1" class="add_to_cart_button product_type_simple">Thêm vào giỏ</a></div>
+                                                                    </div><div class="add-to-cart"><a href="@Url.Action("AddItemToBill","Bill",new { ProductId=ProductItem.ProductId})" rel="nofollow" data-product_id="@ProductItem.ProductId" data-product_sku="" data-quantity="1" class="add_to_cart_button product_type_simple">Thêm vào giỏ</a></div>
                                                                     <a href="#" class="button yith-wcqv-button" data-product_id="@ProductItem.ProductId">Quick View</a>
                                                                 </div><div class="right-block">
                                                                     <h5 class="product-name"><a title="@ProductItem.ProductName" href="@Url.Action("Index","Product",new { Id=ProductItem.ProductId})">@ProductItem.ProductName</a></h5><div class="content_price">
@@ -240,7 +240,7 @@
                                                             <a href="@Url.Action("Index","Product",new { Id=@data_lstProduct[i].ProductId})">
                                                                 <img width="300" height="366" src="@data_lstProduct[i].ProductImg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="@data_lstProduct[i].ProductName" title="@data_lstProduct[i].ProductName" srcset="@data_lstProduct[i].ProductImg 100w, @data_lstProduct[i].ProductImg 300w, @data_lstProduct[i].ProductImg 270w" sizes="(max-width: 300px) 100vw, 300px">
                                                             </a><div class="quick-view"><div class="woocommerce product compare-button"><a href="#" class="compare button" data-product_id="3279" rel="nofollow">Compare</a></div><a href="#" class="search yith-wcqv-button" data-product_id="@data_lstProduct[i].ProductId">Quick View</a></div>
-                                                            <div class="add-to-cart"><a href="@Url.Action("AddToBill","Bill",new { ProductId=@data_lstProduct[i].ProductId})" rel="nofollow" data-product_id="@data_lstProduct[i].ProductId" data-product_sku="" data-quantity="1" class="add_to_cart_button product_type_simple">Thêm vào giỏ</a></div><a href="#" class="button yith-wcqv-button" data-product_id="@data_lstProduct[i].ProductId">Quick View</a>
+                                                            <div class="add-to-cart"><a href="@Url.Action("AddItemToBill","Bill",new { ProductId=@data_lstProduct[i].ProductId})" rel="nofollow" data-product_id="@data_lstProduct[i].ProductId" data-product_sku="" data-quantity="1" class="add_to_cart_button product_type_simple">Thêm vào giỏ</a></div><a href="#" class="button yith-wcqv-button" data-product_id="@data_lstProduct[i].ProductId">Quick View</a>
                                                         </div><div class="right-block">
                                                             <h5 class="product-name"><a title="@data_lstProduct[i].ProductName" href="@Url.Action("Index","Product",new { Id=@data_lstProduct[i].ProductId})">@data_lstProduct[i].ProductName</a></h5><div class="content_price">
                                                                 <span class="price">

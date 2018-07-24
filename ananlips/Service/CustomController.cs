@@ -25,11 +25,13 @@ namespace ananlips.Service
                 var claimsIdentity = User.Identity as ClaimsIdentity;
                 var UserId = claimsIdentity.FindFirst(ClaimTypes.PrimarySid).Value;
                 ViewBag.UserId = UserId;
-                currentUser = ananlips.Areas.Admin.Models.AuthUser.GetById(string.IsNullOrEmpty( UserId)?0:Convert.ToInt32(UserId));
+                currentUser = ananlips.Areas.Admin.Models.AuthUser.GetById(string.IsNullOrEmpty(UserId) ? 0 : Convert.ToInt32(UserId));
                 ViewData["AuthUser"] = currentUser;
 
             }
-            else ViewData["IsAuthenticated"] = false;
+            else { ViewData["IsAuthenticated"] = false;
+                ViewData["AuthUser"] = null;
+            }
         }
 
         public static Dictionary<string, bool> GetViewData()

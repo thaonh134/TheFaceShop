@@ -111,7 +111,7 @@
                                                             <img class="owl-lazy wp-post-image" src="@ProductItem.ProductImg" data-src="@ProductItem.ProductImg" width="300" height="300" alt="@ProductItem.ProductName"><span class="giamgia_">-@ProductItem.Discount<i>%</i></span>
                                                         </a><div class="quick-view">
                                                             <a href="#" class="search yith-wcqv-button" data-product_id="@ProductItem.ProductId">Quick View</a>
-                                                        </div><div class="add-to-cart"><a href="@Url.Action("AddToBill","Bill",new { ProductId=ProductItem.ProductId})" rel="nofollow" data-product_id="@ProductItem.ProductId" data-product_sku="" data-quantity="1" class="add_to_cart_button product_type_simple">Thêm vào giỏ</a></div>
+                                                        </div><div class="add-to-cart"><a href="@Url.Action("AddItemToBill","Bill",new { ProductId=ProductItem.ProductId})" rel="nofollow" data-product_id="@ProductItem.ProductId" data-product_sku="" data-quantity="1" class="add_to_cart_button product_type_simple">Thêm vào giỏ</a></div>
                                                         <a href="#" class="button yith-wcqv-button" data-product_id="@ProductItem.ProductId">Quick View</a>
                                                     </div><div class="right-block">
                                                         <h5 class="product-name"><a title="@ProductItem.ProductName" href="@Url.Action("Index","Product",new { Id=ProductItem.ProductId})">@ProductItem.ProductName</a></h5><div class="content_price">
@@ -182,7 +182,7 @@
             for (var i = 0; i < data.dataresult.length; i++) {
                 var tmpr = '@Url.Action("Index", "Product")';
                 data.dataresult[i].UrlAction = tmpr + '?id=' + data.dataresult[i].ProductId;
-                 tmpr = '@Url.Action("AddToBill", "Bill")';
+                 tmpr = '@Url.Action("AddItemToBill", "Bill")';
                 data.dataresult[i].BillUrlAction = tmpr + '?ProductId=' + data.dataresult[i].ProductId;
                 var template = jQuery('#ProductItemTemplate').tmpl(data.dataresult[i]);
                 tmp2.append(template);

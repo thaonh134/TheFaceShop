@@ -41,6 +41,34 @@ namespace ananlips.AutoMap
                .ForMember(dst => dst.SubCategoryName, x => x.MapFrom(src => src.entryname))
                .ForMember(dst => dst.CategoryId, x => x.MapFrom(src => src.categoryid))
                ;
+
+            CreateMap<Delivery, FE_Delivery>()
+              .ForMember(dst => dst.DeliveryId, x => x.MapFrom(src => src.entryid))
+              .ForMember(dst => dst.UserId, x => x.MapFrom(src => src.userid))
+              .ForMember(dst => dst.FullName, x => x.MapFrom(src => src.fullname))
+              .ForMember(dst => dst.Address, x => x.MapFrom(src => src.address))
+              .ForMember(dst => dst.Phone, x => x.MapFrom(src => src.phone))
+              .ForMember(dst => dst.Email, x => x.MapFrom(src => src.email))
+              .ForMember(dst => dst.Comments, x => x.MapFrom(src => src.comments))
+              ;
+
+            CreateMap<FE_Bill, Bill>()
+              .ForMember(dst => dst.entryid, x => x.MapFrom(src => src.BillId))
+              .ForMember(dst => dst.userid, x => x.MapFrom(src => src.UserId))
+              .ForMember(dst => dst.deliveryid, x => x.MapFrom(src => src.DeliveryId))
+              .ForMember(dst => dst.quantity, x => x.MapFrom(src => src.Quantity))
+              .ForMember(dst => dst.priceamount, x => x.MapFrom(src => src.PriceAmount))
+              ;
+            CreateMap<FE_BillDetail, BillDetail>()
+             .ForMember(dst => dst.entryid, x => x.MapFrom(src => src.BillDetailId))
+             .ForMember(dst => dst.billid, x => x.MapFrom(src => src.BillId))
+             .ForMember(dst => dst.productid, x => x.MapFrom(src => src.ProductId))
+             .ForMember(dst => dst.productname, x => x.MapFrom(src => src.ProductName))
+             .ForMember(dst => dst.quantity, x => x.MapFrom(src => src.Quantity))
+             .ForMember(dst => dst.price, x => x.MapFrom(src => src.Price))
+             .ForMember(dst => dst.priceamount, x => x.MapFrom(src => src.PriceAmount))
+             .ForMember(dst => dst.discount, x => x.MapFrom(src => src.Discount))
+             ;
         }
         
     }

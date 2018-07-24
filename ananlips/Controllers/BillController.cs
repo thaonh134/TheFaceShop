@@ -1,4 +1,6 @@
-﻿using ananlips.Models;
+﻿using ananlips.Areas.Admin.Models;
+using ananlips.Models;
+using ananlips.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +10,7 @@ using static ananlips.Models.DefaultView;
 
 namespace ananlips.Controllers
 {
-    public class BillController : Controller
+    public class BillController : GuestController
     {
         // GET: Category
         public ActionResult Index()
@@ -18,7 +20,16 @@ namespace ananlips.Controllers
             dict["data_Bill"] = DefaultView.FE_Bill.GetBillSection();
             return View(dict);
         }
-        public ActionResult AddToBill(FE_BillDetail Item)
+        public ActionResult CheckOut()
+        {
+            
+            var dict = new Dictionary<string, object>();
+            var userID= ViewData["AuthUser"] == null?0 : ((AuthUser)ViewData["AuthUser"]).entryid;
+            var Delivery = DefaultView.FE_Delivery.GetDefaultDelivery(userID);
+            dict["data_Bill"] = DefaultView.FE_Bill.BindFullBill(userID, Delivery);
+            return View(dict);
+        }
+        public ActionResult AddItemToBill(FE_BillDetail Item)
         {
             var dict = new Dictionary<string, object>();
             if (!string.IsNullOrEmpty(Item.ProductId.ToString())) DefaultView.FE_Bill.AddItemToBillSection(Item);
@@ -32,6 +43,7 @@ namespace ananlips.Controllers
             var bill = DefaultView.FE_Bill.ConvertQuickBill(Item);
             return Json(new { success = true, data = bill });
         }
+
         [HttpPost]
         public ActionResult RemoveBillItem(FE_BillDetail Item)
         {
@@ -45,9 +57,13 @@ namespace ananlips.Controllers
             DefaultView.FE_Bill.UpdateBillItem(lstItem);
             return PartialView("_BillDetailPartial");
         }
-        public ActionResult SaveBill(FE_BillDetail Item)
+        //Bill checkout
+        public ActionResult SaveBill(FE_Delivery Item)
         {
-            return Json(new { success = true, data = Item });
+            var userID = ViewData["AuthUser"] == null ? 0 : ((AuthUser)ViewData["AuthUser"]).entryid;
+           DefaultView.FE_Bill.BindFullBill(userID, Item);
+           int resutl= FE_Bill.SaveBill(userID);
+            return Json(new { success = resutl==1});
         }
     }
 }

@@ -339,10 +339,9 @@ namespace ananlips.Models
         public class FE_Bill
         {
             public int BillId { get; set; }
-            public int Userid { get; set; }
-
-            public int Deliveryid { get; set; }
-            public string FullNname { get; set; }
+            public int DeliveryId { get; set; }
+            public int UserId { get; set; }
+            public string FullName { get; set; }
             public string Address { get; set; }
             public string Phone { get; set; }
             public string Email { get; set; }
@@ -500,9 +499,56 @@ namespace ananlips.Models
 
                 }
             }
+            public static FE_Bill BindFullBill(int UserId,FE_Delivery delivery)
+            {
+                var bill = GetBillSection();
+                bill.UserId = UserId;
+                bill.DeliveryId = delivery.DeliveryId;
+                bill.FullName = delivery.FullName;
+                bill.Address = delivery.Address;
+                bill.Phone = delivery.Phone;
+                bill.Email = delivery.Email;
+                bill.Comments = delivery.Comments;
+                SetBillSection(bill);
+                return GetBillSection();
+            }
+
+            public static int SaveBill(int UserId)
+            {
+
+                var fe_bill = GetBillSection();
+                var bill= Mapper.Map<Bill>(fe_bill);
+                var billdetail = Mapper.Map<List<BillDetail>>(fe_bill.BillDetails);
+
+                var dbConn = new OrmliteConnection().openConn();
+
+                using (var trans = dbConn.OpenTransaction())
+                {
+                    try
+                    {
+                        var billid = bill.AddOrUpdate(UserId, dbConn);
+                        billdetail.ForEach(x => x.billid = billid);
+                        foreach (var item in billdetail)
+                        {
+                            item.AddOrUpdate(UserId, dbConn);
+                        }
+                        trans.Commit();
+                        return billid;
+                    }
+                    catch (Exception ex)
+                    {
+                        trans.Rollback();
+                        return 0;
+                    }
+                }
+
+               
+                
+            }
         }
         public class FE_BillDetail
         {
+            public int BillDetailId { get; set; }
             public int BillId { get; set; }
             public int ProductId { get; set; }
             public int CategoryId { get; set; }
@@ -550,6 +596,35 @@ namespace ananlips.Models
 
         #endregion
 
+        #region Delivery
+        public class FE_Delivery {
+            public int DeliveryId { get; set; }
+            public int UserId { get; set; }
+            public string FullName { get; set; }
+            public string Address { get; set; }
+            public string Phone { get; set; }
+            public string Email { get; set; }
+            public string Comments { get; set; }
+
+            public static FE_Delivery GetDefaultDelivery(int UserId)
+            {
+                try
+                {
+                    IDbConnection dbConn = new OrmliteConnection().openConn();
+                    var item = dbConn.Select<Delivery>("isactive={0} and userid = {1}", 1, UserId);
+                    if (item == null) return new FE_Delivery();
+                    return Mapper.Map<FE_Delivery>(item);
+
+                }
+                catch (Exception ex)
+                {
+                    return new FE_Delivery();
+                }
+            }
+        }
+       
+
+        #endregion
         public static List<DDLModel> ListOrderProduct()
         {
             var lstResult = new List<DDLModel>();

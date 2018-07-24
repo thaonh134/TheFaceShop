@@ -2233,13 +2233,11 @@
     <Content Include="Views\Account\Login -fixing.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
-    <Content Include="Views\Shared\_LayoutNone.cshtml" />
     <Content Include="Views\Bill\Index.cshtml" />
-    <Content Include="Views\Shared\_LayoutBill.cshtml" />
-    <Content Include="Views\Home\Index - Copy.cshtml" />
     <Content Include="Views\Shared\_CardBillPartial.cshtml" />
     <Content Include="Views\Shared\_FooterInfor.cshtml" />
     <Content Include="Views\Bill\_BillDetailPartial.cshtml" />
+    <Content Include="Views\Bill\CheckOut.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

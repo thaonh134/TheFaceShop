@@ -21,7 +21,9 @@ namespace ananlips.Areas.Admin.Models.AutoGen
         public string entryname { get; set; }
         
 public  int userid  { get; set; } 
-public  int deliveryid  { get; set; } 	
+public  int deliveryid  { get; set; } 
+public  int quantity  { get; set; } 
+public  double priceamount  { get; set; } 	
         public bool isactive { get; set; }
         public DateTime createdat { get; set; }
         public int createdby { get; set; }

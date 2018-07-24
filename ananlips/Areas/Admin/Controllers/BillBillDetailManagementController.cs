@@ -104,7 +104,7 @@ namespace ananlips.Areas.Admin.Controllers
                     item.updatedby = currentUser.entryid;
 
                 }
-                item.AddOrUpdate(currentUser.entryid);
+                item.AddOrUpdate(currentUser.entryid,null);
                 return Json(new { success = true, data = item });
 
             }

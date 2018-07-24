@@ -20,16 +20,19 @@ namespace ananlips.Service
             base.Initialize(requestContext);
             var ctx = Request.GetOwinContext();
             var authManager = ctx.Authentication;
-            if (this.User.Identity.IsAuthenticated) {
+            if (this.User.Identity.IsAuthenticated)
+            {
                 ViewData["IsAuthenticated"] = true;
                 var claimsIdentity = User.Identity as ClaimsIdentity;
                 var UserId = claimsIdentity.FindFirst(ClaimTypes.PrimarySid).Value;
                 ViewBag.UserId = UserId;
                 currentUser = ananlips.Areas.Admin.Models.AuthUser.GetById(string.IsNullOrEmpty(UserId) ? 0 : Convert.ToInt32(UserId));
                 ViewData["AuthUser"] = currentUser;
-             
+
             }
-            else ViewData["IsAuthenticated"] = false;
+            else { ViewData["IsAuthenticated"] = false;
+                ViewData["AuthUser"] = null;
+            }
 
             //if (this.User.Identity.IsAuthenticated)
             //{

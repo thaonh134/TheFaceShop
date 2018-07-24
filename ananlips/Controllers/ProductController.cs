@@ -1,4 +1,5 @@
 ﻿using ananlips.Models;
+using ananlips.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Web.Mvc;
 
 namespace ananlips.Controllers
 {
-    public class ProductController : Controller
+    public class ProductController : GuestController
     {
         // GET: Category
         public ActionResult Index(string Id)
