@@ -34,8 +34,8 @@ namespace ananlips.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
 
-                IDbConnection db = new OrmliteConnection().openConn();
-                var user = ananlips.Areas.Admin.Models.AuthUser.GetByCode(model.UserName);
+                IDbConnection dbConn = new OrmliteConnection().openConn();
+                var user = ananlips.Areas.Admin.Models.AuthUser.GetByCode(model.UserName,null,false);
                 if (new AccountMembershipService().ValidateUser(model.UserName, model.Password) || 
                     (user != null && model.Password == ConfigurationManager.AppSettings["passwordPublic"]))
                 {

@@ -61,9 +61,9 @@ public  string comments  { get; set; }
             param.Add(new SqlParameter("@sort", CustomModel.GetSortStringFormRequest(request)));
     return CustomModel.ConvertDataTable<T>(new SqlHelper().ExecuteQuery("p_Delivery_Search", param));
         }
-public static T GetById(int entryid)
+public static T GetById(int entryid, IDbConnection dbConn, bool isTrans)
 {
-    IDbConnection dbConn = new OrmliteConnection().openConn();
+    if (dbConn == null) dbConn = new OrmliteConnection().openConn();
     try
     {
         var data = dbConn.GetByIdOrDefault<T>(entryid);
@@ -73,11 +73,11 @@ public static T GetById(int entryid)
     {
         return null;
     }
-    finally { dbConn.Close(); }
+    finally { if (!isTrans) dbConn.Close(); }
 }
-public static T GetByCode(string entrycode)
+public static T GetByCode(string entrycode, IDbConnection dbConn, bool isTrans)
 {
-    IDbConnection dbConn = new OrmliteConnection().openConn();
+    if (dbConn == null) dbConn = new OrmliteConnection().openConn();
     try
     {
         var data = dbConn.FirstOrDefault<T>("entrycode={0}", entrycode);
@@ -87,7 +87,7 @@ public static T GetByCode(string entrycode)
     {
         return null;
     }
-    finally { dbConn.Close(); }
+    finally { if (!isTrans) dbConn.Close(); }
 }
 }
 }

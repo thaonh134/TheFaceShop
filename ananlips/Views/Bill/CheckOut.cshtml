@@ -58,16 +58,16 @@
                                 <h3>Thông tin giao hàng</h3>
                                 <div class="woocommerce-billing-fields__field-wrapper">
                                     <p class="form-row form-row-last validate-required" id="billing_last_name_field" data-sort="20">
-                                        <input type="text" class="input-text " name="@data_Bill.FullName" id="billing_last_name" placeholder="Họ tên" value="" autocomplete="family-name">
+                                        <input type="text" class="input-text " name="FullName" id="billing_last_name" placeholder="Họ tên" value="@data_Bill.FullName" autocomplete="family-name">
                                     </p>
                                     <p class="form-row form-row-wide address-field validate-required" id="billing_address_1_field" data-sort="50">
-                                        <input type="text" class="input-text " name="@data_Bill.Address" id="billing_address_1" placeholder="Địa chỉ" value="" autocomplete="address-line1">
+                                        <input type="text" class="input-text " name="Address" id="billing_address_1" placeholder="Địa chỉ" value="@data_Bill.Address" autocomplete="address-line1">
                                     </p>
                                     <p class="form-row form-row-first validate-required validate-phone" id="billing_phone_field" data-sort="100">
-                                        <input type="tel" class="input-text " name="@data_Bill.Phone" id="billing_phone" placeholder="Số điện thoại" value="" autocomplete="tel">
+                                        <input type="tel" class="input-text " name="Phone" id="billing_phone" placeholder="Số điện thoại" value="@data_Bill.Phone" autocomplete="tel">
                                     </p>
                                     <p class="form-row form-row-last validate-email" id="billing_email_field" data-sort="110">
-                                        <input type="email" class="input-text " name="@data_Bill.Email" id="billing_email" placeholder="Email (nếu có)" value="" autocomplete="email username">
+                                        <input type="email" class="input-text " name="Email" id="billing_email" placeholder="Email (nếu có)" value="@data_Bill.Email" autocomplete="email username">
                                     </p>
                                 </div>
                             </div><div class="woocommerce-account-fields">
@@ -80,7 +80,7 @@
                             <div class="woocommerce-shipping-fields"></div>
                             <div class="woocommerce-additional-fields">
                                 <div class="woocommerce-additional-fields__field-wrapper"><p class="form-row notes" id="order_comments_field" data-sort="">
-                                    <textarea name="@data_Bill.Comments" class="input-text " id="order_comments" placeholder="Ghi chú đơn hàng" rows="2" cols="5"></textarea></p></div>
+                                                                                              <textarea name="Comments" class="input-text " id="order_comments" placeholder="Ghi chú đơn hàng" rows="2" cols="5">@data_Bill.Comments</textarea></p></div>
                             </div>
                         </div><div id="order_review" class="woocommerce-checkout-review-order">
                             <h3 id="order_review_heading">Đơn hàng của bạn</h3><table class="shop_table woocommerce-checkout-review-order-table" style="margin-top:13px; border-radius:5px;">
@@ -176,7 +176,7 @@
     </div>
 </div>
 <script>
-    function saveBill() {
+    function SaveBill() {
 
     //var myjson = [];
     //     jQuery("form#checkout").serialize();
@@ -193,12 +193,12 @@
 
     //    });
         //var dataPost = jQuery('form.woocommerce-cart-form').formSerialize serializeArray();
-         var dataPost = JSON.stringify({ 'data': jQuery("form#checkout").serialize(); }  );
+        var dataPost = jQuery("form#checkout").serialize() ;
         //var dataPost = myjson;
          var r = '@Html.Raw(@Request.Url.GetLeftPart(UriPartial.Authority) + Url.Content("~"))';
         /**/
         jQuery.ajax({
-            contentType: 'application/json; charset=utf-8',
+            //contentType: 'application/json; charset=utf-8',
             dataType: 'html',
             type: 'POST',
             url: r + "Bill/SaveBill",

@@ -15,12 +15,11 @@ namespace ananlips.Areas.Admin.Models
     {
       	
 		#region AutoGen
-public int AddOrUpdate(int curruserid)
+public int AddOrUpdate(int curruserid, IDbConnection dbConn, bool isTrans)
 {
-    IDbConnection dbConn = new OrmliteConnection().openConn();
+    if (dbConn == null) dbConn = new OrmliteConnection().openConn();
     try
     {
-        //var isexist = dbConn.FirstOrDefault <Delivery>(this.entryid);
         var isexist = dbConn.GetByIdOrDefault <Delivery> (this.entryid);
         if (isexist == null)
         {
@@ -32,7 +31,7 @@ public int AddOrUpdate(int curruserid)
             this.updatedby = curruserid;
             dbConn.Insert<Delivery>(this);
             long lastInsertId = dbConn.GetLastInsertId();
-            dbConn.Close();
+            if (!isTrans) dbConn.Close();
             this.entryid = Convert.ToInt32(lastInsertId);
             return this.entryid;
         }
@@ -44,20 +43,43 @@ public int AddOrUpdate(int curruserid)
             this.updatedat = DateTime.Now;
             this.updatedby = curruserid;
             dbConn.Update<Delivery>(this);
-            dbConn.Close();
+            if (!isTrans) dbConn.Close();
             return this.entryid;
         }
         else
+        {
+            if (!isTrans) dbConn.Close();
             return 0;
+        }
+          
     }
     catch (Exception ex)
     {
-        return 0;
+        if (!isTrans)
+        {
+            dbConn.Close();
+            return 0;
+        }
+
+        throw new System.ArgumentException("data error", ex);
     }
 }
-#endregion
-#region MyCode
-
-#endregion
-}
+        #endregion
+        #region MyCode
+        public static Delivery GetByUserId(int userid, IDbConnection dbConn, bool isTrans)
+        {
+            if (dbConn == null) dbConn = new OrmliteConnection().openConn();
+            try
+            {
+                var data = dbConn.FirstOrDefault<Delivery>("userid={0}", userid);
+                return data;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+            finally { if (!isTrans) dbConn.Close(); }
+        }
+        #endregion
+    }
 }

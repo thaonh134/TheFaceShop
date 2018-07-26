@@ -81,7 +81,7 @@ namespace ananlips.Areas.Admin.Controllers
             try
             {
                 if (string.IsNullOrEmpty(item.entryname) || string.IsNullOrEmpty(item.entrycode)) return Json(new { success = false, message = tw_Lang.Common_ActionResult_MissingInfo });
-                var isExist = Bill.GetById(item.entryid) ;
+                var isExist = Bill.GetById(item.entryid, null, false) ;
 
                 //Validate
 
@@ -104,7 +104,7 @@ namespace ananlips.Areas.Admin.Controllers
                     item.updatedby = currentUser.entryid;
 
                 }
-                item.AddOrUpdate(currentUser.entryid,null);
+                item.AddOrUpdate(currentUser.entryid, null, false);
                 return Json(new { success = true, data = item });
 
             }
@@ -123,7 +123,7 @@ namespace ananlips.Areas.Admin.Controllers
             IDbConnection db = new OrmliteConnection().openConn();
             try
             {
-                var isExist =Bill.GetById(entryid);
+                var isExist =Bill.GetById(entryid, null, false);
                 isExist.isactive = isactive;
                 isExist.updatedby = currentUser.entryid;
                 isExist.updatedat = DateTime.Now;
@@ -151,7 +151,7 @@ namespace ananlips.Areas.Admin.Controllers
             IDbConnection dbConn = new OrmliteConnection().openConn();
             try
             {
-                var data =Bill.GetById(entryid);
+                var data =Bill.GetById(entryid, null, false);
                 var ref_Roles = CustomModel.GetActiveStatus(); 
                 return Json(new
                 {

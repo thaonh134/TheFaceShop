@@ -526,11 +526,30 @@ namespace ananlips.Models
                 {
                     try
                     {
-                        var billid = bill.AddOrUpdate(UserId, dbConn);
+                        //add delivery
+                        var delivery = Delivery.GetByUserId(fe_bill.UserId, dbConn,true);
+                        if (delivery == null) delivery = new Delivery();
+                        delivery.entrycode = "";
+                        delivery.entryname = "";
+                        delivery.userid = fe_bill.UserId;
+                        delivery.fullname = fe_bill.FullName;
+                        delivery.address = fe_bill.Address;
+                        delivery.phone = fe_bill.Phone;
+                        delivery.email = fe_bill.Email;
+                        delivery.comments = fe_bill.Comments;
+                        delivery.AddOrUpdate(fe_bill.UserId, dbConn, true);
+
+                        //add bill
+                        bill.deliveryid = delivery.entryid;
+                        bill.entrycode = "";
+                        bill.entryname = "";
+                        var billid = bill.AddOrUpdate(UserId, dbConn, true);
                         billdetail.ForEach(x => x.billid = billid);
                         foreach (var item in billdetail)
                         {
-                            item.AddOrUpdate(UserId, dbConn);
+                            item.entrycode = "";
+                            item.entryname = "";
+                            item.AddOrUpdate(UserId, dbConn, true);
                         }
                         trans.Commit();
                         return billid;

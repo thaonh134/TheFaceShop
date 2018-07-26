@@ -15,12 +15,11 @@ namespace ananlips.Areas.Admin.Models
     {
       	
 		#region AutoGen
-public int AddOrUpdate(int curruserid)
+public int AddOrUpdate(int curruserid, IDbConnection dbConn, bool isTrans)
 {
-    IDbConnection dbConn = new OrmliteConnection().openConn();
+    if (dbConn == null) dbConn = new OrmliteConnection().openConn();
     try
     {
-        //var isexist = dbConn.FirstOrDefault <SubCategory>(this.entryid);
         var isexist = dbConn.GetByIdOrDefault <SubCategory> (this.entryid);
         if (isexist == null)
         {
@@ -32,7 +31,7 @@ public int AddOrUpdate(int curruserid)
             this.updatedby = curruserid;
             dbConn.Insert<SubCategory>(this);
             long lastInsertId = dbConn.GetLastInsertId();
-            dbConn.Close();
+            if (!isTrans) dbConn.Close();
             this.entryid = Convert.ToInt32(lastInsertId);
             return this.entryid;
         }
@@ -44,15 +43,25 @@ public int AddOrUpdate(int curruserid)
             this.updatedat = DateTime.Now;
             this.updatedby = curruserid;
             dbConn.Update<SubCategory>(this);
-            dbConn.Close();
+            if (!isTrans) dbConn.Close();
             return this.entryid;
         }
         else
+        {
+            if (!isTrans) dbConn.Close();
             return 0;
+        }
+          
     }
     catch (Exception ex)
     {
-        return 0;
+        if (!isTrans)
+        {
+            dbConn.Close();
+            return 0;
+        }
+
+        throw new System.ArgumentException("data error", ex);
     }
 }
 #endregion

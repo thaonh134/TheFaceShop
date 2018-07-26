@@ -81,7 +81,7 @@ namespace ananlips.Areas.Admin.Controllers
             try
             {
                 if (string.IsNullOrEmpty(item.entryname) || string.IsNullOrEmpty(item.entrycode)) return Json(new { success = false, message = tw_Lang.Common_ActionResult_MissingInfo });
-                var isExist = AuthUser.GetById(item.entryid) ;
+                var isExist = AuthUser.GetById(item.entryid,null,false) ;
 
                 //Validate
 
@@ -123,7 +123,7 @@ namespace ananlips.Areas.Admin.Controllers
             IDbConnection db = new OrmliteConnection().openConn();
             try
             {
-                var isExist =AuthUser.GetById(entryid);
+                var isExist =AuthUser.GetById(entryid,null,false);
                 isExist.isactive = isactive;
                 isExist.updatedby = currentUser.entryid;
                 isExist.updatedat = DateTime.Now;
@@ -151,7 +151,7 @@ namespace ananlips.Areas.Admin.Controllers
             IDbConnection dbConn = new OrmliteConnection().openConn();
             try
             {
-                var data =AuthUser.GetById(entryid);
+                var data =AuthUser.GetById(entryid, null, false);
                 var ref_Roles = CustomModel.GetActiveStatus(); 
                 return Json(new
                 {
