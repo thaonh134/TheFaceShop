@@ -15,10 +15,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="https://thefaceshopvn.com/wp-content/uploads/2017/04/favicon.png">
+    <link rel="shortcut icon" href="~/Scripts/wp-content/uploads/2017/04/favicon.png">
     <link rel="profile" href="http://gmpg.org/xfn/11">
-    <link rel="pingback" href="https://thefaceshopvn.com/xmlrpc.php">
-    <!--[if lt IE 9]> <script src="https://thefaceshopvn.com/wp-content/themes/kutetheme/js/html5.js"></script> <![endif]-->
+    @*<link rel="pingback" href="https://thefaceshopvn.com/xmlrpc.php">*@
+    <!--[if lt IE 9]> <script src="~/Scripts/wp-content/themes/kutetheme/js/html5.js"></script> <![endif]-->
     <script async="" src="https://www.google-analytics.com/analytics.js"></script>
     <script id="facebook-jssdk" src="//connect.facebook.net/vi_VN/sdk.js#xfbml=1&amp;version=v2.5&amp;appId=201165220386921"></script>
     <script>(function (html) { html.className = html.className.replace(/\bno-js\b/, 'js') })(document.documentElement);</script>
@@ -468,26 +468,27 @@
         }
     </style>
     <link rel="canonical" href="@Url.Action("Index","Home")">
+    <link rel="next" href="@Url.Action("Index","Home")">
     <meta property="og:locale" content="vi_VN">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Trang chủ - THEFACESHOP Việt Nam">
-    <meta property="og:url" content="https://thefaceshopvn.com/">
+    <meta property="og:url" content="@Url.Action("Index","Home")">
     <meta property="og:site_name" content="THEFACESHOP Việt Nam">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Trang chủ - THEFACESHOP Việt Nam">
-    @*<script type="application/ld+json">
-            {"@context":"http:\/\/schema.org","@type":"WebSite","@id":"#website","url":"https:\/\/thefaceshopvn.com\/","name":"THEFACESHOP Vi\u1ec7t Nam","potentialAction":{"@type":"SearchAction","target":"https:\/\/thefaceshopvn.com\/?s={search_term_string}","query-input":"required name=search_term_string"}}
-        </script>
-        <script type="application/ld+json">
-            {"@context":"http:\/\/schema.org","@type":"Person","url":"https:\/\/thefaceshopvn.com\/","sameAs":[],"@id":"#person","name":"Thefaceshop Vi\u1ec7t Nam"}
-        </script>*@
+    <meta name="twitter:title" content="Trang chủ - AnAnLips">
+
     <meta name="google-site-verification" content="o-jaZ8hIyW1q98BFNAPZxYGiaRRRx2QSkg2SNvkMxPw">
-    <link rel="alternate" type="application/rss+xml" title="Dòng thông tin THEFACESHOP Việt Nam »" href="https://thefaceshopvn.com/feed/">
-    <link rel="alternate" type="application/rss+xml" title="Dòng phản hồi THEFACESHOP Việt Nam »" href="https://thefaceshopvn.com/comments/feed/">
-    <script type="text/javascript">var ajaxurl = "https:\/\/thefaceshopvn.com\/wp-admin\/admin-ajax.php"; var labels = ['Years', 'Months', 'Weeks', 'Days', 'Hrs', 'Mins', 'Secs']; var layout = '<span class="box-count day"><span class="number">{dnn}</span> <span class="text">Days</span></span><span class="dot">:</span><span class="box-count hrs"><span class="number">{hnn}</span> <span class="text">Hrs</span></span><span class="dot">:</span><span class="box-count min"><span class="number">{mnn}</span> <span class="text">Mins</span></span><span class="dot">:</span><span class="box-count secs"><span class="number">{snn}</span> <span class="text">Secs</span></span>'; var $html_close = 'Close';</script>
-    <link rel="alternate" type="application/rss+xml" title="THEFACESHOP Việt Nam » Trang chủ Dòng phản hồi" href="https://thefaceshopvn.com/home/feed/">
-    <script type="text/javascript">window._wpemojiSettings = { "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/72x72\/", "ext": ".png", "source": { "concatemoji": "https:\/\/thefaceshopvn.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.4.16" } }; !function (a, b, c) { function d(a) { var c, d, e, f = b.createElement("canvas"), g = f.getContext && f.getContext("2d"), h = String.fromCharCode; return g && g.fillText ? (g.textBaseline = "top", g.font = "600 32px Arial", "flag" === a ? (g.fillText(h(55356, 56806, 55356, 56826), 0, 0), f.toDataURL().length > 3e3) : "diversity" === a ? (g.fillText(h(55356, 57221), 0, 0), c = g.getImageData(16, 16, 1, 1).data, g.fillText(h(55356, 57221, 55356, 57343), 0, 0), c = g.getImageData(16, 16, 1, 1).data, e = c[0] + "," + c[1] + "," + c[2] + "," + c[3], d !== e) : ("simple" === a ? g.fillText(h(55357, 56835), 0, 0) : g.fillText(h(55356, 57135), 0, 0), 0 !== g.getImageData(16, 16, 1, 1).data[0])) : !1 } function e(a) { var c = b.createElement("script"); c.src = a, c.type = "text/javascript", b.getElementsByTagName("head")[0].appendChild(c) } var f, g; c.supports = { simple: d("simple"), flag: d("flag"), unicode8: d("unicode8"), diversity: d("diversity") }, c.DOMReady = !1, c.readyCallback = function () { c.DOMReady = !0 }, c.supports.simple && c.supports.flag && c.supports.unicode8 && c.supports.diversity || (g = function () { c.readyCallback() }, b.addEventListener ? (b.addEventListener("DOMContentLoaded", g, !1), a.addEventListener("load", g, !1)) : (a.attachEvent("onload", g), b.attachEvent("onreadystatechange", function () { "complete" === b.readyState && c.readyCallback() })), f = c.source || {}, f.concatemoji ? e(f.concatemoji) : f.wpemoji && f.twemoji && (e(f.twemoji), e(f.wpemoji))) }(window, document, window._wpemojiSettings);</script>
-    <script src="https://thefaceshopvn.com/wp-includes/js/wp-emoji-release.min.js?ver=4.4.16" type="text/javascript"></script>
+    <link rel="alternate" type="application/rss+xml" title="Dòng thông tin AnAnLips Việt Nam »" href="@Url.Action("Index","Home")">
+    <link rel="alternate" type="application/rss+xml" title="Dòng phản hồi AnAnLips Việt Nam »" href="@Url.Action("Index","Home")">
+
+    <link rel="alternate" type="application/rss+xml" title="AnAnLips Việt Nam » Trang chủ Dòng phản hồi" href="@Url.Action("Index","Home")">
+
+    <script type="text/javascript">
+        window._wpemojiSettings = {
+            "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/72x72\/", "ext": ".png",
+            "source": { "concatemoji": "@Html.Raw(@Request.Url.GetLeftPart(UriPartial.Authority) + Url.Content("~").Replace("/", "\\/"))\/Scripts\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.4.16" }
+        }; !function (a, b, c) { function d(a) { var c, d, e, f = b.createElement("canvas"), g = f.getContext && f.getContext("2d"), h = String.fromCharCode; return g && g.fillText ? (g.textBaseline = "top", g.font = "600 32px Arial", "flag" === a ? (g.fillText(h(55356, 56806, 55356, 56826), 0, 0), f.toDataURL().length > 3e3) : "diversity" === a ? (g.fillText(h(55356, 57221), 0, 0), c = g.getImageData(16, 16, 1, 1).data, g.fillText(h(55356, 57221, 55356, 57343), 0, 0), c = g.getImageData(16, 16, 1, 1).data, e = c[0] + "," + c[1] + "," + c[2] + "," + c[3], d !== e) : ("simple" === a ? g.fillText(h(55357, 56835), 0, 0) : g.fillText(h(55356, 57135), 0, 0), 0 !== g.getImageData(16, 16, 1, 1).data[0])) : !1 } function e(a) { var c = b.createElement("script"); c.src = a, c.type = "text/javascript", b.getElementsByTagName("head")[0].appendChild(c) } var f, g; c.supports = { simple: d("simple"), flag: d("flag"), unicode8: d("unicode8"), diversity: d("diversity") }, c.DOMReady = !1, c.readyCallback = function () { c.DOMReady = !0 }, c.supports.simple && c.supports.flag && c.supports.unicode8 && c.supports.diversity || (g = function () { c.readyCallback() }, b.addEventListener ? (b.addEventListener("DOMContentLoaded", g, !1), a.addEventListener("load", g, !1)) : (a.attachEvent("onload", g), b.attachEvent("onreadystatechange", function () { "complete" === b.readyState && c.readyCallback() })), f = c.source || {}, f.concatemoji ? e(f.concatemoji) : f.wpemoji && f.twemoji && (e(f.twemoji), e(f.wpemoji))) }(window, document, window._wpemojiSettings);</script>
+    <script src="~/Scripts/wp-includes/js/wp-emoji-release.min.js?ver=4.4.16" type="text/javascript"></script>
     <style type="text/css">
         img.wp-smiley, img.emoji {
             display: inline !important;
@@ -501,12 +502,12 @@
             padding: 0 !important
         }
     </style>
-    <link rel="stylesheet" id="dashicons-css" href="https://thefaceshopvn.com/wp-includes/css/dashicons.min.css?ver=4.4.16" type="text/css" media="all">
-    <link rel="stylesheet" id="wp-jquery-ui-dialog-css" href="https://thefaceshopvn.com/wp-includes/css/jquery-ui-dialog.min.css?ver=4.4.16" type="text/css" media="all">
+    <link rel="stylesheet" id="dashicons-css" href="~/Scripts/wp-includes/css/dashicons.min.css?ver=4.4.16" type="text/css" media="all">
+    <link rel="stylesheet" id="wp-jquery-ui-dialog-css" href="~/Scripts/wp-includes/css/jquery-ui-dialog.min.css?ver=4.4.16" type="text/css" media="all">
     <link rel="stylesheet" id="fontawsome-css-css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css?ver=3.2.6" type="text/css" media="all">
-    <link rel="stylesheet" id="apsl-frontend-css-css" href="https://thefaceshopvn.com/wp-content/plugins/accesspress-social-login-lite/css/frontend.css?ver=3.2.6" type="text/css" media="all">
-    <link rel="stylesheet" id="contact-form-7-css" href="https://thefaceshopvn.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=4.3" type="text/css" media="all">
-    <link rel="stylesheet" id="rs-plugin-settings-css" href="https://thefaceshopvn.com/wp-content/plugins/revslider/public/assets/css/settings.css?ver=5.1.5" type="text/css" media="all">
+    <link rel="stylesheet" id="apsl-frontend-css-css" href="~/Scripts/wp-content/plugins/accesspress-social-login-lite/css/frontend.css?ver=3.2.6" type="text/css" media="all">
+    <link rel="stylesheet" id="contact-form-7-css" href="~/Scripts/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=4.3" type="text/css" media="all">
+    <link rel="stylesheet" id="rs-plugin-settings-css" href="~/Scripts/wp-content/plugins/revslider/public/assets/css/settings.css?ver=5.1.5" type="text/css" media="all">
     <style id="rs-plugin-settings-inline-css" type="text/css">
         #rs-demo-id {
         }
@@ -608,12 +609,12 @@
             transform: translateY(0px);
         }
     </style>
-    <link rel="stylesheet" id="woocommerce-layout-css" href="//thefaceshopvn.com/wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css?ver=3.0.1" type="text/css" media="all">
-    <link rel="stylesheet" id="woocommerce-smallscreen-css" href="//thefaceshopvn.com/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen.css?ver=3.0.1" type="text/css" media="only screen and (max-width: 768px)">
-    <link rel="stylesheet" id="woocommerce-general-css" href="//thefaceshopvn.com/wp-content/plugins/woocommerce/assets/css/woocommerce.css?ver=3.0.1" type="text/css" media="all">
-    <link rel="stylesheet" id="wp-pagenavi-css" href="https://thefaceshopvn.com/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70" type="text/css" media="all">
-    <link rel="stylesheet" id="jquery-colorbox-css" href="https://thefaceshopvn.com/wp-content/plugins/yith-woocommerce-compare/assets/css/colorbox.css?ver=4.4.16" type="text/css" media="all">
-    <link rel="stylesheet" id="yith-quick-view-css" href="https://thefaceshopvn.com/wp-content/plugins/yith-woocommerce-quick-view/assets/css/yith-quick-view.css?ver=4.4.16" type="text/css" media="all">
+    <link rel="stylesheet" id="woocommerce-layout-css" href="~/Scripts/wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css?ver=3.0.1" type="text/css" media="all">
+    <link rel="stylesheet" id="woocommerce-smallscreen-css" href="~/Scripts/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen.css?ver=3.0.1" type="text/css" media="only screen and (max-width: 768px)">
+    <link rel="stylesheet" id="woocommerce-general-css" href="~/Scripts/wp-content/plugins/woocommerce/assets/css/woocommerce.css?ver=3.0.1" type="text/css" media="all">
+    <link rel="stylesheet" id="wp-pagenavi-css" href="~/Scripts/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70" type="text/css" media="all">
+    <link rel="stylesheet" id="jquery-colorbox-css" href="~/Scripts/wp-content/plugins/yith-woocommerce-compare/assets/css/colorbox.css?ver=4.4.16" type="text/css" media="all">
+    <link rel="stylesheet" id="yith-quick-view-css" href="~/Scripts/wp-content/plugins/yith-woocommerce-quick-view/assets/css/yith-quick-view.css?ver=4.4.16" type="text/css" media="all">
     <style id="yith-quick-view-inline-css" type="text/css">
         #yith-quick-view-modal .yith-wcqv-main {
             background: #fff
@@ -629,51 +630,51 @@
     </style>
     <link rel="stylesheet" id="kt-Oswald-font-css" href="https://fonts.googleapis.com/css?family=Oswald%3A400%2C300%2C700&amp;ver=1.0" type="text/css" media="all">
     <link rel="stylesheet" id="kt-Montserrat-font-css" href="https://fonts.googleapis.com/css?family=Montserrat%3A400%2C700&amp;ver=1.0" type="text/css" media="all">
-    <link rel="stylesheet" id="kt-bootstrap-css" href="https://thefaceshopvn.com/wp-content/themes/kutetheme/libs/bootstrap/css/bootstrap.min.css?ver=4.4.16" type="text/css" media="all">
-    <link rel="stylesheet" id="kt-reset-css" href="https://thefaceshopvn.com/wp-content/themes/kutetheme/css/reset.css?ver=1.0" type="text/css" media="all">
-    <link rel="stylesheet" id="kt-responsive-css" href="https://thefaceshopvn.com/wp-content/themes/kutetheme/css/responsive.css?ver=1.0" type="text/css" media="all">
-    <link rel="stylesheet" id="kt-animate-css" href="https://thefaceshopvn.com/wp-content/themes/kutetheme/css/animate.css?ver=1.0" type="text/css" media="all">
-    <link rel="stylesheet" id="kt-font-awesome-css" href="https://thefaceshopvn.com/wp-content/themes/kutetheme/libs/font-awesome/css/font-awesome.min.css?ver=4.4.16" type="text/css" media="all">
-    <link rel="stylesheet" id="kt-jquery-ui-css" href="https://thefaceshopvn.com/wp-content/themes/kutetheme/libs/jquery-ui/jquery-ui.css?ver=4.4.16" type="text/css" media="all">
-    <link rel="stylesheet" id="kt-style-css" href="https://thefaceshopvn.com/wp-content/themes/kutetheme/css/style.css?ver=1.0" type="text/css" media="all">
+    <link rel="stylesheet" id="kt-bootstrap-css" href="~/Scripts/wp-content/themes/kutetheme/libs/bootstrap/css/bootstrap.min.css?ver=4.4.16" type="text/css" media="all">
+    <link rel="stylesheet" id="kt-reset-css" href="~/Scripts/wp-content/themes/kutetheme/css/reset.css?ver=1.0" type="text/css" media="all">
+    <link rel="stylesheet" id="kt-responsive-css" href="~/Scripts/wp-content/themes/kutetheme/css/responsive.css?ver=1.0" type="text/css" media="all">
+    <link rel="stylesheet" id="kt-animate-css" href="~/Scripts/wp-content/themes/kutetheme/css/animate.css?ver=1.0" type="text/css" media="all">
+    <link rel="stylesheet" id="kt-font-awesome-css" href="~/Scripts/wp-content/themes/kutetheme/libs/font-awesome/css/font-awesome.min.css?ver=4.4.16" type="text/css" media="all">
+    <link rel="stylesheet" id="kt-jquery-ui-css" href="~/Scripts/wp-content/themes/kutetheme/libs/jquery-ui/jquery-ui.css?ver=4.4.16" type="text/css" media="all">
+    <link rel="stylesheet" id="kt-style-css" href="~/Scripts/wp-content/themes/kutetheme/css/style.css?ver=1.0" type="text/css" media="all">
     <!--[if lt IE 9]><link
-    rel='stylesheet' id='kt-ie-css'  href='https://thefaceshopvn.com/wp-content/themes/kutetheme/css/ie.css?ver=1.0' type='text/css' media='all' />
+    rel='stylesheet' id='kt-ie-css'  href='~/Scripts/wp-content/themes/kutetheme/css/ie.css?ver=1.0' type='text/css' media='all' />
     <![endif]-->
-    <link rel="stylesheet" id="kt-carousel-css" href="https://thefaceshopvn.com/wp-content/themes/kutetheme/libs/owl.carousel/owl.carousel.css?ver=4.4.16" type="text/css" media="all">
-    <link rel="stylesheet" id="kt-fancyBox-css" href="https://thefaceshopvn.com/wp-content/themes/kutetheme/libs/fancyBox/jquery.fancybox.css?ver=4.4.16" type="text/css" media="all">
-    <link rel="stylesheet" id="kt-jquery.bxslider-css" href="https://thefaceshopvn.com/wp-content/themes/kutetheme/libs/jquery.bxslider/jquery.bxslider.css?ver=4.4.16" type="text/css" media="all">
-    <link rel="stylesheet" id="kutetheme-style-css" href="https://thefaceshopvn.com/wp-content/themes/kutetheme/style.css?ver=4.4.16" type="text/css" media="all">
-    <link rel="stylesheet" id="kt-custom-woocommerce-style-css" href="https://thefaceshopvn.com/wp-content/themes/kutetheme/css/woocommerce.css?ver=4.4.16" type="text/css" media="all">
-    <link rel="stylesheet" id="kt-custom-vc-style-css" href="https://thefaceshopvn.com/wp-content/themes/kutetheme/css/vc.css?ver=4.4.16" type="text/css" media="all">
-    <link rel="stylesheet" id="kt-responsive-style-css" href="https://thefaceshopvn.com/wp-content/themes/kutetheme/css/responsive.css?ver=4.4.16" type="text/css" media="all">
-    <link rel="stylesheet" id="kt-option-2-css" href="https://thefaceshopvn.com/wp-content/themes/kutetheme/css/option2.css?ver=4.4.16" type="text/css" media="all">
-    <link rel="stylesheet" id="kt-option-3-css" href="https://thefaceshopvn.com/wp-content/themes/kutetheme/css/option3.css?ver=4.4.16" type="text/css" media="all">
-    <link rel="stylesheet" id="kt-option-4-css" href="https://thefaceshopvn.com/wp-content/themes/kutetheme/css/option4.css?ver=4.4.16" type="text/css" media="all">
-    <link rel="stylesheet" id="kt-option-5-css" href="https://thefaceshopvn.com/wp-content/themes/kutetheme/css/option5.css?ver=4.4.16" type="text/css" media="all">
-    <link rel="stylesheet" id="kt-option-6-css" href="https://thefaceshopvn.com/wp-content/themes/kutetheme/css/option6.css?ver=4.4.16" type="text/css" media="all">
-    <link rel="stylesheet" id="kt-option-7-css" href="https://thefaceshopvn.com/wp-content/themes/kutetheme/css/option7.css?ver=4.4.16" type="text/css" media="all">
-    <link rel="stylesheet" id="js_composer_front-css" href="https://thefaceshopvn.com/wp-content/plugins/js_composer/assets/css/js_composer.min.css?ver=4.9.1" type="text/css" media="all">
-    <script type="text/javascript" src="https://thefaceshopvn.com/wp-includes/js/jquery/jquery.js?ver=1.11.3"></script>
-    <script type="text/javascript" src="https://thefaceshopvn.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1"></script>
-    <script type="text/javascript" src="https://thefaceshopvn.com/wp-content/plugins/accesspress-social-login-lite/js/frontend.js?ver=3.2.6"></script>
-    <script type="text/javascript" src="https://thefaceshopvn.com/wp-content/plugins/revslider/public/assets/js/jquery.themepunch.tools.min.js?ver=5.1.5"></script>
-    <script type="text/javascript" src="https://thefaceshopvn.com/wp-content/plugins/revslider/public/assets/js/jquery.themepunch.revolution.min.js?ver=5.1.5"></script>
-    <script type="text/javascript" src="https://thefaceshopvn.com/wp-content/plugins/wonderplugin-carousel/engine/wonderplugincarouselskins.js?ver=5.2"></script>
-    <script type="text/javascript" src="https://thefaceshopvn.com/wp-content/plugins/wonderplugin-carousel/engine/wonderplugincarousel.js?ver=5.2"></script>
-    <script type="text/javascript">var wc_add_to_cart_params = { "ajax_url": "\/wp-admin\/admin-ajax.php", "wc_ajax_url": "\/?wc-ajax=%%endpoint%%", "i18n_view_cart": "View cart", "cart_url": "https:\/\/thefaceshopvn.com\/cart\/", "is_cart": "", "cart_redirect_after_add": "yes" };</script>
-    <script type="text/javascript" src="//thefaceshopvn.com/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js?ver=3.0.1"></script>
-    <script type="text/javascript" src="https://thefaceshopvn.com/wp-content/plugins/js_composer/assets/js/vendors/woocommerce-add-to-cart.js?ver=4.9.1"></script>
-    <link rel="https://api.w.org/" href="https://thefaceshopvn.com/wp-json/">
-    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://thefaceshopvn.com/xmlrpc.php?rsd">
-    <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://thefaceshopvn.com/wp-includes/wlwmanifest.xml">
+
+    <link rel="stylesheet" id="kt-carousel-css" href="~/Scripts/wp-content/themes/kutetheme/libs/owl.carousel/owl.carousel.css?ver=4.4.16" type="text/css" media="all">
+    <link rel="stylesheet" id="kt-fancyBox-css" href="~/Scripts/wp-content/themes/kutetheme/libs/fancyBox/jquery.fancybox.css?ver=4.4.16" type="text/css" media="all">
+    <link rel="stylesheet" id="kt-jquery.bxslider-css" href="~/Scripts/wp-content/themes/kutetheme/libs/jquery.bxslider/jquery.bxslider.css?ver=4.4.16" type="text/css" media="all">
+    <link rel="stylesheet" id="kutetheme-style-css" href="~/Scripts/wp-content/themes/kutetheme/style.css?ver=4.4.16" type="text/css" media="all">
+    <link rel="stylesheet" id="kt-custom-woocommerce-style-css" href="~/Scripts/wp-content/themes/kutetheme/css/woocommerce.css?ver=4.4.16" type="text/css" media="all">
+    <link rel="stylesheet" id="kt-custom-vc-style-css" href="~/Scripts/wp-content/themes/kutetheme/css/vc.css?ver=4.4.16" type="text/css" media="all">
+    <link rel="stylesheet" id="kt-responsive-style-css" href="~/Scripts/wp-content/themes/kutetheme/css/responsive.css?ver=4.4.16" type="text/css" media="all">
+    <link rel="stylesheet" id="kt-option-2-css" href="~/Scripts/wp-content/themes/kutetheme/css/option2.css?ver=4.4.16" type="text/css" media="all">
+    <link rel="stylesheet" id="kt-option-3-css" href="~/Scripts/wp-content/themes/kutetheme/css/option3.css?ver=4.4.16" type="text/css" media="all">
+    <link rel="stylesheet" id="kt-option-4-css" href="~/Scripts/wp-content/themes/kutetheme/css/option4.css?ver=4.4.16" type="text/css" media="all">
+    <link rel="stylesheet" id="kt-option-5-css" href="~/Scripts/wp-content/themes/kutetheme/css/option5.css?ver=4.4.16" type="text/css" media="all">
+    <link rel="stylesheet" id="kt-option-6-css" href="~/Scripts/wp-content/themes/kutetheme/css/option6.css?ver=4.4.16" type="text/css" media="all">
+    <link rel="stylesheet" id="kt-option-7-css" href="~/Scripts/wp-content/themes/kutetheme/css/option7.css?ver=4.4.16" type="text/css" media="all">
+    <link rel="stylesheet" id="js_composer_front-css" href="~/Scripts/wp-content/plugins/js_composer/assets/css/js_composer.min.css?ver=4.9.1" type="text/css" media="all">
+    <script type="text/javascript" src="~/Scripts/wp-includes/js/jquery/jquery.js?ver=1.11.3"></script>
+    <script type="text/javascript" src="~/Scripts/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1"></script>
+    <script type="text/javascript" src="~/Scripts/wp-content/plugins/accesspress-social-login-lite/js/frontend.js?ver=3.2.6"></script>
+    <script type="text/javascript" src="~/Scripts/wp-content/plugins/revslider/public/assets/js/jquery.themepunch.tools.min.js?ver=5.1.5"></script>
+    <script type="text/javascript" src="~/Scripts/wp-content/plugins/revslider/public/assets/js/jquery.themepunch.revolution.min.js?ver=5.1.5"></script>
+    <script type="text/javascript" src="~/Scripts/wp-content/plugins/wonderplugin-carousel/engine/wonderplugincarouselskins.js?ver=5.2"></script>
+    <script type="text/javascript" src="~/Scripts/wp-content/plugins/wonderplugin-carousel/engine/wonderplugincarousel.js?ver=5.2"></script>
+    <script type="text/javascript">var wc_add_to_cart_params = { "ajax_url": "\/wp-admin\/admin-ajax.php", "wc_ajax_url": "\/?wc-ajax=%%endpoint%%", "i18n_view_cart": "View cart", "cart_url": "@Html.Raw(@Request.Url.GetLeftPart(UriPartial.Authority) + Url.Content("~").Replace("/", "\\/"))cart\/", "is_cart": "", "cart_redirect_after_add": "yes" };</script>
+
+    <script type="text/javascript" src="~/Scripts/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js?ver=3.0.1"></script>
+    <script type="text/javascript" src="~/Scripts/wp-content/plugins/js_composer/assets/js/vendors/woocommerce-add-to-cart.js?ver=4.9.1"></script>
+    <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="~/Scripts/wp-includes/wlwmanifest.xml">
     <meta name="generator" content="WordPress 4.4.16">
     <meta name="generator" content="WooCommerce 3.0.1">
     <link rel="shortlink" href="@Url.Action("Index","Home")">
     <meta name="generator" content="Powered by Visual Composer - drag and drop page builder for WordPress.">
     <!--[if lte IE 9]><link
-    rel="stylesheet" type="text/css" href="https://thefaceshopvn.com/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css" media="screen"><![endif]-->
+    rel="stylesheet" type="text/css" href="~/Scripts/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css" media="screen"><![endif]-->
     <!--[if IE  8]><link
-    rel="stylesheet" type="text/css" href="https://thefaceshopvn.com/wp-content/plugins/js_composer/assets/css/vc-ie8.min.css" media="screen"><![endif]-->
+    rel="stylesheet" type="text/css" href="~/Scripts/wp-content/plugins/js_composer/assets/css/vc-ie8.min.css" media="screen"><![endif]-->
     <meta name="generator" content="Powered by Slider Revolution 5.1.5 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface.">
     <style type="text/css" data-type="vc_shortcodes-custom-css">
         .vc_custom_1491661493344 {
@@ -743,7 +744,6 @@
             }
         </style>
     </noscript>
-    <script type="text/javascript">jQuery(document).ready(function () { });</script>
     <style type="text/css">
         .fancybox-margin {
             margin-right: 17px;
@@ -757,69 +757,18 @@
             </style>*@
 </head>
 <body class="home page page-id-347 page-template-default yith-wcan-free wpb-js-composer js-comp-ver-4.9.1 vc_responsive">
-    
+
     <div class="site">
         <div class="site-content">
             <div id="header" class="header option3">
                 <div class="top-header"><div class="container"><p class="hotline_headerD"><span>HOTLINE: 0901 974 445</span></p></div></div><div class="container main-header">
                     <div class="row top-main-header"><div class="col-sm-12 col-md-12 col-lg-3"></div><div class="col-sm-7 col-md-6"></div></div><div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3 logo">
-                            <a href="@Url.Action("Index","Home")"><img alt="THEFACESHOP Việt Nam" src="https://thefaceshopvn.com/wp-content/uploads/2017/04/logo-1.png" class="_rw"></a>
+                            <a href="@Url.Action("Index","Home")"><img alt="THEFACESHOP Việt Nam" src="~/Scripts/wp-content/uploads/2017/04/logo-1.png" class="_rw"></a>
                         </div><div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 header-search-box">
-                            <form class="form-inline woo-search" method="get" action="https://thefaceshopvn.com/">
-                                <div class="form-group form-category">
-                                    <select name="cat" id="cat" class="select-category" tabindex="1" style="display: none;">
-                                        <option value="-1">All Categories</option>
-                                        <option class="level-0" value="159">Chăm sóc cơ thể</option>
-                                        <option class="level-1" value="202">&nbsp;&nbsp;&nbsp;Dưỡng tay/ Dưỡng chân</option>
-                                        <option class="level-1" value="201">&nbsp;&nbsp;&nbsp;Sữa/ Kem/ Gel dưỡng thể</option>
-                                        <option class="level-1" value="203">&nbsp;&nbsp;&nbsp;Tẩy tế bào chết cơ thể</option>
-                                        <option class="level-0" value="161">Bộ sản phẩm dưỡng da</option>
-                                        <option class="level-1" value="220">&nbsp;&nbsp;&nbsp;Collagen</option>
-                                        <option class="level-1" value="225">&nbsp;&nbsp;&nbsp;Dòng dưỡng gạo</option>
-                                        <option class="level-1" value="223">&nbsp;&nbsp;&nbsp;Dr. Belmeur</option>
-                                        <option class="level-1" value="229">&nbsp;&nbsp;&nbsp;Herb Day</option>
-                                        <option class="level-1" value="224">&nbsp;&nbsp;&nbsp;The Therapy</option>
-                                        <option class="level-1" value="209">&nbsp;&nbsp;&nbsp;White Seed</option>
-                                        <option class="level-1" value="211">&nbsp;&nbsp;&nbsp;Chia Seed</option>
-                                        <option class="level-1" value="212">&nbsp;&nbsp;&nbsp;Clean Face</option>
-                                        <option class="level-1" value="213">&nbsp;&nbsp;&nbsp;Perfume Seed</option>
-                                        <option class="level-0" value="155">Dưỡng da</option>
-                                        <option class="level-1" value="167">&nbsp;&nbsp;&nbsp;Kem chống nắng</option>
-                                        <option class="level-1" value="165">&nbsp;&nbsp;&nbsp;Kem dưỡng</option>
-                                        <option class="level-1" value="166">&nbsp;&nbsp;&nbsp;Kem mắt</option>
-                                        <option class="level-1" value="169">&nbsp;&nbsp;&nbsp;Kem mát-xa</option>
-                                        <option class="level-1" value="162">&nbsp;&nbsp;&nbsp;Nước cân bằng</option>
-                                        <option class="level-1" value="164">&nbsp;&nbsp;&nbsp;Sữa dưỡng</option>
-                                        <option class="level-1" value="163">&nbsp;&nbsp;&nbsp;Tinh chất</option>
-                                        <option class="level-1" value="168">&nbsp;&nbsp;&nbsp;Xịt khoáng</option>
-                                        <option class="level-0" value="156">Làm sạch</option>
-                                        <option class="level-1" value="170">&nbsp;&nbsp;&nbsp;Sữa rửa mặt</option>
-                                        <option class="level-1" value="175">&nbsp;&nbsp;&nbsp;Tẩy tế bào chết</option>
-                                        <option class="level-1" value="171">&nbsp;&nbsp;&nbsp;Sản phẩm tẩy trang</option>
-                                        <option class="level-0" value="158">Mặt nạ</option>
-                                        <option class="level-1" value="218">&nbsp;&nbsp;&nbsp;Mặt nạ giấy</option>
-                                        <option class="level-1" value="219">&nbsp;&nbsp;&nbsp;Mặt nạ lột/rửa/gel</option>
-                                        <option class="level-0" value="181">Sản phẩm bán chạy</option>
-                                        <option class="level-0" value="217">Sản phẩm khác</option>
-                                        <option class="level-1" value="160">&nbsp;&nbsp;&nbsp;Nước hoa</option>
-                                        <option class="level-1" value="216">&nbsp;&nbsp;&nbsp;Phụ kiện</option>
-                                        <option class="level-0" value="182">Sản phẩm khuyến mãi</option>
-                                        <option class="level-0" value="179">Sản phẩm mới</option>
-                                        <option class="level-0" value="180">Sản phẩm nổi bật</option>
-                                        <option class="level-0" value="188">Trang điểm điểm</option>
-                                        <option class="level-1" value="193">&nbsp;&nbsp;&nbsp;Mascara</option>
-                                        <option class="level-1" value="189">&nbsp;&nbsp;&nbsp;Son môi</option>
-                                        <option class="level-1" value="192">&nbsp;&nbsp;&nbsp;Viền mắt/ Chì mày</option>
-                                        <option class="level-0" value="157">Trang điểm nền</option>
-                                        <option class="level-1" value="177">&nbsp;&nbsp;&nbsp;Kem lót</option>
-                                        <option class="level-1" value="183">&nbsp;&nbsp;&nbsp;Kem nền che khuyết điểm</option>
-                                        <option class="level-1" value="184">&nbsp;&nbsp;&nbsp;Kem nền đa năng BB Cream</option>
-                                        <option class="level-1" value="185">&nbsp;&nbsp;&nbsp;Phấn nước/CC Cream</option>
-                                        <option class="level-1" value="186">&nbsp;&nbsp;&nbsp;Phấn phủ bột/ Phấn nén</option>
-                                        <option class="level-1" value="187">&nbsp;&nbsp;&nbsp;Thanh che khuyết điểm/ Má hồng</option>
-                                    </select><span class="ui-selectmenu-button ui-widget ui-state-default ui-corner-all" tabindex="0" id="cat-button" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-owns="cat-menu" aria-haspopup="true" style="width: 100px;"><span class="ui-icon ui-icon-triangle-1-s"></span><span class="ui-selectmenu-text">All Categories</span></span>
-                                </div><div class="form-group input-serach">
+                            <form class="form-inline woo-search" method="get" action="@Url.Action("Search","Home")">
+
+                                <div class="form-group input-serach">
                                     <input type="hidden" name="post_type" value="product">
                                     <input value="" type="text" name="s" placeholder="Tìm kiếm...">
                                     <i class="hide close-form fa fa-times"></i>
@@ -829,7 +778,7 @@
                         </div><div class="widget_shopping_cart_content">
                             <div class="widget_shopping_cart_content">
                                 <div class="col-sm-6 col-md-6 col-lg-3 group-button-header">
-                                    
+
                                     @Html.Partial("_CardBillPartial")
                                     @Html.Partial("_LoginPartial")
 
@@ -844,19 +793,20 @@
                                 <div data-items="10" class="box-vertical-megamenus ">
                                     <h4 class="title"><span class="title-menu">Danh mục sản phẩm</span><span class="btn-open-mobile home-page"><i class="fa fa-bars"></i></span></h4><div class="vertical-menu-content">
                                         <ul id="menu-danh-muc-san-pham" class="navigation  vertical-menu-list">
-                                            <li id="menu-item-2126" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-2126"><a title="<img src=&quot;https://thefaceshopvn.com/wp-content/uploads/2017/04/sale-xmas.png&quot; />" href="https://thefaceshopvn.com/danh-muc/san-pham-khuyen-mai/"><img src="https://thefaceshopvn.com/wp-content/uploads/2017/04/sale-xmas.png"></a></li>
-                                            <li id="menu-item-2125" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-2125"><a title="Sản phẩm mới <span class=&quot;icon-salenews count_spNew&quot;>0</span>" href="https://thefaceshopvn.com/danh-muc/san-pham-moi/"><img width="20" height="20" src="https://thefaceshopvn.com/wp-content/uploads/2017/04/s2.png" class="attachment-full size-full" alt="s2">Sản phẩm mới <span class="icon-salenews count_spNew">30</span></a></li>
+                                            <li id="menu-item-2126" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-2126"><a title="" href="@Url.Action("Index","Home")"><img src="~/Scripts/wp-content/uploads/2017/04/sale-xmas.png"></a></li>
+                                            <li id="menu-item-2125" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-2125"><a title="Sản phẩm mới <span class=&quot;icon-salenews count_spNew&quot;>0</span>" href="@Url.Action("Index","Home")"><img width="20" height="20" src="~/Scripts/wp-content/uploads/2017/04/s2.png" class="attachment-full size-full" alt="s2">Sản phẩm mới <span class="icon-salenews count_spNew">30</span></a></li>
                                             @foreach (var item in lstAllMenu)
                                             {
                                                 if (item.MenuSubItems.Count > 0)
-                                                { classhaschilren = "menu-item-has-children";
+                                                {
+                                                    classhaschilren = "menu-item-has-children";
                                                 }
                                                 else
                                                 {
                                                     classhaschilren = "menu-item";
                                                 }
                                                 <li id="menu-item-@item.CategoryId" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat @classhaschilren menu-item-@item.CategoryId menu-item-has-children">
-                                                    <a title="@item.CategoryName" href="@Url.Action("Index", "Category", new {  Id = item.CategoryId })"><img width="20" height="20" src="https://thefaceshopvn.com/wp-content/uploads/2017/04/s3.png" class="attachment-full size-full" alt="s3">@item.CategoryName</a>
+                                                    <a title="@item.CategoryName" href="@Url.Action("Index", "Category", new {  Id = item.CategoryId })"><img width="20" height="20" src="~/Scripts/wp-content/uploads/2017/04/s3.png" class="attachment-full size-full" alt="s3">@item.CategoryName</a>
                                                     <ul role="menu" class=" sub-menu">
                                                         @foreach (var subitem in item.MenuSubItems)
                                                         {
@@ -874,7 +824,15 @@
                                 </div>
                             </div>
                             <script type="text/javascript">jQuery(document).ready(function (e) { jQuery('.count_spNew').html("30"); });</script> <div class="main-menu main-menu-wapper">
-                                <ul id="menu-main-menu" class="navigation navigation-main-menu"><li id="menu-item-2095" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-347 current_page_item menu-item-2095 active"><a title="Trang chủ" href="@Url.Action("Index","Home")">Trang chủ</a></li><li id="menu-item-3278" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3278"><a title="Chính sách sỉ" href="https://thefaceshopvn.com/category/chinh-sach-si/">Chính sách sỉ</a></li><li id="menu-item-2096" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2096"><a title="Hướng dẫn mua hàng" href="https://thefaceshopvn.com/huong-dan-mua-hang/">Hướng dẫn mua hàng</a></li><li id="menu-item-2099" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2099"><a title="Thương hiệu" href="https://brand.thefaceshopvn.com">Thương hiệu</a></li><li id="menu-item-2098" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2098"><a title="Facebook" href="https://www.facebook.com/thefaceshopxachtay/?fref=ts">Facebook</a></li></ul>
+                                <ul id="menu-main-menu" class="navigation navigation-main-menu">
+                                    <li id="menu-item-2095" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-347 current_page_item menu-item-2095 active"><a title="Trang chủ" href="@Url.Action("Index","Home")">Trang chủ</a></li>
+                                    <li id="menu-item-3278" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3278"><a title="Chính sách sỉ" href="@Url.Action("Index","Home")">Chính sách sỉ</a></li>
+                                    <li id="menu-item-2096" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2096"><a title="Hướng dẫn mua hàng" href="@Url.Action("Index","Home")">Hướng dẫn mua hàng</a></li>
+                                    <li id="menu-item-2099" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2099"><a title="Thương hiệu" href="@Url.Action("Index","Home")">Thương hiệu</a></li>
+                                    <li id="menu-item-2098" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2098">
+                                        <a title="Facebook" href="https://www.facebook.com/thefaceshopxachtay/?fref=ts">Facebook</a>
+                                    </li>
+                                </ul>
                                 <a href="#" class="mobile-navigation">Menu<i class="fa fa-bars"></i></a>
                             </div>
                         </div><div id="form-search-opntop"></div><div id="shopping-cart-box-ontop" style="display: none;">
@@ -885,10 +843,10 @@
             </div><div class="content container">
                 @RenderBody()
             </div>
-                  <footer id="footer">
+            <footer id="footer">
 
-                      @Html.Partial("_FooterInfor")
-                  </footer>
+                @Html.Partial("_FooterInfor")
+            </footer>
         </div>
     </div><a href="#" class="scroll_top" title="Scroll to Top" style="display: none;">Scroll</a><div id="yith-quick-view-modal">
         <div class="yith-quick-view-overlay"></div><div class="yith-wcqv-wrapper" style="left: 174.5px; top: 60px; width: 1000px; height: 246px;">
@@ -899,6 +857,7 @@
             </div>
         </div>
     </div>
+
     <script type="text/template" id="tmpl-variation-template">
         <div class="woocommerce-variation-description">{{{data.variation.variation_description}}}</div>
         <div class="woocommerce-variation-price">{{{data.variation.price_html}}}</div>
@@ -906,56 +865,65 @@
     </script>
     <script type="text/template" id="tmpl-unavailable-variation-template">
         <p>Rất tiếc,sản phẩm này hiện không tồn tại.Hãy chọn một phương thức kết hợp khác.</p>
-    </script> <link rel="stylesheet" id="woocommerce_prettyPhoto_css-css" href="//thefaceshopvn.com/wp-content/plugins/woocommerce/assets/css/prettyPhoto.css?ver=3.0.1" type="text/css" media="all">
-    <script type="text/javascript" src="https://thefaceshopvn.com/wp-includes/js/jquery/ui/core.min.js?ver=1.11.4"></script>
-    <script type="text/javascript" src="https://thefaceshopvn.com/wp-includes/js/jquery/ui/widget.min.js?ver=1.11.4"></script>
-    <script type="text/javascript" src="https://thefaceshopvn.com/wp-includes/js/jquery/ui/mouse.min.js?ver=1.11.4"></script>
-    <script type="text/javascript" src="https://thefaceshopvn.com/wp-includes/js/jquery/ui/resizable.min.js?ver=1.11.4"></script>
-    <script type="text/javascript" src="https://thefaceshopvn.com/wp-includes/js/jquery/ui/draggable.min.js?ver=1.11.4"></script>
-    <script type="text/javascript" src="https://thefaceshopvn.com/wp-includes/js/jquery/ui/button.min.js?ver=1.11.4"></script>
-    <script type="text/javascript" src="https://thefaceshopvn.com/wp-includes/js/jquery/ui/position.min.js?ver=1.11.4"></script>
-    <script type="text/javascript" src="https://thefaceshopvn.com/wp-includes/js/jquery/ui/dialog.min.js?ver=1.11.4"></script>
-    <script type="text/javascript" src="https://thefaceshopvn.com/wp-includes/js/wpdialog.min.js?ver=4.4.16"></script>
-    <script type="text/javascript" src="https://thefaceshopvn.com/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js?ver=3.51.0-2014.06.20"></script>
-    <script type="text/javascript">var _wpcf7 = { "loaderUrl": "https:\/\/thefaceshopvn.com\/wp-content\/plugins\/contact-form-7\/images\/ajax-loader.gif", "sending": "\u0110ang g\u1eedi ...", "cached": "1" };</script>
-    <script type="text/javascript" src="https://thefaceshopvn.com/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=4.3"></script>
-    <script type="text/javascript">var ajax_mailchimp = { "ajaxurl": "https:\/\/thefaceshopvn.com\/wp-admin\/admin-ajax.php", "security": "f17de88303" };</script>
-    <script type="text/javascript" src="https://thefaceshopvn.com/wp-content/plugins/kutetheme-toolkit/mailchimp/assets/script.js?ver=1.0"></script>
-    <script type="text/javascript" src="//thefaceshopvn.com/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.70"></script>
-    <script type="text/javascript" src="//thefaceshopvn.com/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js?ver=2.1.3"></script>
+    </script> <link rel="stylesheet" id="woocommerce_prettyPhoto_css-css" href="~/Scripts/wp-content/plugins/woocommerce/assets/css/prettyPhoto.css?ver=3.0.1" type="text/css" media="all">
+    <script type="text/javascript" src="~/Scripts/wp-includes/js/jquery/ui/core.min.js?ver=1.11.4"></script>
+    <script type="text/javascript" src="~/Scripts/wp-includes/js/jquery/ui/widget.min.js?ver=1.11.4"></script>
+    <script type="text/javascript" src="~/Scripts/wp-includes/js/jquery/ui/mouse.min.js?ver=1.11.4"></script>
+    <script type="text/javascript" src="~/Scripts/wp-includes/js/jquery/ui/resizable.min.js?ver=1.11.4"></script>
+    <script type="text/javascript" src="~/Scripts/wp-includes/js/jquery/ui/draggable.min.js?ver=1.11.4"></script>
+    <script type="text/javascript" src="~/Scripts/wp-includes/js/jquery/ui/button.min.js?ver=1.11.4"></script>
+    <script type="text/javascript" src="~/Scripts/wp-includes/js/jquery/ui/position.min.js?ver=1.11.4"></script>
+    <script type="text/javascript" src="~/Scripts/wp-includes/js/jquery/ui/dialog.min.js?ver=1.11.4"></script>
+    <script type="text/javascript" src="~/Scripts/wp-includes/js/wpdialog.min.js?ver=4.4.16"></script>
+    <script type="text/javascript" src="~/Scripts/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js?ver=3.51.0-2014.06.20"></script>
+    <script type="text/javascript">var _wpcf7 = { "loaderUrl": "@Html.Raw(@Request.Url.GetLeftPart(UriPartial.Authority) + Url.Content("~").Replace("/", "\\/"))\/Scripts\/wp-content\/plugins\/contact-form-7\/images\/ajax-loader.gif", "sending": "\u0110ang g\u1eedi ...", "cached": "1" };</script>
+    <script type="text/javascript" src="~/Scripts/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=4.3"></script>
+    <script type="text/javascript" src="~/Scripts/wp-content/plugins/kutetheme-toolkit/mailchimp/assets/script.js?ver=1.0"></script>
+    <script type="text/javascript" src="~/Scripts/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.70"></script>
+    <script type="text/javascript" src="~/Scripts/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js?ver=2.1.3"></script>
     <script type="text/javascript">var woocommerce_params = { "ajax_url": "\/wp-admin\/admin-ajax.php", "wc_ajax_url": "\/?wc-ajax=%%endpoint%%" };</script>
-    <script type="text/javascript" src="//thefaceshopvn.com/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=3.0.1"></script>
+    <script type="text/javascript" src="~/Scripts/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=3.0.1"></script>
     <script type="text/javascript">var wc_cart_fragments_params = { "ajax_url": "\/wp-admin\/admin-ajax.php", "wc_ajax_url": "\/?wc-ajax=%%endpoint%%", "fragment_name": "wc_fragments" };</script>
-    <script type="text/javascript" src="//thefaceshopvn.com/wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min.js?ver=3.0.1"></script>
-    <script type="text/javascript">var yith_woocompare = { "ajaxurl": "\/?wc-ajax=%%endpoint%%", "actionadd": "yith-woocompare-add-product", "actionremove": "yith-woocompare-remove-product", "actionview": "yith-woocompare-view-table", "actionreload": "yith-woocompare-reload-product", "added_label": "Added", "table_title": "Product Comparison", "auto_open": "yes", "loader": "https:\/\/thefaceshopvn.com\/wp-content\/plugins\/yith-woocommerce-compare\/assets\/images\/loader.gif", "button_text": "Compare", "cookie_name": "yith_woocompare_list" };</script>
-    <script type="text/javascript" src="https://thefaceshopvn.com/wp-content/plugins/yith-woocommerce-compare/assets/js/woocompare.min.js?ver=2.2.0"></script>
-    <script type="text/javascript" src="https://thefaceshopvn.com/wp-content/plugins/yith-woocommerce-compare/assets/js/jquery.colorbox-min.js?ver=1.4.21"></script>
-    <script type="text/javascript">var yith_qv = { "ajaxurl": "\/wp-admin\/admin-ajax.php", "loader": "https:\/\/thefaceshopvn.com\/wp-content\/plugins\/yith-woocommerce-quick-view\/assets\/image\/qv-loader.gif", "is2_2": "" };</script>
-    <script type="text/javascript" src="https://thefaceshopvn.com/wp-content/plugins/yith-woocommerce-quick-view/assets/js/frontend.min.js?ver=1.2.1"></script>
-    <script type="text/javascript" src="https://thefaceshopvn.com/wp-content/themes/kutetheme/js/skip-link-focus-fix.js?ver=20141010"></script>
-    <script type="text/javascript" src="https://thefaceshopvn.com/wp-includes/js/comment-reply.min.js?ver=4.4.16"></script>
-    <script type="text/javascript" src="https://thefaceshopvn.com/wp-content/themes/kutetheme/libs/bootstrap/js/bootstrap.min.js?ver=3.3.4"></script>
-    <script type="text/javascript" src="https://thefaceshopvn.com/wp-content/themes/kutetheme/libs/owl.carousel/owl.carousel.js?ver=2.0"></script>
-    <script type="text/javascript" src="https://thefaceshopvn.com/wp-content/themes/kutetheme/libs/fancyBox/jquery.fancybox.js?ver=2.1.5"></script>
-    <script type="text/javascript" src="https://thefaceshopvn.com/wp-content/themes/kutetheme/libs/jquery-ui/jquery-ui.min.js?ver=1.11.4"></script>
-    <script type="text/javascript" src="https://thefaceshopvn.com/wp-content/themes/kutetheme/js/jquery.actual.min.js?ver=1.0.16"></script>
-    <script type="text/javascript" src="https://thefaceshopvn.com/wp-content/themes/kutetheme/js/Modernizr.js?ver=1.0.1"></script>
-    <script type="text/javascript" src="https://thefaceshopvn.com/wp-content/themes/kutetheme/js/isotope.pkgd.js?ver=1.0"></script>
-    <script type="text/javascript" src="https://thefaceshopvn.com/wp-content/themes/kutetheme/js/packery-mode.pkgd.min.js?ver=1.0"></script>
-    <script type="text/javascript" src="https://thefaceshopvn.com/wp-content/themes/kutetheme/libs/countdown/jquery.plugin.js?ver=1.0.1"></script>
-    <script type="text/javascript" src="https://thefaceshopvn.com/wp-content/themes/kutetheme/libs/countdown/jquery.countdown.js?ver=2.0.2"></script>
-    <script type="text/javascript" src="https://thefaceshopvn.com/wp-content/themes/kutetheme/libs/jquery.bxslider/jquery.bxslider.min.js?ver=4.1.2"></script>
-    <script type="text/javascript" src="https://thefaceshopvn.com/wp-content/themes/kutetheme/js/functions.js?ver=1.0.1"></script>
-    <script type="text/javascript" src="https://thefaceshopvn.com/wp-content/themes/kutetheme/js/lookbook.js?ver=1.0.1"></script>
-    <script type="text/javascript" src="https://thefaceshopvn.com/wp-includes/js/wp-embed.min.js?ver=4.4.16"></script>
-    <script type="text/javascript" src="https://thefaceshopvn.com/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js?ver=4.9.1"></script>
-    <script type="text/javascript" src="https://thefaceshopvn.com/wp-includes/js/underscore.min.js?ver=1.6.0"></script>
+    <script type="text/javascript" src="~/Scripts/wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min.js?ver=3.0.1"></script>
+    <script type="text/javascript">var yith_woocompare = { "ajaxurl": "\/?wc-ajax=%%endpoint%%", "actionadd": "yith-woocompare-add-product", "actionremove": "yith-woocompare-remove-product", "actionview": "yith-woocompare-view-table", "actionreload": "yith-woocompare-reload-product", "added_label": "Added", "table_title": "Product Comparison", "auto_open": "yes", "loader": "@Html.Raw(@Request.Url.GetLeftPart(UriPartial.Authority) + Url.Content("~").Replace("/", "\\/"))\/Scripts\/wp-content\/plugins\/yith-woocommerce-compare\/assets\/images\/loader.gif", "button_text": "Compare", "cookie_name": "yith_woocompare_list" };</script>
+    <script type="text/javascript" src="~/Scripts/wp-content/plugins/yith-woocommerce-compare/assets/js/woocompare.min.js?ver=2.2.0"></script>
+    <script type="text/javascript" src="~/Scripts/wp-content/plugins/yith-woocommerce-compare/assets/js/jquery.colorbox-min.js?ver=1.4.21"></script>
+    <script type="text/javascript">var yith_qv = { "ajaxurl": "\/wp-admin\/admin-ajax.php", "loader": "@Html.Raw(@Request.Url.GetLeftPart(UriPartial.Authority) + Url.Content("~").Replace("/", "\\/"))\/Scripts\/wp-content\/plugins\/yith-woocommerce-quick-view\/assets\/image\/qv-loader.gif", "is2_2": "" };</script>
+    <script type="text/javascript" src="~/Scripts/wp-content/plugins/yith-woocommerce-quick-view/assets/js/frontend.min.js?ver=1.2.1"></script>
+    <script type="text/javascript" src="~/Scripts/wp-content/themes/kutetheme/js/skip-link-focus-fix.js?ver=20141010"></script>
+    <script type="text/javascript" src="~/Scripts/wp-includes/js/comment-reply.min.js?ver=4.4.16"></script>
+    <script type="text/javascript" src="~/Scripts/wp-content/themes/kutetheme/libs/bootstrap/js/bootstrap.min.js?ver=3.3.4"></script>
+    <script type="text/javascript" src="~/Scripts/wp-content/themes/kutetheme/libs/owl.carousel/owl.carousel.js?ver=2.0"></script>
+    <script type="text/javascript" src="~/Scripts/wp-content/themes/kutetheme/libs/fancyBox/jquery.fancybox.js?ver=2.1.5"></script>
+    <script type="text/javascript" src="~/Scripts/wp-content/themes/kutetheme/libs/jquery-ui/jquery-ui.min.js?ver=1.11.4"></script>
+    <script type="text/javascript" src="~/Scripts/wp-content/themes/kutetheme/js/jquery.actual.min.js?ver=1.0.16"></script>
+    <script type="text/javascript" src="~/Scripts/wp-content/themes/kutetheme/js/Modernizr.js?ver=1.0.1"></script>
+    <script type="text/javascript" src="~/Scripts/wp-content/themes/kutetheme/js/isotope.pkgd.js?ver=1.0"></script>
+    <script type="text/javascript" src="~/Scripts/wp-content/themes/kutetheme/js/packery-mode.pkgd.min.js?ver=1.0"></script>
+    <script type="text/javascript" src="~/Scripts/wp-content/themes/kutetheme/libs/countdown/jquery.plugin.js?ver=1.0.1"></script>
+    <script type="text/javascript" src="~/Scripts/wp-content/themes/kutetheme/libs/countdown/jquery.countdown.js?ver=2.0.2"></script>
+    <script type="text/javascript" src="~/Scripts/wp-content/themes/kutetheme/libs/jquery.bxslider/jquery.bxslider.min.js?ver=4.1.2"></script>
+    <script type="text/javascript" src="~/Scripts/wp-content/themes/kutetheme/js/functions.js?ver=1.0.1"></script>
+    <script type="text/javascript" src="~/Scripts/wp-content/themes/kutetheme/js/lookbook.js?ver=1.0.1"></script>
+    <script type="text/javascript" src="~/Scripts/wp-includes/js/wp-embed.min.js?ver=4.4.16"></script>
+    <script type="text/javascript" src="~/Scripts/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js?ver=4.9.1"></script>
+    <script type="text/javascript" src="~/Scripts/wp-includes/js/underscore.min.js?ver=1.6.0"></script>
     <script type="text/javascript">var _wpUtilSettings = { "ajax": { "url": "\/wp-admin\/admin-ajax.php" } };</script>
-    <script type="text/javascript" src="https://thefaceshopvn.com/wp-includes/js/wp-util.min.js?ver=4.4.16"></script>
+    <script type="text/javascript" src="~/Scripts/wp-includes/js/wp-util.min.js?ver=4.4.16"></script>
     <script type="text/javascript">var wc_add_to_cart_variation_params = { "wc_ajax_url": "\/?wc-ajax=%%endpoint%%", "i18n_no_matching_variations_text": "R\u1ea5t ti\u1ebfc, kh\u00f4ng c\u00f3 s\u1ea3n ph\u1ea9m n\u00e0o ph\u00f9 h\u1ee3p v\u1edbi l\u1ef1a ch\u1ecdn c\u1ee7a b\u1ea1n. H\u00e3y ch\u1ecdn m\u1ed9t ph\u01b0\u01a1ng th\u1ee9c k\u1ebft h\u1ee3p kh\u00e1c.", "i18n_make_a_selection_text": "Please select some product options before adding this product to your cart.", "i18n_unavailable_text": "R\u1ea5t ti\u1ebfc, s\u1ea3n ph\u1ea9m n\u00e0y hi\u1ec7n kh\u00f4ng t\u1ed3n t\u1ea1i. H\u00e3y ch\u1ecdn m\u1ed9t ph\u01b0\u01a1ng th\u1ee9c k\u1ebft h\u1ee3p kh\u00e1c." };</script>
-    <script type="text/javascript" src="//thefaceshopvn.com/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart-variation.min.js?ver=3.0.1"></script>
-    <script type="text/javascript" src="//thefaceshopvn.com/wp-content/plugins/woocommerce/assets/js/prettyPhoto/jquery.prettyPhoto.min.js?ver=3.1.6"></script> <div class="overLayout"></div><div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="https://staticxx.facebook.com/connect/xd_arbiter/r/1e2RywyANNe.js?version=42#channel=f315617ca0ae5fc&amp;origin=https%3A%2F%2Fthefaceshopvn.com" style="border: none;"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div>
-    <script>$(document).ready(function () { var raido = $(".wrap").attr("data-toggle"); if (raido == 1) { $(".vnk-tuvan").css("display", "none"); $(".x").click(function () { $(".wrap").slideToggle(); $(".vnk-tuvan").slideToggle(); }); $(".vnk-tuvan").click(function () { $(".wrap").slideToggle(); $(this).slideToggle(); }); } else { $(".wrap").css("display", "none"); $(".x").click(function () { $(".wrap").slideToggle(); $(".vnk-tuvan").slideToggle(); }); $(".vnk-tuvan").click(function () { $(".wrap").slideToggle(); $(this).slideToggle(); }); } })(function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.5&appId=201165220386921"; fjs.parentNode.insertBefore(js, fjs); }(document, "script", "facebook-jssdk"));</script>
+    <script type="text/javascript" src="~/Scripts/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart-variation.min.js?ver=3.0.1"></script>
+    <script type="text/javascript" src="~/Scripts/wp-content/plugins/woocommerce/assets/js/prettyPhoto/jquery.prettyPhoto.min.js?ver=3.1.6"></script> <div class="overLayout"></div><div id="fb-root" class=" fb_reset">
+        <div style="position: absolute; top: -10000px; height: 0px; width: 0px;">
+            <div>
+                <iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" id="fb_xdm_frame_https" aria-hidden="true"
+                        title="Facebook Cross Domain Communication Frame" tabindex="-1"
+                        src="https://staticxx.facebook.com/connect/xd_arbiter/r/1e2RywyANNe.js?version=42#channel=f315617ca0ae5fc&amp;origin=https%3A%2F%2Fthefaceshopvn.com" style="border: none;"></iframe>
+            </div>
+        </div>
+        <div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div>
+    </div>
+    @*<script>JQuery(document).ready(function () { var raido = JQuery(".wrap").attr("data-toggle"); if (raido == 1) { JQuery(".vnk-tuvan").css("display", "none"); JQuery(".x").click(function () { JQuery(".wrap").slideToggle(); JQuery(".vnk-tuvan").slideToggle(); }); JQuery(".vnk-tuvan").click(function () { JQuery(".wrap").slideToggle(); JQuery(this).slideToggle(); }); } else { JQuery(".wrap").css("display", "none"); JQuery(".x").click(function () { JQuery(".wrap").slideToggle(); JQuery(".vnk-tuvan").slideToggle(); }); JQuery(".vnk-tuvan").click(function () { JQuery(".wrap").slideToggle(); JQuery(this).slideToggle(); }); } })(function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.5&appId=201165220386921"; fjs.parentNode.insertBefore(js, fjs); }(document, "script", "facebook-jssdk"));</script>*@
+
     <style>
         .wrap {
             position: fixed;
@@ -1072,8 +1040,25 @@
                     float: right;
                     margin-top: 10px
                 }
-    </style><div data-toggle="0" class="wrap" style="position: fixed; width: 280px; height: 320px; display: none;"><span class="x" style="">X</span><div class="fb-page fb_iframe_widget" data-adapt-container-width="true" data-height="320" data-hide-cover="false" data-href="https://www.facebook.com/thefaceshopxachtay/?fref=ts" data-show-facepile="true" data-show-posts="false" data-small-header="false" data-tabs="messages" data-width="280" style="position:relative; z-index:9999999; right:0px; bottom:21px;border-left: 1px solid #fff;border-top: 1px solid #fff;" fb-xfbml-state="rendered" fb-iframe-plugin-query="adapt_container_width=true&amp;app_id=201165220386921&amp;container_width=0&amp;height=320&amp;hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2Fthefaceshopxachtay%2F%3Ffref%3Dts&amp;locale=vi_VN&amp;sdk=joey&amp;show_facepile=true&amp;show_posts=false&amp;small_header=false&amp;tabs=messages&amp;width=280"><span style="vertical-align: bottom; width: 280px; height: 320px;"><iframe name="f1bb3fd868d8ba8" width="280px" height="320px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" title="fb:page Facebook Social Plugin" src="https://www.facebook.com/v2.5/plugins/page.php?adapt_container_width=true&amp;app_id=201165220386921&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2F1e2RywyANNe.js%3Fversion%3D42%23cb%3Df33ed605e640548%26domain%3Dthefaceshopvn.com%26origin%3Dhttps%253A%252F%252Fthefaceshopvn.com%252Ff315617ca0ae5fc%26relation%3Dparent.parent&amp;container_width=0&amp;height=320&amp;hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2Fthefaceshopxachtay%2F%3Ffref%3Dts&amp;locale=vi_VN&amp;sdk=joey&amp;show_facepile=true&amp;show_posts=false&amp;small_header=false&amp;tabs=messages&amp;width=280" class="" style="border: none; visibility: visible; width: 280px; height: 320px;"></iframe></span></div><p class="pxem" style=""><a class="axem" style="" href="#" target="_blank">HOTLINE: 0901 974 445</a><a class="alogo" style=""></a></p></div><div class="vnk-tuvan" style="width: 278px;"><p style=" "><a style="">Hãy giao tiếp với chúng tôi</a></p></div>
-    <script>(function (i, s, o, g, r, a, m) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o), m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m) })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga'); ga('create', 'UA-58189837-4', 'auto'); ga('send', 'pageview');</script>
+    </style>
+    <div data-toggle="0" class="wrap" style="position: fixed; width: 280px; height: 320px; display: none;">
+        <span class="x" style="">X</span><div class="fb-page fb_iframe_widget" data-adapt-container-width="true"
+                                              data-height="320" data-hide-cover="false"
+                                              data-href="https://www.facebook.com/thefaceshopxachtay/?fref=ts"
+                                              data-show-facepile="true" data-show-posts="false" data-small-header="false" data-tabs="messages" data-width="280" style="position:relative; z-index:9999999;
+right:0px; bottom:21px;border-left: 1px solid #fff;border-top: 1px solid #fff;" fb-xfbml-state="rendered"
+                                              fb-iframe-plugin-query="adapt_container_width=true&amp;app_id=201165220386921&amp;container_width=0&amp;height=320&amp;hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2Fthefaceshopxachtay%2F%3Ffref%3Dts&amp;locale=vi_VN&amp;sdk=joey&amp;show_facepile=true&amp;show_posts=false&amp;small_header=false&amp;tabs=messages&amp;width=280">
+            <span style="vertical-align: bottom; width: 280px; height: 320px;">
+                <iframe name="f1bb3fd868d8ba8" width="280px" height="320px" frameborder="0" allowtransparency="true"
+                        allowfullscreen="true" scrolling="no" allow="encrypted-media" title="fb:page Facebook Social Plugin"
+                        src="https://www.facebook.com/v2.5/plugins/page.php?adapt_container_width=true&amp;app_id=201165220386921&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2F1e2RywyANNe.js%3Fversion%3D42%23cb%3Df33ed605e640548%26domain%3Dthefaceshopvn.com%26origin%3Dhttps%253A%252F%252Fthefaceshopvn.com%252Ff315617ca0ae5fc%26relation%3Dparent.parent&amp;container_width=0&amp;height=320&amp;hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2Fthefaceshopxachtay%2F%3Ffref%3Dts&amp;locale=vi_VN&amp;sdk=joey&amp;show_facepile=true&amp;show_posts=false&amp;small_header=false&amp;tabs=messages&amp;width=280" class="" style="border: none; visibility: visible; width: 280px; height: 320px;"></iframe>
+            </span>
+        </div><p class="pxem" style=""><a class="axem" style="" href="#" target="_blank">HOTLINE: 0901 974 445</a><a class="alogo" style=""></a></p>
+    </div>
+    <div class="vnk-tuvan" style="width: 278px;">
+        <p style=" "><a style="">Hãy giao tiếp với chúng tôi</a></p>
+    </div>
+    @*<script>(function (i, s, o, g, r, a, m) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o), m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m) })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga'); ga('create', 'UA-58189837-4', 'auto'); ga('send', 'pageview');</script>*@
     <!--
     *** This site runs WP Super Minify plugin v1.5.1 - https://wordpress.org/plugins/wp-super-minify ***
     *** Total size saved: 26.98% | Size before compression: 468757 bytes | Size after compression: 342285 bytes. ***

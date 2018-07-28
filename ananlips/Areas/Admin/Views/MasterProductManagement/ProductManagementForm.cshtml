@@ -7,6 +7,7 @@
     var listLanguage = dict.ContainsKey("listlanguage") ? (List<DDLModel>)dict["listlanguage"] : new List<DDLModel>();
     var redirectbyajax = dict.ContainsKey("redirectbyajax") ? dict["redirectbyajax"].ToString() : "0";
     var areasname = dict.ContainsKey("areasname") && !string.IsNullOrEmpty(dict["areasname"].ToString()) ? "/" + dict["areasname"].ToString() : "";
+    var listcategory = dict.ContainsKey("listcategory") ? (List<DDLModel>)dict["listcategory"] : new List<DDLModel>();
     var newData = new AuthUser();
 }
 @{
@@ -31,7 +32,7 @@
 </script>
 
 <script>
-   
+
 </script>
 
 <div id="popup" style="display: none;">
@@ -50,7 +51,8 @@
             {
                 @Html.Hidden("entryid", "#=entryid#");
                 @Html.Hidden("entrycode", "#=entrycode#");
-
+                @Html.Hidden("comments", "#=comments#");
+            <div id="productInfor" class="col-lg-12" style="float: left;">
                 <fieldset class="col-lg-6" style="float: left;">
                     <div class="caption" style="margin-bottom: 10px;">
                         <h5 style="color: rgb(31, 78, 120); margin-bottom: 0px">Detail</h5>
@@ -62,7 +64,48 @@
                             <input class="form-control input-sm" name="entryname" id="entryname" value="#=entryname!=null? entryname : ''#" placeholder="entryname" />
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-4" style="">category<span class="required">*</span></label>
+                        <div class=" col-md-8 ">
+                            <select class="form-control input-sm" id="categoryid" name="categoryid" onchange="onLoadSubCategory(this)">
+                                <option value="">-- category --</option>
+                                @for (var i = 0; i < listcategory.Count; i++)
+                                {
+                                    <option value="@Html.Raw(listcategory[i].ID)">@Html.Raw(listcategory[i].Name)</option>
+                                }
+                            </select>
 
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-4" style="">subcategory<span class="required">*</span></label>
+                        <div class=" col-md-8 ">
+                            <select class="form-control input-sm" id="subcategoryid" name="subcategoryid">
+                                <option value="">-- subcategory --</option>
+                            </select>
+
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-4" style="">price<span class="required">*</span></label>
+                        <div class=" col-md-8 ">
+                            <input class="form-control input-sm" name="price_nfRegexp" id="price_nfRegexp" value="#=price!=null? price : '0'#" placeholder="price" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-4" style="">discount</label>
+                        <div class=" col-md-8 ">
+                            <input class="form-control input-sm" name="discount_nfRegexp" id="discount_nfRegexp" value="#=discount!=null? discount : '0'#" placeholder="discount" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-4" style="">priceamount</label>
+                        <div class=" col-md-8 ">
+                            <input disabled="disabled" class="form-control input-sm" name="priceamount_nfRegexp" id="priceamount_nfRegexp" value="#=priceamount!=null? priceamount : '0'#" placeholder="priceamount" />
+                        </div>
+                    </div>
                     <div class="form-group" style="">
                         <label class="control-label col-md-4" style="">isactive</label>
                         <div class=" col-md-8 ">
@@ -85,8 +128,55 @@
                         <hr style=" margin-top: 0px;">
                     </div>
 
-                </fieldset>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <input type="file" class="custom-file-input" id="customFile" style="float:left">
+                            <button type="button" class="custom-file-upload" onclick="onUploadFile()">Upload</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class=" col-md-8 ">
+                            <input class="form-control input-sm" name="defautlimg" id="defautlimg" value="#=defautlimg!=null? defautlimg : ''#" placeholder="defautlimg" />
+                        </div>
+                        <label class="control-label col-md-4" style=""><span class="required" onclick="onDeleteFile()">X</span></label>
 
+                    </div>
+                    <div class="form-group">
+                        <div class=" col-md-8">
+                            <img id="imgPreview" src="#=defautlimg!=null? defautlimg : ''#" height="42" width="42" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-4" style="">unit</label>
+                        <div class=" col-md-8 ">
+                            <input class="form-control input-sm" name="unit" id="unit" value="#=unit!=null? unit : ''#" placeholder="unit" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-4" style="">brand</label>
+                        <div class=" col-md-8 ">
+                            <input  class="form-control input-sm" name="brand" id="brand" value="#=brand!=null? brand : ''#" placeholder="brand" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-4" style="">origin</label>
+                        <div class=" col-md-8 ">
+                            <input  class="form-control input-sm" name="origin" id="origin" value="#=origin!=null? origin : ''#" placeholder="origin" />
+                        </div>
+                    </div>
+                </fieldset>
+                
+            </div>
+                
+                <fieldset id="commentsDiv" class="col-lg-12" style="float: left;  clear: both; border-top: none; ">
+                    <section>
+                        <label class="label" style="float:left">comments</label>
+                        <div class="col-md-9" style="float: right; width: 100%;">
+                            <textarea id="commentsView" name="commentsView" rows="10" cols="30"></textarea>
+                        </div>
+                    </section>
+
+                </fieldset>
                 <div class="form-actions" style="margin:0">
                     <div class="row" style="text-align: left">
                         <div class="col-md-12">
@@ -134,17 +224,67 @@
         return obj;
     }
     //===========================================Popup Form ===========================================
+    //$("#formPopup #customFile").on("change", function (e) {
+    //    var file = $(this)[0].files[0];
+    //    var upload = new Upload(file);
 
+    //    // maby check size or type here with upload.getSize() and upload.getType()
+
+    //    // execute upload
+    //    //upload.doUpload();
+    //});
+
+    function onUploadFile() {
+        var myFormData = new FormData();
+        myFormData.append('fileupload', $("#formPopup #customFile")[0].files[0]);
+
+        $.ajax({
+            url: r + "/Admin/Home/UploadFiles",
+            type: 'POST',
+            processData: false, // important
+            contentType: false, // important
+            dataType: 'json',
+            data: myFormData,
+            success: function (result) {
+                if (result && result.length>0)
+                    $("#formPopup #defautlimg").val(result[0].url);
+                $("#formPopup #imgPreview").attr("src", result[0].url);
+                $("#formPopup #imgPreview").show();
+            },
+            error(xhr, status, error) {
+                bootbox.alert("Upload Fail!");
+            }
+        });
+    }
+    function onDeleteFile() {
+        $("#formPopup #defautlimg").val("");
+        $("#formPopup #imgPreview").hide();
+    }
     //Numeric format form
     function autoNumericOnFormElement() {
         //Numeric format
-        //autoNumericOnForm($('#formPopupSales_Order_JobQueue_TVN #extend_time'), 'numberRule', { aSign: ' lần', pSign: 's' });
+        autoNumericOnForm($('#formPopup #price_nfRegexp'), 'currencyRule', { aSign: ' vnd', pSign: 's' });
+        autoNumericOnForm($('#formPopup #discount_nfRegexp'), 'percentRule', { aSign: ' %', pSign: 's' });
+        autoNumericOnForm($('#formPopup #priceamount_nfRegexp'), 'currencyRule', { aSign: ' vnd', pSign: 's' });
     }
+    //function cho editor
+    function createEditor(languageCode, id, value) {
+        //var ArticleContentDivHeight = parseInt($(window).height()) - $('#ArticleContentInfor').height();
+        var editor = CKEDITOR.replace(id, { language: languageCode, height: 200 });
+        //$('#ArticleContentDiv').height(ArticleContentDivHeight);
+        //set value
+        CKEDITOR.instances['commentsView'].setData(htmlDecode(value ? value : ""));
 
+        //onchange
+        CKEDITOR.instances['commentsView'].on('change', function () {
+            var editor_data = CKEDITOR.instances['commentsView'].getData();
+            $('#formPopup #comments').val(htmlEncode(editor_data));
+        });
+    }
     //Update
     function edit(obj) {
         blockUIFromUser(true);
-        $.post(r + "/AdminProductManagement/GetByID", { entryid: obj.entryid }, function (data) {
+        $.post(r + "/MasterProductManagement/GetByID", { entryid: obj.entryid }, function (data) {
             if (data.success) {
                 var value = data.data;
 
@@ -193,10 +333,17 @@
 
         //forcus
         setForcusPopup('formPopup');
+        //Editor
+        $(function () { createEditor('en', 'commentsView', data.comments) });
+        $("#formPopup #comments").val(data.comments);
 
         //selection
         //generateSelect2('s', 'formPopup #roleid', data.roleid == 0 ? null : data.roleid, '100%');
         //generateSelect2('s', 'formPopup #languageid', data.languageid == 0 ? null : data.languageid, '100%');
+        generateSelect2('s', 'formPopup #categoryid', (data.categoryid == 0 ? 0 : data.categoryid), '100%');
+
+        getListItem({ id: data.categoryid }, 'subcategoryid', 'MasterSubCategoryManagement', 'GetDDL', '100%');
+        generateSelect2('s', 'formPopup #subcategoryid', (data.subcategoryid == 0 ? 0 : data.subcategoryid), '100%');
         generateSelect2('s', 'formPopup #isactive', (data.isactive == false ? 'false' : 'true'), '100%');
 
         //multiselect
@@ -204,7 +351,7 @@
         //set type nodata cho option
 
         //process when change value
-       
+        autoNumericOnFormElement();
 
         validateFormPopup();
 
@@ -212,7 +359,10 @@
 
 
     }
-
+    function onLoadSubCategory(obj) {
+        var dataCondition = { id: $(obj).val() }
+        getListItem(dataCondition, 'subcategoryid', 'MasterSubCategoryManagement', 'GetDDL', '100%');
+    }
     //Validate form
     function validateFormPopup() {
         $("#formPopup").validate({
@@ -224,10 +374,16 @@
                 entryname: {
                     required: true
                 },
+                categoryid: {
+                    required: true
+                },
+                subcategoryid: {
+                    required: true
+                },
                 isactive: {
                     required: true
                 },
-               
+
 
             },
 
@@ -239,10 +395,16 @@
                 entryname: {
                     required: resource_lang.Common_mess_RequiredInformation
                 },
+                categoryid: {
+                    required: resource_lang.Common_mess_RequiredInformation
+                },
+                subcategoryid: {
+                    required: resource_lang.Common_mess_RequiredInformation
+                },
                 isactive: {
                     required: resource_lang.Common_mess_RequiredInformation
                 },
-               
+
             },
 
             // Do not change code below

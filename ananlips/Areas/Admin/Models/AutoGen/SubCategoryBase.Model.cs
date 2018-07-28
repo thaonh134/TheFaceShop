@@ -12,15 +12,15 @@ using System.Linq;
 /*AutoGen: ThaoNH*/
 namespace ananlips.Areas.Admin.Models.AutoGen
 {
-	public abstract  class SubCategoryBase<T> where T : SubCategoryBase<T>
+    public abstract class SubCategoryBase<T> where T : SubCategoryBase<T>
     {
-	 [PrimaryKey]
-    [AutoIncrement]
+        [PrimaryKey]
+        [AutoIncrement]
         public int entryid { get; set; }
         public string entrycode { get; set; }
         public string entryname { get; set; }
-        
-public  int categoryid  { get; set; } 	
+
+        public int categoryid { get; set; }
         public bool isactive { get; set; }
         public DateTime createdat { get; set; }
         public int createdby { get; set; }
@@ -35,7 +35,7 @@ public  int categoryid  { get; set; }
             param.Add(new SqlParameter("@wherecondition", wherecondition));
             param.Add(new SqlParameter("@status", status));
             param.Add(new SqlParameter("@curruserid", curruserid));
-             param.Add(new SqlParameter("@sort", CustomModel.GetSortStringFormRequest(request)));
+            param.Add(new SqlParameter("@sort", CustomModel.GetSortStringFormRequest(request)));
 
             var data = new SqlHelper().ExecuteQuery("p_SubCategory_Search", param);
             request.Page = 1;
@@ -54,35 +54,35 @@ public  int categoryid  { get; set; }
             param.Add(new SqlParameter("@status", status));
             param.Add(new SqlParameter("@curruserid", curruserid));
             param.Add(new SqlParameter("@sort", CustomModel.GetSortStringFormRequest(request)));
-    return CustomModel.ConvertDataTable<T>(new SqlHelper().ExecuteQuery("p_SubCategory_Search", param));
+            return CustomModel.ConvertDataTable<T>(new SqlHelper().ExecuteQuery("p_SubCategory_Search", param));
         }
-public static T GetById(int entryid, IDbConnection dbConn, bool isTrans)
-{
-    if (dbConn == null) dbConn = new OrmliteConnection().openConn();
-    try
-    {
-        var data = dbConn.GetByIdOrDefault<T>(entryid);
-        return data;
+        public static T GetById(int entryid, IDbConnection dbConn, bool isTrans)
+        {
+            if (dbConn == null) dbConn = new OrmliteConnection().openConn();
+            try
+            {
+                var data = dbConn.GetByIdOrDefault<T>(entryid);
+                return data;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+            finally { if (!isTrans) dbConn.Close(); }
+        }
+        public static T GetByCode(string entrycode, IDbConnection dbConn, bool isTrans)
+        {
+            if (dbConn == null) dbConn = new OrmliteConnection().openConn();
+            try
+            {
+                var data = dbConn.FirstOrDefault<T>("entrycode={0}", entrycode);
+                return data;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+            finally { if (!isTrans) dbConn.Close(); }
+        }
     }
-    catch (Exception e)
-    {
-        return null;
-    }
-    finally { if (!isTrans) dbConn.Close(); }
-}
-public static T GetByCode(string entrycode, IDbConnection dbConn, bool isTrans)
-{
-    if (dbConn == null) dbConn = new OrmliteConnection().openConn();
-    try
-    {
-        var data = dbConn.FirstOrDefault<T>("entrycode={0}", entrycode);
-        return data;
-    }
-    catch (Exception e)
-    {
-        return null;
-    }
-    finally { if (!isTrans) dbConn.Close(); }
-}
-}
 }

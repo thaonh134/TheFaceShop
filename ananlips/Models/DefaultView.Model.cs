@@ -552,6 +552,7 @@ namespace ananlips.Models
                             item.AddOrUpdate(UserId, dbConn, true);
                         }
                         trans.Commit();
+                        UpdateBillItem(new List<FE_BillDetail>());
                         return billid;
                     }
                     catch (Exception ex)
@@ -630,7 +631,7 @@ namespace ananlips.Models
                 try
                 {
                     IDbConnection dbConn = new OrmliteConnection().openConn();
-                    var item = dbConn.Select<Delivery>("isactive={0} and userid = {1}", 1, UserId);
+                    var item = dbConn.SingleOrDefault<Delivery>("isactive={0} and userid = {1}", 1, UserId);
                     if (item == null) return new FE_Delivery();
                     return Mapper.Map<FE_Delivery>(item);
 

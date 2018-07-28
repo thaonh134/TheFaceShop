@@ -13,6 +13,8 @@ using System.IO.Compression;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Configuration;
+using AutoMapper;
+
 namespace ananlips.Areas.Admin.Models
 {
     public class CustomModel
@@ -228,36 +230,7 @@ namespace ananlips.Areas.Admin.Models
 
         }
 
-        //Hàm resize ảnh GIF
-        //public void ResizeGif(System.Drawing.Image image, string path, int width, int height)
-        //{
-        //    Image gifimage = image;
-        //    List<Bitmap> images = new List<Bitmap>();
-
-        //    //Lấy thông tin thời gian chuyển hình
-        //    PropertyItem item = image.GetPropertyItem(0x5100); // FrameDelay in libgdiplus
-        //    int delay = (item.Value[0] + (int)item.Value[1] * 256) * 10;
-
-        //    //Khu vực tạo hình gif mới
-        //    AnimatedGifEncoder e = new AnimatedGifEncoder();
-        //    e.Start(path);
-        //    e.SetDelay(delay);
-        //    //-1:no repeat,0:always repeat
-        //    e.SetRepeat(0);
-
-        //    //Lấy số lượng frame của hình gif
-        //    int Length = gifimage.GetFrameCount(FrameDimension.Time);
-        //    for (int i = 0; i < Length; i++)
-        //    {
-        //        image.SelectActiveFrame(FrameDimension.Time, i);
-        //        images.Add(new Bitmap(image));
-        //        //resize
-        //        images[i] = ResizeBitmap_v2(images[i], width, height);
-        //        //tạo gif
-        //        e.AddFrame(images[i]);
-        //    }
-        //    e.Finish();
-        //}
+      
 
         public static Bitmap ResizeBitmap_v2(Bitmap b, int nWidth, int nHeight)
         {
@@ -265,6 +238,27 @@ namespace ananlips.Areas.Admin.Models
             using (Graphics g = Graphics.FromImage((System.Drawing.Image)result))
                 g.DrawImage(b, 0, 0, nWidth, nHeight);
             return result;
+        }
+        #endregion
+
+        #region Master DDL
+        //Get DDL
+        ///<summary>
+        ///Lấy danh sách vùng miền
+        ///</summary>
+        public static List<DDLModel> GetCategoryForDDL()
+        {
+            
+
+            return Mapper.Map<List<DDLModel>>(Category.GetList(0, null, false)); 
+        }
+        //Get DDL
+        ///<summary>
+        ///Lấy danh sách vùng miền
+        ///</summary>
+        public static List<DDLModel> GetSubCategoryForDDL(int CategoryId)
+        {
+            return Mapper.Map<List<DDLModel>>(SubCategory.GetByCategoryId(CategoryId, null, false)) ;
         }
         #endregion
     }

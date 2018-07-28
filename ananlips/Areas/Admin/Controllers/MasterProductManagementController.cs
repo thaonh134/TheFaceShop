@@ -60,8 +60,7 @@ namespace ananlips.Areas.Admin.Controllers
             IDbConnection dbConn = new OrmliteConnection().openConn();
             var dict = new Dictionary<string, object>();
             dict["activestatus"] = CustomModel.GetActiveStatus();
-
-            dict["ddl_article_type"] = CustomModel.GetActiveStatus();
+            dict["listcategory"] = CustomModel.GetCategoryForDDL();
             dbConn.Close();
 
             //set parameter
@@ -84,7 +83,8 @@ namespace ananlips.Areas.Admin.Controllers
                 var isExist = Product.GetById(item.entryid, null, false) ;
 
                 //Validate
-
+                item.unitquantity = item.unitquantity == 0 ? 1 : item.unitquantity;
+                item.priceamount = item.price*(1 - item.discount/100);
                 //insert / update
                 if (item.entryid == 0)
                 {

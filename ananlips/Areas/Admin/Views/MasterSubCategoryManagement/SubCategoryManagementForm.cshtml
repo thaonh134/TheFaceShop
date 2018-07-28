@@ -7,6 +7,7 @@
     var listLanguage = dict.ContainsKey("listlanguage") ? (List<DDLModel>)dict["listlanguage"] : new List<DDLModel>();
     var redirectbyajax = dict.ContainsKey("redirectbyajax") ? dict["redirectbyajax"].ToString() : "0";
     var areasname = dict.ContainsKey("areasname") && !string.IsNullOrEmpty(dict["areasname"].ToString()) ? "/" + dict["areasname"].ToString() : "";
+    var listcategory = dict.ContainsKey("listcategory") ? (List<DDLModel>)dict["listcategory"] : new List<DDLModel>();
     var newData = new AuthUser();
 }
 @{
@@ -51,33 +52,46 @@
                 @Html.Hidden("entryid", "#=entryid#");
                 @Html.Hidden("entrycode", "#=entrycode#");
 
-                <fieldset class="col-lg-6" style="float: left;">
-                    <div class="caption" style="margin-bottom: 10px;">
-                        <h5 style="color: rgb(31, 78, 120); margin-bottom: 0px">Detail</h5>
-                        <hr style=" margin-top: 0px;">
+            <fieldset class="col-lg-6" style="float: left;">
+                <div class="caption" style="margin-bottom: 10px;">
+                    <h5 style="color: rgb(31, 78, 120); margin-bottom: 0px">Detail</h5>
+                    <hr style=" margin-top: 0px;">
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-4" style="">entryname<span class="required">*</span></label>
+                    <div class=" col-md-8 ">
+                        <input class="form-control input-sm" name="entryname" id="entryname" value="#=entryname!=null? entryname : ''#" placeholder="entryname" />
                     </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-4" style="">entryname<span class="required">*</span></label>
-                        <div class=" col-md-8 ">
-                            <input class="form-control input-sm" name="entryname" id="entryname" value="#=entryname!=null? entryname : ''#" placeholder="entryname" />
-                        </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-4" style="">category<span class="required">*</span></label>
+                    <div class=" col-md-8 ">
+                        <select class="form-control input-sm" id="categoryid" name="categoryid">
+                            <option value="">-- category --</option>
+                            @for (var i = 0; i < listcategory.Count; i++)
+                            {
+                                <option value="@Html.Raw(listcategory[i].ID)">@Html.Raw(listcategory[i].Name)</option>
+                            }
+                        </select>
+
+
                     </div>
+                </div>
+                <div class="form-group" style="">
+                    <label class="control-label col-md-4" style="">isactive</label>
+                    <div class=" col-md-8 ">
+                        <select class="form-control input-sm" id="isactive" name="isactive">
+                            @for (var i = 0; i < listActiveStatus.Count; i++)
+                            {
+                                <option value="@Html.Raw(listActiveStatus[i].ID)">@Html.Raw(listActiveStatus[i].Name)</option>
+                            }
+                        </select>
 
-                    <div class="form-group" style="">
-                        <label class="control-label col-md-4" style="">isactive</label>
-                        <div class=" col-md-8 ">
-                            <select class="form-control input-sm" id="isactive" name="isactive">
-                                @for (var i = 0; i < listActiveStatus.Count; i++)
-                                {
-                                    <option value="@Html.Raw(listActiveStatus[i].ID)">@Html.Raw(listActiveStatus[i].Name)</option>
-                                }
-                            </select>
 
-
-                        </div>
                     </div>
+                </div>
 
-                </fieldset>
+            </fieldset>
                 <fieldset class="col-lg-6" style="border: none; float: left">
 
                     <div class="caption" style="margin-bottom: 10px;">
@@ -144,7 +158,7 @@
     //Update
     function edit(obj) {
         blockUIFromUser(true);
-        $.post(r + "/AdminSubCategoryManagement/GetByID", { entryid: obj.entryid }, function (data) {
+        $.post(r + "/MasterSubCategoryManagement/GetByID", { entryid: obj.entryid }, function (data) {
             if (data.success) {
                 var value = data.data;
 
@@ -197,6 +211,7 @@
         //selection
         //generateSelect2('s', 'formPopup #roleid', data.roleid == 0 ? null : data.roleid, '100%');
         //generateSelect2('s', 'formPopup #languageid', data.languageid == 0 ? null : data.languageid, '100%');
+        generateSelect2('s', 'formPopup #categoryid', (data.categoryid == 0 ?0: data.categoryid ), '100%');
         generateSelect2('s', 'formPopup #isactive', (data.isactive == false ? 'false' : 'true'), '100%');
 
         //multiselect
@@ -224,6 +239,9 @@
                 entryname: {
                     required: true
                 },
+                categoryid: {
+                    required: true
+                },
                 isactive: {
                     required: true
                 },
@@ -237,6 +255,9 @@
                     required: resource_lang.Common_mess_RequiredInformation
                 },
                 entryname: {
+                    required: resource_lang.Common_mess_RequiredInformation
+                },
+                categoryid: {
                     required: resource_lang.Common_mess_RequiredInformation
                 },
                 isactive: {

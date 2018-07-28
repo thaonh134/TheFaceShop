@@ -69,6 +69,16 @@ namespace ananlips.AutoMap
              .ForMember(dst => dst.priceamount, x => x.MapFrom(src => src.PriceAmount))
              .ForMember(dst => dst.discount, x => x.MapFrom(src => src.Discount))
              ;
+
+            //mapp ddl
+            CreateMap<Category, DDLModel>()
+             .ForMember(dst => dst.ID, x => x.MapFrom(src => src.entryid))
+             .ForMember(dst => dst.Name, x => x.MapFrom(src => src.entryname))
+             ;
+            CreateMap<SubCategory, DDLModel>()
+             .ForMember(dst => dst.ID, x => x.MapFrom(src => src.entryid))
+             .ForMember(dst => dst.Name, x => x.MapFrom(src => src.entryname))
+             ;
         }
         
     }

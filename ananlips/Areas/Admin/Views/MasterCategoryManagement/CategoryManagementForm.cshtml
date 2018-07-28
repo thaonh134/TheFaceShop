@@ -144,7 +144,7 @@
     //Update
     function edit(obj) {
         blockUIFromUser(true);
-        $.post(r + "/AdminCategoryManagement/GetByID", { entryid: obj.entryid }, function (data) {
+        $.post(r + "/MasterCategoryManagement/GetByID", { entryid: obj.entryid }, function (data) {
             if (data.success) {
                 var value = data.data;
 

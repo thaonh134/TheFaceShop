@@ -5,6 +5,8 @@
     var dict = Model != null ? (Dictionary<string, object>)Model : new Dictionary<string, object>();
     var data_Bill = dict.ContainsKey("data_Bill") ? (DefaultView.FE_Bill)dict["data_Bill"] : new DefaultView.FE_Bill();
 
+    if (data_Bill.BillDetails == null) { data_Bill.BillDetails = new List<DefaultView.FE_BillDetail>(); }
+
 }
 <div class="content container">
     <div id="primary" class="content-area">
@@ -53,18 +55,18 @@
                 jQuery("#refTable").html(data);
             },
             failure: function (response) {
-                debugger;
+                
             }
         });
 
     //    jQuery.post(r + "Bill/UpdateBill", dataPost, function (data) {
     //    /**/
-    //        debugger;
+    //        
 
     //});
     }
     function removeBillItem(obj) {
-        var dataPost = JSON.stringify({ 'Item': { ProductId: $(obj).data('product_id')} }  );
+        var dataPost = JSON.stringify({ 'Item': { ProductId: JQuery(obj).data('product_id')} }  );
         //var dataPost = myjson;
          var r = '@Html.Raw(@Request.Url.GetLeftPart(UriPartial.Authority) + Url.Content("~"))';
         /**/
@@ -82,7 +84,7 @@
                 //jQuery("#refTable").html(partialViewResult);
             },
             //failure: function (response) {
-            //    debugger;
+            //    
             //}
         });
     }

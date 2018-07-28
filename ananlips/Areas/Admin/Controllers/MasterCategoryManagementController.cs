@@ -60,8 +60,6 @@ namespace ananlips.Areas.Admin.Controllers
             IDbConnection dbConn = new OrmliteConnection().openConn();
             var dict = new Dictionary<string, object>();
             dict["activestatus"] = CustomModel.GetActiveStatus();
-
-            dict["ddl_article_type"] = CustomModel.GetActiveStatus();
             dbConn.Close();
 
             //set parameter
@@ -167,6 +165,21 @@ namespace ananlips.Areas.Admin.Controllers
             finally { dbConn.Close(); }
         }
         #endregion
-
+        #region Order progress
+        [HttpPost]
+        public ActionResult GetCategoryForDDL()
+        {
+            try
+            {
+                var data = CustomModel.GetCategoryForDDL();
+                return Json(new { success = true, data = data });
+            }
+            catch (Exception e)
+            {
+                return Json(new { success = false, message = e.Message });
+            }
+            finally { }
+        }
+        #endregion
     }
 }

@@ -1,4 +1,5 @@
 ﻿@using ananlips.Models;
+@using System.Globalization;
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutCommon.cshtml";
@@ -42,8 +43,8 @@
                     </div><div class="summary entry-summary">
                         <h1 class="product_title entry-title">@data_Product.ProductName</h1>
                         <p class="price">
-                            <del><span class="woocommerce-Price-amount amount">@data_Product.Price<span class="woocommerce-Price-currencySymbol">₫</span></span></del>
-                            <ins><span class="woocommerce-Price-amount amount">@data_Product.PriceAmount<span class="woocommerce-Price-currencySymbol">₫</span></span></ins>
+                            <del><span class="woocommerce-Price-amount amount">@Html.Raw(String.Format(CultureInfo.InvariantCulture, "{0:#,#}", data_Product.Price))<span class="woocommerce-Price-currencySymbol">₫</span></span></del>
+                            <ins><span class="woocommerce-Price-amount amount">@Html.Raw(String.Format(CultureInfo.InvariantCulture, "{0:#,#}", data_Product.PriceAmount))<span class="woocommerce-Price-currencySymbol">₫</span></span></ins>
                         </p><div class="product-info clearfix">
                             <p class="info-item col-xs-12 col-sm-6">
                                 <label>Thương hiệu</label>
@@ -134,7 +135,7 @@
                                                         </div><p></p>
                                                     </div><p></p>
                                                 </div><div class="buynow-total row clearfix">
-                                                    <span class="pull-left">Tổng tiền:</span><span class="pull-right buynow-total-price" data-price="@data_Product.Price"><span class="woocommerce-Price-amount amount">@data_Product.PriceAmount<span class="woocommerce-Price-currencySymbol">₫</span></span></span>
+                                                    <span class="pull-left">Tổng tiền:</span><span class="pull-right buynow-total-price" data-price="@Html.Raw(String.Format(CultureInfo.InvariantCulture, "{0:#,#}", data_Product.Price))"><span class="woocommerce-Price-amount amount">@Html.Raw(String.Format(CultureInfo.InvariantCulture, "{0:#,#}", data_Product.PriceAmount))<span class="woocommerce-Price-currencySymbol">₫</span></span></span>
                                                 </div><p>                <input type="hidden" value="219000" id="priceProductSimple"></p><div class="areainfo clearfix">
                                                     <div class="pull-left">
                                                         <span class="wpcf7-form-control-wrap fullName"><input type="text" name="FullNname" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required saveinfo" aria-required="true" aria-invalid="false" placeholder="Họ và tên"></span>
@@ -197,7 +198,7 @@
                                                                 </div><div class="right-block">
                                                                     <h5 class="product-name"><a title="@ProductItem.ProductName" href="@Url.Action("Index","Product",new { Id=ProductItem.ProductId})">@ProductItem.ProductName</a></h5><div class="content_price">
                                                                         <span class="price product-price">
-                                                                            <span class="price"><span class="price"><del><span class="woocommerce-Price-amount amount">@ProductItem.Price<span class="woocommerce-Price-currencySymbol">₫</span></span></del> <ins><span class="woocommerce-Price-amount amount">@ProductItem.PriceAmount<span class="woocommerce-Price-currencySymbol">₫</span></span></ins></span></span>
+                                                                            <span class="price"><span class="price"><del><span class="woocommerce-Price-amount amount">@Html.Raw(String.Format(CultureInfo.InvariantCulture, "{0:#,#}", ProductItem.Price))<span class="woocommerce-Price-currencySymbol">₫</span></span></del> <ins><span class="woocommerce-Price-amount amount">@Html.Raw(String.Format(CultureInfo.InvariantCulture, "{0:#,#}", ProductItem.PriceAmount))<span class="woocommerce-Price-currencySymbol">₫</span></span></ins></span></span>
                                                                         </span>
                                                                     </div>
                                                                 </div>
@@ -218,7 +219,7 @@
                                     </li>
                                 </ul>
                                 <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content wc-tab" id="tab-description" role="tabpanel" aria-labelledby="tab-title-description" style="display: block;">
-                                    @Html.Raw(data_Product.Comments)
+                                    @Html.Raw(HttpUtility.HtmlDecode(data_Product.Comments))
                                 </div>
                             </div>
                             <script type="text/javascript">jQuery(document).ready(function (e) { jQuery('#tab-description .readmore').click(function () { jQuery('#tab-description .des').css({ 'height': 'inherit' }); jQuery('#tab-description .show-more').css({ 'display': 'none' }); }); });</script>
@@ -244,16 +245,19 @@
                                                         </div><div class="right-block">
                                                             <h5 class="product-name"><a title="@data_lstProduct[i].ProductName" href="@Url.Action("Index","Product",new { Id=@data_lstProduct[i].ProductId})">@data_lstProduct[i].ProductName</a></h5><div class="content_price">
                                                                 <span class="price">
-                                                                    <del><span class="woocommerce-Price-amount amount">@data_lstProduct[i].Price<span class="woocommerce-Price-currencySymbol">₫</span></span></del>
-                                                                    <ins><span class="woocommerce-Price-amount amount">@data_lstProduct[i].PriceAmount<span class="woocommerce-Price-currencySymbol">₫</span></span></ins>
-                                                                </span><div class="product-star" title="Rated 0 out of 5"><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></div>
-                                                            </div><div class="info-orther"><p class="availability">Availability: <span class="instock">In stock</span><span class="outofstock">Out of stock</span></p><div class="product-desc"></div></div>
-                                                        </div>
+                                                                    <del>
+                                                                        <span class="woocommerce-Price-amount amount"> @Html.Raw(String.Format(CultureInfo.InvariantCulture, "{0:#,#}", data_lstProduct[i].Price))<span class="woocommerce-Price-currencySymbol">₫</span>
+                                                                        </span>
+                                                                </del>
+                                                                <ins><span class="woocommerce-Price-amount amount">@Html.Raw(String.Format(CultureInfo.InvariantCulture, "{0:#,#}", data_lstProduct[i].PriceAmount))<span class="woocommerce-Price-currencySymbol">₫</span></span></ins>
+                                                            </span><div class="product-star" title="Rated 0 out of 5"><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></div>
+                                                        </div><div class="info-orther"><p class="availability">Availability: <span class="instock">In stock</span><span class="outofstock">Out of stock</span></p><div class="product-desc"></div></div>
                                                     </div>
-                                                </li>
-                                            }
-
+                                                </div>
+                                            </li>
                                         }
+
+                                    }
                                     </ul>
                                 </div>
                             </div>

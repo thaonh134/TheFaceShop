@@ -1,4 +1,7 @@
 ﻿@using ananlips.Models;
+
+@using System.Globalization;
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutCommon.cshtml";
@@ -89,7 +92,7 @@
 
                     <input type="hidden" id="pagenum" value="1" />
                     <input type="hidden" id="pagesize" value="18" />
-                    <input type="hidden" id="entryid" value="@data_Category.CategoryId" />
+                    <input type="hidden" id="entryid" value="@data_SubCategory.SubCategoryId" />
                     <input type="hidden" id="orderby" value="" />
                     <input type="hidden" id="totalpage" value="0" />
 
@@ -116,7 +119,7 @@
                                                     </div><div class="right-block">
                                                         <h5 class="product-name"><a title="@ProductItem.ProductName" href="@Url.Action("Index","Product",new { Id=ProductItem.ProductId})">@ProductItem.ProductName</a></h5><div class="content_price">
                                                             <span class="price product-price">
-                                                                <span class="price"><span class="price"><del><span class="woocommerce-Price-amount amount">@ProductItem.Price<span class="woocommerce-Price-currencySymbol">₫</span></span></del> <ins><span class="woocommerce-Price-amount amount">@ProductItem.PriceAmount<span class="woocommerce-Price-currencySymbol">₫</span></span></ins></span></span>
+                                                                <span class="price"><span class="price"><del><span class="woocommerce-Price-amount amount">@Html.Raw(String.Format(CultureInfo.InvariantCulture, "{0:#,#}", ProductItem.Price))<span class="woocommerce-Price-currencySymbol">₫</span></span></del> <ins><span class="woocommerce-Price-amount amount">@Html.Raw(String.Format(CultureInfo.InvariantCulture, "{0:#,#}", ProductItem.PriceAmount))<span class="woocommerce-Price-currencySymbol">₫</span></span></ins></span></span>
                                                             </span>
                                                         </div>
                                                     </div>
