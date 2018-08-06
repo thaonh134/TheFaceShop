@@ -39,6 +39,30 @@ namespace ananlips.Models
             public int Viewcount { get; set; }
             public int Sellcount { get; set; }
             public string Comments { get; set; }
+
+            public static List<FE_Product> GetByGroupCategory(int itemsPerGroup)
+            {
+                try
+                {
+                    IDbConnection dbConn = new OrmliteConnection().openConn();
+                    var lst_item = dbConn.Select<Product>("isactive={0} ", 1).GroupBy(u => u.categoryid).Select(grp => grp.ToList()).ToList();
+                    //var xx=lst_item.Zip(Enumerable.Range(0, lst_item.Count()),(s, r) => new { Group = r / itemsPerGroup, Item = s }).GroupBy(i => i.Group, g => g.Item).ToList(); 
+                    //var lst_gettop = lst_item.Select((x, idx) => new { x, idx }).GroupBy(x => x.idx / itemsPerGroup).Select(g => g.Select(a => a.x).ToList()).ToList();
+                    var lst_result = new List<Product>();
+                    foreach (var item in lst_item)
+                    {
+                        lst_result.AddRange(item.Take(8));
+                    }
+                    var mapped = Mapper.Map<List<FE_Product>>(lst_result);
+                    var result = mapped;
+                    return result;
+
+                }
+                catch (Exception ex)
+                {
+                    return new List<FE_Product>();
+                }
+            }
             public static List<FE_Product> GetByCategory(string categoryid)
             {
                 try

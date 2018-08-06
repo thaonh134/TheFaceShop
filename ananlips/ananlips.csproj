@@ -1042,6 +1042,7 @@
     <Compile Include="Models\DefaultView.Model.cs" />
     <Compile Include="Models\FE_Search.Model.cs" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="Scripts\bootstrap\bootbox.min.js" />
     <Content Include="Scripts\bootstrap\jquery.tmpl.js" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -1990,11 +1991,13 @@
     <Content Include="Scripts\wp-content\themes\kutetheme\css\woocommerce.css" />
     <Content Include="Scripts\wp-content\themes\kutetheme\images\add-cart.png" />
     <Content Include="Scripts\wp-content\themes\kutetheme\images\floor-elevator.png" />
+    <Content Include="Scripts\wp-content\themes\kutetheme\images\grid-view-bg.png" />
     <Content Include="Scripts\wp-content\themes\kutetheme\images\hd-login.png" />
     <Content Include="Scripts\wp-content\themes\kutetheme\images\icon-angle-right.png" />
     <Content Include="Scripts\wp-content\themes\kutetheme\images\icon-cart-option2.png" />
     <Content Include="Scripts\wp-content\themes\kutetheme\images\icon-cart-round.png" />
     <Content Include="Scripts\wp-content\themes\kutetheme\images\icon-salenews.gif" />
+    <Content Include="Scripts\wp-content\themes\kutetheme\images\list-view-bg.png" />
     <Content Include="Scripts\wp-content\themes\kutetheme\images\notify-right-red.png" />
     <Content Include="Scripts\wp-content\themes\kutetheme\images\placeholder.jpg" />
     <Content Include="Scripts\wp-content\themes\kutetheme\images\select-arrow.png" />
