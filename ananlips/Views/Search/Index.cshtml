@@ -6,8 +6,8 @@
     Layout = "~/Views/Shared/_LayoutCommon.cshtml";
     var dict = Model != null ? (Dictionary<string, object>)Model : new Dictionary<string, object>();
 
-    var data_Category = dict.ContainsKey("data_Category") ? (DefaultView.FE_Category)dict["data_Category"] : new DefaultView.FE_Category();
-    var data_lstSubCategory = dict.ContainsKey("data_lstSubCategory") ? (List<DefaultView.FE_SubCategory>)dict["data_lstSubCategory"] : new List<DefaultView.FE_SubCategory>();
+    var data_SearchRequest = dict.ContainsKey("data_SearchRequest") ? (SearchRequest)dict["data_SearchRequest"] : new SearchRequest();
+    var data_keyword = dict.ContainsKey("data_keyword") ? dict["data_keyword"].ToString() : "";
     var data_ListOrderProduct = DefaultView.ListOrderProduct();
     var data_BestSell = DefaultView.FE_Product.GetBestSell();
 
@@ -20,7 +20,7 @@
         <nav class="woocommerce-breadcrumb">
             <a href="@Url.Action("Index","Home")">Trang chủ</a><span class="navigation-pipe">
                 &nbsp;
-            </span>@data_Category.CategoryName
+            </span>@data_keyword
         </nav>
         <div class="row sidebar-left">
 
@@ -31,19 +31,14 @@
                     <ul>
 
                         <li class="current-categorie">
-                            <a href="#">@data_Category.CategoryName</a>
+                            <a href="#">Kết quả tìm kiếm cho “ @data_keyword ”</a>
                         </li>
-                        @foreach (var item in data_lstSubCategory)
-                        {
-                            <li>
-                                <a href="@Url.Action("Index","SubCategory",new { Id=item.SubCategoryId})">@item.SubCategoryName</a>
-                            </li>
-                        }
+                       
 
                     </ul>
                 </div>
                 <h1 class="page-title">
-                    <span>@data_Category.CategoryName</span>
+                    <span>@data_keyword</span>
                     <div class="display-product-option">
                         <ul>
                             <li class="view-as-grid selected">
@@ -108,10 +103,11 @@
                 </script>
                 <form id="frmsearchpaging">
 
-                    <input type="hidden" id="pagenum" value="1" />
-                    <input type="hidden" id="pagesize" value="18" />
-                    <input type="hidden" id="entryid" value="@data_Category.CategoryId" />
+                    <input type="hidden" id="pagenum" value="@data_SearchRequest.pagenum" />
+                    <input type="hidden" id="pagesize" value="@data_SearchRequest.pagesize" />
+                    <input type="hidden" id="entryid" value="0" />
                     <input type="hidden" id="orderby" value="" />
+                    <input type="hidden" id="keyword" value="@data_keyword" />
                     <input type="hidden" id="totalpage" value="0" />
 
                 </form>
@@ -196,11 +192,12 @@
             , pagenum: jQuery("#frmsearchpaging #pagenum").val()
             , pagesize: jQuery("#frmsearchpaging #pagesize").val()
             , orderby: jQuery("#frmsearchpaging #orderby").val()
+            , keyword: jQuery("#frmsearchpaging #keyword").val()
             //, sorttype: jQuery("#frmsearchpaging #sorttype").val()
         };
         var r = '@Html.Raw(@Request.Url.GetLeftPart(UriPartial.Authority) + Url.Content("~"))';
         /**/
-        jQuery.post(r + "Category/Read", dataPost, function (data) {
+            jQuery.post(r + "Search/Read", dataPost, function (data) {
         /**/
             var tmp = $(".row list-product-row");
             var tmp2 = $("ul.product-list.clearfix.columns-3");

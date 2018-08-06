@@ -280,6 +280,7 @@
     <Compile Include="Areas\Admin\Models\SubCategory.Model.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BillController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\SubCategoryController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
@@ -2439,6 +2440,7 @@
     <Content Include="Views\Bill\_BillDetailPartial.cshtml" />
     <Content Include="Views\Bill\CheckOut.cshtml" />
     <Content Include="Scripts\wp-content\themes\kutetheme\libs\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Views\Search\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

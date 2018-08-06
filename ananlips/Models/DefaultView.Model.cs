@@ -111,6 +111,33 @@ namespace ananlips.Models
                     return result;
                 }
             }
+            public static SearchResult SearchByKeyWord(SearchRequest request,string keyword)
+            {
+                var result = new SearchResult();
+                try
+                {
+                    List<SqlParameter> param = new List<SqlParameter>();
+                    param.Add(new SqlParameter("@page", request.pagenum));
+                    param.Add(new SqlParameter("@pagesize", request.pagesize));
+                    param.Add(new SqlParameter("@wherecondition", keyword));
+                    param.Add(new SqlParameter("@curruserid", 0));
+                    param.Add(new SqlParameter("@sort", GetSortString(request)));
+
+                    var data = new SqlHelper().ExecuteQuery("p_Product_FESearchByKeyWord", param);
+                    result.pagenum = request.pagenum;
+                    result.dataresult = Mapper.Map<List<FE_Product>>(CustomModel.ConvertDataTable<Product>(data));
+                    result.total = data.Rows.Count > 0 ? Convert.ToInt32(data.Rows[0]["rowcount"]) : 0;
+                    return result;
+
+                }
+                catch (Exception ex)
+                {
+                    result.pagenum = request.pagenum;
+                    result.dataresult = null;
+                    result.total = 0;
+                    return result;
+                }
+            }
 
             public static string GetSortString(SearchRequest request)
             {

@@ -23,5 +23,7 @@ namespace ananlips.Controllers
             dict["data_Product"] = item;
             return View(dict);
         }
+
+       
     }
 }

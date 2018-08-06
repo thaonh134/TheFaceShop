@@ -82,7 +82,7 @@
                                 <div class="add-to-cart"><a href="${BillUrlAction}" rel="nofollow" data-product_id="${ProductId}" data-product_sku="" data-quantity="1" class="add_to_cart_button product_type_simple">Thêm vào giỏ</a></div><a href="#" class="button yith-wcqv-button" data-product_id="${ProductId}">Quick View</a>
                             </div><div class="right-block">
                                 <h5 class="product-name"><a title="${ProductName}" href="${UrlAction}">${ProductName}</a></h5><div class="content_price">
-                                    <span class="price"><del><span class="woocommerce-Price-amount amount">${Price}<span class="woocommerce-Price-currencySymbol">₫</span></span></del> <ins><span class="woocommerce-Price-amount amount">${PriceAmount}<span class="woocommerce-Price-currencySymbol">₫</span></span></ins></span><div class="product-star" title="Rated 0 out of 5"><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></div>
+                                    <span class="price"><del><span class="woocommerce-Price-amount amount">${GetNumber(Price)}<span class="woocommerce-Price-currencySymbol">₫</span></span></del> <ins><span class="woocommerce-Price-amount amount">${GetNumber(PriceAmount)}<span class="woocommerce-Price-currencySymbol">₫</span></span></ins></span><div class="product-star" title="Rated 0 out of 5"><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></div>
                                 </div><div class="info-orther"><p class="availability">Availability: <span class="instock">In stock</span><span class="outofstock">Out of stock</span></p><div class="product-desc"></div></div>
                             </div>
                         </div>
@@ -194,5 +194,8 @@
                 jQuery("#frmsearchpaging #totalpage").val(data.total);
 
     });
-}
+    }
+    function GetNumber(value) {
+        return value.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+    }
 </script>
