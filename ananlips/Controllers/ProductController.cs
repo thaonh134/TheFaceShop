@@ -21,6 +21,8 @@ namespace ananlips.Controllers
             dict["data_lstProduct"] = DefaultView.FE_Product.GetBySubCategory(item.SubCategoryId.ToString());
 
             dict["data_Product"] = item;
+
+            ViewBag.Title = ((DefaultView.FE_Product)dict["data_Product"]).ProductName;
             return View(dict);
         }
 

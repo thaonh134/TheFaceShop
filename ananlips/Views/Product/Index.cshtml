@@ -1,7 +1,7 @@
 ﻿@using ananlips.Models;
 @using System.Globalization;
 @{
-    ViewBag.Title = "Index";
+    //ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutCommon.cshtml";
     var dict = Model != null ? (Dictionary<string, object>)Model : new Dictionary<string, object>();
     var data_Category = dict.ContainsKey("data_Category") ? (DefaultView.FE_Category)dict["data_Category"] : new DefaultView.FE_Category();

@@ -14,9 +14,10 @@ namespace ananlips.Controllers
         public ActionResult Index(string Id)
         {
             var dict = new Dictionary<string, object>();
+
             dict["data_Category"] = DefaultView.FE_Category.GetDetail(Id);
             dict["data_lstSubCategory"] = DefaultView.FE_SubCategory.GetByCategory(Id);
-            
+            ViewBag.Title = ((DefaultView.FE_Category)dict["data_Category"]).CategoryName;
             return View(dict);
         }
         [AcceptVerbs(HttpVerbs.Post)]

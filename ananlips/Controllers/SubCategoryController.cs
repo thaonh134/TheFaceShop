@@ -18,6 +18,8 @@ namespace ananlips.Controllers
             dict["data_SubCategory"] = item;
             dict["data_Category"] = DefaultView.FE_Category.GetDetail(item.CategoryId.ToString());
             dict["data_lstSubCategory"] = DefaultView.FE_SubCategory.GetByCategory(item.CategoryId.ToString());
+
+            ViewBag.Title = ((DefaultView.FE_SubCategory)dict["data_SubCategory"]).SubCategoryName;
             return View(dict);
         }
         [AcceptVerbs(HttpVerbs.Post)]

@@ -16,6 +16,7 @@ namespace ananlips.Controllers
             var dict = new Dictionary<string, object>();
             dict["data_MenuItem"] = DefaultView.FE_MenuItem.GetHomeItem();
             dict["data_ProductGroupByCategory"] = DefaultView.FE_Product.GetByGroupCategory(8);
+            ViewBag.Title = "Trang chủ";
             return View(dict);
         }
 
