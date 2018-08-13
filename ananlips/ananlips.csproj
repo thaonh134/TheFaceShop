@@ -1963,6 +1963,7 @@
     <Content Include="Scripts\wp-content\plugins\woocommerce\assets\css\woocommerce-layout.css" />
     <Content Include="Scripts\wp-content\plugins\woocommerce\assets\css\woocommerce-smallscreen.css" />
     <Content Include="Scripts\wp-content\plugins\woocommerce\assets\css\woocommerce.css" />
+    <Content Include="Scripts\wp-content\plugins\woocommerce\assets\images\icons\loader.svg" />
     <Content Include="Scripts\wp-content\plugins\woocommerce\assets\js\frontend\add-to-cart-variation.min.js" />
     <Content Include="Scripts\wp-content\plugins\woocommerce\assets\js\frontend\add-to-cart.min.js" />
     <Content Include="Scripts\wp-content\plugins\woocommerce\assets\js\frontend\cart-fragments.min.js" />
@@ -1990,6 +1991,8 @@
     <Content Include="Scripts\wp-content\themes\kutetheme\css\vc.css" />
     <Content Include="Scripts\wp-content\themes\kutetheme\css\woocommerce.css" />
     <Content Include="Scripts\wp-content\themes\kutetheme\images\add-cart.png" />
+    <Content Include="Scripts\wp-content\themes\kutetheme\images\checkout_require.gif" />
+    <Content Include="Scripts\wp-content\themes\kutetheme\images\delete_icon.png" />
     <Content Include="Scripts\wp-content\themes\kutetheme\images\floor-elevator.png" />
     <Content Include="Scripts\wp-content\themes\kutetheme\images\grid-view-bg.png" />
     <Content Include="Scripts\wp-content\themes\kutetheme\images\hd-login.png" />
@@ -2444,6 +2447,9 @@
     <Content Include="Views\Bill\CheckOut.cshtml" />
     <Content Include="Scripts\wp-content\themes\kutetheme\libs\font-awesome\fonts\fontawesome-webfont.woff2" />
     <Content Include="Views\Search\Index.cshtml" />
+    <Content Include="Views\Shared\_CaptchaRandomPartial.cshtml" />
+    <Content Include="Scripts\wp-content\plugins\woocommerce\assets\fonts\WooCommerce.ttf" />
+    <Content Include="Scripts\wp-content\plugins\woocommerce\assets\fonts\WooCommerce.woff" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -60,10 +60,12 @@ namespace ananlips.Controllers
         //Bill checkout
         public ActionResult SaveBill(FE_Delivery Item)
         {
+            //valid
+            if(DefaultView.GetRandomCapcha()!=Item.CaptchaCode) return Json(new { success = false , message="Mã xác minh không đúng." });
             var userID = ViewData["AuthUser"] == null ? 0 : ((AuthUser)ViewData["AuthUser"]).entryid;
            DefaultView.FE_Bill.BindFullBill(userID, Item);
            int resutl= FE_Bill.SaveBill(userID);
-            return Json(new { success = resutl==1});
+            return Json(new { success = resutl>0});
         }
     }
 }

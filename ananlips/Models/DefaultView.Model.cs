@@ -10,11 +10,65 @@ using ananlips.Areas.Admin.Models;
 using AutoMapper;
 using System.Data.SqlClient;
 using System.Dynamic;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.IO;
+using System.Drawing.Imaging;
 
 namespace ananlips.Models
 {
 	public class DefaultView
 	{
+        #region Capcha Session
+        public static string RandomCapcha()
+        {
+             HttpContext.Current.Session["CaptchaText"] = new Random().Next(1000, 9999);
+            return HttpContext.Current.Session["CaptchaText"].ToString();
+        }
+        public static string GetRandomCapcha()
+        {
+            if (HttpContext.Current.Session["CaptchaText"] == null)
+                HttpContext.Current.Session["CaptchaText"] = new Random().Next(1000, 9999);
+            return HttpContext.Current.Session["CaptchaText"].ToString();
+        }
+        private static Random Randomizer = new Random(DateTime.Now.Second);
+        public static string CreateImgCaptcha(string text)
+        {
+            byte[] byteArray = null;
+
+            Font[] fonts = {
+            new Font("Arial", 24, FontStyle.Bold),
+            new Font("Courier New", 22, FontStyle.Bold),
+            new Font("Calibri", 20, FontStyle.Bold),
+            new Font("Tahoma", 24, FontStyle.Italic | FontStyle.Bold) };
+
+            using (var bmp = new Bitmap(170, 50))
+            {
+                using (var graphic = Graphics.FromImage(bmp))
+                {
+                    using (var hb = new HatchBrush(HatchStyle.DarkUpwardDiagonal, Color.Silver, Color.White)) graphic.FillRectangle(hb, 0, 0, bmp.Width, bmp.Height);
+                    for (int i = 0; i < text.Length; i++)
+                    {
+                        var point = new PointF(10 + (i * 35), 25);
+                        graphic.DrawString(text.Substring(i, 1), fonts[Randomizer.Next(0, 4)], Brushes.Gray, point, new StringFormat { LineAlignment = StringAlignment.Center });
+                    }
+                }
+                using (var stream = new MemoryStream())
+                {
+                    bmp.Save(stream, ImageFormat.Png);
+                    byteArray = stream.ToArray();
+                }
+            }
+
+            // Cleanup Fonts (they are disposable)
+            foreach (var font in fonts) font.Dispose();
+
+            string imageBase64Data = Convert.ToBase64String(byteArray);
+            return string.Format("data:image/png;base64,{0}", imageBase64Data);
+            //return byteArray;
+
+        }
+        #endregion
         #region getList Data 
         public class FE_Product
         {
@@ -579,7 +633,7 @@ namespace ananlips.Models
                     {
                         //add delivery
                         var delivery = Delivery.GetByUserId(fe_bill.UserId, dbConn,true);
-                        if (delivery == null) delivery = new Delivery();
+                        if (delivery == null || UserId ==0) delivery = new Delivery();
                         delivery.entrycode = "";
                         delivery.entryname = "";
                         delivery.userid = fe_bill.UserId;
@@ -676,13 +730,14 @@ namespace ananlips.Models
             public string Phone { get; set; }
             public string Email { get; set; }
             public string Comments { get; set; }
+            public string CaptchaCode { get; set; }
 
             public static FE_Delivery GetDefaultDelivery(int UserId)
             {
                 try
                 {
                     IDbConnection dbConn = new OrmliteConnection().openConn();
-                    var item = dbConn.SingleOrDefault<Delivery>("isactive={0} and userid = {1}", 1, UserId);
+                    var item = dbConn.SingleOrDefault<Delivery>("isactive={0} and userid = {1} and userid <> 0", 1, UserId);
                     if (item == null) return new FE_Delivery();
                     return Mapper.Map<FE_Delivery>(item);
 

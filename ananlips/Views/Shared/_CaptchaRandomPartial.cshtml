@@ -1,0 +1,14 @@
+﻿@using ananlips.Models;
+@{
+    if (ViewBag.ImageData == null) {
+        ViewBag.ImageData = DefaultView.CreateImgCaptcha(DefaultView.RandomCapcha());
+    }
+}
+
+<div>
+    <span><img src="@ViewBag.ImageData"/></span>
+</div>
+
+<script type="text/javascript" language="javascript">
+   
+</script>

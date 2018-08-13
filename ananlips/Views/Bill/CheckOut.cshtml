@@ -1,4 +1,5 @@
 ﻿@using ananlips.Models;
+@using System.Globalization;
 @{
     ViewBag.Title = "CheckOut";
     Layout = "~/Views/Shared/_LayoutCommon.cshtml";
@@ -18,43 +19,9 @@
                         <div class="woocommerce-info">Bạn đã có tài khoản? <a href="@Url.Action("Login","Account",new {returnUrl="'"+Request.Url.ToString()+"'" })" class="showlogin">Ấn vào đây để đăng nhập</a></div>
                     }
 
-                    <form class="woocomerce-form woocommerce-form-login login" method="post" style="display:none;">
-                        <p>Nếu trước đây bạn đã mua hàng của chúng tôi, vui lòng ghi đầy đủ thông tin trong các hộp dưới đây. Nếu bạn là khách hàng mới, vui lòng chuyển tới phần Đơn hàng &amp; Giao hàng.</p><p class="form-row form-row-first">
-                            <label for="username">Tên đăng nhập hoặc email <span class="required">*</span></label>
-                            <input type="text" class="input-text" name="username" id="username">
-                        </p><p class="form-row form-row-last">
-                            <label for="password">Mật khẩu <span class="required">*</span></label>
-                            <input class="input-text" type="password" name="password" id="password">
-                        </p>
-                        <div class="clear"></div><div class="apsl-login-networks theme-4 clearfix">
-                            <span class="apsl-login-new-text">Social connect:</span><div class="social-networks">
-                                <a href="https://thefaceshopvn.com/wp-login.php?apsl_login_id=facebook_login&amp;state=cmVkaXJlY3RfdG89aHR0cHMlM0ElMkYlMkZ0aGVmYWNlc2hvcHZuLmNvbSUzQTQ0MyUyRmNoZWNrb3V0JTJG" title="Đăng nhập qua facebook">
-                                    <div class="apsl-icon-block icon-facebook">
-                                        <i class="fa fa-facebook"></i>
-                                        <span class="apsl-login-text">Tài khoản</span>
-                                        <span class="apsl-long-login-text">Đăng nhập qua facebook</span>
-                                    </div>
-                                </a>
-                                <a href="https://thefaceshopvn.com/wp-login.php?apsl_login_id=google_login&amp;state=cmVkaXJlY3RfdG89aHR0cHMlM0ElMkYlMkZ0aGVmYWNlc2hvcHZuLmNvbSUzQTQ0MyUyRmNoZWNrb3V0JTJG" title="Đăng nhập qua google">
-                                    <div class="apsl-icon-block icon-google">
-                                        <i class="fa fa-google"></i>
-                                        <span class="apsl-login-text">Tài khoản</span>
-                                        <span class="apsl-long-login-text">Đăng nhập qua google</span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div><p class="form-row">
-                            <input type="hidden" id="_wpnonce" name="_wpnonce" value="4453938b41"><input type="hidden" name="_wp_http_referer" value="/checkout/">		<input type="submit" class="button" name="login" value="Đăng nhập">
-                            <input type="hidden" name="redirect" value="https://thefaceshopvn.com/checkout/">
-                            <label class="woocommerce-form__label woocommerce-form__label-for-checkbox inline">
-                                <input class="woocommerce-form__input woocommerce-form__input-checkbox" name="rememberme" type="checkbox" id="rememberme" value="forever"> <span>Ghi nhớ mật khẩu</span>
-                            </label>
-                        </p><p class="lost_password">
-                            <a href="https://thefaceshopvn.com/my-account/lost-password/">Quên mật khẩu?</a>
-                        </p><div class="clear"></div>
-                    </form>
+
                     <a class="continue_shopping" href="@Url.Action("Index","Home")" style="margin:10px 0;"><i class="fa fa-angle-left"></i>Tiếp tục mua hàng    </a>
-                    <form id="checkout" name="checkout" method="post" class="checkout woocommerce-checkout" action="https://thefaceshopvn.com/checkout/" enctype="multipart/form-data" novalidate="novalidate">
+                    <form id="checkout" name="checkout" method="post" class="checkout woocommerce-checkout" action="@Url.Action("SaveBill","Bill")" enctype="multipart/form-data" novalidate="novalidate">
                         <div class="col2-set" id="customer_details">
                             <div class="woocommerce-billing-fields">
                                 <h3>Thông tin giao hàng</h3>
@@ -66,20 +33,29 @@
                                         <input type="text" class="input-text " name="Address" id="billing_address_1" placeholder="Địa chỉ" value="@data_Bill.Address" autocomplete="address-line1">
                                     </p>
                                     <p class="form-row form-row-first validate-required validate-phone" id="billing_phone_field" data-sort="100">
-                                        <input type="tel" class="input-text " name="Phone" id="billing_phone" placeholder="Số điện thoại" value="@data_Bill.Phone" autocomplete="tel">
+                                        <input type="text" class="input-text " name="Phone" id="billing_phone" placeholder="Số điện thoại" value="@data_Bill.Phone" autocomplete="tel">
                                     </p>
                                     <p class="form-row form-row-last validate-email" id="billing_email_field" data-sort="110">
-                                        <input type="email" class="input-text " name="Email" id="billing_email" placeholder="Email (nếu có)" value="@data_Bill.Email" autocomplete="email username">
+                                        <input type="text" class="input-text " name="Email" id="billing_email" placeholder="Email (nếu có)" value="@data_Bill.Email" autocomplete="email username">
                                     </p>
+                                    <div>
+                                        <p style="float:left;width:80%" class="form-row form-row-last validate-email" id="billing_email_field" data-sort="110">
+                                            <input type="text" class="input-text " name="CaptchaCode" id="CaptchaCode" placeholder="Mã xác minh" autocomplete="email username">
+                                        </p>
+                                        <div style="float:right;width:18%" id="RenderCaptchaRandom"> @Html.Partial("_CaptchaRandomPartial")</div>
+                                    </div>
+
                                 </div>
-                            </div><div class="woocommerce-account-fields">
+                            </div>
+                            <div class="woocommerce-account-fields">
                                 <p class="form-row form-row-wide create-account woocommerce-validated">
                                     <label class="woocommerce-form__label woocommerce-form__label-for-checkbox checkbox">
                                         <input class="woocommerce-form__input woocommerce-form__input-checkbox input-checkbox" id="createaccount" type="checkbox" name="createaccount" value="1"> <span>Tạo tài khoản mới?</span>
                                     </label>
-                                </p><div class="create-account" style="display: none;"><p class="form-row validate-required" id="account_password_field" data-sort=""><label for="account_password" class="">Mật khẩu tài khoản <abbr class="required" title="bắt buộc">*</abbr></label><input type="password" class="input-text " name="account_password" id="account_password" placeholder="Mật khẩu" value=""></p><div class="clear"></div></div>
+                                </p>
+                                <div class="create-account" style="display: none;"><p class="form-row validate-required" id="account_password_field" data-sort=""><label for="account_password" class="">Mật khẩu tài khoản <abbr class="required" title="bắt buộc">*</abbr></label><input type="password" class="input-text " name="account_password" id="account_password" placeholder="Mật khẩu" value=""></p><div class="clear"></div></div>
                             </div>
-                            <div class="woocommerce-shipping-fields"></div>
+
                             <div class="woocommerce-additional-fields">
                                 <div class="woocommerce-additional-fields__field-wrapper">
                                     <p class="form-row notes" id="order_comments_field" data-sort="">
@@ -87,6 +63,8 @@
                                     </p>
                                 </div>
                             </div>
+                            <div></div>
+
                         </div><div id="order_review" class="woocommerce-checkout-review-order">
                             <h3 id="order_review_heading">Đơn hàng của bạn</h3><table class="shop_table woocommerce-checkout-review-order-table" style="margin-top:13px; border-radius:5px;">
                                 <thead>
@@ -103,7 +81,7 @@
                                                 @item.ProductName&nbsp;							 <strong class="product-quantity">× @item.Quantity</strong>
                                             </td>
                                             <td class="product-total">
-                                                <span class="woocommerce-Price-amount amount">@item.PriceAmount<span class="woocommerce-Price-currencySymbol">₫</span></span>
+                                                <span class="woocommerce-Price-amount amount">@Html.Raw(String.Format(CultureInfo.InvariantCulture, "{0:#,#}", item.Price)) <span class="woocommerce-Price-currencySymbol">₫</span></span>
                                             </td>
                                         </tr>
                                     }
@@ -115,7 +93,7 @@
 
                                     <tr class="order-total">
                                         <th>Tổng cộng</th>
-                                        <td><strong><span class="woocommerce-Price-amount amount">@data_Bill.PriceAmount<span class="woocommerce-Price-currencySymbol">₫</span></span></strong> </td>
+                                        <td><strong><span class="woocommerce-Price-amount amount">@Html.Raw(String.Format(CultureInfo.InvariantCulture, "{0:#,#}", data_Bill.PriceAmount)) <span class="woocommerce-Price-currencySymbol">₫</span></span></strong> </td>
                                     </tr>
 
 
@@ -123,16 +101,7 @@
                             </table>
                             <div id="payment" class="woocommerce-checkout-payment">
                                 <ul class="wc_payment_methods payment_methods methods">
-                                    @*<li class="wc_payment_method payment_method_cheque">
-                                            <input id="payment_method_cheque" type="radio" class="input-radio" name="payment_method" value="cheque" checked="checked" data-order_button_text="">
 
-                                            <label for="payment_method_cheque">
-                                                Thanh toán bằng cách chuyển khoản
-                                            </label>
-                                            <div class="payment_box payment_method_cheque">
-                                                <p>Sau khi chuyển khoản, chúng tôi sẽ gọi điện xác nhận. Hoặc quý khách có thể liên hệ trực tiếp với chúng tôi thông qua hotline: <b>0909 216 445</b> (Call/ SMS/ Zalo – Hỗ trợ 24/24)</p>
-                                            </div>
-                                        </li>*@
                                     <li class="wc_payment_method payment_method_cod">
                                         <input id="payment_method_cod" type="radio" checked="checked" class="input-radio" name="payment_method" value="cod" data-order_button_text="">
 
@@ -151,9 +120,10 @@
 
 
                                     @*<input type="button" onclick="runtest()" class="button alt" value="text">*@</input>
-                                    <input type="button" onclick="SaveBill()" class="button alt" name="woocommerce_checkout_place_order" id="place_order" value="Đặt hàng" data-value="Đặt hàng">
+                                    <input type="submit" class="button alt" name="woocommerce_checkout_place_order" id="place_order" value="Đặt hàng" data-value="Đặt hàng">
+                                    @*<input type="button" onclick="SaveBill()" class="button alt" name="woocommerce_checkout_place_order" id="place_order" value="Đặt hàng" data-value="Đặt hàng">*@
 
-                                    <input type="hidden" id="_wpnonce" name="_wpnonce" value="16a5ff6ab9"><input type="hidden" name="_wp_http_referer" value="/checkout/?wc-ajax=update_order_review">
+                                    @*<input type="hidden" id="_wpnonce" name="_wpnonce" value="16a5ff6ab9">*@<input type="hidden" name="_wp_http_referer" value="/checkout/?wc-ajax=update_order_review">
                                 </div>
                             </div>
                         </div><div class="clearfix"></div>
@@ -163,46 +133,101 @@
         </main>
     </div>
 </div>
-@*<div class="alert alert-success" id="success-alert">
-    <button type="button" class="close" data-dismiss="alert">x</button>
-    <strong>Success! </strong>
-    Product have added to your wishlist.
-</div>*@
-
-<!-- set up the modal to start hidden and fade in and out -->
-@*<div id="myModal" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <!-- dialog body -->
-            <div class="modal-body">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                Hello world!
-            </div>
-            <!-- dialog buttons -->
-            <div class="modal-footer"><button type="button" class="btn btn-primary">OK</button></div>
-        </div>
-    </div>
-</div>*@
 <script>
+    jQuery(document).ready(function () {
+        validateFormPopup()
+    });
+
+    function validateFormPopup() {
+        jQuery("form#checkout").validate({
+            // Rules for form validation
+            rules: {
+                FullName: {
+                    required: true,
+                },
+                Address: {
+                    required: true,
+                },
+                Phone: {
+                    required: true,
+                },
+                Email: {
+                    required: true,
+                    email: true,
+                },
+                CaptchaCode: {
+                    required: true,
+                },
+
+            },
+            // Messages for form validation
+            messages: {
+                FullName: {
+                    required: "Thông tin bắt buộc"
+                },
+                Address: {
+                    required:"Thông tin bắt buộc"
+                },
+                Phone: {
+                    required: "Thông tin bắt buộc"
+                },
+                Email: {
+                    required: "Thông tin bắt buộc",
+                    email: "Email không đúng",
+                },
+                CaptchaCode: {
+                    required: "Thông tin bắt buộc"
+                },
+
+            },
+
+            // Do not change code below
+            errorPlacement: function (error, element) {
+                error.insertAfter(element);
+            },
+
+            submitHandler: function (form) {
+                jQuery(form).ajaxSubmit({
+                    //clearForm: true,//To clear form after ajax submitting
+                    beforeSend: function () {
+                        jQuery(document).ajaxStart(jQuery.blockUI({ message: '<i class="fa fa-spinner fa-3x fa-lg fa-spin txt-color-blueDark"></i>', theme: false })).ajaxStop(jQuery.unblockUI);
+
+                    },
+                    success: function (data) {
+                        if (data.success) alerSuccess();
+                        else {
+                            alert(data.message);
+                            RefreshPartial();
+
+                        }
+                    }
+                });
+                return false;
+            }
+        });
+    }
+
+    function RefreshPartial() {
+        var r = '@Html.Raw(@Request.Url.GetLeftPart(UriPartial.Authority) + Url.Content("~"))';
+        jQuery("form#checkout #RenderCaptchaRandom").empty();
+         //this should refresh PartImagesPartial
+        $.ajax({
+            url: r + "Home/GetCaptchaRandom",
+            type: "GET",
+            //dataType: "html",
+            //contentType: false,
+            //cache: false,
+            data: { },
+            success: function (data) {
+                jQuery("form#checkout #RenderCaptchaRandom").html(data);
+                jQuery("form#checkout #CaptchaCode").val("");
+            }
+        });
+    }
+
+
     function SaveBill() {
-
-    //var myjson = [];
-    //     jQuery("form#checkout").serialize();
-    //     .find("tr.cart_item").each(function () {
-    //        var tablerow = jQuery(this);
-    //        var objrow = {};
-    //        jQuery("td input", tablerow).each(function () {
-    //            var input = jQuery(this);
-    //            if (input.attr("name") == "Quantity") objrow.Quantity = input.val();
-    //            if (input.attr("name") == "ProductId") objrow.ProductId = input.val();
-
-    //        });
-    //        myjson.push(objrow);
-
-    //    });
-        //var dataPost = jQuery('form.woocommerce-cart-form').formSerialize serializeArray();
         var dataPost = jQuery("form#checkout").serialize() ;
-        //var dataPost = myjson;
          var r = '@Html.Raw(@Request.Url.GetLeftPart(UriPartial.Authority) + Url.Content("~"))';
         /**/
         jQuery.ajax({
@@ -212,22 +237,39 @@
             url: r + "Bill/SaveBill",
             data: dataPost,
             success: function (data) {
-                runtest();
+
+                if (data.success) alerSuccess();
+                else {
+                    //Refresh barcode
+                    jQuery("form#checkout #RenderCaptchaRandom").empty();
+
+                    jQuery.ajax({
+                        contentType: 'application/json; charset=utf-8',
+                        dataType: 'html',
+                        type: 'GET',
+                        url: r + "Home/generateCaptcha",
+                        data: {},
+                        success: function (data) {
+
+                            jQuery("form#checkout #RenderCaptchaRandom").html(data);
+                            jQuery("form#checkout #CaptchaCode").val("");
+                        },
+                        failure: function (response) {
+
+                        }
+                    });
+                }
             },
             failure: function (response) {
-                
+
             }
         });
 
 
 
     }
-    function runtest() {
-        @*bootbox.dialog({
-            message: "Đơn hàng của bạn đã được ghi nhận và chờ xử lý.",
-            timeOut: 2000,
-            callback: function () { window.location = ("@Url.Action("Index","Home")");                  }
-        });*@
+    function alerSuccess() {
+
         bootbox.alert("Đơn hàng của bạn đã được ghi nhận và chờ xử lý.", function () { window.location = ("@Url.Action("Index","Home")");  })
         setTimeout(function () {
             // be careful not to call box.hide() here, which will invoke jQuery's hide method

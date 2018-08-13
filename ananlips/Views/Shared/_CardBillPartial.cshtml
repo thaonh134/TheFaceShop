@@ -1,4 +1,5 @@
 ﻿@using ananlips.Models;
+@using System.Globalization;
 @{
     var data_Bill = DefaultView.FE_Bill.GetBillSection();
     if (data_Bill.BillDetails == null) { data_Bill.BillDetails = new List<DefaultView.FE_BillDetail>(); }
@@ -25,7 +26,7 @@
                             </div>
                             <div class="p-right">
                                 <p class="p-name">@billdetail.ProductName</p>
-                                <p class="p-rice"><span class="woocommerce-Price-amount amount">@billdetail.PriceAmount<span class="woocommerce-Price-currencySymbol">₫</span></span></p>
+                                <p class="p-rice"><span class="woocommerce-Price-amount amount">@Html.Raw(String.Format(CultureInfo.InvariantCulture, "{0:#,#}", billdetail.PriceAmount))<span class="woocommerce-Price-currencySymbol">₫</span></span></p>
                                 <p class="quantity">SL: @billdetail.Quantity</p>
                             </div>
                         </li>
@@ -36,7 +37,7 @@
             <div class="toal-cart">
                 <span>Tổng cộng</span>
                 <span class="toal-price pull-right">
-                    <span class="woocommerce-Price-amount amount">@data_Bill.PriceAmount<span class="woocommerce-Price-currencySymbol">₫</span></span>
+                    <span class="woocommerce-Price-amount amount">@Html.Raw(String.Format(CultureInfo.InvariantCulture, "{0:#,#}", data_Bill.PriceAmount))<span class="woocommerce-Price-currencySymbol">₫</span></span>
                 </span>
             </div>
             <div class="cart-buttons">
