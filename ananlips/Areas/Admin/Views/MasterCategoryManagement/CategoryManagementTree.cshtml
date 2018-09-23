@@ -9,7 +9,7 @@
     var listLanguage = dict.ContainsKey("listlanguage") ? (List<DDLModel>)dict["listlanguage"] : new List<DDLModel>();
     var redirectbyajax = dict.ContainsKey("redirectbyajax") ? dict["redirectbyajax"].ToString() : "0";
     var areasname = dict.ContainsKey("areasname") && !string.IsNullOrEmpty(dict["areasname"].ToString()) ? "/" + dict["areasname"].ToString() : "";
-    var newData = new AuthUser();
+    var newData = new Category();
 }
 
 @*layout config*@
@@ -25,7 +25,7 @@
 
     //Xử lý param_obj
     param_obj = {};
-    param_obj.ourl = "/Admin/MasterCategoryManagement";
+    param_obj.ourl = "/MasterCategoryManagement";
     param_obj.entryid = "@ViewBag.entryid";
     param_obj.actiontype = "@ViewBag.actiontype";
     param_obj.fa = "@ViewBag.fa";
@@ -61,15 +61,15 @@
         obj.Common_btn_Active = "@Html.Raw(tw_Lang.Common_btn_Active)";
         obj.Common_btn_InActive = "@Html.Raw(tw_Lang.Common_btn_InActive)";
 
-        obj.AdminCategoryManagement_title_Page = "CategoryManagement";
+        obj.MasterCategoryManagement_title_Page = "CategoryManagement";
 
         return obj;
     }
 
     $(document).ready(function () {
 
-            setActiveMenu($("#menu_AdminCategoryManagement")[0]);
-            setTimeout(function () { document.title = resource_lang.AdminCategoryManagement_title_Page; }, 100);
+            setActiveMenu($("#menu_MasterCategoryManagement")[0]);
+            setTimeout(function () { document.title = resource_lang.MasterCategoryManagement_title_Page; }, 100);
             loadToolbarStyle();
             resizedivMainContent();
 
@@ -285,7 +285,7 @@
                 function (ButtonPressed) {
                     if (ButtonPressed === resource_lang.Common_mess_btn_Confirm) {
                         blockUIFromUser(true);
-                        $.post(r + "/AdminCategoryManagement/UpdateActiveStatus",
+                        $.post(r + "/MasterCategoryManagement/UpdateActiveStatus",
                             { entryid: entryid, isactive: isactive },
                             function (data) {
                                 if (data.success) {

@@ -9,7 +9,7 @@
     var listLanguage = dict.ContainsKey("listlanguage") ? (List<DDLModel>)dict["listlanguage"] : new List<DDLModel>();
     var redirectbyajax = dict.ContainsKey("redirectbyajax") ? dict["redirectbyajax"].ToString() : "0";
     var areasname = dict.ContainsKey("areasname") && !string.IsNullOrEmpty(dict["areasname"].ToString()) ? "/" + dict["areasname"].ToString() : "";
-    var newData = new AuthUser();
+    var newData = new SubCategory();
 }
 
 @*layout config*@
@@ -25,7 +25,7 @@
 
     //Xử lý param_obj
     param_obj = {};
-    param_obj.ourl = "/Admin/MasterSubCategoryManagement";
+    param_obj.ourl = "/MasterSubCategoryManagement";
     param_obj.entryid = "@ViewBag.entryid";
     param_obj.actiontype = "@ViewBag.actiontype";
     param_obj.fa = "@ViewBag.fa";
@@ -61,15 +61,15 @@
         obj.Common_btn_Active = "@Html.Raw(tw_Lang.Common_btn_Active)";
         obj.Common_btn_InActive = "@Html.Raw(tw_Lang.Common_btn_InActive)";
 
-        obj.AdminSubCategoryManagement_title_Page = "SubCategoryManagement";
+        obj.MasterSubCategoryManagement_title_Page = "SubCategoryManagement";
 
         return obj;
     }
 
     $(document).ready(function () {
 
-            setActiveMenu($("#menu_AdminSubCategoryManagement")[0]);
-            setTimeout(function () { document.title = resource_lang.AdminSubCategoryManagement_title_Page; }, 100);
+            setActiveMenu($("#menu_MasterSubCategoryManagement")[0]);
+            setTimeout(function () { document.title = resource_lang.MasterSubCategoryManagement_title_Page; }, 100);
             loadToolbarStyle();
             resizedivMainContent();
 
@@ -285,7 +285,7 @@
                 function (ButtonPressed) {
                     if (ButtonPressed === resource_lang.Common_mess_btn_Confirm) {
                         blockUIFromUser(true);
-                        $.post(r + "/AdminSubCategoryManagement/UpdateActiveStatus",
+                        $.post(r + "/MasterSubCategoryManagement/UpdateActiveStatus",
                             { entryid: entryid, isactive: isactive },
                             function (data) {
                                 if (data.success) {

@@ -14,6 +14,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Configuration;
 using AutoMapper;
+using ananlips.ConstantValue;
 
 namespace ananlips.Areas.Admin.Models
 {
@@ -125,6 +126,18 @@ namespace ananlips.Areas.Admin.Models
         public static List<DDLModel> GetActiveStatus()
         {
             return ActiveStatus.GetActiveStatus();
+        }
+        public static List<DDLModel> GetLoginType()
+        {
+          var listLoginTypes =  Enum.GetValues(typeof(LoginType)).Cast<LoginType>();
+            var result = new List<DDLModel>();
+            foreach (var logintype in listLoginTypes)
+            {
+                result.Add( new DDLModel() { ID= Convert.ChangeType(logintype, logintype.GetTypeCode()).ToString(), Name= logintype.ToString()});
+                
+            }
+
+            return result;
         }
         public static List<DDLModel> GetLanguage()
         {

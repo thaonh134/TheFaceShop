@@ -37,8 +37,8 @@ public int AddOrUpdate(int curruserid, IDbConnection dbConn, bool isTrans)
         }
         else if (isexist != null)
         {
-            this.isactive = isexist.isactive;
-            this.createdat = isexist.createdat;
+                    this.isactive = isexist.isactive;
+                    this.createdat = isexist.createdat;
             this.createdby = isexist.createdby;
             this.updatedat = DateTime.Now;
             this.updatedby = curruserid;

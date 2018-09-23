@@ -46,7 +46,7 @@
     <div class="row">
 
         <div class="col-md-12">
-            @using (Html.BeginForm("Create", "AdminMenuManagement", FormMethod.Post, new { @class = "form-horizontal", id = "formPopup", enctype = "multipart/form-data" }))
+            @using (Html.BeginForm("Create", "MenuManagement", FormMethod.Post, new { @class = "form-horizontal", id = "formPopup", enctype = "multipart/form-data" }))
             {
                 @Html.Hidden("entryid", "#=entryid#");
                 @Html.Hidden("entrycode", "#=entrycode#");
@@ -121,8 +121,8 @@
         if (!obj) obj = {};
 
         //mess
-        obj.AdminMenuManagement_titleform_Add = "Add New";
-        obj.AdminMenuManagement_titleform_Update = "Update Item";
+        obj.MenuManagement_titleform_Add = "Add New";
+        obj.MenuManagement_titleform_Update = "Update Item";
         //mess validate
         obj.Common_mess_RequiredInformation = "@Html.Raw(tw_Lang.Common_mess_RequiredInformation)";
         obj.Common_mess_WrongSyntax = "@Html.Raw(tw_Lang.Common_mess_WrongSyntax)";
@@ -144,7 +144,7 @@
     //Update
     function edit(obj) {
         blockUIFromUser(true);
-        $.post(r + "/AdminMenuManagement/GetByID", { entryid: obj.entryid }, function (data) {
+        $.post(r + "/MenuManagement/GetByID", { entryid: obj.entryid }, function (data) {
             if (data.success) {
                 var value = data.data;
 
@@ -175,7 +175,7 @@
                 animate: false,
                 backdrop: true,
                 className: "normalPopupWidth",
-                message: '<div id="DivEdit"></div>', title: (type == 0 ? resource_lang.AdminMenuManagement_titleform_Add : resource_lang.AdminMenuManagement_titleform_Update),
+                message: '<div id="DivEdit"></div>', title: (type == 0 ? resource_lang.MenuManagement_titleform_Add : resource_lang.MenuManagement_titleform_Update),
                 onEscape: function () {
                     onClosePopupCustom();
                 }

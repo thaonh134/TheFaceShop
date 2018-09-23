@@ -28,7 +28,7 @@
         <div style="color: white;">
             <div style="float: left; clear: both">
                 <div style="float: left">
-                    @Html.Raw(tw_Lang.Common_lbl_Hello),<b> @dataUser.fullname </b>
+                    @Html.Raw(tw_Lang.Common_lbl_Hello),<b> @dataUser.entryname </b>
                 </div>
             </div>
             <!-- multiple lang dropdown : find all flags in the flags page -->
@@ -52,7 +52,7 @@
             <br/>
             <div style="float: left">
                 <a id="btnChangePass" href="javascript:void(0);" title="Change password" style="color: white; font-size: 12px;">@Html.Raw(tw_Lang.Common_btn_ChangePassword)</a> |
-                <a id="logout" href="@Url.Content("~/account/logoff")" title="Đăng xuất" data-action="userLogout" data-logout-msg="" style="color: white; font-size: 12px;">@Html.Raw(tw_Lang.Common_btn_LogOut)</a>
+                <a id="logout" href="@Url.Content("~/admin/account/logout")" title="Đăng xuất" data-action="userLogout" data-logout-msg="" style="color: white; font-size: 12px;">@Html.Raw(tw_Lang.Common_btn_LogOut)</a>
             </div>
         </div>
     }
@@ -83,7 +83,7 @@
         });
 
         function showPopupChangePass() {
-            $.get(r + "/HOHome/PartialChangePass", {}, function (data) {
+            $.get(r + "/Home/PartialChangePass", {}, function (data) {
                 $('#divChangePassContainer').html(data);
                 loadPopupChangePass();
 
@@ -92,7 +92,7 @@
 
         function showPopupEditInfor(userID) {
             idEditInfor = userID;
-            $.get(r + "/HOAdminAuthUser/PartialEditInfor", {}, function (data) {
+            $.get(r + "/AdminAuthUser/PartialEditInfor", {}, function (data) {
 
                 
                 $('#divEditinforContainer').html(data);
@@ -126,7 +126,7 @@
 
             initTwinApp();//Runs the following functions all at once: validate custom,picker,bootbox event- and also activates all tooltip and popovers
             //selection
-            $.post(r + "/HOAdminAuthUser/GetByID", { ID: userID }, function (data) {
+            $.post(r + "/AdminAuthUser/GetByID", { ID: userID }, function (data) {
                 if (data.success) {
                     var value = data.data;
                     //value.data_images_common = data.data_images_common;

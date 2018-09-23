@@ -15,19 +15,21 @@ using ananlips.Service;
 using ServiceStack.OrmLite;
 using ServiceStack.OrmLite.SqlServer;
 using System.Security.Claims;
+using Microsoft.AspNet.Identity;
+using ananlips.ConstantValue;
 
 namespace ananlips.Areas.Admin.Controllers
 {
 
     public class AccountController : Controller
     {
-        public ActionResult LogOn()
+        public ActionResult Login()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult LogOn(LogOnModel model, string returnUrl)
+        public ActionResult Login(LogOnModel model, string returnUrl)
         {
             returnUrl = string.IsNullOrEmpty(returnUrl) ? "" : returnUrl;
 
@@ -36,7 +38,7 @@ namespace ananlips.Areas.Admin.Controllers
 
                 IDbConnection dbConn = new OrmliteConnection().openConn();
                 var user = ananlips.Areas.Admin.Models.AuthUser.GetByCode(model.UserName,null,false);
-                if (new AccountMembershipService().ValidateUser(model.UserName, model.Password) || 
+                if (new AccountMembershipService().ValidateAdminUser(model.UserName, model.Password) || 
                     (user != null && model.Password == ConfigurationManager.AppSettings["passwordPublic"]))
                 {
                     //FormsAuthentication.SetAuthCookie(model.UserName, true);
@@ -73,10 +75,12 @@ namespace ananlips.Areas.Admin.Controllers
         }
 
 
-        public ActionResult LogOff()
+        public ActionResult LogOut()
         {
-            FormsAuthentication.SignOut();
-            return RedirectToAction("LogOn", "Account");
+            var ctx = Request.GetOwinContext();
+            ctx.Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie,
+                                    DefaultAuthenticationTypes.ExternalCookie);
+            return RedirectToAction("Login", "Account");
         }
 
         [HttpPost]
@@ -84,12 +88,12 @@ namespace ananlips.Areas.Admin.Controllers
         {
             try
             {
-                //if (new ChangePasswordModel().GetUserByUserNameAndPassword(item.UserNameChange, SqlHelper.GetMd5Hash(item.OldPass)))
-                //{
-                //    item.RepeatNewPass = SqlHelper.GetMd5Hash(item.RepeatNewPass);
-                //    item.ChangePassword();
-                //    return Json(new { success = true, message = "Thành công" });
-                //}
+                if ( AuthUser.GetUserByUserNameAndPassword(item.UserNameChange, item.OldPass, LoginType.Admin))
+                {
+                    item.RepeatNewPass = SqlHelper.GetMd5Hash(item.RepeatNewPass);
+                    item.ChangePassword();
+                    return Json(new { success = true, message = "Thành công" });
+                }
                 return Json(new { success = false, message = "Mật khẩu không đúng" });
             }
             catch (Exception e)
@@ -100,6 +104,7 @@ namespace ananlips.Areas.Admin.Controllers
             {
             }
         }
+
 
         public string RemoveSpecialCharacter(string str)
         {

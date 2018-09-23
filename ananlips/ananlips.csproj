@@ -249,8 +249,8 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminUserManagementController.cs" />
-    <Compile Include="Areas\Admin\Controllers\BillBillDetailManagementController.cs" />
-    <Compile Include="Areas\Admin\Controllers\BillBillManagementController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BillDetailManagementController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BillManagementController.cs" />
     <Compile Include="Areas\Admin\Controllers\BillDeliveryManagementController.cs" />
     <Compile Include="Areas\Admin\Controllers\ErrorController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
@@ -278,6 +278,7 @@
     <Compile Include="Areas\Admin\Models\MasterData.cs" />
     <Compile Include="Areas\Admin\Models\Product.Model.cs" />
     <Compile Include="Areas\Admin\Models\SubCategory.Model.cs" />
+    <Compile Include="ConstantValue\Common.Model.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BillController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
@@ -314,6 +315,8 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\Content\sound\messagebox.mp3" />
+    <Content Include="Admin\Content\sound\smallbox.mp3" />
     <Content Include="Content\ajax\email-compose.html" />
     <Content Include="Content\ajax\email-opened.html" />
     <Content Include="Content\ajax\email-reply.html" />
@@ -379,8 +382,11 @@
     <Content Include="Content\img\flags\es.png" />
     <Content Include="Content\img\flags\flags.png" />
     <Content Include="Content\img\flags\us.png" />
+    <Content Include="Content\img\login_title.png" />
     <Content Include="Content\img\logo.png" />
+    <Content Include="Content\img\logo_login.jpg" />
     <Content Include="Content\img\mybg.png" />
+    <Content Include="Content\img\select2-spinner.gif" />
     <Content Include="Content\kendo\2014.2.903\Black\editor.png" />
     <Content Include="Content\kendo\2014.2.903\Black\imagebrowser.png" />
     <Content Include="Content\kendo\2014.2.903\Black\indeterminate.gif" />
@@ -948,7 +954,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Areas\Admin\Views\web.config" />
-    <Content Include="Areas\Admin\Views\Account\LogOn.cshtml" />
+    <Content Include="Areas\Admin\Views\Account\Login.cshtml" />
     <Content Include="Areas\Admin\Views\Error\ErrorPage.cshtml" />
     <Content Include="Areas\Admin\Views\Error\NoAccess.cshtml" />
     <Content Include="Areas\Admin\Views\Error\NotFound.cshtml" />
@@ -1024,10 +1030,10 @@
     <Content Include="Areas\Admin\Views\AdminUserManagement\Index.cshtml" />
     <Content Include="Areas\Admin\Views\AdminUserManagement\UserManagementForm.cshtml" />
     <Content Include="Areas\Admin\Views\AdminUserManagement\UserManagementTree.cshtml" />
-    <Content Include="Areas\Admin\Views\BillBillDetailManagement\BillDetailManagementForm.cshtml" />
-    <Content Include="Areas\Admin\Views\BillBillDetailManagement\BillDetailManagementTree.cshtml" />
-    <Content Include="Areas\Admin\Views\BillBillManagement\BillManagementForm.cshtml" />
-    <Content Include="Areas\Admin\Views\BillBillManagement\BillManagementTree.cshtml" />
+    <Content Include="Areas\Admin\Views\BillDetailManagement\BillDetailManagementForm.cshtml" />
+    <Content Include="Areas\Admin\Views\BillDetailManagement\BillDetailManagementTree.cshtml" />
+    <Content Include="Areas\Admin\Views\BillManagement\BillManagementForm.cshtml" />
+    <Content Include="Areas\Admin\Views\BillManagement\BillManagementTree.cshtml" />
     <Content Include="Areas\Admin\Views\BillDeliveryManagement\DeliveryManagementForm.cshtml" />
     <Content Include="Areas\Admin\Views\BillDeliveryManagement\DeliveryManagementTree.cshtml" />
     <Content Include="Areas\Admin\Views\MasterCategoryManagement\CategoryManagementForm.cshtml" />
@@ -1053,6 +1059,7 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -1991,8 +1998,11 @@
     <Content Include="Scripts\wp-content\themes\kutetheme\css\vc.css" />
     <Content Include="Scripts\wp-content\themes\kutetheme\css\woocommerce.css" />
     <Content Include="Scripts\wp-content\themes\kutetheme\images\add-cart.png" />
+    <Content Include="Scripts\wp-content\themes\kutetheme\images\border.png" />
+    <Content Include="Scripts\wp-content\themes\kutetheme\images\cart.png" />
     <Content Include="Scripts\wp-content\themes\kutetheme\images\checkout_require.gif" />
     <Content Include="Scripts\wp-content\themes\kutetheme\images\delete_icon.png" />
+    <Content Include="Scripts\wp-content\themes\kutetheme\images\doitra.png" />
     <Content Include="Scripts\wp-content\themes\kutetheme\images\floor-elevator.png" />
     <Content Include="Scripts\wp-content\themes\kutetheme\images\grid-view-bg.png" />
     <Content Include="Scripts\wp-content\themes\kutetheme\images\hd-login.png" />
@@ -2004,6 +2014,8 @@
     <Content Include="Scripts\wp-content\themes\kutetheme\images\notify-right-red.png" />
     <Content Include="Scripts\wp-content\themes\kutetheme\images\placeholder.jpg" />
     <Content Include="Scripts\wp-content\themes\kutetheme\images\select-arrow.png" />
+    <Content Include="Scripts\wp-content\themes\kutetheme\images\thanhtoan.png" />
+    <Content Include="Scripts\wp-content\themes\kutetheme\images\vanchuyen.png" />
     <Content Include="Scripts\wp-content\themes\kutetheme\js\functions.js" />
     <Content Include="Scripts\wp-content\themes\kutetheme\js\isotope.pkgd.js" />
     <Content Include="Scripts\wp-content\themes\kutetheme\js\jquery.actual.min.js" />

@@ -5,6 +5,8 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
+using ananlips.Areas.Admin.Models;
+using ananlips.ConstantValue;
 using ananlips.Service;
 
 namespace ananlips.Membership
@@ -148,12 +150,21 @@ namespace ananlips.Membership
             throw new NotImplementedException();
         }
 
-        public override bool ValidateUser(string username, string password)
+        public  override bool ValidateUser(string username, string password)
         {
             try
             {
-               
-                return true;
+
+                return AuthUser.GetUserByUserNameAndPassword(username,password, LoginType.InternalLogin);
+            }
+            catch (Exception) { return false; }
+        }
+
+        public static bool ValidateAdminUser(string username, string password)
+        {
+            try
+            {
+                return AuthUser.GetUserByUserNameAndPassword(username, password, LoginType.Admin);
             }
             catch (Exception) { return false; }
         }

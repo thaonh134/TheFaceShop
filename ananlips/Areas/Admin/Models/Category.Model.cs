@@ -71,7 +71,7 @@ namespace ananlips.Areas.Admin.Models
             if (dbConn == null) dbConn = new OrmliteConnection().openConn();
             try
             {
-                var data = dbConn.Where<Category>(x =>  x.isactive == true);
+                var data = dbConn.Where<Category>(x => x.isactive == true);
                 return data;
             }
             catch (Exception e)

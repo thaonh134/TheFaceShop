@@ -13,15 +13,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/content/smartadmin")
+    @Styles.Render("~/content/ordercss")
+    <script>
+        if (!window.jQuery) {
+            document.write('<script src="@Url.Content("~/Scripts/libs/jquery-2.1.1.min.js")"><\/script>');
+        }
+    </script>
+    <script>
+        if (!window.jQuery.ui) {
+            document.write('<script src="@Url.Content("~/Scripts/libs/jquery-ui-1.10.3.min.js")"><\/script>');
+        }
+    </script>
+    @Scripts.Render("~/bundles/jqueryval")
+    
     <!-- #CSS Links -->
     <!-- Basic Styles -->
-    <link rel="stylesheet" type="text/css" media="screen" href="@Url.Content("~/css/bootstrap.min.css")">
-    <link rel="stylesheet" type="text/css" media="screen" href="@Url.Content("~/css/font-awesome.min.css")">
+    @*<link rel="stylesheet" type="text/css" media="screen" href="@Url.Content("~/css/bootstrap.min.css")">
+    <link rel="stylesheet" type="text/css" media="screen" href="@Url.Content("~/css/font-awesome.min.css")">*@
     @*<link rel="stylesheet" type="text/css" media="screen" href="@Url.Content("~/css/CustomStyles.css")">*@
 
     <!-- SmartAdmin Styles : Please note (smartadmin-production.css) was created using LESS variables -->
-    <link rel="stylesheet" type="text/css" media="screen" href="@Url.Content("~/css/smartadmin-production.min.css")">
-    <link rel="stylesheet" type="text/css" media="screen" href="@Url.Content("~/css/smartadmin-skins.min.css")">
+    @*<link rel="stylesheet" type="text/css" media="screen" href="@Url.Content("~/css/smartadmin-production.min.css")">
+    <link rel="stylesheet" type="text/css" media="screen" href="@Url.Content("~/css/smartadmin-skins.min.css")">*@
 
     <!-- SmartAdmin RTL Support is under construction
          This RTL CSS will be released in version 1.5
@@ -30,33 +44,33 @@
          specific styles this will also ensure you retrain your customization with each SmartAdmin update.
     <link rel="stylesheet" type="text/css" media="screen" href="css/your_style.css"> -->
     <!-- Demo purpose only: goes with demo.js, you can delete this css when designing your own WebApp -->
-    <link rel="stylesheet" type="text/css" media="screen" href="@Url.Content("~/css/demo.min.css")">
+    @*<link rel="stylesheet" type="text/css" media="screen" href="@Url.Content("~/css/demo.min.css")">*@
 
     <!-- #FAVICONS -->
-    <link rel="shortcut icon" href="@Url.Content("~/img/favicon.ico")" type="image/x-icon">
+    <link rel="shortcut icon" href="@Url.Content("~/content/img/favicon.ico")" type="image/x-icon">
     @*<link rel="icon" href="@Url.Content("~/favicon.ico")" type="image/x-icon">*@
 
     <!-- #GOOGLE FONT -->
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">
 
     <!-- #APP SCREEN / ICONS -->
     <!-- Specifying a Webpage Icon for Web Clip
          Ref: https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html -->
-    <link rel="apple-touch-icon" href="@Url.Content("~/img/splash/sptouch-icon-iphone.png")">
-    <link rel="apple-touch-icon" sizes="76x76" href="@Url.Content("~/img/splash/touch-icon-ipad.png")">
-    <link rel="apple-touch-icon" sizes="120x120" href="@Url.Content("~/img/splash/touch-icon-iphone-retina.png")">
-    <link rel="apple-touch-icon" sizes="152x152" href="@Url.Content("~/img/splash/touch-icon-ipad-retina.png")">
+    <link rel="apple-touch-icon" href="@Url.Content("~/content/img/splash/sptouch-icon-iphone.png")">
+    <link rel="apple-touch-icon" sizes="76x76" href="@Url.Content("~/content/img/splash/touch-icon-ipad.png")">
+    <link rel="apple-touch-icon" sizes="120x120" href="@Url.Content("~/content/img/splash/touch-icon-iphone-retina.png")">
+    <link rel="apple-touch-icon" sizes="152x152" href="@Url.Content("~/content/img/splash/touch-icon-ipad-retina.png")">
 
     <!-- iOS web-app metas : hides Safari UI Components and Changes Status Bar Appearance -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
     <!-- Startup image for web apps -->
-    <link rel="apple-touch-startup-image" href="@Url.Content("~/img/splash/ipad-landscape.png")" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)">
-    <link rel="apple-touch-startup-image" href="@Url.Content("~/img/splash/ipad-portrait.png")" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)">
-    <link rel="apple-touch-startup-image" href="@Url.Content("~/img/splash/iphone.png")" media="screen and (max-device-width: 320px)">
+    <link rel="apple-touch-startup-image" href="@Url.Content("~/content/img/splash/ipad-landscape.png")" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)">
+    <link rel="apple-touch-startup-image" href="@Url.Content("~/content/img/splash/ipad-portrait.png")" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)">
+    <link rel="apple-touch-startup-image" href="@Url.Content("~/content/img/splash/iphone.png")" media="screen and (max-device-width: 320px)">
     @*<script src="@Url.Content("~/css/ace.min.css")"></script>*@
-    <link href="~/css/your_style.css" rel="stylesheet" />
+    <link href="~/content/css/your_style.css" rel="stylesheet" />
 
     <style>
         .smart-form section {
@@ -67,19 +81,19 @@
 
 <body class="animated fadeInDown login-layout" style="background: #2D82C3;">
     <div class="row" style="margin:0 auto;">
-        @using (Html.BeginForm("logon", "account", new { ReturnUrl = Request.QueryString["ReturnUrl"] }, FormMethod.Post, new { id = "login-form", @class = "smart-form client-form" }))
+        @using (Html.BeginForm("Login", "account", new { ReturnUrl = Request.QueryString["ReturnUrl"] }, FormMethod.Post, new { id = "login-form", @class = "smart-form client-form" }))
         {
             <div class="col col-4"></div>
             <div class="col col-4">
                 <div style="background-color: white;margin: 40px 0; padding: 15px 40px 25px 40px; border-radius: 3px;">
                     <section style="border-bottom: 1px dotted #e2e2e2;padding-bottom: 20px;padding-top: 10px;">
                         <label>
-                            <img style="margin-left: -1px;" src="@Url.Content("~/img/logo_login.jpg")" />
+                            <img style="margin-left: -1px;" src="@Url.Content("~/content/img/logo_login.jpg")" />
                         </label>
                     </section>
                     <section style="">
                         <label class="input">
-                            <img src="@Url.Content("~/img/login_title.png")" />
+                            <img src="@Url.Content("~/content/img/login_title.png")" />
                         </label>
                     </section>
                     <section style="margin-left: 14px;">
@@ -125,15 +139,15 @@
     @*<script src="@Url.Content("~/js/plugin/pace/pace.min.js")"></script>*@
 
     <!-- JS TOUCH : include this plugin for mobile drag / drop touch events -->
-    <script src="@Url.Content("~/js/plugin/jquery-touch/jquery.ui.touch-punch.min.js")"></script>
+    @*<script src="@Url.Content("~/js/plugin/jquery-touch/jquery.ui.touch-punch.min.js")"></script>*@
     <!-- BOOTSTRAP JS -->
-    <script src="@Url.Content("~/js/bootstrap/bootstrap.min.js")"></script>
+    @*<script src="@Url.Content("~/js/bootstrap/bootstrap.min.js")"></script>*@
 
     <!-- JQUERY VALIDATE -->
-    <script src="@Url.Content("~/js/plugin/jquery-validate/jquery.validate.min.js")"></script>
+    @*<script src="@Url.Content("~/js/plugin/jquery-validate/jquery.validate.min.js")"></script>*@
 
     <!-- JQUERY MASKED INPUT -->
-    <script src="@Url.Content("~/js/plugin/masked-input/jquery.maskedinput.min.js")"></script>
+    @*<script src="@Url.Content("~/js/plugin/masked-input/jquery.maskedinput.min.js")"></script>*@
 
     <script src="https://www.google.com/recaptcha/api.js?hl=vi"></script>
 

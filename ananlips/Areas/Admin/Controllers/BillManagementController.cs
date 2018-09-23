@@ -13,7 +13,7 @@ using System.Text;
 
 namespace ananlips.Areas.Admin.Controllers
 {
-    public class BillBillDetailManagementController : CustomController
+    public class BillManagementController : CustomController
     {
         #region Tree
         public ActionResult Index(string redirectbyajax, string entryid, string actiontype, string fa)
@@ -31,7 +31,7 @@ namespace ananlips.Areas.Admin.Controllers
             ViewBag.entryid = string.IsNullOrEmpty(entryid) ? "0" : entryid;
             ViewBag.actiontype = string.IsNullOrEmpty(actiontype) ? "" : actiontype;
             ViewBag.fa = string.IsNullOrEmpty(fa) ? "" : fa;
-            return View("BillDetailManagementTree", dict);
+            return View("BillManagementTree", dict);
 
         }
         [AcceptVerbs(HttpVerbs.Post)]
@@ -44,7 +44,7 @@ namespace ananlips.Areas.Admin.Controllers
             }
             //var UserType = 1;//1: backend|2: card-holder|3: pos
             var userid = 0;
-            var data = new BillDetail().GetPage(request, whereCondition, isactive, userid);
+            var data = new Bill().GetPage(request, whereCondition, isactive, userid);
             return Json(data);
         }
 
@@ -67,19 +67,21 @@ namespace ananlips.Areas.Admin.Controllers
             dict["redirectbyajax"] = redirectbyajax;
             ViewBag.entryid = string.IsNullOrEmpty(entryid) ? "0" : entryid;
             ViewBag.entrykey = string.IsNullOrEmpty(entrykey) ? "0" : entrykey;
-            return View("BillDetailManagementForm", dict);
+            return View("BillManagementForm", dict);
 
 
         }
 
         [HttpPost]
-        public ActionResult Create(BillDetail item)
+        public ActionResult Create(Bill item)
         {
             IDbConnection db = new OrmliteConnection().openConn();
             try
             {
-                if (string.IsNullOrEmpty(item.entryname) || string.IsNullOrEmpty(item.entrycode)) return Json(new { success = false, message = tw_Lang.Common_ActionResult_MissingInfo });
-                var isExist = BillDetail.GetById(item.entryid, null, false) ;
+                item.entryname = item.entryname ?? "";
+                item.entrycode = item.entrycode ?? "";
+                //if (string.IsNullOrEmpty(item.entryname) || string.IsNullOrEmpty(item.entrycode)) return Json(new { success = false, message = tw_Lang.Common_ActionResult_MissingInfo });
+                var isExist = Bill.GetById(item.entryid, null, false) ;
 
                 //Validate
 
@@ -121,7 +123,7 @@ namespace ananlips.Areas.Admin.Controllers
             IDbConnection db = new OrmliteConnection().openConn();
             try
             {
-                var isExist =BillDetail.GetById(entryid, null, false);
+                var isExist =Bill.GetById(entryid, null, false);
                 isExist.isactive = isactive;
                 isExist.updatedby = currentUser.entryid;
                 isExist.updatedat = DateTime.Now;
@@ -149,7 +151,7 @@ namespace ananlips.Areas.Admin.Controllers
             IDbConnection dbConn = new OrmliteConnection().openConn();
             try
             {
-                var data =BillDetail.GetById(entryid, null, false);
+                var data =Bill.GetById(entryid, null, false);
                 var ref_Roles = CustomModel.GetActiveStatus(); 
                 return Json(new
                 {

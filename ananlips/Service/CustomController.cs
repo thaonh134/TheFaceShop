@@ -1,4 +1,5 @@
 ﻿using ananlips.Areas.Admin.Models;
+using ananlips.ConstantValue;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -26,7 +27,16 @@ namespace ananlips.Service
                 var UserId = claimsIdentity.FindFirst(ClaimTypes.PrimarySid).Value;
                 ViewBag.UserId = UserId;
                 currentUser = ananlips.Areas.Admin.Models.AuthUser.GetById(string.IsNullOrEmpty(UserId) ? 0 : Convert.ToInt32(UserId),null,false);
-                ViewData["AuthUser"] = currentUser;
+                if (currentUser.logintype != (int)LoginType.Admin)
+                {
+                    ViewData["IsAuthenticated"] = false;
+                    ViewData["AuthUser"] = null;
+                }
+                else
+                {
+                    ViewData["AuthUser"] = currentUser;
+
+                }
 
             }
             else { ViewData["IsAuthenticated"] = false;

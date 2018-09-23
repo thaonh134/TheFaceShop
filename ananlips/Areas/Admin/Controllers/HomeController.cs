@@ -17,6 +17,10 @@ namespace ananlips.Areas.Admin.Controllers
             if (Convert.ToBoolean( ViewData["IsAuthenticated"]) == false)  return RedirectToAction("NoAccess", "Error");
             return View();
         }
+        public ActionResult PartialChangePass()
+        {
+            return PartialView("_ChangePass");
+        }
         [HttpPost]
         public ActionResult UploadFiles()
         {

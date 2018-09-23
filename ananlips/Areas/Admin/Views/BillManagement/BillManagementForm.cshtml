@@ -7,7 +7,7 @@
     var listLanguage = dict.ContainsKey("listlanguage") ? (List<DDLModel>)dict["listlanguage"] : new List<DDLModel>();
     var redirectbyajax = dict.ContainsKey("redirectbyajax") ? dict["redirectbyajax"].ToString() : "0";
     var areasname = dict.ContainsKey("areasname") && !string.IsNullOrEmpty(dict["areasname"].ToString()) ? "/" + dict["areasname"].ToString() : "";
-    var newData = new AuthUser();
+    var newData = new Bill();
 }
 @{
     var V_ID = ViewBag.ID;
@@ -46,7 +46,7 @@
     <div class="row">
 
         <div class="col-md-12">
-            @using (Html.BeginForm("Create", "BillBillManagement", FormMethod.Post, new { @class = "form-horizontal", id = "formPopup", enctype = "multipart/form-data" }))
+            @using (Html.BeginForm("Create", "BillManagement", FormMethod.Post, new { @class = "form-horizontal", id = "formPopup", enctype = "multipart/form-data" }))
             {
                 @Html.Hidden("entryid", "#=entryid#");
                 @Html.Hidden("entrycode", "#=entrycode#");
@@ -121,8 +121,8 @@
         if (!obj) obj = {};
 
         //mess
-        obj.AdminBillManagement_titleform_Add = "Add New";
-        obj.AdminBillManagement_titleform_Update = "Update Item";
+        obj.BillManagement_titleform_Add = "Add New";
+        obj.BillManagement_titleform_Update = "Update Item";
         //mess validate
         obj.Common_mess_RequiredInformation = "@Html.Raw(tw_Lang.Common_mess_RequiredInformation)";
         obj.Common_mess_WrongSyntax = "@Html.Raw(tw_Lang.Common_mess_WrongSyntax)";
@@ -144,7 +144,7 @@
     //Update
     function edit(obj) {
         blockUIFromUser(true);
-        $.post(r + "/BillBillManagement/GetByID", { entryid: obj.entryid }, function (data) {
+        $.post(r + "/BillManagement/GetByID", { entryid: obj.entryid }, function (data) {
             if (data.success) {
                 var value = data.data;
 
@@ -175,7 +175,7 @@
                 animate: false,
                 backdrop: true,
                 className: "normalPopupWidth",
-                message: '<div id="DivEdit"></div>', title: (type == 0 ? resource_lang.AdminBillManagement_titleform_Add : resource_lang.AdminBillManagement_titleform_Update),
+                message: '<div id="DivEdit"></div>', title: (type == 0 ? resource_lang.BillManagement_titleform_Add : resource_lang.BillManagement_titleform_Update),
                 onEscape: function () {
                     onClosePopupCustom();
                 }

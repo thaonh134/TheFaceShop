@@ -78,7 +78,9 @@ namespace ananlips.Areas.Admin.Controllers
             IDbConnection db = new OrmliteConnection().openConn();
             try
             {
-                if (string.IsNullOrEmpty(item.entryname) || string.IsNullOrEmpty(item.entrycode)) return Json(new { success = false, message = tw_Lang.Common_ActionResult_MissingInfo });
+                item.entryname = item.entryname ?? "";
+                item.entrycode = item.entrycode ?? "";
+                //if (string.IsNullOrEmpty(item.entryname) || string.IsNullOrEmpty(item.entrycode)) return Json(new { success = false, message = tw_Lang.Common_ActionResult_MissingInfo });
                 var isExist = Delivery.GetById(item.entryid, null, false) ;
 
                 //Validate

@@ -8,7 +8,7 @@
     var redirectbyajax = dict.ContainsKey("redirectbyajax") ? dict["redirectbyajax"].ToString() : "0";
     var areasname = dict.ContainsKey("areasname") && !string.IsNullOrEmpty(dict["areasname"].ToString()) ? "/" + dict["areasname"].ToString() : "";
     var listcategory = dict.ContainsKey("listcategory") ? (List<DDLModel>)dict["listcategory"] : new List<DDLModel>();
-    var newData = new AuthUser();
+    var newData = new Product();
 }
 @{
     var V_ID = ViewBag.ID;
@@ -211,8 +211,8 @@
         if (!obj) obj = {};
 
         //mess
-        obj.AdminProductManagement_titleform_Add = "Add New";
-        obj.AdminProductManagement_titleform_Update = "Update Item";
+        obj.MasterProductManagement_titleform_Add = "Add New";
+        obj.MasterProductManagement_titleform_Update = "Update Item";
         //mess validate
         obj.Common_mess_RequiredInformation = "@Html.Raw(tw_Lang.Common_mess_RequiredInformation)";
         obj.Common_mess_WrongSyntax = "@Html.Raw(tw_Lang.Common_mess_WrongSyntax)";
@@ -239,7 +239,7 @@
         myFormData.append('fileupload', $("#formPopup #customFile")[0].files[0]);
 
         $.ajax({
-            url: r + "/Admin/Home/UploadFiles",
+            url: r + "/Home/UploadFiles",
             type: 'POST',
             processData: false, // important
             contentType: false, // important
@@ -315,7 +315,7 @@
                 animate: false,
                 backdrop: true,
                 className: "normalPopupWidth",
-                message: '<div id="DivEdit"></div>', title: (type == 0 ? resource_lang.AdminProductManagement_titleform_Add : resource_lang.AdminProductManagement_titleform_Update),
+                message: '<div id="DivEdit"></div>', title: (type == 0 ? resource_lang.MasterProductManagement_titleform_Add : resource_lang.MasterProductManagement_titleform_Update),
                 onEscape: function () {
                     onClosePopupCustom();
                 }

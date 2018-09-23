@@ -9,7 +9,7 @@
     var listLanguage = dict.ContainsKey("listlanguage") ? (List<DDLModel>)dict["listlanguage"] : new List<DDLModel>();
     var redirectbyajax = dict.ContainsKey("redirectbyajax") ? dict["redirectbyajax"].ToString() : "0";
     var areasname = dict.ContainsKey("areasname") && !string.IsNullOrEmpty(dict["areasname"].ToString()) ? "/" + dict["areasname"].ToString() : "";
-    var newData = new AuthUser();
+    var newData = new Bill();
 }
 
 @*layout config*@
@@ -25,7 +25,7 @@
 
     //Xử lý param_obj
     param_obj = {};
-    param_obj.ourl = "/Admin/BillBillDetailManagement";
+    param_obj.ourl = "/BillManagement";
     param_obj.entryid = "@ViewBag.entryid";
     param_obj.actiontype = "@ViewBag.actiontype";
     param_obj.fa = "@ViewBag.fa";
@@ -61,15 +61,15 @@
         obj.Common_btn_Active = "@Html.Raw(tw_Lang.Common_btn_Active)";
         obj.Common_btn_InActive = "@Html.Raw(tw_Lang.Common_btn_InActive)";
 
-        obj.AdminBillDetailManagement_title_Page = "BillDetailManagement";
+        obj.BillManagement_title_Page = "BillManagement";
 
         return obj;
     }
 
     $(document).ready(function () {
 
-            setActiveMenu($("#menu_AdminBillDetailManagement")[0]);
-            setTimeout(function () { document.title = resource_lang.AdminBillDetailManagement_title_Page; }, 100);
+            setActiveMenu($("#menu_BillManagement")[0]);
+        setTimeout(function () { document.title = resource_lang.BillManagement_title_Page; }, 100);
             loadToolbarStyle();
             resizedivMainContent();
 
@@ -285,7 +285,7 @@
                 function (ButtonPressed) {
                     if (ButtonPressed === resource_lang.Common_mess_btn_Confirm) {
                         blockUIFromUser(true);
-                        $.post(r + "/AdminBillDetailManagement/UpdateActiveStatus",
+                        $.post(r + "/BillManagement/UpdateActiveStatus",
                             { entryid: entryid, isactive: isactive },
                             function (data) {
                                 if (data.success) {
@@ -365,7 +365,7 @@
     <div class="divMainContent">
         <div class="row">
             <!-- NEW COL START -->
-            @(Html.Kendo().Grid<ananlips.Areas.Admin.Models.BillDetail>
+            @(Html.Kendo().Grid<ananlips.Areas.Admin.Models.Bill>
     ()
     .Name("grid")
     .Columns(columns =>
@@ -401,7 +401,7 @@
     }
     )
     .Events(e => { e.RequestEnd("onRequestEnd"); e.RequestStart("onRequestStart"); })
-    .Read(read => read.Action("Read", "BillBillDetailManagement").Data("getDataFilter"))
+    .Read(read => read.Action("Read", "BillManagement").Data("getDataFilter"))
     )
     )
 </div>

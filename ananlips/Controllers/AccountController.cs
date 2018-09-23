@@ -11,6 +11,9 @@ using Microsoft.Owin.Security;
 using ananlips.Models;
 using System.Web.Security;
 using ananlips.Areas.Admin.Models;
+using ananlips.ConstantValue;
+using System.Data;
+using ananlips.Service;
 
 namespace ananlips.Controllers
 {
@@ -24,7 +27,7 @@ namespace ananlips.Controllers
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -36,9 +39,9 @@ namespace ananlips.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -59,6 +62,7 @@ namespace ananlips.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
+            ViewBag.message = "";
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
@@ -68,29 +72,51 @@ namespace ananlips.Controllers
         [HttpPost]
         [AllowAnonymous]
         //[ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
+        public ActionResult Login(LogOnModel model, string returnUrl)
         {
-            if (!ModelState.IsValid)
+            returnUrl = string.IsNullOrEmpty(returnUrl) ? "" : returnUrl;
+
+            if (DefaultView.GetRandomCapcha() != model.CaptchaCode)
             {
-                return View(model);
+                ViewBag.message = "Mã xác minh không đúng.";
+                return View();
             }
 
-            // This doesn't count login failures towards account lockout
-            // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
-            switch (result)
+
+            IDbConnection dbConn = new OrmliteConnection().openConn();
+            var user = AuthUser.GetByCode(model.UserName, null, false);
+            if (user != null && new AccountMembershipService().ValidateUser(model.UserName, model.Password))
             {
-                case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
-                case SignInStatus.LockedOut:
-                    return View("Lockout");
-                case SignInStatus.RequiresVerification:
-                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
-                case SignInStatus.Failure:
-                default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
-                    return View(model);
+                //FormsAuthentication.SetAuthCookie(model.UserName, true);
+
+                //FormsAuthentication.SetAuthCookie(user.Id.ToString(), true);
+
+                var identity = new ClaimsIdentity(new[] {
+                new Claim(ClaimTypes.Name,string.IsNullOrEmpty( user.fullname)?user.entryname:user.fullname),
+                new Claim(ClaimTypes.Email,string.IsNullOrEmpty( user.email)?"":user.email),
+                new Claim(ClaimTypes.PrimarySid,user.entryid.ToString())
+            },
+                "ApplicationCookie");
+                var ctx = Request.GetOwinContext();
+                var authManager = ctx.Authentication;
+                authManager.SignIn(identity);
+
+                if (Url.IsLocalUrl(returnUrl) &&
+                returnUrl.Length > 1 &&
+                returnUrl.StartsWith("/") &&
+                !returnUrl.StartsWith("//") &&
+                !returnUrl.StartsWith("/\\"))
+                {
+                    return Redirect(returnUrl);
+                }
+                return RedirectToAction("Index", "Home");
             }
+            else
+            {
+                ViewBag.message = "Tên đăng nhập hoặc mật khẩu không đúng.";
+
+            }
+            return View();
         }
 
         //
@@ -122,7 +148,7 @@ namespace ananlips.Controllers
             // If a user enters incorrect codes for a specified amount of time then the user account 
             // will be locked out for a specified amount of time. 
             // You can configure the account lockout settings in IdentityConfig
-            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent:  model.RememberMe, rememberBrowser: model.RememberBrowser);
+            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent: model.RememberMe, rememberBrowser: model.RememberBrowser);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -141,6 +167,7 @@ namespace ananlips.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            ViewBag.message = "";
             return View();
         }
 
@@ -148,30 +175,52 @@ namespace ananlips.Controllers
         // POST: /Account/Register
         [HttpPost]
         [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public ActionResult Register(RegisterViewModel model)
         {
-            if (ModelState.IsValid)
+            if (DefaultView.GetRandomCapcha() != model.CaptchaCode)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                var result = await UserManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
-                {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
-                    // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
-                    // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-
-                    return RedirectToAction("Index", "Home");
-                }
-                AddErrors(result);
+                ViewBag.message = "Mã xác minh không đúng.";
+                return View();
             }
+            if (model.ConfirmPassword != model.Password)
+            {
+                ViewBag.message = "Mật khẩu xác nhận không giống.";
+                return View();
+            }
+            //get internal user with email & code
+            IDbConnection dbConn = new OrmliteConnection().openConn();
+            var user = AuthUser.GetByCode(model.Email,LoginType.InternalLogin, null, false);
+            if (user!=null){
+                ViewBag.message = "Tài khoản đã tồn tại";
+                return View();
+            }
+            //create user internal
+            user = new AuthUser();
+            user.password = SqlHelper.GetMd5Hash(model.Password); 
 
-            // If we got this far, something failed, redisplay form
-            return View(model);
+            user.createdat = DateTime.Now;
+            user.updatedat = DateTime.Now;
+            user.entrycode = model.Email;
+            user.entryname = model.Email;
+            user.fullname = model.Email;
+            user.email = model.Email;
+            user.logintype = (int)LoginType.InternalLogin;
+            user.loginprovider = "";
+            user.isactive = true;
+            user.entryid = user.AddOrUpdate(user.entryid);
+
+            var identity = new ClaimsIdentity(new[] {
+                new Claim(ClaimTypes.Name,user.fullname),
+                new Claim(ClaimTypes.Email,string.IsNullOrEmpty( user.email)?"":user.email),
+                new Claim(ClaimTypes.PrimarySid,user.entryid.ToString())
+            },
+           "ApplicationCookie");
+
+            var ctx = Request.GetOwinContext();
+            var authManager = ctx.Authentication;
+            authManager.SignIn(identity);
+
+            return RedirectToAction("Index", "Home");
         }
 
         //
@@ -329,7 +378,7 @@ namespace ananlips.Controllers
             {
                 return RedirectToAction("Login");
             }
-            
+
             var user = AuthUser.GetByCode(loginInfo.Login.ProviderKey, loginInfo.Login.LoginProvider);
             if (user == null)
             {
@@ -337,11 +386,13 @@ namespace ananlips.Controllers
                 user.createdat = DateTime.Now;
                 user.updatedat = DateTime.Now;
                 user.entrycode = loginInfo.Login.ProviderKey;
-                user.entryname = loginInfo.DefaultUserName;
+                user.entryname = loginInfo.Login.ProviderKey;
+                user.fullname = loginInfo.DefaultUserName;
                 user.email = loginInfo.Email;
+                user.logintype = (int)LoginType.ExternalLogin;
                 user.loginprovider = loginInfo.Login.LoginProvider;
                 user.isactive = true;
-                user.entryid= user.AddOrUpdate(user.entryid);
+                user.entryid = user.AddOrUpdate(user.entryid);
             }
             else
             {
@@ -353,9 +404,9 @@ namespace ananlips.Controllers
             // Sign in the user with this external login provider if the user already has a login
 
             //FormsAuthentication.SetAuthCookie(user.Id.ToString(), true);
-           
+
             var identity = new ClaimsIdentity(new[] {
-                new Claim(ClaimTypes.Name,user.entryname),
+                new Claim(ClaimTypes.Name,user.fullname),
                 new Claim(ClaimTypes.Email,string.IsNullOrEmpty( user.email)?"":user.email),
                 new Claim(ClaimTypes.PrimarySid,user.entryid.ToString())
             },
@@ -424,10 +475,10 @@ namespace ananlips.Controllers
         }
 
         //
-        // POST: /Account/LogOff
+        // POST: /Account/logout
         [HttpPost]
         //[ValidateAntiForgeryToken]
-        public ActionResult LogOff()
+        public ActionResult logout()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
             return RedirectToAction("Index", "Home");

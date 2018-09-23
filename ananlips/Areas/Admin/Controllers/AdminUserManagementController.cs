@@ -10,6 +10,7 @@ using System.Web;
 using System.Web.Mvc;
 using ServiceStack.OrmLite;
 using System.Text;
+using ananlips.ConstantValue;
 
 namespace ananlips.Areas.Admin.Controllers
 {
@@ -22,6 +23,7 @@ namespace ananlips.Areas.Admin.Controllers
             IDbConnection dbConn = new OrmliteConnection().openConn();
             var dict = new Dictionary<string, object>();
             dict["activestatus"] = CustomModel.GetActiveStatus();
+            dict["listLoginType"] = CustomModel.GetLoginType();
             dict["listlanguage"] = CustomModel.GetLanguage();
             dict["areasname"] = "Admin";
             dict["redirectbyajax"] = string.IsNullOrEmpty(redirectbyajax) ? "0" : "1";
@@ -35,7 +37,7 @@ namespace ananlips.Areas.Admin.Controllers
 
         }
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Read([DataSourceRequest]DataSourceRequest request, string isactive)
+        public ActionResult Read([DataSourceRequest]DataSourceRequest request, string logintype, string isactive)
         {
             string whereCondition = "";
             if (request.Filters.Count > 0)
@@ -44,7 +46,8 @@ namespace ananlips.Areas.Admin.Controllers
             }
             //var UserType = 1;//1: backend|2: card-holder|3: pos
             var userid = 0;
-            var data = new AuthUser().GetPage(request, whereCondition, isactive, userid);
+            logintype = string.IsNullOrEmpty(logintype) ? "0" : logintype;
+            var data = new AuthUser().GetPage(request, whereCondition,Convert.ToInt32(logintype), isactive, userid);
             return Json(data);
         }
 
@@ -89,6 +92,9 @@ namespace ananlips.Areas.Admin.Controllers
                 if (item.entryid == 0)
                 {
                     //insert
+                    item.password = SqlHelper.GetMd5Hash("123456"); ;
+                    item.entrycode = item.entryname;
+                    item.logintype =(int) LoginType.Admin;
                     item.createdat = DateTime.Now;
                     item.createdby = currentUser.entryid;
                     item.updatedat = DateTime.Now;

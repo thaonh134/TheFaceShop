@@ -1,4 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using ananlips.ConstantValue;
+using ananlips.Service;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace ananlips.Areas.Admin.Models
 {
@@ -13,6 +18,7 @@ namespace ananlips.Areas.Admin.Models
         [Display(Name = "Password")]
         public string Password { get; set; }
 
+        public string CaptchaCode { get; set; }
         [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }
     }
@@ -24,16 +30,15 @@ namespace ananlips.Areas.Admin.Models
         public string NewPass { get; set; }
         public string RepeatNewPass { get; set; }
 
-        public bool GetUserByUserNameAndPassword(string userName, string password)
-        {
-           
-            return true;
-        }
+        
 
         public int ChangePassword()
         {
-                    
-            return  1;
+
+            List<SqlParameter> param = new List<SqlParameter>();
+            param.Add(new SqlParameter("@UserName", this.UserNameChange));
+            param.Add(new SqlParameter("@Password", this.RepeatNewPass));
+            return new SqlHelper().ExecuteNoneQuery("p_Auth_User_ChangePass", param);
         }
         
     }

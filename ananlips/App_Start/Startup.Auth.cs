@@ -56,8 +56,8 @@ namespace ananlips
             //   consumerSecret: "");
 
             app.UseFacebookAuthentication(
-               appId: "224332594959828",
-               appSecret: "17cf49c905b500ef88df4353c283531c");
+               appId: "995556407277448",
+               appSecret: "491447f4b06ec11f270128d56b17d898");
 
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {

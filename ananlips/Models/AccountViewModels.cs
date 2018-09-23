@@ -74,6 +74,7 @@ namespace ananlips.Models
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
+        public string CaptchaCode { get; set; }
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
