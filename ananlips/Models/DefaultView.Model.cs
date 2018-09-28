@@ -14,15 +14,16 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
 using System.Drawing.Imaging;
+using ananlips.ConstantValue;
 
 namespace ananlips.Models
 {
-	public class DefaultView
-	{
+    public class DefaultView
+    {
         #region Capcha Session
         public static string RandomCapcha()
         {
-             HttpContext.Current.Session["CaptchaText"] = new Random().Next(1000, 9999);
+            HttpContext.Current.Session["CaptchaText"] = new Random().Next(1000, 9999);
             return HttpContext.Current.Session["CaptchaText"].ToString();
         }
         public static string GetRandomCapcha()
@@ -70,6 +71,74 @@ namespace ananlips.Models
         }
         #endregion
         #region getList Data 
+        public class FE_ContactRequest
+        {
+            public int ContactRequestId { get; set; }
+            public int UserId { get; set; }
+            public string EntryName { get; set; }
+            public int TopicContact { get; set; }
+            public string FullName { get; set; }
+            public string Address { get; set; }
+            public string Phone { get; set; }
+            public string Email { get; set; }
+            public string Comments { get; set; }
+            public string CaptchaCode { get; set; }
+
+            public static FE_ContactRequest GetDefaultContactRequest(int UserId)
+            {
+                try
+                {
+                    IDbConnection dbConn = new OrmliteConnection().openConn();
+                    var item = dbConn.SingleOrDefault<ContactRequest>("isactive={0} and userid = {1} and userid <> 0", 1, UserId);
+                    if (item == null) return new FE_ContactRequest();
+                    return Mapper.Map<FE_ContactRequest>(item);
+
+                }
+                catch (Exception ex)
+                {
+                    return new FE_ContactRequest();
+                }
+            }
+
+
+            public static int SaveContactRequest(int UserId, FE_ContactRequest contactrequest)
+            {
+                var entryItem = Mapper.Map<ContactRequest>(contactrequest);
+                var dbConn = new OrmliteConnection().openConn();
+                var entryid = entryItem.AddOrUpdate(UserId, dbConn, false);
+                return entryid;
+
+            }
+        }
+
+        public class FE_Article
+        {
+
+            public int ArticleId { get; set; }
+            public int ArticleType { get; set; }
+            public string ArticleName { get; set; }
+            public string Comments { get; set; }
+
+            public static FE_Article GetByArticleType(ArticleType articletype)
+            {
+                try
+                {
+                    IDbConnection dbConn = new OrmliteConnection().openConn();
+                    var articletypenum = (int)articletype;
+                    var item = dbConn.FirstOrDefault<Article>(x => x.isactive == ActiveStatus.Active && x.articletype == articletypenum);
+
+                    var mapped = Mapper.Map<FE_Article>(item);
+                    var result = mapped;
+                    return result;
+
+                }
+                catch (Exception ex)
+                {
+                    return new FE_Article();
+                }
+            }
+
+        }
         public class FE_Product
         {
 
@@ -189,7 +258,7 @@ namespace ananlips.Models
                     return result;
                 }
             }
-            public static SearchResult SearchByKeyWord(SearchRequest request,string keyword)
+            public static SearchResult SearchByKeyWord(SearchRequest request, string keyword)
             {
                 var result = new SearchResult();
                 try
@@ -219,9 +288,9 @@ namespace ananlips.Models
 
             public static string GetSortString(SearchRequest request)
             {
-                var sortby =string.IsNullOrEmpty(request.sorttype)?"":( request.sorttype == "-1" ? "ASC" : "DESC");
+                var sortby = string.IsNullOrEmpty(request.sorttype) ? "" : (request.sorttype == "-1" ? "ASC" : "DESC");
                 var orderby = request.orderby;
-                return " ORDER BY "+ orderby+" "+ sortby;
+                return " ORDER BY " + orderby + " " + sortby;
             }
             public static List<FE_Product> GetBySubCategory(string subcategoryid)
             {
@@ -262,7 +331,7 @@ namespace ananlips.Models
                 try
                 {
                     IDbConnection dbConn = new OrmliteConnection().openConn();
-                    var lst_item = dbConn.Select<Product>("isactive={0}", 1).OrderByDescending(x=>x.sellcount).Take(6).ToList();
+                    var lst_item = dbConn.Select<Product>("isactive={0}", 1).OrderByDescending(x => x.sellcount).Take(6).ToList();
                     var mapped = Mapper.Map<List<FE_Product>>(lst_item);
                     var result = mapped;
                     return result;
@@ -284,8 +353,8 @@ namespace ananlips.Models
                 {
                     IDbConnection dbConn = new OrmliteConnection().openConn();
                     var item = dbConn.FirstOrDefault<Category>("isactive={0} and entryid = {1}", 1, categoryid);
-                   if(item==null) return new FE_Category();
-                    return Mapper.Map<FE_Category>(item); 
+                    if (item == null) return new FE_Category();
+                    return Mapper.Map<FE_Category>(item);
 
                 }
                 catch (Exception ex)
@@ -359,16 +428,16 @@ namespace ananlips.Models
                     var lst_cate = dbConn.Select<Category>("isactive={0}", 1);
                     var lst_subcate = dbConn.Select<SubCategory>("isactive={0}", 1);
 
-                    var result= new List<FE_MenuItem>();
-                    foreach(var item in lst_cate)
+                    var result = new List<FE_MenuItem>();
+                    foreach (var item in lst_cate)
                     {
                         var entryItem = new FE_MenuItem();
                         entryItem.CategoryId = item.entryid;
                         entryItem.CategoryName = item.entryname;
-                        entryItem.MenuSubItems=new List<FE_MenuSubItem>();
+                        entryItem.MenuSubItems = new List<FE_MenuSubItem>();
                         foreach (var subitem in lst_subcate)
                         {
-                            if(item.entryid == subitem.categoryid)
+                            if (item.entryid == subitem.categoryid)
                             {
                                 var entrysubitem = new FE_MenuSubItem();
                                 entrysubitem.CategoryId = subitem.categoryid;
@@ -385,7 +454,7 @@ namespace ananlips.Models
 
                     return result;
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
 
                     return new List<FE_MenuItem>();
@@ -439,7 +508,7 @@ namespace ananlips.Models
         }
         #endregion
 
-       
+
         #region Bill process
         public class FE_Bill
         {
@@ -458,8 +527,8 @@ namespace ananlips.Models
 
             public static FE_Bill GetBillSection()
             {
-              
-                if (HttpContext.Current.Session["FE_Bill"] == null) 
+
+                if (HttpContext.Current.Session["FE_Bill"] == null)
                     SetBillSection(new FE_Bill());
                 return (FE_Bill)HttpContext.Current.Session["FE_Bill"];
             }
@@ -473,9 +542,9 @@ namespace ananlips.Models
                 try
                 {
                     if (item.Quantity == 0) item.Quantity = 1;
-                   var product= FE_Product.GetDetail(item.ProductId.ToString());
+                    var product = FE_Product.GetDetail(item.ProductId.ToString());
                     if (product == null) return;
-                  var itemBill=  FE_Bill.GetBillSection();
+                    var itemBill = FE_Bill.GetBillSection();
                     if (itemBill.BillDetails == null) itemBill.BillDetails = new List<FE_BillDetail>();
 
                     var matches = itemBill.BillDetails.Where(p => p.ProductId == product.ProductId).ToList();
@@ -518,7 +587,7 @@ namespace ananlips.Models
                 try
                 {
                     var itemBill = FE_Bill.GetBillSection();
-                   itemBill.BillDetails = new List<FE_BillDetail>();
+                    itemBill.BillDetails = new List<FE_BillDetail>();
                     foreach (var item in lstItem)
                     {
                         if (item.Quantity == 0) item.Quantity = 1;
@@ -560,7 +629,7 @@ namespace ananlips.Models
             {
                 try
                 {
-                    
+
                     var itemBill = FE_Bill.GetBillSection();
                     if (itemBill.BillDetails == null) itemBill.BillDetails = new List<FE_BillDetail>();
                     itemBill.BillDetails.RemoveAll(p => p.ProductId == item.ProductId);
@@ -604,7 +673,7 @@ namespace ananlips.Models
 
                 }
             }
-            public static FE_Bill BindFullBill(int UserId,FE_Delivery delivery)
+            public static FE_Bill BindFullBill(int UserId, FE_Delivery delivery)
             {
                 var bill = GetBillSection();
                 bill.UserId = UserId;
@@ -622,7 +691,7 @@ namespace ananlips.Models
             {
 
                 var fe_bill = GetBillSection();
-                var bill= Mapper.Map<Bill>(fe_bill);
+                var bill = Mapper.Map<Bill>(fe_bill);
                 var billdetail = Mapper.Map<List<BillDetail>>(fe_bill.BillDetails);
 
                 var dbConn = new OrmliteConnection().openConn();
@@ -632,8 +701,8 @@ namespace ananlips.Models
                     try
                     {
                         //add delivery
-                        var delivery = Delivery.GetByUserId(fe_bill.UserId, dbConn,true);
-                        if (delivery == null || UserId ==0) delivery = new Delivery();
+                        var delivery = Delivery.GetByUserId(fe_bill.UserId, dbConn, true);
+                        if (delivery == null || UserId == 0) delivery = new Delivery();
                         delivery.entrycode = "";
                         delivery.entryname = "";
                         delivery.userid = fe_bill.UserId;
@@ -667,8 +736,8 @@ namespace ananlips.Models
                     }
                 }
 
-               
-                
+
+
             }
         }
         public class FE_BillDetail
@@ -722,7 +791,8 @@ namespace ananlips.Models
         #endregion
 
         #region Delivery
-        public class FE_Delivery {
+        public class FE_Delivery
+        {
             public int DeliveryId { get; set; }
             public int UserId { get; set; }
             public string FullName { get; set; }
@@ -748,20 +818,20 @@ namespace ananlips.Models
                 }
             }
         }
-       
+
 
         #endregion
         public static List<DDLModel> ListOrderProduct()
         {
             var lstResult = new List<DDLModel>();
-            lstResult.Add(new DDLModel() { ID="CreatedAt",Name= "Thứ tự theo sản phẩm mới" });
+            lstResult.Add(new DDLModel() { ID = "CreatedAt", Name = "Thứ tự theo sản phẩm mới" });
             lstResult.Add(new DDLModel() { ID = "Price", Name = "Thứ tự theo giá: thấp đến cao" });
             lstResult.Add(new DDLModel() { ID = "Price desc", Name = "Thứ tự theo giá: cao xuống thấp" });
             lstResult.Add(new DDLModel() { ID = "Viewcount", Name = "Thứ tự theo mức độ phổ biến" });
             lstResult.Add(new DDLModel() { ID = "Sellcount", Name = "Thứ tự theo điểm đánh giá" });
             return lstResult;
         }
-       
+
     }
 
     public static class DataTableX

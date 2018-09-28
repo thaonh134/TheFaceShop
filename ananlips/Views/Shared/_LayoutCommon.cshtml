@@ -1,4 +1,5 @@
-﻿@using ananlips.Models
+﻿@using ananlips.Models;
+@using ananlips.ConstantValue;
 <html lang="vi" prefix="og: https://ogp.me/ns#" class="js js no-touch">
 @{
     var lstAllMenu = DefaultView.FE_MenuItem.GetMenu();
@@ -356,13 +357,13 @@
     <link rel="next" href="@Url.Action("Index","Home")">
     <meta property="og:locale" content="vi_VN">
     <meta property="og:type" content="object">
-    <meta property="og:title" content="Dưỡng da Archives - THEFACESHOP Việt Nam">
-    <meta property="og:url" content="https://thefaceshopvn.com/danh-muc/duong-da/">
-    <meta property="og:site_name" content="THEFACESHOP Việt Nam">
+    <meta property="og:title" content="Dưỡng da Archives - VT X BTS Việt Nam">
+    <meta property="og:url" content="@Url.Action("Index","Home")">
+    <meta property="og:site_name" content="VT X BTS Việt Nam">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Dưỡng da Archives - THEFACESHOP Việt Nam">
-    <link rel="alternate" type="application/rss+xml" title="Dòng thông tin THEFACESHOP Việt Nam »" href="@Url.Action("Index","Home")">
-    <link rel="alternate" type="application/rss+xml" title="Dòng phản hồi THEFACESHOP Việt Nam »" href="@Url.Action("Index","Home")">
+    <meta name="twitter:title" content="Trang chủ - VT X BTS">
+    <link rel="alternate" type="application/rss+xml" title="Dòng thông tin VT X BTS Việt Nam »" href="@Url.Action("Index","Home")">
+    <link rel="alternate" type="application/rss+xml" title="Dòng phản hồi VT X BTS Việt Nam »" href="@Url.Action("Index","Home")">
 
     <script type="text/javascript">
         var ajaxurl = "@Html.Raw(@Request.Url.GetLeftPart(UriPartial.Authority) + Url.Content("~").Replace("/", "\\/"))wp-admin\/admin-ajax.php";
@@ -482,15 +483,17 @@
         .fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}
         .fb_customer_chat_bounce_in_v1{animation-duration:250ms;animation-name:fb_bounce_in_v1}.fb_customer_chat_bounce_out_v1{animation-duration:250ms;animation-name:fb_bounce_out_v1}.fb_customer_chat_bounce_in_v2{animation-duration:300ms;animation-name:fb_bounce_in_v2;transition-timing-function:ease-in}.fb_customer_chat_bounce_out_v2{animation-duration:300ms;animation-name:fb_bounce_out_v2;transition-timing-function:ease-in}.fb_customer_chat_bounce_in_v2_mobile_chat_started{animation-duration:300ms;animation-name:fb_bounce_in_v2_mobile_chat_started;transition-timing-function:ease-in}.fb_customer_chat_bounce_out_v2_mobile_chat_started{animation-duration:300ms;animation-name:fb_bounce_out_v2_mobile_chat_started;transition-timing-function:ease-in}.fb_customer_chat_bubble_pop_in{animation-duration:250ms;animation-name:fb_customer_chat_bubble_bounce_in_animation}.fb_customer_chat_bubble_animated_no_badge{box-shadow:0 3px 12px rgba(0, 0, 0, .15);transition:box-shadow 150ms linear}.fb_customer_chat_bubble_animated_no_badge:hover{box-shadow:0 5px 24px rgba(0, 0, 0, .3)}.fb_customer_chat_bubble_animated_with_badge{box-shadow:-5px 4px 14px rgba(0, 0, 0, .15);transition:box-shadow 150ms linear}.fb_customer_chat_bubble_animated_with_badge:hover{box-shadow:-5px 8px 24px rgba(0, 0, 0, .2)}.fb_invisible_flow{display:inherit;height:0;overflow-x:hidden;width:0}.fb_mobile_overlay_active{background-color:#fff;height:100%;overflow:hidden;position:fixed;visibility:hidden;width:100%}@keyframes fb_bounce_in_v1{0%{opacity:0;transform:scale(.8, .8);transform-origin:bottom right}80%{opacity:.8;transform:scale(1.03, 1.03)}100%{opacity:1;transform:scale(1, 1)}}@keyframes fb_bounce_in_v2{0%{opacity:0;transform:scale(0, 0);transform-origin:bottom right}50%{transform:scale(1.03, 1.03);transform-origin:bottom right}100%{opacity:1;transform:scale(1, 1);transform-origin:bottom right}}@keyframes fb_bounce_in_v2_mobile_chat_started{0%{opacity:0;top:20px}100%{opacity:1;top:0}}@keyframes fb_bounce_out_v1{from{opacity:1}to{opacity:0}}@keyframes fb_bounce_out_v2{0%{opacity:1;transform:scale(1, 1);transform-origin:bottom right}100%{opacity:0;transform:scale(0, 0);transform-origin:bottom right}}@keyframes fb_bounce_out_v2_mobile_chat_started{0%{opacity:1;top:0}100%{opacity:0;top:20px}}@keyframes fb_customer_chat_bubble_bounce_in_animation{0%{bottom:6pt;opacity:0;transform:scale(0, 0);transform-origin:center}70%{bottom:18pt;opacity:1;transform:scale(1.2, 1.2)}100%{transform:scale(1, 1)}}
             </style>*@
+    <link rel="stylesheet" href="@Url.Content("~/Content/FESite_Footer.css")" type="text/css" media="all">
+
 </head>
 <body class="archive tax-product_cat term-duong-da term-155 woocommerce woocommerce-page yith-wcan-free wpb-js-composer js-comp-ver-4.9.1 vc_responsive">
     <div class="site">
         <div class="site-content">
             <div id="header" class="header option3">
-                <div class="top-header"><div class="container"><p class="hotline_headerD"><span>HOTLINE: 0901 974 445</span></p></div></div><div class="container main-header">
+                <div class="top-header"><div class="container"><p class="hotline_headerD"><span>HOTLINE: 028.3848.6058</span></p></div></div><div class="container main-header">
                     <div class="row top-main-header"><div class="col-sm-12 col-md-12 col-lg-3"></div><div class="col-sm-7 col-md-6"></div></div><div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3 logo">
-                            <a href="@Url.Action("Index","Home")"><img alt="THEFACESHOP Việt Nam" src="~/Scripts/wp-content/uploads/2017/04/logo-1.png" class="_rw"></a>
+                            <a href="@Url.Action("Index","Home")"><img alt="VT X BTS Việt Nam" src="~/Scripts/wp-content/uploads/2017/04/logo-1.png" class="_rw"></a>
                         </div><div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 header-search-box">
                             <form class="form-inline woo-search" method="get" onsubmit="return frmSearchSubmit()" id="frmSearch">
 
@@ -551,16 +554,19 @@
                                 </div>
                             </div>
                             <script type="text/javascript">jQuery(document).ready(function (e) { jQuery('.count_spNew').html("30"); });</script> <div class="main-menu main-menu-wapper">
-                                <ul id="menu-main-menu" class="navigation navigation-main-menu">
-                                    <li id="menu-item-2095" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2095"><a title="Trang chủ" href="@Url.Action("Index","Home")">Trang chủ</a></li>
-                                    <li id="menu-item-3278" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3278"><a title="Chính sách sỉ" href="@Url.Action("Index","Home")">Chính sách sỉ</a></li>
-                                    <li id="menu-item-2096" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2096"><a title="Hướng dẫn mua hàng" href="@Url.Action("Index","Home")">Hướng dẫn mua hàng</a></li>
-                                    <li id="menu-item-2099" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2099"><a title="Thương hiệu" href="@Url.Action("Index","Home")">Thương hiệu</a></li>
-                                    <li id="menu-item-2098" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2098">
-                                        <a title="Facebook"
-                                           href="https://www.facebook.com/mrhoang776020">Facebook</a>
-                                    </li>
-                                </ul>
+                                                                                                                                                     <ul id="menu-main-menu" class="navigation navigation-main-menu">
+                                                                                                                                                         <li id="menu-item-2095" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2095"><a title="Trang chủ" href="@Url.Action("Index","Home")">Trang chủ</a></li>
+                                                                                                                                                         <li id="menu-item-3278" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3278"><a title="Chính sách sỉ" href="@Url.Action("Index","Article",new { Type=(int)ArticleType.PricingPolicy})">Chính sách sỉ</a></li>
+                                                                                                                                                         <li id="menu-item-2096" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2096"><a title="Hướng dẫn mua hàng" href="@Url.Action("Index","Article",new { Type=(int)ArticleType.ShoppingGuide})">Hướng dẫn mua hàng</a></li>
+                                                                                                                                                         <li id="menu-item-2096" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2096"><a title="Hướng dẫn mua hàng" href="@Url.Action("Index","Article",new { Type=(int)ArticleType.Distribution})">Hệ thống phân phối</a></li>
+                                                                                                                                                         <li id="menu-item-2096" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2096"><a title="Hướng dẫn mua hàng" href="@Url.Action("Index","Article",new { Type=(int)ArticleType.Contact})">Liên hệ</a></li>
+                                                                                                                                                         <li id="menu-item-2096" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2096"><a title="Hướng dẫn mua hàng" href="@Url.Action("Index","Article",new { Type=(int)ArticleType.News})">Tin tức</a></li>
+                                                                                                                                                         @*<li id="menu-item-2099" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2099"><a title="Thương hiệu" href="@Url.Action("Index","Home")">Thương hiệu</a></li>*@
+                                                                                                                                                         @*<li id="menu-item-2098" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2098">
+            <a title="Facebook"
+               href="https://www.facebook.com/mrhoang776020">Facebook</a>
+        </li>*@
+                                                                                                                                                     </ul>
                                 <a href="#" class="mobile-navigation">Menu<i class="fa fa-bars"></i></a>
                             </div>
                         </div><div id="form-search-opntop"></div><div id="shopping-cart-box-ontop">
@@ -815,13 +821,13 @@
                 }*/
     </style>
     @*<div data-toggle="0" class="wrap" style="position: fixed; width: 280px; height: 320px; display: block;">
-        <div  style="position:relative; z-index:9999999; right:0px; bottom:21px;border-left: 1px solid #fff;border-top: 1px solid #fff;">
-            <span style="vertical-align: bottom; width: 280px; height: 320px;">
-                <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fmrhoang776020&tabs=timeline&width=280&height=320&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=true&appId=995556407277448" width="280" height="320" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-            </span>
-        </div>
-        <p class="pxem" style=""><a class="axem" style="" href="#" target="_blank">HOTLINE: 0901 974 445</a><a class="alogo" style=""></a></p>
-    </div>*@
+            <div  style="position:relative; z-index:9999999; right:0px; bottom:21px;border-left: 1px solid #fff;border-top: 1px solid #fff;">
+                <span style="vertical-align: bottom; width: 280px; height: 320px;">
+                    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fmrhoang776020&tabs=timeline&width=280&height=320&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=true&appId=995556407277448" width="280" height="320" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+                </span>
+            </div>
+            <p class="pxem" style=""><a class="axem" style="" href="#" target="_blank">HOTLINE: 028.3848.6058</a><a class="alogo" style=""></a></p>
+        </div>*@
     @*<div class="vnk-tuvan" style="width: 278px;"><p style=" "><a style="">Hãy giao tiếp với chúng tôi</a></p></div>*@
     @*<script>(function (i, s, o, g, r, a, m) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o), m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m) })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga'); ga('create', 'UA-58189837-4', 'auto'); ga('send', 'pageview');</script>*@
     <!--

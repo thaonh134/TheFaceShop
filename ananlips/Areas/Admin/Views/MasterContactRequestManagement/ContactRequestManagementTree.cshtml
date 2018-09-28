@@ -6,11 +6,11 @@
 @{
     var dict = Model != null ? (Dictionary<string, object>)Model : new Dictionary<string, object>();
     var listActiveStatus = dict.ContainsKey("activestatus") ? (List<DDLModel>)dict["activestatus"] : new List<DDLModel>();
-    var listCategory = dict.ContainsKey("categorys") ? (List<DDLModel>)dict["categorys"] : new List<DDLModel>();
+    var list_TopicContacts = dict.ContainsKey("list_TopicContacts") ? (List<DDLModel>)dict["list_TopicContacts"] : new List<DDLModel>();
     var listLanguage = dict.ContainsKey("listlanguage") ? (List<DDLModel>)dict["listlanguage"] : new List<DDLModel>();
     var redirectbyajax = dict.ContainsKey("redirectbyajax") ? dict["redirectbyajax"].ToString() : "0";
     var areasname = dict.ContainsKey("areasname") && !string.IsNullOrEmpty(dict["areasname"].ToString()) ? "/" + dict["areasname"].ToString() : "";
-    var newData = new Product();
+    var newData = new AuthUser();
 }
 
 @*layout config*@
@@ -26,7 +26,7 @@
 
     //Xử lý param_obj
     param_obj = {};
-    param_obj.ourl = "/MasterProductManagement";
+    param_obj.ourl = "/MasterContactRequestManagement";
     param_obj.entryid = "@ViewBag.entryid";
     param_obj.actiontype = "@ViewBag.actiontype";
     param_obj.fa = "@ViewBag.fa";
@@ -62,22 +62,22 @@
         obj.Common_btn_Active = "@Html.Raw(tw_Lang.Common_btn_Active)";
         obj.Common_btn_InActive = "@Html.Raw(tw_Lang.Common_btn_InActive)";
 
-        obj.MasterProductManagement_title_Page = "ProductManagement";
+        obj.MasterContactRequestManagement_title_Page = "ContactRequestManagement";
 
         return obj;
     }
 
     $(document).ready(function () {
 
-            setActiveMenu($("#menu_MasterProductManagement")[0]);
-            setTimeout(function () { document.title = resource_lang.MasterProductManagement_title_Page; }, 100);
+            setActiveMenu($("#menu_MasterContactRequestManagement")[0]);
+            setTimeout(function () { document.title = resource_lang.MasterContactRequestManagement_title_Page; }, 100);
             loadToolbarStyle();
             resizedivMainContent();
 
             //fillter & form popup
-        generateSelect2('s', 'filtercategory', null, '100%');
             generateSelect2('s', 'filterisactive', null, '100%');
-
+        generateSelect2('s', 'filtertopiccontact', null, '100%');
+        
             //goi ham search khi nhan enter
             $("#filterentryname, #filterentrycode")
                 .keypress(function (e) {
@@ -85,7 +85,7 @@
                         doSearch();
                     }
                 });
-        $("#filterisactive,#filtercategory")
+        $("#filterisactive,#filtertopiccontact")
                 .change(function () {
                     doSearch();
                 });
@@ -204,9 +204,9 @@
         if (text) {
             filter.filters.push({ field: "entrycode", operator: "contains", value: text });
         }
-        text = $("#filtercategory").val();
+        text = $("#filtertopiccontact").val();
         if (text) {
-            filter.filters.push({ field: "categoryid", operator: "eq", value: text });
+            filter.filters.push({ field: "topiccontact", operator: "eq", value: text });
         }
         var temppp = grid.dataSource.filter;
         grid.dataSource.filter(filter);
@@ -217,8 +217,8 @@
         $("#filterentryname").val('');
         $("#filterentrycode").val('');
         generateSelect2('s', 'filterisactive', '', '100%');
-        generateSelect2('s', 'filtercategory', '', '100%');
-
+        generateSelect2('s', 'filtertopiccontact', '', '100%');
+        
         var isFilterType = false; // 0|1 : khi refresh chỉ đọc grid | refresh có gọi filter manual
         if (isFilterType) doSearch();
         else $('#grid').data('kendoGrid').dataSource.sort({});
@@ -292,7 +292,7 @@
                 function (ButtonPressed) {
                     if (ButtonPressed === resource_lang.Common_mess_btn_Confirm) {
                         blockUIFromUser(true);
-                        $.post(r + "/MasterProductManagement/UpdateActiveStatus",
+                        $.post(r + "/MasterContactRequestManagement/UpdateActiveStatus",
                             { entryid: entryid, isactive: isactive },
                             function (data) {
                                 if (data.success) {
@@ -349,16 +349,18 @@
                                     <input type="text" class="form-control" id="filterentryname" placeholder="entryname">
 
                                 </div>
+
                                 <div class="form-group col-sm-12" style="margin-left: 0; margin-right: 0">
-                                    <select class="form-control input-sm" id="filtercategory">
-                                        <option value="">-- category --</option>
-                                        @for (var i = 0; i < listCategory.Count; i++)
+                                    <select class="form-control input-sm" id="filtertopiccontact">
+                                        <option value="">-- topiccontact --</option>
+                                        @for (var i = 0; i < list_TopicContacts.Count; i++)
                                         {
-                                            <option value="@Html.Raw(listCategory[i].ID)">@Html.Raw(listCategory[i].Name)</option>
+                                            <option value="@Html.Raw(list_TopicContacts[i].ID)">@Html.Raw(list_TopicContacts[i].Name)</option>
                                         }
                                     </select>
 
                                 </div>
+
                                 <div class="form-group col-sm-12" style="margin-left: 0; margin-right: 0">
                                     <select class="form-control input-sm" id="filterisactive">
                                         <option value="">-- isactive --</option>
@@ -381,26 +383,26 @@
     <div class="divMainContent">
         <div class="row">
             <!-- NEW COL START -->
-            @(Html.Kendo().Grid<ananlips.Areas.Admin.Models.Product>
+            @(Html.Kendo().Grid<ananlips.Areas.Admin.Models.ContactRequest>
     ()
     .Name("grid")
     .Columns(columns =>
     {
-    columns.Bound(p => p.entryid).Title("entryid");
-    columns.Bound(p => p.entrycode).Title("entrycode");
-    columns.Bound(p => p.entryname).Title("entryname");
-    columns.Bound(p => p.isactive).Title(Html.Raw(tw_Lang.Common_ddl_ActiveStatus).ToString());
+        columns.Bound(p => p.entryid).Title("entryid");
+        columns.Bound(p => p.entryname).Title("topiccontact");
+        columns.Bound(p => p.entryname).Title("entryname");
+        columns.Bound(p => p.isactive).Title(Html.Raw(tw_Lang.Common_ddl_ActiveStatus).ToString());
 
     })
     .ClientRowTemplate("#=template(data)#")
     .ToolBar(toolBar =>
     {
-    toolBar.Custom()
-    .Text(Html.Raw(tw_Lang.Common_btn_Add).ToString())
-    .HtmlAttributes(new { id = "btnInsert", @class = "btn btn-success tw-btn-add btn-sm no-k-button", data_actiontype = "popup", onclick = "routerActionLink(this)", @href = "javascript:void(0)" });
-    toolBar.Custom()
-    .Text("")
-    .HtmlAttributes(new { id = "btnSearchF", @class = "btn btn-default tw-btn-refresh btn-sm no-k-button pull-right", onclick = "doRefresh()", @href = "javascript:void(0)" });
+        toolBar.Custom()
+        .Text(Html.Raw(tw_Lang.Common_btn_Add).ToString())
+        .HtmlAttributes(new { id = "btnInsert", @class = "btn btn-success tw-btn-add btn-sm no-k-button", data_actiontype = "popup", onclick = "routerActionLink(this)", @href = "javascript:void(0)" });
+        toolBar.Custom()
+        .Text("")
+        .HtmlAttributes(new { id = "btnSearchF", @class = "btn btn-default tw-btn-refresh btn-sm no-k-button pull-right", onclick = "doRefresh()", @href = "javascript:void(0)" });
 
     })
     .Events(events => { events.DataBound("onDatabound"); })
@@ -413,11 +415,11 @@
     .PageSize(10)
     .Model(model =>
     {
-    model.Id(p => p.entryid);
+        model.Id(p => p.entryid);
     }
     )
     .Events(e => { e.RequestEnd("onRequestEnd"); e.RequestStart("onRequestStart"); })
-    .Read(read => read.Action("Read", "MasterProductManagement").Data("getDataFilter"))
+    .Read(read => read.Action("Read", "MasterContactRequestManagement").Data("getDataFilter"))
     )
     )
 </div>
@@ -429,7 +431,7 @@
             #=data.entryid#
         </td>
         <td>
-            #=data.entrycode#
+            #=data.topiccontactname#
         </td>
         <td>
             #=data.entryname#
@@ -446,6 +448,13 @@
                         <div class="caption" style="margin-bottom: 10px;">
                             <h5 style="color: rgb(31, 78, 120); margin-bottom: 0px">Detail</h5>
                             <hr style=" margin-top: 0px;">
+                        </div>
+                        <div class="form-group tw-form-group-grid">
+                            <label class="control-label tw-lbl-field-title">topiccontact</label>
+                            <div class="tw-lbl-field-value">
+                                <strong>#=data.topiccontactname#</strong>
+                            </div>
+                            <div style="clear:both"></div>
                         </div>
                         <div class="form-group tw-form-group-grid">
                             <label class="control-label tw-lbl-field-title">entryname</label>

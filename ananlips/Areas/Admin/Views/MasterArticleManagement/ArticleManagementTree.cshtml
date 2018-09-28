@@ -6,11 +6,11 @@
 @{
     var dict = Model != null ? (Dictionary<string, object>)Model : new Dictionary<string, object>();
     var listActiveStatus = dict.ContainsKey("activestatus") ? (List<DDLModel>)dict["activestatus"] : new List<DDLModel>();
-    var listCategory = dict.ContainsKey("categorys") ? (List<DDLModel>)dict["categorys"] : new List<DDLModel>();
+    var listArticleTypes = dict.ContainsKey("articletypes") ? (List<DDLModel>)dict["articletypes"] : new List<DDLModel>();
     var listLanguage = dict.ContainsKey("listlanguage") ? (List<DDLModel>)dict["listlanguage"] : new List<DDLModel>();
     var redirectbyajax = dict.ContainsKey("redirectbyajax") ? dict["redirectbyajax"].ToString() : "0";
     var areasname = dict.ContainsKey("areasname") && !string.IsNullOrEmpty(dict["areasname"].ToString()) ? "/" + dict["areasname"].ToString() : "";
-    var newData = new Product();
+    var newData = new Article();
 }
 
 @*layout config*@
@@ -26,7 +26,7 @@
 
     //Xử lý param_obj
     param_obj = {};
-    param_obj.ourl = "/MasterProductManagement";
+    param_obj.ourl = "/MasterArticleManagement";
     param_obj.entryid = "@ViewBag.entryid";
     param_obj.actiontype = "@ViewBag.actiontype";
     param_obj.fa = "@ViewBag.fa";
@@ -62,21 +62,21 @@
         obj.Common_btn_Active = "@Html.Raw(tw_Lang.Common_btn_Active)";
         obj.Common_btn_InActive = "@Html.Raw(tw_Lang.Common_btn_InActive)";
 
-        obj.MasterProductManagement_title_Page = "ProductManagement";
+        obj.MasterArticleManagement_title_Page = "ArticleManagement";
 
         return obj;
     }
 
     $(document).ready(function () {
 
-            setActiveMenu($("#menu_MasterProductManagement")[0]);
-            setTimeout(function () { document.title = resource_lang.MasterProductManagement_title_Page; }, 100);
+            setActiveMenu($("#menu_MasterArticleManagement")[0]);
+            setTimeout(function () { document.title = resource_lang.MasterArticleManagement_title_Page; }, 100);
             loadToolbarStyle();
             resizedivMainContent();
 
             //fillter & form popup
-        generateSelect2('s', 'filtercategory', null, '100%');
-            generateSelect2('s', 'filterisactive', null, '100%');
+        generateSelect2('s', 'filterarticletype', null, '100%');
+         generateSelect2('s', 'filterisactive', null, '100%');
 
             //goi ham search khi nhan enter
             $("#filterentryname, #filterentrycode")
@@ -85,7 +85,7 @@
                         doSearch();
                     }
                 });
-        $("#filterisactive,#filtercategory")
+        $("#filterisactive,#filterarticletype")
                 .change(function () {
                     doSearch();
                 });
@@ -204,9 +204,10 @@
         if (text) {
             filter.filters.push({ field: "entrycode", operator: "contains", value: text });
         }
-        text = $("#filtercategory").val();
+       
+        text = $("#filterarticletype").val();
         if (text) {
-            filter.filters.push({ field: "categoryid", operator: "eq", value: text });
+            filter.filters.push({ field: "articletype", operator: "eq", value: text });
         }
         var temppp = grid.dataSource.filter;
         grid.dataSource.filter(filter);
@@ -217,7 +218,7 @@
         $("#filterentryname").val('');
         $("#filterentrycode").val('');
         generateSelect2('s', 'filterisactive', '', '100%');
-        generateSelect2('s', 'filtercategory', '', '100%');
+        generateSelect2('s', 'filterarticletype', '', '100%');
 
         var isFilterType = false; // 0|1 : khi refresh chỉ đọc grid | refresh có gọi filter manual
         if (isFilterType) doSearch();
@@ -292,7 +293,7 @@
                 function (ButtonPressed) {
                     if (ButtonPressed === resource_lang.Common_mess_btn_Confirm) {
                         blockUIFromUser(true);
-                        $.post(r + "/MasterProductManagement/UpdateActiveStatus",
+                        $.post(r + "/MasterArticleManagement/UpdateActiveStatus",
                             { entryid: entryid, isactive: isactive },
                             function (data) {
                                 if (data.success) {
@@ -349,12 +350,13 @@
                                     <input type="text" class="form-control" id="filterentryname" placeholder="entryname">
 
                                 </div>
+                                
                                 <div class="form-group col-sm-12" style="margin-left: 0; margin-right: 0">
-                                    <select class="form-control input-sm" id="filtercategory">
-                                        <option value="">-- category --</option>
-                                        @for (var i = 0; i < listCategory.Count; i++)
+                                    <select class="form-control input-sm" id="filterarticletype">
+                                        <option value="">-- articletype --</option>
+                                        @for (var i = 0; i < listArticleTypes.Count; i++)
                                         {
-                                            <option value="@Html.Raw(listCategory[i].ID)">@Html.Raw(listCategory[i].Name)</option>
+                                            <option value="@Html.Raw(listArticleTypes[i].ID)">@Html.Raw(listArticleTypes[i].Name)</option>
                                         }
                                     </select>
 
@@ -381,7 +383,7 @@
     <div class="divMainContent">
         <div class="row">
             <!-- NEW COL START -->
-            @(Html.Kendo().Grid<ananlips.Areas.Admin.Models.Product>
+            @(Html.Kendo().Grid<ananlips.Areas.Admin.Models.Article>
     ()
     .Name("grid")
     .Columns(columns =>
@@ -417,7 +419,7 @@
     }
     )
     .Events(e => { e.RequestEnd("onRequestEnd"); e.RequestStart("onRequestStart"); })
-    .Read(read => read.Action("Read", "MasterProductManagement").Data("getDataFilter"))
+    .Read(read => read.Action("Read", "MasterArticleManagement").Data("getDataFilter"))
     )
     )
 </div>

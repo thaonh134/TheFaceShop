@@ -49,7 +49,7 @@
             @using (Html.BeginForm("Create", "BillDetailManagement", FormMethod.Post, new { @class = "form-horizontal", id = "formPopup", enctype = "multipart/form-data" }))
             {
                 @Html.Hidden("entryid", "#=entryid#");
-                @Html.Hidden("entrycode", "#=entrycode#");
+                <input  type="hidden" id="entrycode" name="entrycode" value="#=entrycode!=null? entrycode : ''#"/>
 
                 <fieldset class="col-lg-6" style="float: left;">
                     <div class="caption" style="margin-bottom: 10px;">

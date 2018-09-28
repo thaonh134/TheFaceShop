@@ -7,7 +7,8 @@
     var listLanguage = dict.ContainsKey("listlanguage") ? (List<DDLModel>)dict["listlanguage"] : new List<DDLModel>();
     var redirectbyajax = dict.ContainsKey("redirectbyajax") ? dict["redirectbyajax"].ToString() : "0";
     var areasname = dict.ContainsKey("areasname") && !string.IsNullOrEmpty(dict["areasname"].ToString()) ? "/" + dict["areasname"].ToString() : "";
-    var newData = new Bill();
+    var listArticleTypes = dict.ContainsKey("articletypes") ? (List<DDLModel>)dict["articletypes"] : new List<DDLModel>();
+    var newData = new Article();
 }
 @{
     var V_ID = ViewBag.ID;
@@ -31,7 +32,7 @@
 </script>
 
 <script>
-   
+
 </script>
 
 <div id="popup" style="display: none;">
@@ -46,11 +47,12 @@
     <div class="row">
 
         <div class="col-md-12">
-            @using (Html.BeginForm("Create", "BillManagement", FormMethod.Post, new { @class = "form-horizontal", id = "formPopup", enctype = "multipart/form-data" }))
+            @using (Html.BeginForm("Create", "MasterArticleManagement", FormMethod.Post, new { @class = "form-horizontal", id = "formPopup", enctype = "multipart/form-data" }))
             {
                 @Html.Hidden("entryid", "#=entryid#");
                 <input  type="hidden" id="entrycode" name="entrycode" value="#=entrycode!=null? entrycode : ''#"/>
-
+                @Html.Hidden("comments", "#=comments#");
+            <div id="ArticleInfor" class="col-lg-12" style="float: left;">
                 <fieldset class="col-lg-6" style="float: left;">
                     <div class="caption" style="margin-bottom: 10px;">
                         <h5 style="color: rgb(31, 78, 120); margin-bottom: 0px">Detail</h5>
@@ -62,7 +64,20 @@
                             <input class="form-control input-sm" name="entryname" id="entryname" value="#=entryname!=null? entryname : ''#" placeholder="entryname" />
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-4" style="">category<span class="required">*</span></label>
+                        <div class=" col-md-8 ">
+                            <select class="form-control input-sm" id="articletype" name="articletype">
+                                <option value="">-- articletype --</option>
+                                @for (var i = 0; i < listArticleTypes.Count; i++)
+                                {
+                                    <option value="@Html.Raw(listArticleTypes[i].ID)">@Html.Raw(listArticleTypes[i].Name)</option>
+                                }
+                            </select>
 
+
+                        </div>
+                    </div>
                     <div class="form-group" style="">
                         <label class="control-label col-md-4" style="">isactive</label>
                         <div class=" col-md-8 ">
@@ -85,8 +100,20 @@
                         <hr style=" margin-top: 0px;">
                     </div>
 
+                    
                 </fieldset>
+                
+            </div>
+                
+                <fieldset id="commentsDiv" class="col-lg-12" style="float: left;  clear: both; border-top: none; ">
+                    <section>
+                        <label class="label" style="float:left">comments</label>
+                        <div class="col-md-9" style="float: right; width: 100%;">
+                            <textarea id="commentsView" name="commentsView" rows="10" cols="30"></textarea>
+                        </div>
+                    </section>
 
+                </fieldset>
                 <div class="form-actions" style="margin:0">
                     <div class="row" style="text-align: left">
                         <div class="col-md-12">
@@ -121,8 +148,8 @@
         if (!obj) obj = {};
 
         //mess
-        obj.BillManagement_titleform_Add = "Add New";
-        obj.BillManagement_titleform_Update = "Update Item";
+        obj.MasterArticleManagement_titleform_Add = "Add New";
+        obj.MasterArticleManagement_titleform_Update = "Update Item";
         //mess validate
         obj.Common_mess_RequiredInformation = "@Html.Raw(tw_Lang.Common_mess_RequiredInformation)";
         obj.Common_mess_WrongSyntax = "@Html.Raw(tw_Lang.Common_mess_WrongSyntax)";
@@ -134,17 +161,69 @@
         return obj;
     }
     //===========================================Popup Form ===========================================
+    //$("#formPopup #customFile").on("change", function (e) {
+    //    var file = $(this)[0].files[0];
+    //    var upload = new Upload(file);
 
+    //    // maby check size or type here with upload.getSize() and upload.getType()
+
+    //    // execute upload
+    //    //upload.doUpload();
+    //});
+
+    function onUploadFile() {
+        var myFormData = new FormData();
+        myFormData.append('fileupload', $("#formPopup #customFile")[0].files[0]);
+
+        $.ajax({
+            url: r + "/Home/UploadFiles",
+            type: 'POST',
+            processData: false, // important
+            contentType: false, // important
+            dataType: 'json',
+            data: myFormData,
+            success: function (result) {
+                if (result && result.length>0)
+                    $("#formPopup #defautlimg").val(result[0].url);
+                $("#formPopup #imgPreview").attr("src", result[0].url);
+                $("#formPopup #imgPreview").show();
+            },
+            error(xhr, status, error) {
+                bootbox.alert("Upload Fail!");
+            }
+        });
+    }
+    function onDeleteFile() {
+        $("#formPopup #defautlimg").val("");
+        $("#formPopup #imgPreview").hide();
+    }
     //Numeric format form
     function autoNumericOnFormElement() {
         //Numeric format
-        //autoNumericOnForm($('#formPopupSales_Order_JobQueue_TVN #extend_time'), 'numberRule', { aSign: ' lần', pSign: 's' });
+      
     }
+    //function cho editor
+    function createEditor(languageCode, id, value) {
+        //var ArticleContentDivHeight = parseInt($(window).height()) - $('#ArticleContentInfor').height();
+        @*CKEDITOR.replace(id, {
+            var urlBase = '@Url.Action()';
+            customConfig: '/custom/ckeditor_config.js'
+        });*@
+        var editor = CKEDITOR.replace(id, { language: languageCode, height: 200 });
+        //$('#ArticleContentDiv').height(ArticleContentDivHeight);
+        //set value
+        CKEDITOR.instances['commentsView'].setData(htmlDecode(value ? value : ""));
 
+        //onchange
+        CKEDITOR.instances['commentsView'].on('change', function () {
+            var editor_data = CKEDITOR.instances['commentsView'].getData();
+            $('#formPopup #comments').val(htmlEncode(editor_data));
+        });
+    }
     //Update
     function edit(obj) {
         blockUIFromUser(true);
-        $.post(r + "/BillManagement/GetByID", { entryid: obj.entryid }, function (data) {
+        $.post(r + "/MasterArticleManagement/GetByID", { entryid: obj.entryid }, function (data) {
             if (data.success) {
                 var value = data.data;
 
@@ -175,7 +254,7 @@
                 animate: false,
                 backdrop: true,
                 className: "normalPopupWidth",
-                message: '<div id="DivEdit"></div>', title: (type == 0 ? resource_lang.BillManagement_titleform_Add : resource_lang.BillManagement_titleform_Update),
+                message: '<div id="DivEdit"></div>', title: (type == 0 ? resource_lang.MasterArticleManagement_titleform_Add : resource_lang.MasterArticleManagement_titleform_Update),
                 onEscape: function () {
                     onClosePopupCustom();
                 }
@@ -193,10 +272,14 @@
 
         //forcus
         setForcusPopup('formPopup');
+        //Editor
+        $(function () { createEditor('en', 'commentsView', data.comments) });
+        $("#formPopup #comments").val(data.comments);
 
         //selection
         //generateSelect2('s', 'formPopup #roleid', data.roleid == 0 ? null : data.roleid, '100%');
         //generateSelect2('s', 'formPopup #languageid', data.languageid == 0 ? null : data.languageid, '100%');
+        generateSelect2('s', 'formPopup #articletype', (data.articletype == 0 ? 0 : data.articletype), '100%');
         generateSelect2('s', 'formPopup #isactive', (data.isactive == false ? 'false' : 'true'), '100%');
 
         //multiselect
@@ -204,7 +287,7 @@
         //set type nodata cho option
 
         //process when change value
-       
+        autoNumericOnFormElement();
 
         validateFormPopup();
 
@@ -212,7 +295,7 @@
 
 
     }
-
+    
     //Validate form
     function validateFormPopup() {
         $("#formPopup").validate({
@@ -224,10 +307,13 @@
                 entryname: {
                     required: true
                 },
+                articletype: {
+                    required: true
+                },
                 isactive: {
                     required: true
                 },
-               
+
 
             },
 
@@ -239,10 +325,13 @@
                 entryname: {
                     required: resource_lang.Common_mess_RequiredInformation
                 },
+                articletype: {
+                    required: resource_lang.Common_mess_RequiredInformation
+                },
                 isactive: {
                     required: resource_lang.Common_mess_RequiredInformation
                 },
-               
+
             },
 
             // Do not change code below

@@ -1,7 +1,4 @@
-using ananlips.Areas.Admin.Models;
-using ananlips.Resources;
-using ananlips.Service;
-using Kendo.Mvc.UI;
+﻿using Kendo.Mvc.UI;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -10,10 +7,12 @@ using System.Web;
 using System.Web.Mvc;
 using ServiceStack.OrmLite;
 using System.Text;
+using ananlips.Service;
+using ananlips.Areas.Admin.Models;
 
 namespace ananlips.Areas.Admin.Controllers
 {
-    public class MasterProductManagementController : CustomController
+    public class MasterContactRequestManagementController : CustomController
     {
         #region Tree
         public ActionResult Index(string redirectbyajax, string entryid, string actiontype, string fa)
@@ -22,7 +21,7 @@ namespace ananlips.Areas.Admin.Controllers
             IDbConnection dbConn = new OrmliteConnection().openConn();
             var dict = new Dictionary<string, object>();
             dict["activestatus"] = CustomModel.GetActiveStatus();
-            dict["categorys"] = CustomModel.GetCategoryDDL();
+            dict["list_TopicContacts"] = CustomModel.GetTopicContactDDl();
             dict["listlanguage"] = CustomModel.GetLanguage();
             dict["areasname"] = "Admin";
             dict["redirectbyajax"] = string.IsNullOrEmpty(redirectbyajax) ? "0" : "1";
@@ -32,7 +31,7 @@ namespace ananlips.Areas.Admin.Controllers
             ViewBag.entryid = string.IsNullOrEmpty(entryid) ? "0" : entryid;
             ViewBag.actiontype = string.IsNullOrEmpty(actiontype) ? "" : actiontype;
             ViewBag.fa = string.IsNullOrEmpty(fa) ? "" : fa;
-            return View("ProductManagementTree", dict);
+            return View("ContactRequestManagementTree", dict);
 
         }
         [AcceptVerbs(HttpVerbs.Post)]
@@ -45,7 +44,7 @@ namespace ananlips.Areas.Admin.Controllers
             }
             //var UserType = 1;//1: backend|2: card-holder|3: pos
             var userid = 0;
-            var data = new Product().GetPage(request, whereCondition, isactive, userid);
+            var data = new ContactRequest().GetPage(request, whereCondition, isactive, userid);
             return Json(data);
         }
 
@@ -61,7 +60,7 @@ namespace ananlips.Areas.Admin.Controllers
             IDbConnection dbConn = new OrmliteConnection().openConn();
             var dict = new Dictionary<string, object>();
             dict["activestatus"] = CustomModel.GetActiveStatus();
-            dict["listcategory"] = CustomModel.GetCategoryForDDL();
+            dict["list_TopicContacts"] = CustomModel.GetTopicContactDDl();
             dbConn.Close();
 
             //set parameter
@@ -69,25 +68,25 @@ namespace ananlips.Areas.Admin.Controllers
             dict["redirectbyajax"] = redirectbyajax;
             ViewBag.entryid = string.IsNullOrEmpty(entryid) ? "0" : entryid;
             ViewBag.entrykey = string.IsNullOrEmpty(entrykey) ? "0" : entrykey;
-            return View("ProductManagementForm", dict);
+            return View("ContactRequestManagementForm", dict);
 
 
         }
 
         [HttpPost]
-        public ActionResult Create(Product item)
+        public ActionResult Create(ContactRequest item)
         {
             IDbConnection db = new OrmliteConnection().openConn();
             try
             {
                 item.entryname = item.entryname ?? "";
                 item.entrycode = item.entrycode ?? "";
+                item.address = item.address ?? "";
                 //if (string.IsNullOrEmpty(item.entryname) || string.IsNullOrEmpty(item.entrycode)) return Json(new { success = false, message = tw_Lang.Common_ActionResult_MissingInfo });
-                var isExist = Product.GetById(item.entryid, null, false) ;
+                var isExist = ContactRequest.GetById(item.entryid, null, false);
 
                 //Validate
-                item.unitquantity = item.unitquantity == 0 ? 1 : item.unitquantity;
-                item.priceamount = item.price*(1 - item.discount/100);
+
                 //insert / update
                 if (item.entryid == 0)
                 {
@@ -118,7 +117,7 @@ namespace ananlips.Areas.Admin.Controllers
             finally { db.Close(); }
 
         }
-       
+
 
         [HttpPost]
         public ActionResult UpdateActiveStatus(int entryid, bool isactive)
@@ -126,7 +125,7 @@ namespace ananlips.Areas.Admin.Controllers
             IDbConnection db = new OrmliteConnection().openConn();
             try
             {
-                var isExist =Product.GetById(entryid, null, false);
+                var isExist = ContactRequest.GetById(entryid, null, false);
                 isExist.isactive = isactive;
                 isExist.updatedby = currentUser.entryid;
                 isExist.updatedat = DateTime.Now;
@@ -154,13 +153,13 @@ namespace ananlips.Areas.Admin.Controllers
             IDbConnection dbConn = new OrmliteConnection().openConn();
             try
             {
-                var data =Product.GetById(entryid, null, false);
-                var ref_Roles = CustomModel.GetActiveStatus(); 
+                var data = ContactRequest.GetById(entryid, null, false);
+                var ref_Roles = CustomModel.GetActiveStatus();
                 return Json(new
                 {
                     success = true,
                     data = data
-                   
+
                 });
             }
             catch (Exception e)
@@ -170,6 +169,8 @@ namespace ananlips.Areas.Admin.Controllers
             finally { dbConn.Close(); }
         }
         #endregion
+        #region Order progress
 
+        #endregion
     }
 }

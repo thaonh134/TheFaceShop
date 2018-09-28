@@ -4,10 +4,11 @@
 @{
     var dict = Model != null ? (Dictionary<string, object>)Model : new Dictionary<string, object>();
     var listActiveStatus = dict.ContainsKey("activestatus") ? (List<DDLModel>)dict["activestatus"] : new List<DDLModel>();
+    var list_TopicContacts = dict.ContainsKey("list_TopicContacts") ? (List<DDLModel>)dict["list_TopicContacts"] : new List<DDLModel>();
     var listLanguage = dict.ContainsKey("listlanguage") ? (List<DDLModel>)dict["listlanguage"] : new List<DDLModel>();
     var redirectbyajax = dict.ContainsKey("redirectbyajax") ? dict["redirectbyajax"].ToString() : "0";
     var areasname = dict.ContainsKey("areasname") && !string.IsNullOrEmpty(dict["areasname"].ToString()) ? "/" + dict["areasname"].ToString() : "";
-    var newData = new Bill();
+    var newData = new ContactRequest();
 }
 @{
     var V_ID = ViewBag.ID;
@@ -46,23 +47,69 @@
     <div class="row">
 
         <div class="col-md-12">
-            @using (Html.BeginForm("Create", "BillManagement", FormMethod.Post, new { @class = "form-horizontal", id = "formPopup", enctype = "multipart/form-data" }))
+            @using (Html.BeginForm("Create", "MasterContactRequestManagement", FormMethod.Post, new { @class = "form-horizontal", id = "formPopup", enctype = "multipart/form-data" }))
             {
                 @Html.Hidden("entryid", "#=entryid#");
-                <input  type="hidden" id="entrycode" name="entrycode" value="#=entrycode!=null? entrycode : ''#"/>
-
+                <input type="hidden" id="entrycode" name="entrycode" value="#=entryname!=null? entryname : ''#" />
                 <fieldset class="col-lg-6" style="float: left;">
                     <div class="caption" style="margin-bottom: 10px;">
                         <h5 style="color: rgb(31, 78, 120); margin-bottom: 0px">Detail</h5>
                         <hr style=" margin-top: 0px;">
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-md-4" style="">entryname<span class="required">*</span></label>
+                    <label class="control-label col-md-4" style="">entryname<span class="required">*</span></label>
+                    <div class=" col-md-8 ">
+                        <input class="form-control input-sm" name="entryname" id="entryname" value="#=entryname!=null? entryname : ''#" placeholder="entryname" />
+                    </div>
+                </div>
+
+                    <div class="form-group" style="display:none">
+                        <label class="control-label col-md-4" style="">address<span class="required">*</span></label>
                         <div class=" col-md-8 ">
-                            <input class="form-control input-sm" name="entryname" id="entryname" value="#=entryname!=null? entryname : ''#" placeholder="entryname" />
+                            <input class="form-control input-sm" name="address" id="address" value="#=address!=null? address : ''#" placeholder="address" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-4" style="">phone<span class="required">*</span></label>
+                        <div class=" col-md-8 ">
+                            <input class="form-control input-sm" name="phone" id="phone" value="#=phone!=null? phone : ''#" placeholder="phone" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-4" style="">email<span class="required">*</span></label>
+                        <div class=" col-md-8 ">
+                            <input class="form-control input-sm" name="email" id="email" value="#=email!=null? email : ''#" placeholder="email" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-4" style="">comments<span class="required">*</span></label>
+                        <div class=" col-md-8 ">
+                            <textarea class="form-control input-sm" style="height: 119px; " name="comments" id="comments">#=comments!=null? comments : ''#</textarea>
                         </div>
                     </div>
 
+
+                </fieldset>
+                <fieldset class="col-lg-6" style="border: none; float: left">
+
+                    <div class="caption" style="margin-bottom: 10px;">
+                        <h5 style="color: rgb(31, 78, 120); margin-bottom: 0px">More infor</h5>
+                        <hr style=" margin-top: 0px;">
+                    </div>
+
+                    <div class="form-group" style="">
+                        <label class="control-label col-md-4" style="">Topic Contact</label>
+                        <div class=" col-md-8 ">
+                            <select class="form-control input-sm" id="topiccontact" name="topiccontact">
+                                @for (var i = 0; i < list_TopicContacts.Count; i++)
+                                {
+                                    <option value="@Html.Raw(list_TopicContacts[i].ID)">@Html.Raw(list_TopicContacts[i].Name)</option>
+                                }
+                            </select>
+
+
+                        </div>
+                    </div>
                     <div class="form-group" style="">
                         <label class="control-label col-md-4" style="">isactive</label>
                         <div class=" col-md-8 ">
@@ -75,14 +122,6 @@
 
 
                         </div>
-                    </div>
-
-                </fieldset>
-                <fieldset class="col-lg-6" style="border: none; float: left">
-
-                    <div class="caption" style="margin-bottom: 10px;">
-                        <h5 style="color: rgb(31, 78, 120); margin-bottom: 0px">More infor</h5>
-                        <hr style=" margin-top: 0px;">
                     </div>
 
                 </fieldset>
@@ -121,8 +160,8 @@
         if (!obj) obj = {};
 
         //mess
-        obj.BillManagement_titleform_Add = "Add New";
-        obj.BillManagement_titleform_Update = "Update Item";
+        obj.MasterContactRequestManagement_titleform_Add = "Add New";
+        obj.MasterContactRequestManagement_titleform_Update = "Update Item";
         //mess validate
         obj.Common_mess_RequiredInformation = "@Html.Raw(tw_Lang.Common_mess_RequiredInformation)";
         obj.Common_mess_WrongSyntax = "@Html.Raw(tw_Lang.Common_mess_WrongSyntax)";
@@ -144,7 +183,7 @@
     //Update
     function edit(obj) {
         blockUIFromUser(true);
-        $.post(r + "/BillManagement/GetByID", { entryid: obj.entryid }, function (data) {
+        $.post(r + "/MasterContactRequestManagement/GetByID", { entryid: obj.entryid }, function (data) {
             if (data.success) {
                 var value = data.data;
 
@@ -175,7 +214,7 @@
                 animate: false,
                 backdrop: true,
                 className: "normalPopupWidth",
-                message: '<div id="DivEdit"></div>', title: (type == 0 ? resource_lang.BillManagement_titleform_Add : resource_lang.BillManagement_titleform_Update),
+                message: '<div id="DivEdit"></div>', title: (type == 0 ? resource_lang.MasterContactRequestManagement_titleform_Add : resource_lang.MasterContactRequestManagement_titleform_Update),
                 onEscape: function () {
                     onClosePopupCustom();
                 }
@@ -198,7 +237,8 @@
         //generateSelect2('s', 'formPopup #roleid', data.roleid == 0 ? null : data.roleid, '100%');
         //generateSelect2('s', 'formPopup #languageid', data.languageid == 0 ? null : data.languageid, '100%');
         generateSelect2('s', 'formPopup #isactive', (data.isactive == false ? 'false' : 'true'), '100%');
-
+        generateSelect2('s', 'formPopup #topiccontact', data.topiccontact , '100%');
+        
         //multiselect
 
         //set type nodata cho option
@@ -218,27 +258,30 @@
         $("#formPopup").validate({
             // Rules for form validation
             rules: {
-                entrycode: {
-                    required: true,
-                },
+                //entrycode: {
+                //    required: true,
+                //},
                 entryname: {
+                    required: true
+                },
+                topiccontact: {
                     required: true
                 },
                 isactive: {
                     required: true
                 },
-               
 
             },
 
             // Messages for form validation
             messages: {
-                entrycode: {
-                    required: resource_lang.Common_mess_RequiredInformation
-                },
                 entryname: {
                     required: resource_lang.Common_mess_RequiredInformation
                 },
+                topiccontact: {
+                    equired: resource_lang.Common_mess_RequiredInformation
+                },
+               
                 isactive: {
                     required: resource_lang.Common_mess_RequiredInformation
                 },

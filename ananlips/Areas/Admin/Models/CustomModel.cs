@@ -127,7 +127,7 @@ namespace ananlips.Areas.Admin.Models
         {
             return ActiveStatus.GetActiveStatus();
         }
-        public static List<DDLModel> GetLoginType()
+        public static List<DDLModel> GetLoginTypeDDL()
         {
           var listLoginTypes =  Enum.GetValues(typeof(LoginType)).Cast<LoginType>();
             var result = new List<DDLModel>();
@@ -138,6 +138,36 @@ namespace ananlips.Areas.Admin.Models
             }
 
             return result;
+        }
+        public static List<DDLModel> GetArticleTypeDDl()
+        {
+            var listArticleTypes = Enum.GetValues(typeof(ArticleType)).Cast<ArticleType>();
+            var result = new List<DDLModel>();
+            foreach (var articletype in listArticleTypes)
+            {
+                result.Add(new DDLModel() { ID = Convert.ChangeType(articletype, articletype.GetTypeCode()).ToString(), Name = articletype.ToString() });
+
+            }
+
+            return result;
+        }
+        public static List<DDLModel> GetTopicContactDDl()
+        {
+            var listTopicContacts = Enum.GetValues(typeof(TopicContact)).Cast<TopicContact>();
+            var result = new List<DDLModel>();
+            foreach (var topiccontact in listTopicContacts)
+            {
+                result.Add(new DDLModel() { ID = Convert.ChangeType(topiccontact, topiccontact.GetTypeCode()).ToString(), Name = topiccontact.DescriptionAttr() });
+
+            }
+
+            return result;
+        }
+        public static List<DDLModel> GetCategoryDDL()
+        {
+            var data = Category.GetList(0, null, false);
+            if (data == null || data.Count == 0) return new List<DDLModel>();
+            return Mapper.Map<List<DDLModel>>(data);
         }
         public static List<DDLModel> GetLanguage()
         {

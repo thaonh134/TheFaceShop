@@ -67,6 +67,12 @@
     <Reference Include="Microsoft.Owin, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.3.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
     </Reference>
+    <Reference Include="SendGrid, Version=8.0.5.0, Culture=neutral, PublicKeyToken=4f047e93159395ca, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sendgrid.8.0.5\lib\SendGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="SendGrid.CSharp.HTTP.Client, Version=3.0.0.0, Culture=neutral, PublicKeyToken=79219bf4e5ecaaca, processorArchitecture=MSIL">
+      <HintPath>..\packages\SendGrid.CSharp.HTTP.Client.3.0.0\lib\SendGrid.CSharp.HTTP.Client.dll</HintPath>
+    </Reference>
     <Reference Include="ServiceStack, Version=3.9.71.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ServiceStack.3.9.71\lib\net35\ServiceStack.dll</HintPath>
     </Reference>
@@ -94,6 +100,9 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
@@ -255,6 +264,8 @@
     <Compile Include="Areas\Admin\Controllers\ErrorController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\MasterCategoryManagementController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MasterArticleManagementController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MasterContactRequestManagementController.cs" />
     <Compile Include="Areas\Admin\Controllers\MasterProductManagementController.cs" />
     <Compile Include="Areas\Admin\Controllers\MasterSubCategoryManagementController.cs" />
     <Compile Include="Areas\Admin\Models\AccountModel.cs" />
@@ -265,22 +276,28 @@
     <Compile Include="Areas\Admin\Models\AutoGen\BillBase.Model.cs" />
     <Compile Include="Areas\Admin\Models\AutoGen\BillDetailBase.Model.cs" />
     <Compile Include="Areas\Admin\Models\AutoGen\CategoryBase.Model.cs" />
+    <Compile Include="Areas\Admin\Models\AutoGen\ContactRequestBase.Model.cs" />
     <Compile Include="Areas\Admin\Models\AutoGen\DeliveryBase.Model.cs" />
+    <Compile Include="Areas\Admin\Models\AutoGen\ArticleBase.Model.cs" />
     <Compile Include="Areas\Admin\Models\AutoGen\ProductBase.Model.cs" />
     <Compile Include="Areas\Admin\Models\AutoGen\SubCategoryBase.Model.cs" />
     <Compile Include="Areas\Admin\Models\Bill.Model.cs" />
     <Compile Include="Areas\Admin\Models\BillDetail.Model.cs" />
     <Compile Include="Areas\Admin\Models\Category.Model.cs" />
     <Compile Include="Areas\Admin\Models\CommonModel.cs" />
+    <Compile Include="Areas\Admin\Models\ContactRequest.Model.cs" />
     <Compile Include="Areas\Admin\Models\CustomModel.cs" />
     <Compile Include="Areas\Admin\Models\DDLModel.cs" />
     <Compile Include="Areas\Admin\Models\Delivery.Model.cs" />
     <Compile Include="Areas\Admin\Models\MasterData.cs" />
+    <Compile Include="Areas\Admin\Models\Article.Model.cs" />
     <Compile Include="Areas\Admin\Models\Product.Model.cs" />
     <Compile Include="Areas\Admin\Models\SubCategory.Model.cs" />
     <Compile Include="ConstantValue\Common.Model.cs" />
+    <Compile Include="ConstantValue\EnumHelper.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BillController.cs" />
+    <Compile Include="Controllers\ArticleController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\SubCategoryController.cs" />
@@ -311,6 +328,7 @@
     <Compile Include="Service\GuestController.cs" />
     <Compile Include="Service\KendoApplyFilter.cs" />
     <Compile Include="Service\OrmliteConnection.cs" />
+    <Compile Include="Service\SendEmailService.cs" />
     <Compile Include="Service\SqlHelper.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -911,6 +929,7 @@
     <Content Include="Content\kendo\2015.1.429\Uniform\sprite_2x.png" />
     <Content Include="Content\kendo\2015.1.429\Uniform\sprite_kpi.png" />
     <Content Include="Content\kendo\2015.1.429\Uniform\sprite_kpi_2x.png" />
+    <Content Include="Content\FESite_Footer.css" />
     <Content Include="Content\sound\bigbox.mp3" />
     <Content Include="Content\sound\license.txt" />
     <Content Include="Content\sound\messagebox.mp3" />
@@ -1047,6 +1066,10 @@
     <Content Include="ExcelImport\Error\SampleError.xlsx" />
     <Compile Include="Models\DefaultView.Model.cs" />
     <Compile Include="Models\FE_Search.Model.cs" />
+    <Content Include="Areas\Admin\Views\MasterArticleManagement\ArticleManagementForm.cshtml" />
+    <Content Include="Areas\Admin\Views\MasterArticleManagement\ArticleManagementTree.cshtml" />
+    <Content Include="Areas\Admin\Views\MasterContactRequestManagement\ContactRequestManagementForm.cshtml" />
+    <Content Include="Areas\Admin\Views\MasterContactRequestManagement\ContactRequestManagementTree.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Scripts\bootstrap\bootbox.min.js" />
     <Content Include="Scripts\bootstrap\jquery.tmpl.js" />
@@ -1985,7 +2008,6 @@
     <Content Include="Scripts\wp-content\plugins\yith-woocommerce-quick-view\assets\css\yith-quick-view.css" />
     <Content Include="Scripts\wp-content\plugins\yith-woocommerce-quick-view\assets\js\frontend.min.js" />
     <Content Include="Scripts\wp-content\themes\kutetheme\css\animate.css" />
-    <Content Include="Scripts\wp-content\themes\kutetheme\css\option2.css" />
     <Content Include="Scripts\wp-content\themes\kutetheme\css\option3.css" />
     <Content Include="Scripts\wp-content\themes\kutetheme\css\option4.css" />
     <Content Include="Scripts\wp-content\themes\kutetheme\css\option5.css" />
@@ -1998,6 +2020,7 @@
     <Content Include="Scripts\wp-content\themes\kutetheme\css\vc.css" />
     <Content Include="Scripts\wp-content\themes\kutetheme\css\woocommerce.css" />
     <Content Include="Scripts\wp-content\themes\kutetheme\images\add-cart.png" />
+    <Content Include="Scripts\wp-content\themes\kutetheme\images\ajax-loader.gif" />
     <Content Include="Scripts\wp-content\themes\kutetheme\images\border.png" />
     <Content Include="Scripts\wp-content\themes\kutetheme\images\cart.png" />
     <Content Include="Scripts\wp-content\themes\kutetheme\images\checkout_require.gif" />
@@ -2046,6 +2069,7 @@
     <Content Include="Scripts\wp-content\uploads\2017\04\clean_face_acne_solution_foam_cleansing_master.jpg" />
     <Content Include="Scripts\wp-content\uploads\2017\04\clean_face_mild_toner_b7968875-0a45-4554-7d18-bb5d42b4bca7_grande.jpg" />
     <Content Include="Scripts\wp-content\uploads\2017\04\designing_eyebrow_pencil_01_light_brown_ec508c6b-6175-4eef-5d75-98e55e0024ef_master.jpg" />
+    <Content Include="Scripts\wp-content\uploads\2017\04\favicon.png" />
     <Content Include="Scripts\wp-content\uploads\2017\04\intense_203_master.jpg" />
     <Content Include="Scripts\wp-content\uploads\2017\04\jeju-volcanic-lava-peel-off-clay-nose-mask-50gr_master.jpg" />
     <Content Include="Scripts\wp-content\uploads\2017\04\logo-1.png" />
@@ -2462,6 +2486,8 @@
     <Content Include="Views\Shared\_CaptchaRandomPartial.cshtml" />
     <Content Include="Scripts\wp-content\plugins\woocommerce\assets\fonts\WooCommerce.ttf" />
     <Content Include="Scripts\wp-content\plugins\woocommerce\assets\fonts\WooCommerce.woff" />
+    <Content Include="Views\Article\Index.cshtml" />
+    <Content Include="Views\Shared\_FooterInfor_old.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

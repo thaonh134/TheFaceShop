@@ -1,36 +1,238 @@
 ﻿@using ananlips.Models;
+@using ananlips.ConstantValue;
 @{
-   
+
 }
 <div class="container">
-    <div id="introduce-box" class="row">
-        <div class="col-md-3">
-            <div id="address-box">
-                <a href="@Url.Action("Index","Home")"><img alt="KOVECA BIZ chuyên bán mỹ phẩm của hãng VT X BTS tại Việt Nam" src="~/Scripts/wp-content/uploads/2017/04/logo-1.png"></a>
+    <!-- introduce-box -->
+    <div id="introduce-box">
+        <div  class="col-md-4">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div>
+                        <div class="footer-info-bottom">
+                            <p>© 2015 <strong>CÔNG TY TNHH KOVECA BIZ</strong></p>
+                            <p>® Độc quyền phân phối nhiều thương hiệu Hàn Quốc tại thị trường Việt Nam</p>
+                            <p>
+                                * Địa chỉ: Phòng 16, Tầng 9, Tòa nhà Maritime Bank, 180 – 192 Nguyễn Công Trứ, Phường Nguyễn Thái Bình, Quận 1, Thành Phố Hồ Chí Minh
+                            </p>
+
+                            <p>
+                                * Giờ làm việc: Thứ 2 – 6 từ 09h00 – 17h30
+                            </p>
+                            <p>
+                                * Thứ 7, Chủ nhật và ngày lễ: Nghỉ
+                            </p>
+                            <p>
+                                * Điện thoại: 077.492.6458 - 028.3848.6058
+                            </p>
+                            <p>
+                                * Email: lienhe@vieko.com.vn - MST:  0313 288 058
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-        </div><div class="col-md-3"></div><div class="col-md-6 social-footer">
-            <div id="contact-box">
-                <div id="widget_kt_social-2" class="widget-container widget-footer-social widget_kt_social">
-                    <div class="social-link">
-                        <a href="https://www.facebook.com/thefaceshopxachtay/" title="Facebook"><i class="fa fa-facebook">Facebook</i> </a>
-                        @*<a href="https://www.facebook.com/thefaceshopxachtay/" title="Instagram"><i class="fa fa-instagram"> Instagram</i> </a>*@
+        </div>
+        <div class="col-md-8">
+            <div class="row">
+                
+                <div class="col-sm-4">
+                    <div class="introduce-title">Về chúng tôi</div>
+                    <ul id="introduce-company" class="introduce-list">
+
+                        <li>@*<a href="@Url.Action("Index","Article",new { Type=(int)ArticleType.About})">Câu chuyện thương hiệu</a>*@</li>
+
+
+                        @*<li><a href="/pages/dieu-khoan-su-dung">Điều khoản sử dụng</a></li>*@
+                        <li><a href="@Url.Action("Index","Article",new { Type=(int)ArticleType.About})">Giới thiệu về công ty</a></li>
+
+                        <li><a href="@Url.Action("Index","Article",new { Type=(int)ArticleType.Contact})">Liên hệ</a></li>
+                        <li><a href="@Url.Action("Index","Article",new { Type=(int)ArticleType.Recruitment})">Tuyển dụng</a></li>
+
+                    </ul>
+                </div>
+                <div class="col-sm-4">
+                    <div class="introduce-title">Hỗ trợ</div>
+                    <ul id="introduce-Account" class="introduce-list">
+
+                        @*<li><a href="/blogs/hotro/1000091987-tai-khoan-mua-hang">Tài khoản mua hàng</a></li>
+
+                <li><a href="/blogs/hotro/1000091746-dieu-khoan-mua-ban-hang-hoa">Điều khoản mua bán hàng hóa</a></li>
+
+                <li><a href="/blogs/hotro/1000120159-chinh-sach-tich-luy-diem-tfs">Chính sách tích lũy điểm TFS</a></li>
+
+                <li><a href="/blogs/hotro/1000105271-chinh-sach-doi-hang">Chính sách đổi hàng</a></li>*@
+                        <li><a href="@Url.Action("Index","Article",new { Type=(int)ArticleType.PricingPolicy})">Chính sách đổi trả</a></li>
+
+                        <li><a href="@Url.Action("Index","Article",new { Type=(int)ArticleType.ShoppingGuide})">Giao hàng và thanh toán</a></li>
+
+                    </ul>
+                </div>
+                <div class="col-sm-4">
+                    <div class="introduce-title">Tài khoản của bạn</div>
+                    <ul id="introduce-support" class="introduce-list">
+
+                        <li><a href="@Url.Action("Login","account")">Đăng nhập</a></li>
+
+                        <li><a href="@Url.Action("Register","account")">Đăng ký</a></li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        @*<div class="col-md-4" >
+            <div id="address-box">
+                <div id="address-list">
+                    <div class="tit-name">Địa chỉ:</div>
+                    <div class="tit-contain">
+                        Phòng 16, Tầng 9, Tòa nhà Maritime Bank, 180 – 192 Nguyễn Công Trứ, Phường Nguyễn Thái Bình, Quận 1, Thành Phố Hồ Chí Minh
+                        <br>* Giờ làm việc: Thứ 2 – 6 từ 09h00 – 17h30
+                        <br>* Thứ 7, Chủ nhật và ngày lễ: Nghỉ
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+        <div class="col-md-3">
+            <div id="contact-box" class="inactive" style="">
+                <div class="introduce-title">Đăng ký nhận tin</div>
+                <form accept-charset="UTF-8" action="/account/contact" class="contact-form" method="post">
+                    <input name="form_type" type="hidden" value="customer">
+                    <input name="utf8" type="hidden" value="✓">
+
+                    <div class="input-group" id="mail-box">
+                        <input type="hidden" name="contact[tags]" value="khách hàng tiềm năng, bản tin">
+                        <input name="contact[email]" type="email" placeholder="Đăng ký email" required="required">
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn btn-default">Gửi</button>
+                        </span>
+                    </div><!-- /input-group -->
+                </form>
+
+                <div class="introduce-title">Liên kết</div>
+                <div class="clearfix">
+                    <div class="social-link pull-left">
+                        <a href="https://www.facebook.com/THEFACESHOPVietnam/" target="_blank" rel="nofollow"><i class="fa fa-facebook"></i></a>
+                        <a href="https://www.youtube.com/user/THEFACESHOPVN" target="_blank" rel="nofollow"><i class="fa fa-youtube"></i></a>
+                        <a href="#" target="_blank" rel="nofollow"><i class="fa fa-google-plus"></i></a>
+                        <a href="https://www.instagram.com/thefaceshopvietnam/" target="_blank" rel="nofollow"><i class="fa fa-instagram"></i></a>
+                        <a href="http://zalo.me/2949847036162016969" target="_blank" rel="nofollow"><img class="image-icon-footer" src="//file.hstatic.net/1000036599/file/zalo.png"></a>
+
+                    </div>
+                    <div class="dangky-bct pull-left">
+                        <a rel="nofollow" target="_blank" href="http://online.gov.vn/CustomWebsiteDisplay.aspx?DocId=19882">
+                            <img class="lazy" src="//sw001.hstatic.net/8/1684277804e890/dathongbao.png" data-src="//sw001.hstatic.net/8/1684277804e890/dathongbao.png" alt="Banner footer 4">
+                        </a>
+                    </div>
+                    <div class="dangky-bct pull-left">
+                        <a href="https://www.dmca.com/Protection/Status.aspx?ID=43b0675a-ace5-4b25-9551-1d7d212f2885&amp;refurl=https://thefaceshop.com.vn/" title="DMCA.com Protection Status" class="dmca-badge">
+                            <img src="//file.hstatic.net/1000036599/file/dmca-badge-w150-2x1-02__1___1_.png" alt="DMCA.com Protection Status">
+                        </a>
+                        <script src="//images.dmca.com/Badges/DMCABadgeHelper.min.js"></script>
                     </div>
                 </div>
             </div>
         </div>
-    </div><div id="trademark-box">
-        <div id="text-2" class="widget-container widget-footer-payment widget_text">
-            <div class="textwidget">
+    </div><!-- /#introduce-box -->
+    <!-- #trademark-box -->
+    <div id="trademark-box" class="row" style="display:none">
+        @*<div class="col-sm-12">
                 <ul id="trademark-list">
-                    <li class="fleft camketfooter" style="">
-                        <strong>Chúng tôi luôn cam kết:</strong><ul><li>KOVECA BIZ chuyên cung cấp SỈ và LẺ mỹ phẩm VT X BTS chính hãng 100% từ Hàn Quốc.</li><li>Hỗ trợ tư vấn nhiệt tình 24/24</li><li>Giao hàng tận nơi siêu nhanh, nhận hàng, kiểm tra hàng mới thanh toán.</li><li>Hàng hóa được đóng gói đảm bảo.</li><li>Hotline: 0901 974 445</li></ul>
-                    </li>
-                    <li class="fright flast-li" id="shipping-methods">DỊCH VỤ GIAO HÀNG
-                    <a href="javascript:;"><img class="" src="https://thefaceshopvn.com/wp-content/uploads/2017/04/trademark_6.png"></a>
-                    @*<a href="javascript:;"><img style="height: 35px;background: #9dbf17;padding: 0 23px;" class="" src="https://zozoship.vn/Content/images/logo_new.png"></a>*@</li>
-                    <li class="fright" id="payment-methods">Bảng phí giao hàng <a href="https://thefaceshopvn.com/bang-phi-giao-hang/">TẠI ĐÂY</a>   |</li>
+                    <li id="payment-methods">Phương thức thanh toán</li>
+
+
+
+
+
+
+                    <li><a href="javascript:;"><img class="lazy" src="//theme.hstatic.net/1000036599/1000401525/14/trademark_1.png?v=294" data-src="//theme.hstatic.net/1000036599/1000401525/14/trademark_1.png?v=294" alt="Phương thức thanh toán 1"></a></li>
+
+
+
+
+
+
+
+                    <li><a href="javascript:;"><img class="lazy" src="//theme.hstatic.net/1000036599/1000401525/14/trademark_2.png?v=294" data-src="//theme.hstatic.net/1000036599/1000401525/14/trademark_2.png?v=294" alt="Phương thức thanh toán 2"></a></li>
+
+
+
+
+
+
+
+                    <li><a href="javascript:;"><img class="lazy" src="//theme.hstatic.net/1000036599/1000401525/14/trademark_3.png?v=294" data-src="//theme.hstatic.net/1000036599/1000401525/14/trademark_3.png?v=294" alt="Phương thức thanh toán 3"></a></li>
+
+
+
+
+
+
+
+                    <li><a href="javascript:;"><img class="lazy" src="//theme.hstatic.net/1000036599/1000401525/14/trademark_4.png?v=294" data-src="//theme.hstatic.net/1000036599/1000401525/14/trademark_4.png?v=294" alt="Phương thức thanh toán 4"></a></li>
+
+
+
+
+
+
+
+                    <li><a href="javascript:;"><img class="lazy" src="//theme.hstatic.net/1000036599/1000401525/14/trademark_5.png?v=294" data-src="//theme.hstatic.net/1000036599/1000401525/14/trademark_5.png?v=294" alt="Phương thức thanh toán 5"></a></li>
+
+
+                    <li id="shipping-methods">DỊCH VỤ GIAO HÀNG</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <li><a href="javascript:;"><img class="lazy" src="//theme.hstatic.net/1000036599/1000401525/14/trademark_8.png?v=294" data-src="//theme.hstatic.net/1000036599/1000401525/14/trademark_8.png?v=294" alt="Hình thức vận chuyển 3"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 </ul>
-            </div>
-        </div>
-    </div>
+            </div>*@
+    </div> <!-- /#trademark-box -->
+
+    @*<div class="footer-info-bottom">
+        <p>© 2015 <strong>CÔNG TY TNHH KOVECA BIZ</strong></p>
+        <p>® Độc quyền phân phối nhiều thương hiệu Hàn Quốc tại thị trường Việt Nam</p>
+        <p>GPDKKD số 0303565753, cấp ngày 24/09/2004, nơi cấp UBND TP HCM</p>
+        <p>
+            Địa chỉ: Phòng 16, Tầng 9, Tòa nhà Maritime Bank, 180 – 192 Nguyễn Công Trứ, Phường Nguyễn Thái Bình, Quận 1, Thành Phố Hồ Chí Minh
+        </p>
+        <p>
+            Điện thoại: 077.492.6458 - 028.3848.6058
+        </p>
+        <p>
+            Email: lienhe@vieko.com.vn - Mst:  0313 288 05
+        </p>
+    </div>*@
 </div>

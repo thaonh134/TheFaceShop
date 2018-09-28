@@ -1,0 +1,237 @@
+﻿@using ananlips.Models;
+@using ananlips.Areas.Admin.Models;
+@using System.Globalization;
+@using ananlips.ConstantValue;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutCommon.cshtml";
+    var dict = Model != null ? (Dictionary<string, object>)Model : new Dictionary<string, object>();
+    var data_Article = dict.ContainsKey("data_Article") ? (DefaultView.FE_Article)dict["data_Article"] : new DefaultView.FE_Article();
+    var list_TopicContacts = dict.ContainsKey("list_TopicContacts") ? (List<DDLModel>)dict["list_TopicContacts"] : new List<DDLModel>();
+
+}
+<br />
+<div class="row">
+    @Html.Raw(HttpUtility.HtmlDecode(data_Article.Comments))
+    <br />
+    <br />
+
+
+
+    @if (data_Article.ArticleType == (int)ArticleType.Contact)
+    {
+        <p><strong>Vui lòng để lại thông tin liên hệ của bạn bên dưới:</strong></p>
+        <br />
+        <form id="sendcontactrequest" name="sendcontactrequest" accept-charset="UTF-8" action="@Url.Action("SaveContactRequest","Article")" class="contact-form" method="post">
+            <input name="form_type" type="hidden" value="contact">
+            <input name="utf8" type="hidden" value="✓">
+
+
+            <div class="the-form-wrapper">
+                <div class="topic-filter-wrapper clearfix">
+                    <label for="topic-filter">Quý khách đang quan tâm về: </label>
+                    <select id="topic-filter" class="topic-filter" name="TopicContact">
+                        <option value="Chọn chủ đề">Chọn chủ đề</option>
+                        @foreach (var item in list_TopicContacts)
+                        {
+                            <option value="@item.ID">@item.Name</option>
+
+                        }
+
+                    </select>
+                </div>
+                <div class="row-wrapper clearfix">
+                    <div class="label-wrapper">
+                        <label for="title">Tiêu đề</label>
+                        <strong class="required">*</strong>
+                    </div>
+                    <div class="input-wrapper">
+                        <input id="title" name="EntryName" class="input title" type="text" required="">
+                    </div>
+                </div>
+                <div class="row-wrapper clearfix">
+                    <div class="label-wrapper">
+                        <label for="message">Nội dung</label>
+                        <strong class="required">*</strong>
+                    </div>
+                    <div class="input-wrapper">
+                        <textarea required="" id="message" name="Comments" class="textarea message" placeholder="Xin quý khách vui lòng mô tả chi tiết"></textarea>
+                    </div>
+                </div>
+                <div class="row-wrapper clearfix">
+                    <div class="label-wrapper">
+                        <label for="fullname">Họ và tên</label>
+                        <strong class="required"></strong>
+                    </div>
+                    <div class="input-wrapper">
+                        <input name="FullName" class="input fullname" type="text">
+                    </div>
+                </div>
+                <div class="row-wrapper clearfix">
+                    <div class="label-wrapper">
+                        <label for="email">Địa chỉ email</label>
+                        <strong class="required">*</strong>
+                    </div>
+                    <div class="input-wrapper">
+                        <input required="" type="email" name="Email" class="input email">
+                    </div>
+                </div>
+                <div class="row-wrapper clearfix">
+                    <div class="label-wrapper">
+                        <label for="tel">Số điện thoại</label>
+                    </div>
+                    <div class="input-wrapper">
+                        <input name="Phone" class="input tel" type="text" maxlength="11">
+                    </div>
+                </div>
+                <div class="row-wrapper clearfix">
+                    <div class="label-wrapper">
+                        <label for="verifycode">Mã xác minh</label>
+                    </div>
+                    <div class="input-wrapper">
+                        <input name="CaptchaCode" class="input" type="text">
+                    </div>
+                </div>
+                <div class="row-wrapper clearfix">
+                    <div class="label-wrapper">
+                        <div id="RenderCaptchaRandom"> @Html.Partial("_CaptchaRandomPartial")</div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="submit-wrapper">
+                <input id="submit" name="submit" class="submit" type="submit" value="Gửi Liên Hệ">
+            </div>
+        </form>
+    }
+</div>
+
+
+<script>
+    jQuery(document).ready(function () {
+        validateFormPopup()
+    });
+
+
+    function validateFormPopup() {
+        jQuery("form#sendcontactrequest").validate({
+            // Rules for form validation
+            rules: {
+                TopicContact: {
+                    required: true,
+                },
+                EntryName: {
+                    required: true,
+                },
+                FullName: {
+                    required: true,
+                },
+                Address: {
+                    required: true,
+                },
+                Phone: {
+                    required: true,
+                },
+                Comments: {
+                    required: true,
+                    minlength: 100
+                },
+                Email: {
+                    required: true,
+                    email: true,
+                },
+                CaptchaCode: {
+                    required: true,
+                },
+
+            },
+            // Messages for form validation
+            messages: {
+                TopicContact: {
+                    required: "Thông tin bắt buộc"
+                },
+                EntryName: {
+                    required: "Thông tin bắt buộc"
+                },
+                FullName: {
+                    required: "Thông tin bắt buộc"
+                },
+                Address: {
+                    required:"Thông tin bắt buộc"
+                },
+                Phone: {
+                    required: "Thông tin bắt buộc"
+                },
+                Comments: {
+                    required: "Thông tin bắt buộc",
+                    minlength: "Tối thiểu 100 ký tự"
+                },
+                Email: {
+                    required: "Thông tin bắt buộc",
+                    email: "Email không đúng",
+                },
+                CaptchaCode: {
+                    required: "Thông tin bắt buộc"
+                },
+
+            },
+
+            // Do not change code below
+            errorPlacement: function (error, element) {
+                error.insertAfter(element);
+            },
+
+            submitHandler: function (form) {
+                debugger;
+                jQuery(form).ajaxSubmit({
+                    //clearForm: true,//To clear form after ajax submitting
+                    beforeSend: function () {
+                        jQuery(document).ajaxStart(jQuery.blockUI({ message: '<i class="fa fa-spinner fa-3x fa-lg fa-spin txt-color-blueDark"></i>', theme: false })).ajaxStop(jQuery.unblockUI);
+
+                    },
+                    success: function (data) {
+                        debugger;
+                        if (data.success) alerSuccess();
+                        else {
+                            alert(data.message);
+                            RefreshPartial();
+
+                        }
+                    }
+                });
+                return false;
+            }
+        });
+    }
+
+    function RefreshPartial() {
+        var r = '@Html.Raw(@Request.Url.GetLeftPart(UriPartial.Authority) + Url.Content("~"))';
+        jQuery("form#sendcontactrequest #RenderCaptchaRandom").empty();
+         //this should refresh PartImagesPartial
+        $.ajax({
+            url: r + "Home/GetCaptchaRandom",
+            type: "GET",
+            //dataType: "html",
+            //contentType: false,
+            //cache: false,
+            data: { },
+            success: function (data) {
+                jQuery("form#sendcontactrequest #RenderCaptchaRandom").html(data);
+                jQuery("form#sendcontactrequest #CaptchaCode").val("");
+            }
+        });
+    }
+
+
+
+    function alerSuccess() {
+
+        bootbox.alert("Thông của bạn đã được ghi nhận.", function () { window.location = ("@Url.Action("Index","Home")");  })
+        setTimeout(function () {
+            // be careful not to call box.hide() here, which will invoke jQuery's hide method
+            bootbox.hideAll();
+             window.location = ("@Url.Action("Index","Home")");
+        }, 3000);
+    }
+</script>
+

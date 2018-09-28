@@ -13,7 +13,7 @@ using System.Text;
 
 namespace ananlips.Areas.Admin.Controllers
 {
-    public class MasterProductManagementController : CustomController
+    public class MasterArticleManagementController : CustomController
     {
         #region Tree
         public ActionResult Index(string redirectbyajax, string entryid, string actiontype, string fa)
@@ -22,7 +22,7 @@ namespace ananlips.Areas.Admin.Controllers
             IDbConnection dbConn = new OrmliteConnection().openConn();
             var dict = new Dictionary<string, object>();
             dict["activestatus"] = CustomModel.GetActiveStatus();
-            dict["categorys"] = CustomModel.GetCategoryDDL();
+            dict["articletypes"] = CustomModel.GetArticleTypeDDl();
             dict["listlanguage"] = CustomModel.GetLanguage();
             dict["areasname"] = "Admin";
             dict["redirectbyajax"] = string.IsNullOrEmpty(redirectbyajax) ? "0" : "1";
@@ -32,7 +32,7 @@ namespace ananlips.Areas.Admin.Controllers
             ViewBag.entryid = string.IsNullOrEmpty(entryid) ? "0" : entryid;
             ViewBag.actiontype = string.IsNullOrEmpty(actiontype) ? "" : actiontype;
             ViewBag.fa = string.IsNullOrEmpty(fa) ? "" : fa;
-            return View("ProductManagementTree", dict);
+            return View("ArticleManagementTree", dict);
 
         }
         [AcceptVerbs(HttpVerbs.Post)]
@@ -45,7 +45,7 @@ namespace ananlips.Areas.Admin.Controllers
             }
             //var UserType = 1;//1: backend|2: card-holder|3: pos
             var userid = 0;
-            var data = new Product().GetPage(request, whereCondition, isactive, userid);
+            var data = new Article().GetPage(request, whereCondition, isactive, userid);
             return Json(data);
         }
 
@@ -61,7 +61,7 @@ namespace ananlips.Areas.Admin.Controllers
             IDbConnection dbConn = new OrmliteConnection().openConn();
             var dict = new Dictionary<string, object>();
             dict["activestatus"] = CustomModel.GetActiveStatus();
-            dict["listcategory"] = CustomModel.GetCategoryForDDL();
+            dict["articletypes"] = CustomModel.GetArticleTypeDDl();
             dbConn.Close();
 
             //set parameter
@@ -69,13 +69,13 @@ namespace ananlips.Areas.Admin.Controllers
             dict["redirectbyajax"] = redirectbyajax;
             ViewBag.entryid = string.IsNullOrEmpty(entryid) ? "0" : entryid;
             ViewBag.entrykey = string.IsNullOrEmpty(entrykey) ? "0" : entrykey;
-            return View("ProductManagementForm", dict);
+            return View("ArticleManagementForm", dict);
 
 
         }
 
         [HttpPost]
-        public ActionResult Create(Product item)
+        public ActionResult Create(Article item)
         {
             IDbConnection db = new OrmliteConnection().openConn();
             try
@@ -83,11 +83,9 @@ namespace ananlips.Areas.Admin.Controllers
                 item.entryname = item.entryname ?? "";
                 item.entrycode = item.entrycode ?? "";
                 //if (string.IsNullOrEmpty(item.entryname) || string.IsNullOrEmpty(item.entrycode)) return Json(new { success = false, message = tw_Lang.Common_ActionResult_MissingInfo });
-                var isExist = Product.GetById(item.entryid, null, false) ;
+                var isExist = Article.GetById(item.entryid, null, false) ;
 
                 //Validate
-                item.unitquantity = item.unitquantity == 0 ? 1 : item.unitquantity;
-                item.priceamount = item.price*(1 - item.discount/100);
                 //insert / update
                 if (item.entryid == 0)
                 {
@@ -126,7 +124,7 @@ namespace ananlips.Areas.Admin.Controllers
             IDbConnection db = new OrmliteConnection().openConn();
             try
             {
-                var isExist =Product.GetById(entryid, null, false);
+                var isExist =Article.GetById(entryid, null, false);
                 isExist.isactive = isactive;
                 isExist.updatedby = currentUser.entryid;
                 isExist.updatedat = DateTime.Now;
@@ -154,7 +152,7 @@ namespace ananlips.Areas.Admin.Controllers
             IDbConnection dbConn = new OrmliteConnection().openConn();
             try
             {
-                var data =Product.GetById(entryid, null, false);
+                var data =Article.GetById(entryid, null, false);
                 var ref_Roles = CustomModel.GetActiveStatus(); 
                 return Json(new
                 {

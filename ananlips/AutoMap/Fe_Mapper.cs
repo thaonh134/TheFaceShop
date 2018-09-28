@@ -13,7 +13,25 @@ namespace ananlips.AutoMap
     {
         public Fe_Mapper()
         {
-                CreateMap<Product, FE_Product>()
+            CreateMap<FE_ContactRequest, ContactRequest>()
+              .ForMember(dst => dst.entryid, x => x.MapFrom(src => src.ContactRequestId))
+              .ForMember(dst => dst.entrycode, x => x.MapFrom(src => src.EntryName))
+              .ForMember(dst => dst.entryname, x => x.MapFrom(src => src.EntryName))
+              .ForMember(dst => dst.topiccontact, x => x.MapFrom(src => src.TopicContact))
+              .ForMember(dst => dst.userid, x => x.MapFrom(src => src.UserId))
+              .ForMember(dst => dst.fullname, x => x.MapFrom(src => src.FullName))
+              .ForMember(dst => dst.address, x => x.MapFrom(src => src.Address))
+              .ForMember(dst => dst.phone, x => x.MapFrom(src => src.Phone))
+              .ForMember(dst => dst.email, x => x.MapFrom(src => src.Email))
+              .ForMember(dst => dst.comments, x => x.MapFrom(src => src.Comments))
+              .ForMember(dst => dst.isactive, x => x.UseValue(true))
+              .ForMember(dst => dst.createdat, x => x.UseValue(DateTime.UtcNow))
+              .ForMember(dst => dst.createdby, x => x.MapFrom(src => src.UserId))
+              .ForMember(dst => dst.updatedat, x => x.UseValue(DateTime.UtcNow))
+              .ForMember(dst => dst.updatedby, x => x.MapFrom(src => src.UserId))
+              ;
+
+            CreateMap<Product, FE_Product>()
                 .ForMember(dst => dst.ProductId, x => x.MapFrom(src => src.entryid))
                 .ForMember(dst => dst.CategoryId, x => x.MapFrom(src => src.categoryid))
                 .ForMember(dst => dst.SubCategoryId, x => x.MapFrom(src => src.subcategoryid))
@@ -31,6 +49,12 @@ namespace ananlips.AutoMap
                 .ForMember(dst => dst.Sellcount, x => x.MapFrom(src => src.sellcount))
                 .ForMember(dst => dst.Comments, x => x.MapFrom(src => src.comments))
                 ;
+            CreateMap<Article, FE_Article>()
+               .ForMember(dst => dst.ArticleId, x => x.MapFrom(src => src.entryid))
+               .ForMember(dst => dst.ArticleType, x => x.MapFrom(src => src.articletype))
+               .ForMember(dst => dst.ArticleName, x => x.MapFrom(src => src.entryname))
+               .ForMember(dst => dst.Comments, x => x.MapFrom(src => src.comments))
+               ;
 
             CreateMap<Category, FE_Category>()
                .ForMember(dst => dst.CategoryId, x => x.MapFrom(src => src.entryid))

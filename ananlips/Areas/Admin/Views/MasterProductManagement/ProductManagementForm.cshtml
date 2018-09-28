@@ -50,7 +50,7 @@
             @using (Html.BeginForm("Create", "MasterProductManagement", FormMethod.Post, new { @class = "form-horizontal", id = "formPopup", enctype = "multipart/form-data" }))
             {
                 @Html.Hidden("entryid", "#=entryid#");
-                @Html.Hidden("entrycode", "#=entrycode#");
+                <input  type="hidden" id="entrycode" name="entrycode" value="#=entrycode!=null? entrycode : ''#"/>
                 @Html.Hidden("comments", "#=comments#");
             <div id="productInfor" class="col-lg-12" style="float: left;">
                 <fieldset class="col-lg-6" style="float: left;">
