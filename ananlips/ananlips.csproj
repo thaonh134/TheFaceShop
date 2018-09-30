@@ -328,8 +328,8 @@
     <Compile Include="Service\GuestController.cs" />
     <Compile Include="Service\KendoApplyFilter.cs" />
     <Compile Include="Service\OrmliteConnection.cs" />
-    <Compile Include="Service\SendEmailService.cs" />
     <Compile Include="Service\SqlHelper.cs" />
+    <Compile Include="Service\SendEmailService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -937,6 +937,7 @@
     <Content Include="Content\sound\voice_alert.mp3" />
     <Content Include="Content\sound\voice_off.mp3" />
     <Content Include="Content\sound\voice_on.mp3" />
+    <Content Include="EmailTemplates\ContactEmail.html" />
     <Content Include="favicon.ico" />
     <Content Include="Files\Download\4cb54af2-42e9-4c84-a379-d92309c51254.jpg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -2008,6 +2009,7 @@
     <Content Include="Scripts\wp-content\plugins\yith-woocommerce-quick-view\assets\css\yith-quick-view.css" />
     <Content Include="Scripts\wp-content\plugins\yith-woocommerce-quick-view\assets\js\frontend.min.js" />
     <Content Include="Scripts\wp-content\themes\kutetheme\css\animate.css" />
+    <Content Include="Scripts\wp-content\themes\kutetheme\css\option2.css" />
     <Content Include="Scripts\wp-content\themes\kutetheme\css\option3.css" />
     <Content Include="Scripts\wp-content\themes\kutetheme\css\option4.css" />
     <Content Include="Scripts\wp-content\themes\kutetheme\css\option5.css" />

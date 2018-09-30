@@ -36,4 +36,20 @@ namespace ananlips.ConstantValue
 
     }
 
+    public static class EmailKeyword
+    {
+        public const string USERNAME = "#USERNAME#";
+        public const string PASS_WORD = "#PASS_WORD#";
+        public const string FIRST_NAME = "#FIRST_NAME#";
+        public const string LAST_NAME = "#LAST_NAME#";
+        public const string FULL_NAME = "#FULL_NAME#";
+        public const string EMAIL_ADDRESS = "#EMAIL_ADDRESS#";
+        public const string PHONE_NUMBER = "#PHONE_NUMBER#";
+        public const string CONTENT_STR = "#CONTENT_STR#";
+        public const string DATE_SEND = "#DATE_SEND#";
+        public const string URL = "#URL#";
+
+
+    }
+
 }
