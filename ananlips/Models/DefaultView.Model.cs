@@ -125,9 +125,10 @@ namespace ananlips.Models
                 {
                     IDbConnection dbConn = new OrmliteConnection().openConn();
                     var articletypenum = (int)articletype;
-                    var item = dbConn.FirstOrDefault<Article>(x => x.isactive == ActiveStatus.Active && x.articletype == articletypenum);
-
-                    var mapped = Mapper.Map<FE_Article>(item);
+                    //var item = dbConn.FirstOrDefault<Article>(x => x.isactive == ActiveStatus.Active && x.articletype == articletypenum);
+                    var items = dbConn.Where<Article>(x => x.isactive == ActiveStatus.Active && x.articletype == articletypenum).OrderByDescending(x=>x.entryid).ToList();
+                    if (items != null && items.Count == 0) return null;
+                    var mapped = Mapper.Map<FE_Article>(items[0]);
                     var result = mapped;
                     return result;
 

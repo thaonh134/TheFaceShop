@@ -388,21 +388,22 @@
     .Name("grid")
     .Columns(columns =>
     {
-    columns.Bound(p => p.entryid).Title("entryid");
-    columns.Bound(p => p.entrycode).Title("entrycode");
-    columns.Bound(p => p.entryname).Title("entryname");
-    columns.Bound(p => p.isactive).Title(Html.Raw(tw_Lang.Common_ddl_ActiveStatus).ToString());
+        columns.Bound(p => p.entryid).Title("entryid");
+        columns.Bound(p => p.entrycode).Title("entrycode");
+        columns.Bound(p => p.entryname).Title("entryname");
+        columns.Bound(p => p.entryname).Title("articletype");
+        columns.Bound(p => p.isactive).Title(Html.Raw(tw_Lang.Common_ddl_ActiveStatus).ToString());
 
     })
     .ClientRowTemplate("#=template(data)#")
     .ToolBar(toolBar =>
     {
-    toolBar.Custom()
-    .Text(Html.Raw(tw_Lang.Common_btn_Add).ToString())
-    .HtmlAttributes(new { id = "btnInsert", @class = "btn btn-success tw-btn-add btn-sm no-k-button", data_actiontype = "popup", onclick = "routerActionLink(this)", @href = "javascript:void(0)" });
-    toolBar.Custom()
-    .Text("")
-    .HtmlAttributes(new { id = "btnSearchF", @class = "btn btn-default tw-btn-refresh btn-sm no-k-button pull-right", onclick = "doRefresh()", @href = "javascript:void(0)" });
+        toolBar.Custom()
+        .Text(Html.Raw(tw_Lang.Common_btn_Add).ToString())
+        .HtmlAttributes(new { id = "btnInsert", @class = "btn btn-success tw-btn-add btn-sm no-k-button", data_actiontype = "popup", onclick = "routerActionLink(this)", @href = "javascript:void(0)" });
+        toolBar.Custom()
+        .Text("")
+        .HtmlAttributes(new { id = "btnSearchF", @class = "btn btn-default tw-btn-refresh btn-sm no-k-button pull-right", onclick = "doRefresh()", @href = "javascript:void(0)" });
 
     })
     .Events(events => { events.DataBound("onDatabound"); })
@@ -415,7 +416,7 @@
     .PageSize(10)
     .Model(model =>
     {
-    model.Id(p => p.entryid);
+        model.Id(p => p.entryid);
     }
     )
     .Events(e => { e.RequestEnd("onRequestEnd"); e.RequestStart("onRequestStart"); })
@@ -437,11 +438,14 @@
             #=data.entryname#
         </td>
         <td>
+    #=data.articletype#
+</td>
+        <td>
             <span data-column='isactive'>#=data.isactive#</span>
         </td>
     </tr>
     <tr class="row_detail row_detail_#=data.entryid#" style="display: none;">
-        <td colspan="4">
+        <td colspan="5">
             <div class="row">
                 <div class="col-md-12">
                     <div class="col-md-3 col-sm-6">
@@ -456,7 +460,13 @@
                             </div>
                             <div style="clear:both"></div>
                         </div>
-
+                        <div class="form-group tw-form-group-grid">
+                            <label class="control-label tw-lbl-field-title">articletype</label>
+                            <div class="tw-lbl-field-value">
+                                <strong>#=data.articletype#</strong>
+                            </div>
+                            <div style="clear:both"></div>
+                        </div>
                         <div class="form-group tw-form-group-grid">
                             <label class="control-label tw-lbl-field-title">isactive</label>
                             <div class="tw-lbl-field-value">
