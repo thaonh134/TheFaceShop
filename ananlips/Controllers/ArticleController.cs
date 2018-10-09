@@ -21,7 +21,8 @@ namespace ananlips.Controllers
             var dict = new Dictionary<string, object>();
             type = string.IsNullOrEmpty(type) ? "0" : type;
             ArticleType articletype = (ArticleType)Enum.Parse(typeof(ArticleType), type);
-            dict["data_Article"] = DefaultView.FE_Article.GetByArticleType(articletype);
+            var data_Article= DefaultView.FE_Article.GetByArticleType(articletype);
+            dict["data_Article"] = data_Article == null ? new FE_Article() : data_Article;
             dict["list_TopicContacts"] = CustomModel.GetTopicContactDDl();
 
             ViewBag.Title = ((DefaultView.FE_Article)dict["data_Article"]).ArticleName;

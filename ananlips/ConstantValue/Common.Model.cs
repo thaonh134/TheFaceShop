@@ -20,11 +20,13 @@ namespace ananlips.ConstantValue
     {
         About = 0,
         PricingPolicy = 1,
-        ShoppingGuide = 2,
-        Contact = 3,
-        Recruitment = 4,
-        Distribution = 5,
-        News = 6,
+        ReturnPolicy = 2,
+        ShoppingGuide = 3,
+        DeliveryAndPayment = 4,
+        Contact = 5,
+        Recruitment = 6,
+        Distribution = 7,
+        News = 8,
 
     }
     public enum TopicContact
