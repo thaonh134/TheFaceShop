@@ -7,6 +7,23 @@ CKEDITOR.editorConfig = function (config) {
     // Define changes to default configuration here. For example:
     // config.language = 'fr';
     // config.uiColor = '#AADC6E';
+
+    config.extraPlugins = 'uploadimage';
+    config.extraPlugins = 'uploadwidget';
+
+    config.extraPlugins = 'widget';
+    config.extraPlugins = 'lineutils';
+    config.extraPlugins = 'widgetselection';
+
+    config.extraPlugins = 'clipboard';
+    config.extraPlugins = 'dialog';
+    config.extraPlugins = 'notification';
+    config.extraPlugins = 'toolbar';
+    config.extraPlugins = 'button';
+
+    config.extraPlugins = 'filetools';
+    config.extraPlugins = 'notificationaggregator';
+
     config.toolbar = [
 		//{ name: 'document', items: [ 'Source', '-', 'Save', 'NewPage', 'Preview', 'Print', '-', 'Templates' ] },
 		//{ name: 'clipboard', },
