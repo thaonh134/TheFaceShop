@@ -35,12 +35,32 @@
 
 <!-- Kendo -->
 @Scripts.Render("~/scripts/kendo")
-
+W
 <!-- Orther js -->
 @Scripts.Render("~/scripts/ortherjs")
 
 
+<script>
+    @*CKEDITOR.config.filebrowserBrowseUrl = '@Url.Content("~/CKFinderScripts/ckfinder.html")';
+    //config.filebrowserImageBrowseUrl= '/browser/browse.php?type=Images';
+    CKEDITOR.config.filebrowserUploadUrl = '@Url.Content("~/CKFinderScripts/core/connector/php/connector.php?command=QuickUpload&type=Files")';*@
 
+    @*CKEDITOR.config.filebrowserBrowseUrl= '@Url.Content("~/CKFinderScripts/ckfinder.html")';
+        CKEDITOR.config.filebrowserImageBrowseUrl= '@Url.Content("~/CKFinderScripts/ckfinder.html")';
+            CKEDITOR.config.filebrowserUploadUrl= '/ckfinder/connector?command=QuickUpload&type=Files';
+    CKEDITOR.config.filebrowserImageUploadUrl = '/ckfinder/connector?command=QuickUpload&type=Images';*@
+    //config.filebrowserImageUploadUrl = '/uploader/upload.php?type=Images';
+    //CKEDITOR.config.filebrowserWindowWidth = '640';
+    //CKEDITOR.config.filebrowserWindowHeight = '480';
+
+    CKEDITOR.config.filebrowserBrowseUrl = '@Url.Content("~/CKFinderScripts/ckfinder.html")';
+    @*CKEDITOR.config.filebrowserImageBrowseUrl = '@Url.Content("~/CKFinderScripts/ckfinder.html?Type=Images")';*@ 
+    @*CKEDITOR.config.filebrowserFlashBrowseUrl =  '@Url.Content("~/CKFinderScripts/ckfinder.html?Type=Flash")';*@ 
+CKEDITOR.config.filebrowserUploadUrl = '@Url.Content("~/ckfinder/connector?command=QuickUpload")';  
+    @*CKEDITOR.config.filebrowserUploadUrl = '@Url.Content("~/ckfinder/connector?command=QuickUpload&type=Files")';*@  
+    @*CKEDITOR.config.filebrowserImageUploadUrl = '@Url.Content("~/ckfinder/connector?command=QuickUpload&type=Images")';*@  
+    @*CKEDITOR.config.filebrowserFlashUploadUrl = '@Url.Content("~/CKFinderScripts/core/connector/aspx/connector.aspx?command=QuickUpload&type=Flash")';*@   
+</script>
 
 
 <!-- DO NOT REMOVE : GLOBAL FUNCTIONS! -->

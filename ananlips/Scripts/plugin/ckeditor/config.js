@@ -24,6 +24,9 @@ CKEDITOR.editorConfig = function (config) {
     config.extraPlugins = 'filetools';
     config.extraPlugins = 'notificationaggregator';
 
+    //config.filebrowserBrowseUrl: '/browser/browse.php';
+    //config.filebrowserBrowseUrl: '/uploader/upload.php';
+   
     config.toolbar = [
 		//{ name: 'document', items: [ 'Source', '-', 'Save', 'NewPage', 'Preview', 'Print', '-', 'Templates' ] },
 		//{ name: 'clipboard', },

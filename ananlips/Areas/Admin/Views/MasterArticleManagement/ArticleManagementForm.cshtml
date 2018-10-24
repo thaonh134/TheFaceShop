@@ -210,6 +210,8 @@
             customConfig: '/custom/ckeditor_config.js'
         });*@
         var editor = CKEDITOR.replace(id, { language: languageCode, height: 200 });
+        CKFinder.setupCKEditor(editor);
+       
         //$('#ArticleContentDiv').height(ArticleContentDivHeight);
         //set value
         CKEDITOR.instances['commentsView'].setData(htmlDecode(value ? value : ""));
