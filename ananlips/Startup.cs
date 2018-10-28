@@ -120,8 +120,9 @@ namespace ananlips
                 .SetRequestConfiguration(
                     (request, config) =>
                     {
-                        config.AddProxyBackend("local", new LocalStorage(@"~/Upload"));
+                        config.AddProxyBackend("local", new LocalStorage(@"~/Upload/Ckfinder"));
                         config.AddResourceType("Files", resourceBuilder => resourceBuilder.SetBackend("local", "files"));
+                        config.AddResourceType("Images", resourceBuilder => resourceBuilder.SetBackend("local", "images"));
                         config.AddAclRule(new AclRule(
                             new StringMatcher("*"), new StringMatcher("/"), new StringMatcher("*"),
                             new Dictionary<Permission, PermissionType>

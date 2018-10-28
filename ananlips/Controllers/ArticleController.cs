@@ -46,7 +46,7 @@ namespace ananlips.Controllers
         }
         public async Task sendContactEmail(List<string> emailsfrome, string subject, FE_ContactRequest item)
         {
-            #region sent email with password random when create new user
+            #region sent email 
             //begin sendemail
             using (var sr = System.IO.File.OpenText(System.Web.Hosting.HostingEnvironment.MapPath(@"~/EmailTemplates/ContactEmail.html")))
             {

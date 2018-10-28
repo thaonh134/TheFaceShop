@@ -3393,7 +3393,8 @@
     <Folder Include="Scripts\wp-content\themes\kutetheme\libs\bootstrap\New folder\" />
     <Folder Include="Upload\Avatar\" />
     <Folder Include="Upload\Bank\" />
-    <Folder Include="Upload\Ckfinder\" />
+    <Folder Include="Upload\Ckfinder\files\" />
+    <Folder Include="Upload\Ckfinder\images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
