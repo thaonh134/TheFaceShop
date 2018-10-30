@@ -37,7 +37,7 @@
                             </div><div id="slider-feature" class="flexslider">
                                 <img src="@data_Product.ProductImg">
                             </div>
-                            <span class="giamgia_">-@data_Product.Discount<i>%</i></span>
+                            @*<span class="giamgia_">-@data_Product.Discount<i>%</i></span>*@
                         </div>
                         <script>jQuery(document).ready(function (e) { jQuery('#slider-thumb ul li a').click(function () { var index = jQuery(this).attr('data-image'); jQuery('#slider-feature').html('<img src="' + index + '" />'); return false; }) });</script>
                     </div><div class="summary entry-summary">
@@ -190,7 +190,8 @@
                                                             <li>
                                                                 <div class="left-block kt-template-loop">
                                                                     <a href="@Url.Action("Index","Product",new { Id=ProductItem.ProductId})" title="@ProductItem.ProductName">
-                                                                        <img class="owl-lazy wp-post-image" src="@ProductItem.ProductImg" data-src="@ProductItem.ProductImg" width="300" height="300" alt="@ProductItem.ProductName"><span class="giamgia_">-@ProductItem.Discount<i>%</i></span>
+                                                                        <img class="owl-lazy wp-post-image" src="@ProductItem.ProductImg" data-src="@ProductItem.ProductImg" width="300" height="300" alt="@ProductItem.ProductName">
+                                                                    @*<span class="giamgia_">-@ProductItem.Discount<i>%</i></span>*@
                                                                     </a><div class="quick-view">
                                                                         <a href="#" class="search yith-wcqv-button" data-product_id="@ProductItem.ProductId">Quick View</a>
                                                                     </div><div class="add-to-cart"><a href="@Url.Action("AddItemToBill","Bill",new { ProductId=ProductItem.ProductId})" rel="nofollow" data-product_id="@ProductItem.ProductId" data-product_sku="" data-quantity="1" class="add_to_cart_button product_type_simple">Thêm vào giỏ</a></div>
